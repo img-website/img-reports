@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO + Content + UX Audit — React Native App Development Page</title>
+<style>
+  :root{--blue:#2D86FF;--ink:#1f2430;--muted:#5b6472;--line:#e6e9ef;--bg:#f6f8fc;--card:#fff;--green:#0a8a4a;--amber:#c47d00;--red:#cc2b2b;--grey:#7a8493;--rn:#61DAFB;--rndk:#0a7ea4;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:15px}
+  .wrap{max-width:960px;margin:0 auto;padding:32px 20px 80px}
+  header.top{background:linear-gradient(135deg,#0a7ea4,#61DAFB);color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:28px;box-shadow:0 10px 30px rgba(10,126,164,.25)}
+  header.top h1{margin:0 0 8px;font-size:24px;line-height:1.25}
+  header.top .meta{font-size:13px;opacity:.96;margin-top:14px}
+  .note{background:#fff8e8;border:1px solid #f0dca8;border-left:4px solid var(--amber);padding:12px 16px;border-radius:10px;font-size:13.5px;margin:18px 0}
+  .good{background:#eefcf3;border:1px solid #c5ecd4;border-left:4px solid var(--green);padding:12px 16px;border-radius:10px;font-size:13.5px;margin:18px 0}
+  h2{font-size:20px;margin:36px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+  h3{font-size:16px;margin:22px 0 8px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:14px 0;box-shadow:0 1px 3px rgba(20,30,60,.04)}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;background:#fff;border-radius:10px;overflow:hidden}
+  th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+  th{background:#e6f6fb;font-weight:600}
+  tr:nth-child(even) td{background:#fafbfe}
+  code{background:#eef1f6;padding:1px 6px;border-radius:5px;font-size:13px}
+  pre{background:#1f2430;color:#e8ecf3;padding:14px 16px;border-radius:10px;overflow:auto;font-size:13px}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;color:#fff}
+  .p-high{background:var(--red)}.p-med{background:var(--amber)}.p-low{background:#3a7}.p-cos{background:var(--grey)}
+  .ok{color:var(--green);font-weight:600}.bad{color:var(--red);font-weight:600}
+  .score{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.bigscore{font-size:40px;font-weight:800;color:var(--rndk)}
+  ul{margin:8px 0 8px 2px;padding-left:20px}li{margin:5px 0}
+  .finding{border-left:4px solid var(--rndk);padding-left:14px;margin:16px 0}
+  .finding .sol{background:#eefcf3;border:1px solid #c5ecd4;border-radius:8px;padding:8px 12px;margin-top:8px;font-size:13.5px}
+  footer{margin-top:40px;font-size:12.5px;color:var(--muted);text-align:center;border-top:1px solid var(--line);padding-top:18px}
+  @media print{body{background:#fff}.card,table{box-shadow:none}header.top{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>SEO + Content + UX Audit — React Native App Development Page</h1>
+  <div class="meta">
+    <div><b>URL:</b> https://www.imgglobalinfotech.com/react-native-app-development</div>
+    <div><b>Source:</b> resources/views/tailwind/pages/react-native-app-development/react-native-app-development.blade.php</div>
+    <div><b>Date:</b> 30 May 2026 &nbsp;•&nbsp; <b>Scope:</b> Audit only — no changes applied</div>
+  </div>
+</header>
+
+<div class="note"><b>Priority order:</b> SEO → Content → UX. Keyword volumes are directional (Ahrefs/SEMrush not connected). <b>No files were modified.</b> Findings verified against the Blade source and the live page.</div>
+
+<div class="good"><b>This is the cleanest page of the set so far.</b> Clean, geo-neutral title; human-sounding intro; <b>accurate, detailed tech-stack labels</b> (no mislabels — unlike the Flutter/iOS/cross-platform pages); good FAQ. The remaining issues are mostly the recurring site-wide ones plus a widespread CSS typo.</div>
+
+<h2>0. Overall Health Score</h2>
+<div class="card">
+  <div class="score"><span class="bigscore">8.0 / 10</span><span>Strongest page audited; main drags are the inlne-flex typo and the recurring review-schema gap.</span></div>
+  <table>
+    <tr><th>Area</th><th>Score</th><th>Verdict</th></tr>
+    <tr><td>Technical SEO</td><td>8/10</td><td>Strong; sitemap gap + widespread inlne-flex typo</td></tr>
+    <tr><td>On-page SEO (title, meta, headings)</td><td>8.5/10</td><td>Clean, geo-neutral title; minor variances</td></tr>
+    <tr><td>Schema / Structured data</td><td>6.5/10</td><td>Good base; missing Review schema</td></tr>
+    <tr><td>Internal / External linking</td><td>8.5/10</td><td>All asset(); noopener gap</td></tr>
+    <tr><td>Images (alt/title)</td><td>8/10</td><td>Accurate labels; testimonials missing title</td></tr>
+    <tr><td>Content quality (organic vs AI)</td><td>8/10</td><td>Human-sounding intro; good</td></tr>
+    <tr><td>UX</td><td>7.5/10</td><td>Clean; inlne-flex typo affects ~66 blocks</td></tr>
+    <tr><td>GEO / AI-search readiness</td><td>7/10</td><td>Good FAQ + accurate entities; see GEO report</td></tr>
+  </table>
+</div>
+
+<h2>1. Technical SEO</h2>
+<div class="card">
+  <h3>Correct (verified live)</h3>
+  <ul>
+    <li><span class="ok">Index/Follow</span>, <span class="ok">self-referencing canonical</span>, <span class="ok">single H1</span>, viewport, WebP, eager hero / lazy below-fold, width/height on images.</li>
+    <li><span class="ok">All internal links use <code>asset()</code></span> — environment-safe.</li>
+  </ul>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 1.1 — robots.txt has no Sitemap directive</b>
+    <pre>User-agent: *
+Disallow: /bucket</pre>
+    <div class="sol"><b>Solution:</b> add <code>Sitemap: https://www.imgglobalinfotech.com/sitemap.xml</code>. Confirm an XML sitemap exists (footer only exposes <code>sitemap.html</code>).</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 1.2 — <code>inlne-flex</code> CSS typo repeated ~66 times</b>
+    <p>Stat blocks use class <code>inlne-flex</code> (typo) instead of <code>inline-flex</code> — verified 66 occurrences. These elements don't get flex layout. Same typo appears on the Flutter and cross-platform pages, so it's a shared/copied component.</p>
+    <div class="sol"><b>Solution:</b> find-and-replace <code>inlne-flex</code> → <code>inline-flex</code> (fix the shared component once to clear it across pages).</div>
+  </div>
+</div>
+
+<h2>2. On-Page SEO (Title, Meta, Headings)</h2>
+<div class="card">
+  <table>
+    <tr><th>Element</th><th>Current</th><th>Status</th></tr>
+    <tr><td>&lt;title&gt;</td><td>React Native App Development Company</td><td class="ok">Clean (35 chars), geo-neutral</td></tr>
+    <tr><td>meta description</td><td>…trusted React Native app development company that offers fast, scalable… for iOS &amp; Android.</td><td class="ok">Good</td></tr>
+    <tr><td>Schema descriptions</td><td>…top React Native app development company in India &amp; USA…</td><td class="ok">Consistent (no conflict)</td></tr>
+    <tr><td>og:title</td><td>Custom React Native App Development Services</td><td>Variance</td></tr>
+    <tr><td>twitter:title</td><td>React Native Mobile App Development Company</td><td>= H1</td></tr>
+    <tr><td>H1</td><td>React Native Mobile App Development Company</td><td>Adds "Mobile" vs title</td></tr>
+  </table>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 2.1 — Title vs H1 minor difference</b>
+    <p>Title is "React Native App Development Company"; H1 adds "Mobile". Both are fine and not contradictory — optional to align. Title length (35 chars) leaves room to add "| IMG Global Infotech" for brand + CTR.</p>
+    <div class="sol"><b>Solution (optional):</b> consider title "React Native App Development Company | IMG Global Infotech" to use the available space and add brand.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 2.2 — Keyword targeting</b>
+    <p>Primary "react native app development company" well-placed. Good coverage of cross-platform, iOS/Android, framework tooling. Opportunity terms (confirm in a tool): "react native app development cost" (in FAQ — promote to visible block), "hire react native developers" (dedicated page exists — link contextually), "react native vs flutter".</p>
+    <div class="sol"><b>Solution:</b> surface a visible cost block; add a contextual link to hire-react-native-app-developers.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-cos">COSMETIC</span> 2.3 — Heading casing</b>
+    <div class="sol">H2 "Latest Cutting edge technologies we use" → "Latest Cutting-Edge Technologies We Use" (recurring across pages).</div>
+  </div>
+</div>
+
+<h2>3. Schema / Structured Data</h2>
+<div class="card">
+  <p><b>Present (verified):</b> Organization + WebSite + WebPage (@graph), BreadcrumbList (DB-driven), Service (with detailed serviceType incl. React Native Game Development), FAQPage (DB-driven, live). <code>@@context</code> renders correctly.</p>
+  <div class="finding">
+    <b><span class="pill p-high">HIGH</span> 3.1 — Missing Review / AggregateRating schema</b>
+    <p>Page shows "4.5/5 Average Rating" + 6 named testimonials, but no review structured data.</p>
+    <pre>"aggregateRating": {
+  "@type": "AggregateRating",
+  "ratingValue": "4.5",
+  "reviewCount": "6",
+  "bestRating": "5"
+}</pre>
+    <div class="sol"><b>Solution:</b> attach AggregateRating + Review to the Service/Organization node; genuine on-page reviews only; truthful counts.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">LOW-MED</span> 3.2 — Organization sameAs empty in @graph</b>
+    <div class="sol">Populate Organization <code>sameAs</code> — Service node already lists socials.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 3.3 — Schema URLs hardcoded</b>
+    <div class="sol">WebPage/Service use full hard-coded URLs; standardise on <code>asset()</code>.</div>
+  </div>
+</div>
+
+<h2>4. Internal & External Linking</h2>
+<div class="card">
+  <p><b>Verified:</b> ~31 internal links, <span class="ok">all <code>asset()</code></span>: case studies, industry pages, cross-service. Strong, clean interlinking.</p>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 4.1 — 3 target="_blank" links, 0 rel="noopener"</b>
+    <div class="sol"><b>Solution:</b> add <code>rel="noopener"</code> to the <code>_blank</code> anchors. (Lowest magnitude of all pages audited.)</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 4.2 — Add contextual "hire react native developers" link</b>
+    <div class="sol">A dedicated hire page exists; link it contextually (high-intent term).</div>
+  </div>
+</div>
+
+<h2>5. Images (Alt + Title)</h2>
+<div class="card">
+  <p>All <b>115 images</b> have <code>alt</code>, explicit dimensions, WebP, correct loading. <span class="ok">Tech-stack labels are accurate and detailed</span> (JavaScript, TypeScript, Expo SDK, Redux, Firebase SDK, Stripe, Razorpay SDK, Mapbox, Node.js + Express, etc.) — no mislabels, the best of all pages audited.</p>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 5.1 — Testimonial images missing <code>title</code> + weak Rod Ferris alt</b>
+    <p>The 6 testimonial images have <code>alt</code> but no <code>title</code> (same as the cross-platform page). And rod-ferris.webp uses <code>alt="man with phone"</code>.</p>
+    <div class="sol"><b>Solution:</b> add <code>title</code> to the 6 testimonial images for consistency; change Rod Ferris alt to "Review from Mr. Rod Ferris".</div>
+  </div>
+</div>
+
+<h2>6. Content Quality (Organic vs AI, E-E-A-T)</h2>
+<div class="card">
+  <div class="good" style="margin-top:0"><b>Positive:</b> the hero intro is human and benefit-led ("…launch a powerful app for both iOS and Android without doubling your development time or budget?") — no broken AI-style sentences. Tech descriptions are specific and accurate.</div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 6.1 — Authority signals (E-E-A-T)</b>
+    <div class="sol">No author/reviewer byline or visible "last updated". Add a credibility line + surface schema <code>dateModified</code> (2024-11-13) as a visible date — update honestly on revisions.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW-MED</span> 6.2 — Attribute the stats</b>
+    <div class="sol">"4.5/5" + stat band — attribute ("4.5/5 from 30 reviews on Clutch", "10+ years, 1,200+ apps").</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">POSITIVE</span> 6.3 — FAQ present</b>
+    <div class="sol">Live FAQ covers cost, "What is React Native", timeline — good citable content. Keep answers self-contained (40–60 words).</div>
+  </div>
+</div>
+
+<h2>7. UX</h2>
+<div class="card">
+  <p><span class="ok">Strong:</span> dark hero, clear CTA, stat bands, responsive layout, CLS-safe images.</p>
+  <ul>
+    <li><span class="pill p-med">MED</span> 7.1 — <code>inlne-flex</code> typo (see 1.2) affects ~66 stat blocks — fixing improves layout consistency.</li>
+    <li><span class="pill p-low">LOW</span> 7.2 — Confirm decorative icons use <code>aria-hidden="true"</code>.</li>
+    <li><span class="pill p-cos">VERIFY</span> 7.3 — WCAG AA contrast: white text on dark hero (#303030) should pass, but verify small light text on gradients.</li>
+  </ul>
+</div>
+
+<h2>8. Prioritized Action List</h2>
+<div class="card">
+  <table>
+    <tr><th>#</th><th>Priority</th><th>Item</th><th>Ref</th></tr>
+    <tr><td>1</td><td><span class="pill p-high">HIGH</span></td><td>Add Review + AggregateRating schema (truthful)</td><td>3.1</td></tr>
+    <tr><td>2</td><td><span class="pill p-med">MED</span></td><td>Fix inlne-flex → inline-flex (shared component)</td><td>1.2</td></tr>
+    <tr><td>3</td><td><span class="pill p-med">MED</span></td><td>Add Sitemap: to robots.txt + confirm XML sitemap</td><td>1.1</td></tr>
+    <tr><td>4</td><td><span class="pill p-med">MED</span></td><td>Add rel="noopener" to _blank links</td><td>4.1</td></tr>
+    <tr><td>5</td><td><span class="pill p-med">MED</span></td><td>Add visible author/expertise + last-updated</td><td>6.1</td></tr>
+    <tr><td>6</td><td><span class="pill p-low">LOW</span></td><td>Add title to 6 testimonial images; fix Rod Ferris alt</td><td>5.1</td></tr>
+    <tr><td>7</td><td><span class="pill p-low">LOW</span></td><td>Populate Organization sameAs; standardise schema URLs</td><td>3.2/3.3</td></tr>
+    <tr><td>8</td><td><span class="pill p-low">LOW</span></td><td>Add contextual "hire react native developers" link; surface cost block</td><td>4.2/2.2</td></tr>
+    <tr><td>9</td><td><span class="pill p-low">LOW</span></td><td>Attribute stats; consider brand in title</td><td>6.2/2.1</td></tr>
+    <tr><td>10</td><td><span class="pill p-cos">COSMETIC</span></td><td>Heading casing; WCAG contrast; aria-hidden icons</td><td>2.3/7</td></tr>
+  </table>
+</div>
+
+<h2>9. Verification Limits</h2>
+<div class="card">
+  <ul>
+    <li>Keyword volumes directional — connect Ahrefs/SEMrush to finalise.</li>
+    <li>Accurate tech labels, inlne-flex typo, FAQ, rating, robots, canonical: <b>verified</b> (source + live).</li>
+    <li>Confirm XML sitemap at <code>/sitemap.xml</code>.</li>
+    <li><b>No files were modified.</b> Audit deliverable only.</li>
+  </ul>
+</div>
+
+<footer>Audit prepared for IMG Global Infotech — React Native App Development page. Audit-only; awaiting your "apply" instruction before any change is made.</footer>
+
+</div>
+</body>
+</html>

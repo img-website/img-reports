@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO + Content + UX Audit — iOS App Development Page</title>
+<style>
+  :root{--blue:#2D86FF;--ink:#1f2430;--muted:#5b6472;--line:#e6e9ef;--bg:#f6f8fc;--card:#fff;--green:#0a8a4a;--amber:#c47d00;--red:#cc2b2b;--grey:#7a8493;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:15px}
+  .wrap{max-width:960px;margin:0 auto;padding:32px 20px 80px}
+  header.top{background:linear-gradient(135deg,#111,#3a3a3a);color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:28px;box-shadow:0 10px 30px rgba(0,0,0,.22)}
+  header.top h1{margin:0 0 8px;font-size:26px;line-height:1.25}
+  header.top .meta{font-size:13px;opacity:.95;margin-top:14px}
+  .note{background:#fff8e8;border:1px solid #f0dca8;border-left:4px solid var(--amber);padding:12px 16px;border-radius:10px;font-size:13.5px;margin:18px 0}
+  h2{font-size:20px;margin:36px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+  h3{font-size:16px;margin:22px 0 8px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:14px 0;box-shadow:0 1px 3px rgba(20,30,60,.04)}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;background:#fff;border-radius:10px;overflow:hidden}
+  th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+  th{background:#eef3fb;font-weight:600}
+  tr:nth-child(even) td{background:#fafbfe}
+  code{background:#eef1f6;padding:1px 6px;border-radius:5px;font-size:13px}
+  pre{background:#1f2430;color:#e8ecf3;padding:14px 16px;border-radius:10px;overflow:auto;font-size:13px}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;color:#fff}
+  .p-high{background:var(--red)}.p-med{background:var(--amber)}.p-low{background:#3a7}.p-cos{background:var(--grey)}
+  .ok{color:var(--green);font-weight:600}.bad{color:var(--red);font-weight:600}
+  .score{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.bigscore{font-size:40px;font-weight:800;color:var(--blue)}
+  ul{margin:8px 0 8px 2px;padding-left:20px}li{margin:5px 0}
+  .finding{border-left:4px solid var(--blue);padding-left:14px;margin:16px 0}
+  .finding .sol{background:#eefcf3;border:1px solid #c5ecd4;border-radius:8px;padding:8px 12px;margin-top:8px;font-size:13.5px}
+  footer{margin-top:40px;font-size:12.5px;color:var(--muted);text-align:center;border-top:1px solid var(--line);padding-top:18px}
+  @media print{body{background:#fff}.card,table{box-shadow:none}header.top{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>SEO + Content + UX Audit — iOS App Development Page</h1>
+  <div class="meta">
+    <div><b>URL:</b> https://www.imgglobalinfotech.com/ios-app-development</div>
+    <div><b>Source:</b> resources/views/tailwind/pages/ios-app-development/ios-app-development.blade.php</div>
+    <div><b>Date:</b> 30 May 2026 &nbsp;•&nbsp; <b>Scope:</b> Audit only — no changes applied</div>
+  </div>
+</header>
+
+<div class="note"><b>Priority order:</b> SEO → Content → UX. Keyword volumes are directional (Ahrefs/SEMrush not connected). <b>No files were modified.</b> Findings verified against both the Blade source and the live rendered page.</div>
+
+<h2>0. Overall Health Score</h2>
+<div class="card">
+  <div class="score"><span class="bigscore">7.2 / 10</span><span>Strong page; let down by mislabeled tech logos and a 3-way geo inconsistency.</span></div>
+  <table>
+    <tr><th>Area</th><th>Score</th><th>Verdict</th></tr>
+    <tr><td>Technical SEO (index/follow, canonical, robots)</td><td>8.5/10</td><td>Strong; only sitemap gap</td></tr>
+    <tr><td>On-page SEO (title, meta, headings)</td><td>7/10</td><td>3-way geo conflict (India vs USA vs global)</td></tr>
+    <tr><td>Schema / Structured data</td><td>6.5/10</td><td>Good base; missing Review schema</td></tr>
+    <tr><td>Internal / External linking</td><td>8/10</td><td>Strong, consistent asset() URLs; noopener gap</td></tr>
+    <tr><td>Images (alt/title)</td><td>7.5/10</td><td>Full coverage but 3 mislabeled logos + 1 weak alt</td></tr>
+    <tr><td>Content quality (organic vs AI)</td><td>6/10</td><td>AI-flavoured intro, casing errors</td></tr>
+    <tr><td>UX</td><td>8/10</td><td>Clean; minor a11y nits</td></tr>
+    <tr><td>GEO / AI-search readiness</td><td>6/10</td><td>Decent base; see GEO report</td></tr>
+  </table>
+</div>
+
+<h2>1. Technical SEO</h2>
+<div class="card">
+  <h3>Correct (verified live)</h3>
+  <ul>
+    <li><span class="ok">Index/Follow</span> — live <code>meta-robots: …INDEX, FOLLOW</code>.</li>
+    <li><span class="ok">Canonical</span> self-referencing (<code>…/ios-app-development</code>).</li>
+    <li><span class="ok">Single H1</span>; viewport present; images width/height (CLS-safe); WebP via CloudFront; eager hero / lazy below-fold.</li>
+    <li><span class="ok">All internal links use <code>asset()</code></span> — consistent across environments (better than the Android page).</li>
+  </ul>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 1.1 — robots.txt has no Sitemap directive</b>
+    <pre>User-agent: *
+Disallow: /bucket</pre>
+    <div class="sol"><b>Solution:</b> add <code>Sitemap: https://www.imgglobalinfotech.com/sitemap.xml</code>. Confirm an XML sitemap exists (footer only exposes <code>sitemap.html</code>).</div>
+  </div>
+</div>
+
+<h2>2. On-Page SEO (Title, Meta, Headings)</h2>
+<div class="card">
+  <table>
+    <tr><th>Element</th><th>Current</th><th>Geo signal</th></tr>
+    <tr><td>&lt;title&gt;</td><td>Best iOS App Development Company in India</td><td>India</td></tr>
+    <tr><td>meta description</td><td>…leading iOS app development company in India…</td><td>India</td></tr>
+    <tr><td>Schema WebPage description</td><td>…leading iOS app development company in the USA…</td><td class="bad">USA</td></tr>
+    <tr><td>Schema Service description</td><td>…leading iOS app development company in the USA…</td><td class="bad">USA</td></tr>
+    <tr><td>twitter:description</td><td>…high-performance apps for businesses globally.</td><td>Global</td></tr>
+    <tr><td>H1</td><td>Leading iOS App Development Company in India</td><td>India</td></tr>
+  </table>
+  <div class="finding">
+    <b><span class="pill p-high">HIGH</span> 2.1 — Three-way geo conflict (India vs USA vs Global)</b>
+    <p>Title/meta/H1 say <b>India</b>; both schema descriptions say <b>USA</b>; twitter says <b>globally</b>. This is the page's biggest on-page issue — it gives Google and AI engines contradictory location signals for the same entity.</p>
+    <div class="sol"><b>Solution:</b> pick one primary market and make it consistent across title, meta, H1, and <b>both schema descriptions</b>. If India is the SEO priority (matches title/H1), update the two schema descriptions from "in the USA" → "in India" (or "in India &amp; USA"). Don't leave USA in schema while the title says India.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 2.2 — og:title vs twitter:title differ</b>
+    <div class="sol">og: "Best iOS App Development Company"; twitter: "Top-Rated iOS App Development Company". Harmonise for consistent social sharing.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 2.3 — Keyword targeting</b>
+    <p>Primary "iOS app development company" well-placed. Strong secondary: "iPhone app development", "custom iOS app development", "hire iOS app developers". Opportunity terms (confirm volume in a tool): "iOS app development cost" (answered in FAQ — promote to a visible block), "iPad app development", "iOS app development company in USA".</p>
+    <div class="sol"><b>Solution:</b> surface a citable on-page "cost" block; reinforce the "hire iOS app developers" internal-link anchor (currently linked once).</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-cos">COSMETIC</span> 2.4 — Heading casing</b>
+    <div class="sol">H2 "Latest Cutting edge technologies we use" → "Latest Cutting-Edge Technologies We Use".</div>
+  </div>
+</div>
+
+<h2>3. Schema / Structured Data</h2>
+<div class="card">
+  <p><b>Present (verified):</b> Organization + WebSite + WebPage (@graph), Service, BreadcrumbList (DB-driven), FAQPage (DB-driven, 8 FAQs live). <code>@@context</code> renders correctly — not a bug.</p>
+  <div class="finding">
+    <b><span class="pill p-high">HIGH</span> 3.1 — Missing Review / AggregateRating schema</b>
+    <p>Page visibly shows "4.5/5 Average Rating" + 6 named testimonials, but no review structured data. Biggest rich-result + AI-trust opportunity.</p>
+    <pre>"aggregateRating": {
+  "@type": "AggregateRating",
+  "ratingValue": "4.5",
+  "reviewCount": "6",
+  "bestRating": "5"
+}</pre>
+    <div class="sol"><b>Solution:</b> attach AggregateRating + Review to the Service/Organization node. Only genuine on-page reviews; truthful counts.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">LOW-MED</span> 3.2 — Organization sameAs empty in @graph</b>
+    <div class="sol">First Organization node has <code>"sameAs": []</code> while Service node lists all socials. Populate Organization sameAs (FB, X, IG, LinkedIn, YouTube).</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 3.3 — Mixed URL style in schema</b>
+    <div class="sol">WebPage/Service use hard-coded full URLs while other nodes use <code>{{asset()}}</code>. Works, but standardise on <code>asset()</code> for staging safety. Also consider <code>areaServed: ["India","United States","Global"]</code>.</div>
+  </div>
+</div>
+
+<h2>4. Internal & External Linking</h2>
+<div class="card">
+  <p><b>Verified:</b> ~33 internal links (hire-ios page, mobile-app, 12 case studies, AI/AR-VR, 12 industry pages, UI/UX, web, software, ecommerce). <span class="ok">All use <code>asset()</code> — consistent.</span> Strong topical interlinking.</p>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 4.1 — 32 target="_blank" links, 0 rel="noopener"</b>
+    <p>Verified: <code>target="_blank"</code> used <b>32×</b> with <b>zero</b> <code>rel="noopener"</code>. Security/perf best-practice gap (Lighthouse flags it).</p>
+    <div class="sol"><b>Solution:</b> add <code>rel="noopener"</code> to all <code>_blank</code> anchors. Keep follow (internal pages). Also consider opening internal links in the same tab.</div>
+  </div>
+</div>
+
+<h2>5. Images (Alt + Title) — <span class="bad">3 mislabeled logos</span></h2>
+<div class="card">
+  <p>All <b>97 images</b> have both <code>alt</code> and <code>title</code>, explicit dimensions, WebP, correct loading. Coverage is complete — but several tech-stack logos are <b>labeled incorrectly</b> (verified in the live render too, so users + crawlers + AI all see the wrong label).</p>
+  <table>
+    <tr><th>Image</th><th>Current alt/title</th><th>Should be</th><th>Severity</th></tr>
+    <tr><td>frameworksSwiftUI.webp</td><td class="bad">"Swift"</td><td>SwiftUI</td><td><span class="pill p-med">MED</span></td></tr>
+    <tr><td>backendExpress.webp</td><td class="bad">"Arc"</td><td>Express / Express.js</td><td><span class="pill p-med">MED</span></td></tr>
+    <tr><td>developmentInstruments.webp</td><td class="bad">"Neovim"</td><td>Instruments (Apple)</td><td><span class="pill p-med">MED</span></td></tr>
+    <tr><td>rod-ferris.webp</td><td class="bad">alt="man with phone"</td><td>"Review from Mr. Rod Ferris" (title is already correct)</td><td><span class="pill p-low">LOW</span></td></tr>
+  </table>
+  <div class="finding">
+    <b>Why this matters</b>
+    <div class="sol">Mislabeled logos send wrong relevance signals (e.g., "Arc"/"Neovim" are unrelated tools) and reduce trust with AI engines that read alt text. Fix the three alt+title values to the correct technology names, and set Rod Ferris's <code>alt</code> to match its title.</div>
+  </div>
+</div>
+
+<h2>6. Content Quality (Organic vs AI, E-E-A-T)</h2>
+<div class="card">
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 6.1 — AI-flavoured / keyword-stuffed intro</b>
+    <p>Hero copy: <i>"…optimized for performance in ios app development services. Understand everything you need to know about development in accordance with Apple guidelines… by iphone app developers."</i> Reads machine-generated and stuffs the keyword; also "ios" / "iphone" are lowercase mid-sentence (should be <b>iOS</b> / <b>iPhone</b>).</p>
+    <div class="sol"><b>Solution:</b> rewrite into specific, human claims with proof (e.g., "We've shipped 1,200+ apps over 10+ years, including App Store-featured iOS apps…"). Fix iOS/iPhone capitalisation throughout.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 6.2 — Thin authority signals (E-E-A-T)</b>
+    <div class="sol">No author/reviewer byline or visible "last updated". Add a credibility line + surface the schema <code>dateModified</code> (currently 2024-11-13) as a visible date — update honestly when revised.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW-MED</span> 6.3 — Unattributed stats</b>
+    <div class="sol">"4.5/5", testimonials — attribute to a source ("4.5/5 from 30 reviews on Clutch"). Verifiable claims rank + cite better.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">POSITIVE</span> 6.4 — FAQ strong</b>
+    <div class="sol">8 real FAQs (cost, platforms, timeline, process, top apps, native vs hybrid, integrations, hiring) with FAQPage schema. Keep answers self-contained (40–60 words).</div>
+  </div>
+</div>
+
+<h2>7. UX</h2>
+<div class="card">
+  <p><span class="ok">Strong:</span> clear hero with benefit chips ("Own the entire Code", "100% Project Security"), single primary CTA, responsive layout, CLS-safe images.</p>
+  <ul>
+    <li><span class="pill p-low">LOW</span> 7.1 — CTAs are <code>&lt;label&gt;</code> elements; give clear accessible labels.</li>
+    <li><span class="pill p-low">LOW</span> 7.2 — Confirm decorative icons use <code>aria-hidden="true"</code>.</li>
+    <li><span class="pill p-cos">VERIFY</span> 7.3 — Check WCAG AA contrast on dark sections + small grey text.</li>
+  </ul>
+</div>
+
+<h2>8. Prioritized Action List</h2>
+<div class="card">
+  <table>
+    <tr><th>#</th><th>Priority</th><th>Item</th><th>Ref</th></tr>
+    <tr><td>1</td><td><span class="pill p-high">HIGH</span></td><td>Resolve 3-way geo conflict (fix schema "USA" to match India title)</td><td>2.1</td></tr>
+    <tr><td>2</td><td><span class="pill p-high">HIGH</span></td><td>Add Review + AggregateRating schema (truthful)</td><td>3.1</td></tr>
+    <tr><td>3</td><td><span class="pill p-med">MED</span></td><td>Fix 3 mislabeled logos: SwiftUI/Express/Instruments (+ Rod Ferris alt)</td><td>5</td></tr>
+    <tr><td>4</td><td><span class="pill p-med">MED</span></td><td>Rewrite AI-flavoured intro + fix iOS/iPhone casing</td><td>6.1</td></tr>
+    <tr><td>5</td><td><span class="pill p-med">MED</span></td><td>Add Sitemap: to robots.txt + confirm XML sitemap</td><td>1.1</td></tr>
+    <tr><td>6</td><td><span class="pill p-med">MED</span></td><td>Add rel="noopener" to 32 _blank links</td><td>4.1</td></tr>
+    <tr><td>7</td><td><span class="pill p-med">MED</span></td><td>Add visible author/expertise + last-updated</td><td>6.2</td></tr>
+    <tr><td>8</td><td><span class="pill p-low">LOW</span></td><td>Populate Organization sameAs in @graph</td><td>3.2</td></tr>
+    <tr><td>9</td><td><span class="pill p-low">LOW</span></td><td>Standardise schema URLs to asset(); add areaServed</td><td>3.3</td></tr>
+    <tr><td>10</td><td><span class="pill p-low">LOW</span></td><td>Harmonise og:title / twitter:title</td><td>2.2</td></tr>
+    <tr><td>11</td><td><span class="pill p-low">LOW</span></td><td>Add "iOS app development cost" citable block</td><td>2.3</td></tr>
+    <tr><td>12</td><td><span class="pill p-cos">COSMETIC</span></td><td>Heading casing; WCAG contrast; aria-hidden icons</td><td>2.4/7</td></tr>
+  </table>
+</div>
+
+<h2>9. Verification Limits</h2>
+<div class="card">
+  <ul>
+    <li>Keyword volumes directional — connect Ahrefs/SEMrush to finalise.</li>
+    <li>Mislabeled logos + geo conflict + FAQ + rating: <b>verified live</b>.</li>
+    <li>Confirm XML sitemap at <code>/sitemap.xml</code>.</li>
+    <li><b>No files were modified.</b> Audit deliverable only.</li>
+  </ul>
+</div>
+
+<footer>Audit prepared for IMG Global Infotech — iOS App Development page. Audit-only; awaiting your "apply" instruction before any change is made.</footer>
+
+</div>
+</body>
+</html>

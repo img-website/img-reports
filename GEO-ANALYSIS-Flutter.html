@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GEO / AI-Search Analysis — Flutter App Development Page</title>
+<style>
+  :root{--blue:#2D86FF;--ink:#1f2430;--muted:#5b6472;--line:#e6e9ef;--bg:#f6f8fc;--card:#fff;--green:#0a8a4a;--amber:#c47d00;--red:#cc2b2b;--grey:#7a8493;--cyan:#0468D7;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:15px}
+  .wrap{max-width:960px;margin:0 auto;padding:32px 20px 80px}
+  header.top{background:linear-gradient(135deg,#0468D7,#2D86FF);color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:28px;box-shadow:0 10px 30px rgba(4,104,215,.25)}
+  header.top h1{margin:0 0 8px;font-size:24px;line-height:1.25}
+  header.top .meta{font-size:13px;opacity:.95;margin-top:14px}
+  .scorebar{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:18px}
+  .ring{width:108px;height:108px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#fff 68%, rgba(255,255,255,.25) 0)}
+  .ring .inner{width:84px;height:84px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:26px;color:var(--cyan);font-weight:800}
+  .note{background:#fff8e8;border:1px solid #f0dca8;border-left:4px solid var(--amber);padding:12px 16px;border-radius:10px;font-size:13.5px;margin:18px 0}
+  h2{font-size:20px;margin:36px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+  h3{font-size:16px;margin:22px 0 8px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:14px 0;box-shadow:0 1px 3px rgba(20,30,60,.04)}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;background:#fff;border-radius:10px;overflow:hidden}
+  th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+  th{background:#e8f3fe;font-weight:600}
+  tr:nth-child(even) td{background:#fafbfe}
+  code{background:#eef1f6;padding:1px 6px;border-radius:5px;font-size:13px}
+  pre{background:#1f2430;color:#e8ecf3;padding:14px 16px;border-radius:10px;overflow:auto;font-size:13px}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;color:#fff}
+  .p-high{background:var(--red)}.p-med{background:var(--amber)}.p-low{background:#3a7}.p-cos{background:var(--grey)}
+  .ok{color:var(--green);font-weight:600}.warn{color:var(--amber);font-weight:600}.bad{color:var(--red);font-weight:600}
+  .finding{border-left:4px solid var(--cyan);padding-left:14px;margin:16px 0}
+  .finding .sol{background:#eefcf3;border:1px solid #c5ecd4;border-radius:8px;padding:8px 12px;margin-top:8px;font-size:13.5px}
+  ul{margin:8px 0 8px 2px;padding-left:20px}li{margin:5px 0}
+  .src a{color:var(--blue);text-decoration:none}.src a:hover{text-decoration:underline}
+  footer{margin-top:40px;font-size:12.5px;color:var(--muted);text-align:center;border-top:1px solid var(--line);padding-top:18px}
+  @media print{body{background:#fff}.card,table{box-shadow:none}header.top{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>GEO / AI-Search Analysis — Flutter App Development Page</h1>
+  <div class="meta">
+    <div><b>URL:</b> https://www.imgglobalinfotech.com/flutter-app-development</div>
+    <div><b>Date:</b> 30 May 2026 &nbsp;•&nbsp; <b>Scope:</b> Audit only — no changes applied</div>
+    <div><b>Framing (Google):</b> GEO/AEO is still SEO — fundamentals applied to AI-search surfaces.</div>
+  </div>
+  <div class="scorebar">
+    <div class="ring"><div class="inner">68</div></div>
+    <div><b style="font-size:18px">GEO Readiness: 68 / 100</b><br><span style="opacity:.92;font-size:13.5px">Good FAQ + structure; mislabeled framework logos and authority gaps hold it back.</span></div>
+  </div>
+</header>
+
+<div class="note">Companion to the Flutter SEO+Content+UX audit. <b>No files were modified.</b> Brand-presence verified via web search; citation-share numbers would need Ahrefs + DataForSEO (not connected this session).</div>
+
+<h2>1. GEO Readiness Score Breakdown</h2>
+<div class="card">
+  <table>
+    <tr><th>Criterion</th><th>Weight</th><th>Score</th><th>Notes</th></tr>
+    <tr><td>Citability</td><td>25%</td><td>15/25</td><td>FAQ has cost/"what is Flutter" answers; no top-of-body definition block</td></tr>
+    <tr><td>Structural readability</td><td>20%</td><td>16/20</td><td>Clean H1→H2→H3, FAQ Q&A; few comparison tables</td></tr>
+    <tr><td>Multi-modal content</td><td>15%</td><td>9/15</td><td>Rich images, no video / infographic / calculator</td></tr>
+    <tr><td>Authority & brand signals</td><td>20%</td><td>12/20</td><td>Strong reviews; no Wikipedia; no on-page author; mislabeled logos</td></tr>
+    <tr><td>Technical accessibility</td><td>20%</td><td>16/20</td><td>SSR ✅, AI crawlers allowed ✅, llms.txt present but stale</td></tr>
+    <tr><th>Total</th><th>100%</th><th>68/100</th><th></th></tr>
+  </table>
+</div>
+
+<h2>2. Platform Breakdown</h2>
+<div class="card">
+  <table>
+    <tr><th>Platform</th><th>Est. Score</th><th>Why</th></tr>
+    <tr><td><b>Google AI Overviews</b></td><td>70/100</td><td>SSR, schema-rich, clean title/H1, good FAQ. Depends on ranking (92% of AIO citations from top-10).</td></tr>
+    <tr><td><b>ChatGPT (web search)</b></td><td>62/100</td><td>Good directory footprint; no Wikipedia. Mislabeled framework logos (Gideros/Fuse/Corona SDK) feed wrong tech entities to LLMs reading alt text.</td></tr>
+    <tr><td><b>Perplexity</b></td><td>57/100</td><td>Leans Reddit (46.7%) + Wikipedia; weak Reddit footprint is the gap.</td></tr>
+  </table>
+</div>
+
+<h2>3. AI Crawler Access Status — <span class="ok">All Allowed</span></h2>
+<div class="card">
+  <pre>User-agent: *
+Disallow: /bucket</pre>
+  <p>No AI crawler blocked (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot, CCBot, Bytespider). ✅</p>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> Gap: missing Sitemap directive</b>
+    <div class="sol"><b>Solution:</b> add <code>Sitemap: https://www.imgglobalinfotech.com/sitemap.xml</code>.</div>
+  </div>
+</div>
+
+<h2>4. llms.txt Status — <span class="warn">Present but Stale</span></h2>
+<div class="card">
+  <p><code>/llms.txt</code> returns 200 and lists this page as <code>flutter-app-development<b>.php</b></code> — but the live site uses clean URLs (canonical = no .php). The repo copy is already clean but isn't deployed.</p>
+  <div class="note" style="margin:10px 0">Per Google, llms.txt is <b>not</b> a citation ranking lever — <b>low priority</b>. Pointing AI to stale .php URLs is pure downside.</div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> Solution</b>
+    <div class="sol">Deploy the clean-URL version from <code>public/</code>.</div>
+  </div>
+</div>
+
+<h2>5. Brand Mention Analysis (verified)</h2>
+<div class="card">
+  <table>
+    <tr><th>Platform</th><th>Presence</th><th>AI-citation impact</th></tr>
+    <tr><td>Clutch</td><td class="ok">Strong — 30 reviews</td><td>High</td></tr>
+    <tr><td>GoodFirms / DesignRush / Trustpilot / TopDevelopers / Techimply</td><td class="ok">Profiles</td><td>Med-High</td></tr>
+    <tr><td>LinkedIn</td><td class="ok">Company page</td><td>Moderate</td></tr>
+    <tr><td>YouTube</td><td class="warn">Channel exists</td><td>Strongest signal — needs content + mentions</td></tr>
+    <tr><td>Reddit</td><td class="bad">Weak / none</td><td>High (ChatGPT+Perplexity) — gap</td></tr>
+    <tr><td>Wikipedia / Wikidata</td><td class="bad">Not found</td><td>High (ChatGPT) — gap</td></tr>
+  </table>
+  <p><b>Verifiable facts to cite on-page:</b> 10+ years, 1,200+ products; attribute the on-page "4.5/5" and stat-band numbers.</p>
+  <div class="finding">
+    <b>Solutions (priority order)</b>
+    <div class="sol">1. Build genuine <b>Reddit</b> presence (r/FlutterDev, r/dartlang, r/startups). 2. Create a <b>Wikidata</b> entity. 3. Publish + embed <b>YouTube</b> Flutter demo/case-study videos. 4. Keep directory profiles fresh.</div>
+  </div>
+</div>
+
+<h2>6. Passage-Level Citability (134–167 word target)</h2>
+<div class="card">
+  <p>The DB-driven FAQ includes "What Is Flutter, And Why Is It Ideal For App Development?" and cost/app-type answers — strong citable material. The body intro is a marketing paragraph rather than a clean definition.</p>
+  <div class="finding">
+    <b>To strengthen</b>
+    <div class="sol">
+      <b>(a)</b> Add a ~140-word "What is Flutter app development?" block near the top of the body (first 40–60 words = direct answer).<br>
+      <b>(b)</b> Add a <b>Flutter vs React Native vs Native</b> comparison table — tables are cited heavily.<br>
+      <b>(c)</b> Promote the cost FAQ answer into a visible on-page block with a range table.
+    </div>
+  </div>
+</div>
+
+<h2>7. Server-Side Rendering Check — <span class="ok">PASS</span></h2>
+<div class="card">
+  <ul>
+    <li>Laravel + Blade → fully server-side rendered; content + schema in raw HTML.</li>
+    <li>Verified via live fetch (no JS needed).</li>
+    <li>AI crawlers can read everything. <span class="ok">No action needed.</span></li>
+  </ul>
+</div>
+
+<h2>8. Top 5 Highest-Impact GEO Changes</h2>
+<div class="card">
+  <table>
+    <tr><th>#</th><th>Change</th><th>Why</th><th>Effort</th></tr>
+    <tr><td>1</td><td>Add Review + AggregateRating schema (truthful)</td><td>Star results + strongest AI-trust signal</td><td>Low</td></tr>
+    <tr><td>2</td><td>Fix 4 mislabeled framework logos (GetWidget/FlutterFlow/VelocityX/GetX)</td><td>Wrong tech entities mislead LLMs on a Flutter page</td><td>Low</td></tr>
+    <tr><td>3</td><td>Add top-of-body "What is Flutter" definition + comparison table</td><td>Optimal citation format; tables cited heavily</td><td>Low-Med</td></tr>
+    <tr><td>4</td><td>Attribute on-page stats (4.5/5, stat band)</td><td>Sourced claims rank + cite better</td><td>Low</td></tr>
+    <tr><td>5</td><td>Build Reddit + Wikidata presence; embed YouTube video</td><td>Direct lever for ChatGPT/Perplexity + multi-modal</td><td>Med-High</td></tr>
+  </table>
+</div>
+
+<h2>9. Schema Recommendations</h2>
+<div class="card">
+  <p><b>Present:</b> Organization, WebSite, WebPage (@graph), BreadcrumbList, Service, FAQPage (DB-driven). <code>@@context</code> renders correctly.</p>
+  <ul>
+    <li><span class="pill p-high">HIGH</span> Add <b>AggregateRating + Review</b> (genuine on-page reviews only).</li>
+    <li><span class="pill p-med">MED</span> Populate <b>Organization sameAs</b> (empty in @graph).</li>
+    <li><span class="pill p-low">LOW</span> Standardise schema URLs to <code>asset()</code>; align geo phrasing; set explicit <code>areaServed</code>.</li>
+  </ul>
+</div>
+
+<h2>10. Content Reformatting Suggestions</h2>
+<div class="card">
+  <table>
+    <tr><th>Location</th><th>Current</th><th>Issue</th><th>Direction</th></tr>
+    <tr><td>Hero intro</td><td>"…flawless performance in flutter app development services…"</td><td>Slightly stuffed; "flutter" lowercase</td><td>Tighten; capitalise "Flutter"</td></tr>
+    <tr><td>Framework logos</td><td>"Gideros", "Fuse", "Xamarin", "Corona SDK"</td><td>Wrong entity labels on a Flutter page</td><td>GetWidget, FlutterFlow, VelocityX, GetX</td></tr>
+    <tr><td>Top of body</td><td>Marketing paragraph</td><td>No definitional block for AI</td><td>Add 140-word "What is Flutter app development?"</td></tr>
+    <tr><td>Stats</td><td>"4.5/5", stat band</td><td>Unattributed</td><td>Attribute ("4.5/5 from 30 reviews on Clutch")</td></tr>
+    <tr><td>Frameworks</td><td>Logos only</td><td>No comparison content</td><td>Add Flutter vs React Native vs Native table</td></tr>
+  </table>
+</div>
+
+<h2>Verification Notes</h2>
+<div class="card">
+  <ul>
+    <li>Mislabeled logos (live "Gideros/Fuse/Corona SDK"), FAQ, rating, robots, canonical: <b>verified</b> (source + live).</li>
+    <li>llms.txt stale .php URLs: <b>verified</b>.</li>
+    <li>Brand presence (Clutch 30 reviews etc.; no Wikipedia/Reddit): <b>verified</b> via web search.</li>
+    <li><b>No files were modified.</b></li>
+  </ul>
+  <p class="src"><b>Sources:</b>
+    <a href="https://clutch.co/profile/img-global-infotech">Clutch</a> ·
+    <a href="https://www.goodfirms.co/company/img-global-infotech-pvt-ltd">GoodFirms</a> ·
+    <a href="https://www.designrush.com/agency/profile/img-global-infotech">DesignRush</a> ·
+    <a href="https://www.trustpilot.com/review/imgglobalinfotech.com">Trustpilot</a>
+  </p>
+</div>
+
+<footer>Prepared for IMG Global Infotech — Flutter App Development page. Audit-only; awaiting your "apply" instruction before any change is made.</footer>
+
+</div>
+</body>
+</html>

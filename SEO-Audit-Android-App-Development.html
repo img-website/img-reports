@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO + Content + UX Audit — Android App Development Page</title>
+<style>
+  :root{
+    --blue:#2D86FF; --ink:#1f2430; --muted:#5b6472; --line:#e6e9ef;
+    --bg:#f6f8fc; --card:#fff; --green:#0a8a4a; --amber:#c47d00; --red:#cc2b2b; --grey:#7a8493;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.6;font-size:15px}
+  .wrap{max-width:960px;margin:0 auto;padding:32px 20px 80px}
+  header.top{background:linear-gradient(135deg,#2D86FF,#7EB4FF);color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:28px;box-shadow:0 10px 30px rgba(45,134,255,.25)}
+  header.top h1{margin:0 0 8px;font-size:26px;line-height:1.25}
+  header.top .meta{font-size:13px;opacity:.95;margin-top:14px}
+  header.top .meta b{font-weight:600}
+  .note{background:#fff8e8;border:1px solid #f0dca8;border-left:4px solid var(--amber);padding:12px 16px;border-radius:10px;font-size:13.5px;margin:18px 0}
+  h2{font-size:20px;margin:36px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+  h3{font-size:16px;margin:22px 0 8px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:14px 0;box-shadow:0 1px 3px rgba(20,30,60,.04)}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;background:#fff;border-radius:10px;overflow:hidden}
+  th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+  th{background:#eef3fb;font-weight:600}
+  tr:nth-child(even) td{background:#fafbfe}
+  code{background:#eef1f6;padding:1px 6px;border-radius:5px;font-size:13px}
+  pre{background:#1f2430;color:#e8ecf3;padding:14px 16px;border-radius:10px;overflow:auto;font-size:13px}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;color:#fff}
+  .p-high{background:var(--red)} .p-med{background:var(--amber)} .p-low{background:#3a7;} .p-cos{background:var(--grey)}
+  .ok{color:var(--green);font-weight:600}
+  .score{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .bigscore{font-size:40px;font-weight:800;color:var(--blue)}
+  ul{margin:8px 0 8px 2px;padding-left:20px}
+  li{margin:5px 0}
+  .finding{border-left:4px solid var(--blue);padding-left:14px;margin:16px 0}
+  .finding .sol{background:#eefcf3;border:1px solid #c5ecd4;border-radius:8px;padding:8px 12px;margin-top:8px;font-size:13.5px}
+  footer{margin-top:40px;font-size:12.5px;color:var(--muted);text-align:center;border-top:1px solid var(--line);padding-top:18px}
+  @media print{body{background:#fff}.card,table{box-shadow:none}header.top{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>SEO + Content + UX Audit — Android Application Development Page</h1>
+  <div class="meta">
+    <div><b>URL:</b> https://www.imgglobalinfotech.com/android-application-development</div>
+    <div><b>Source:</b> resources/views/tailwind/pages/android-application-development/android-application-development.blade.php</div>
+    <div><b>Date:</b> 30 May 2026 &nbsp;•&nbsp; <b>Scope:</b> Audit only — no changes applied</div>
+  </div>
+</header>
+
+<div class="note"><b>Priority order:</b> SEO → Content → UX (as requested). Keyword tools (Ahrefs/SEMrush) were not connected this session, so keyword volumes are directional and flagged where a tool is needed to confirm. <b>No files were modified.</b></div>
+
+<h2>0. Overall Health Score</h2>
+<div class="card">
+  <div class="score"><span class="bigscore">7.4 / 10</span><span>Healthy page; high-impact wins available.</span></div>
+  <table>
+    <tr><th>Area</th><th>Score</th><th>Verdict</th></tr>
+    <tr><td>Technical SEO (index/follow, canonical, robots)</td><td>8.5/10</td><td>Strong, small gaps</td></tr>
+    <tr><td>On-page SEO (title, meta, headings)</td><td>7.5/10</td><td>Good, fixable inconsistencies</td></tr>
+    <tr><td>Schema / Structured data</td><td>6.5/10</td><td>Good coverage, 1 big missed opportunity</td></tr>
+    <tr><td>Internal / External linking</td><td>8/10</td><td>Strong internal, minor hygiene gaps</td></tr>
+    <tr><td>Images (alt/title)</td><td>9/10</td><td>Excellent — only 1 weak alt</td></tr>
+    <tr><td>Content quality (organic vs AI)</td><td>6.5/10</td><td>Readable but some thin/AI passages</td></tr>
+    <tr><td>UX</td><td>8/10</td><td>Clean, a few accessibility nits</td></tr>
+    <tr><td>GEO / AI-search readiness</td><td>6/10</td><td>Decent base, needs citable blocks + review schema</td></tr>
+  </table>
+</div>
+
+<h2>1. Technical SEO</h2>
+<div class="card">
+  <h3>Correct (verified)</h3>
+  <ul>
+    <li><span class="ok">Index/Follow:</span> live <code>meta-robots: …INDEX, FOLLOW</code> — indexable.</li>
+    <li><span class="ok">Canonical:</span> self-referencing, correct.</li>
+    <li><span class="ok">Viewport</span> present; <span class="ok">single H1</span>; width/height on images (CLS-safe); WebP via CloudFront CDN; correct eager/lazy loading.</li>
+  </ul>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 1.1 — robots.txt has no Sitemap directive</b>
+    <p>Current file only disallows <code>/bucket</code>; no <code>Sitemap:</code> line.</p>
+    <pre>User-agent: *
+Disallow: /bucket</pre>
+    <div class="sol"><b>Solution:</b> add <code>Sitemap: https://www.imgglobalinfotech.com/sitemap.xml</code>. Footer only exposes <code>sitemap.html</code> (HTML) — confirm an XML sitemap exists; if not, generate one.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-cos">COSMETIC</span> 1.3 — robots <code>max-*</code> directives uppercase</b>
+    <div class="sol">Works (case-insensitive); documented form is lowercase <code>max-image-preview:large</code>. Optional.</div>
+  </div>
+</div>
+
+<h2>2. On-Page SEO (Title, Meta, Headings)</h2>
+<div class="card">
+  <table>
+    <tr><th>Element</th><th>Current</th><th>Len</th><th>Status</th></tr>
+    <tr><td>&lt;title&gt;</td><td>Best Android App Development Company in India</td><td>45</td><td class="ok">Good</td></tr>
+    <tr><td>meta description</td><td>IMG Global Infotech, a leading Android app development company in India…secure, fast &amp; user-focused Android apps.</td><td>~160</td><td class="ok">Good</td></tr>
+    <tr><td>og:title</td><td>Top Android App Development Company</td><td>—</td><td>⚠️ Inconsistent</td></tr>
+    <tr><td>twitter:title</td><td>Top Android App Development Company for Startup's</td><td>—</td><td>⚠️ Grammar error</td></tr>
+    <tr><td>H1</td><td>Leading Android App Development Company in India</td><td>—</td><td class="ok">Good</td></tr>
+  </table>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 2.1 — Grammar error in twitter:title</b>
+    <div class="sol"><b>Solution:</b> <code>Startup's</code> → <code>Startups</code>.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 2.2 — Geo-targeting mismatch</b>
+    <p>Title/H1 say "in India"; meta & twitter say "India & USA / globally"; og:title drops geo. Mixed location signal.</p>
+    <div class="sol"><b>Solution:</b> If India is priority (recommended), keep the title and align og:title to "…in India". If global is priority, drop the hard "India" lock from the title.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 2.3 — Keyword targeting</b>
+    <p>Primary "android app development company" well-placed. Strong: "android app development services", "custom android app development". Gaps: "hire android app developers" (linked once — strengthen anchor), and intent terms like "android app development cost", "android app development company in USA", "enterprise android app development".</p>
+    <div class="sol"><b>Solution:</b> add one citable on-page block targeting "android app development cost" (answer already exists in FAQ). No keyword stuffing — one 130–160 word block is enough. Confirm volumes in Ahrefs/SEMrush.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-cos">COSMETIC</span> 2.4 — Heading hierarchy clean</b>
+    <div class="sol">H1→H2→H3 logical. Minor: title-case/hyphenate "Latest Cutting-Edge Technologies We Use".</div>
+  </div>
+</div>
+
+<h2>3. Schema / Structured Data</h2>
+<div class="card">
+  <p><b>Present (verified):</b> Organization + WebSite + WebPage (@graph), Service, BreadcrumbList (DB-driven), FAQPage (DB-driven). <code>@@context</code> in Blade correctly renders <code>@context</code> — <b>not a bug</b>.</p>
+  <div class="finding">
+    <b><span class="pill p-high">HIGH</span> 3.1 — Missing Review / AggregateRating schema</b>
+    <p>Page visibly shows "4.5/5 Average Rating" + 6 named testimonials, but no review structured data. Biggest missed rich-result + AI-trust opportunity.</p>
+    <pre>"aggregateRating": {
+  "@type": "AggregateRating",
+  "ratingValue": "4.5",
+  "reviewCount": "6",
+  "bestRating": "5"
+}</pre>
+    <div class="sol"><b>Solution:</b> attach AggregateRating + Review to the existing Service/Organization node. Mark up <b>only</b> reviews shown on the page; counts must be truthful (fake review markup is penalised).</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">LOW-MED</span> 3.2 — Organization sameAs empty in @graph</b>
+    <div class="sol"><b>Solution:</b> populate Organization <code>sameAs</code> with the Facebook/X/Instagram/LinkedIn/YouTube URLs already used in the Service block.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 3.3 — Service areaServed</b>
+    <div class="sol">Currently "Global". If India+USA are priority, list <code>["India","United States","Global"]</code>.</div>
+  </div>
+</div>
+
+<h2>4. Internal & External Linking</h2>
+<div class="card">
+  <p><b>Verified:</b> ~34 internal links (hire page, 12 case studies, AI/IoT/AR-VR, 12 industry pages, cross-service). Strong topical interlinking. No outbound editorial links beyond own socials — acceptable for a service page.</p>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 4.1 — target="_blank" links missing rel="noopener"</b>
+    <p><code>target="_blank"</code> used ~16× with <b>0</b> <code>rel="noopener"</code>. Lighthouse flags this (security/perf).</p>
+    <div class="sol"><b>Solution:</b> add <code>rel="noopener"</code> to all <code>_blank</code> anchors. Keep them <b>follow</b> (internal pages — no nofollow).</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 4.2 — Inconsistent URL construction</b>
+    <div class="sol">IoT link is hard-coded full URL while others use <code>{{asset()}}</code>. Convert to <code>{{asset('iot-app-development')}}</code> (staging-safe).</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 4.3 — Internal links opening new tabs</b>
+    <div class="sol">Unusual for same-site nav; consider same-tab for internal links. Optional.</div>
+  </div>
+</div>
+
+<h2>5. Images (Alt + Title)</h2>
+<div class="card">
+  <p><span class="ok">Strong.</span> All <b>91 images</b> audited: every content image has both <code>alt</code> and <code>title</code>, explicit width/height, WebP, correct eager/lazy. </p>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 5.1 — One weak alt</b>
+    <div class="sol">Rod Ferris testimonial image uses <code>alt="man with phone"</code> while others use "Review from Mr. &lt;Name&gt;". Change to <code>alt="Review from Mr. Rod Ferris"</code>.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 5.2 — Duplicate / mislabeled tech logos</b>
+    <div class="sol">"SQLite" appears twice; "Stacksmith " (trailing space) sits under database logos and looks mislabeled. Verify intended logo, remove the duplicate, trim the space.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-cos">COSMETIC</span> 5.3 — Repeated carousel alt</b>
+    <div class="sol">AI/IoT/AR-VR images repeat 3× (slider duplicates) with identical alt — normal, no penalty.</div>
+  </div>
+</div>
+
+<h2>6. Content Quality (Organic vs AI, E-E-A-T)</h2>
+<div class="card">
+  <p>Content-rich and topically deep. Issues below address your concern about humanized vs AI content.</p>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 6.1 — Some passages read AI-generated</b>
+    <ul>
+      <li><i>"Our team is good at developing quality and users… give users a good initial experience idea…"</i> — grammatically broken, machine-like.</li>
+      <li><i>"Looking to overcome the Android market?"</i> — unnatural phrasing.</li>
+    </ul>
+    <div class="sol"><b>Solution:</b> rewrite into specific human claims with proof, e.g. "Over 10+ years we've shipped 1,200+ apps across fintech, healthcare and on-demand…" Real numbers = more human <i>and</i> more AI-citable.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 6.2 — Thin authority signals (E-E-A-T)</b>
+    <div class="sol">No author/reviewer byline, no visible "last updated", limited linked proof. Add a "Reviewed by [Name, Title]" line + surface the schema's <code>dateModified</code> (2024-11-13) as a visible date — update it honestly when content changes.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">LOW-MED</span> 6.3 — Stats without sources</b>
+    <div class="sol">"4.5/5", "scale 10x faster", "A decade…" — attribute them: "4.5/5 from 30 reviews on Clutch", "10+ years, 1,200+ apps".</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">POSITIVE</span> 6.4 — FAQ content is solid</b>
+    <div class="sol">6 real FAQs with FAQPage schema. Keep answers in self-contained 40–60 word direct-answer form.</div>
+  </div>
+</div>
+
+<h2>7. UX</h2>
+<div class="card">
+  <p><span class="ok">Generally strong:</span> clear hero + primary CTA, repeated contextual CTAs, responsive layout, CLS-safe images.</p>
+  <ul>
+    <li><span class="pill p-low">LOW</span> 7.1 — CTA labels: some are <code>&lt;label&gt;</code>, not buttons; give clearer accessible labels ("Open consultation form").</li>
+    <li><span class="pill p-low">LOW</span> 7.2 — Confirm deco arrow icons render <code>aria-hidden="true"</code>.</li>
+    <li><span class="pill p-cos">VERIFY</span> 7.3 — Check WCAG AA contrast on dark sections (<code>#131514</code>) and small light-grey text.</li>
+  </ul>
+</div>
+
+<h2>8. GEO / AI-Search Readiness (summary)</h2>
+<div class="card">
+  <p>Server-rendered ✅, no AI crawler blocked ✅, FAQ+Service+breadcrumb schema ✅. Top wins: add Review/AggregateRating schema; add a 130–160 word definitional/cost block; attribute stats + named expertise; populate Organization sameAs. <i>(Full detail in the companion GEO report.)</i></p>
+</div>
+
+<h2>9. Prioritized Action List</h2>
+<div class="card">
+  <table>
+    <tr><th>#</th><th>Priority</th><th>Item</th><th>Ref</th></tr>
+    <tr><td>1</td><td><span class="pill p-high">HIGH</span></td><td>Add Review + AggregateRating schema (truthful, on-page only)</td><td>3.1</td></tr>
+    <tr><td>2</td><td><span class="pill p-high">HIGH</span></td><td>Fix AI-flavoured/broken copy</td><td>6.1</td></tr>
+    <tr><td>3</td><td><span class="pill p-med">MED</span></td><td>Add Sitemap: to robots.txt + confirm XML sitemap</td><td>1.1</td></tr>
+    <tr><td>4</td><td><span class="pill p-med">MED</span></td><td>Fix "Startup's" → "Startups"</td><td>2.1</td></tr>
+    <tr><td>5</td><td><span class="pill p-med">MED</span></td><td>Resolve title/H1 vs OG geo inconsistency</td><td>2.2</td></tr>
+    <tr><td>6</td><td><span class="pill p-med">MED</span></td><td>Add rel="noopener" to _blank links</td><td>4.1</td></tr>
+    <tr><td>7</td><td><span class="pill p-med">MED</span></td><td>Add visible author/expertise + last-updated</td><td>6.2</td></tr>
+    <tr><td>8</td><td><span class="pill p-low">LOW</span></td><td>Populate Organization sameAs in @graph</td><td>3.2</td></tr>
+    <tr><td>9</td><td><span class="pill p-low">LOW</span></td><td>Fix "man with phone" alt → Rod Ferris</td><td>5.1</td></tr>
+    <tr><td>10</td><td><span class="pill p-low">LOW</span></td><td>Fix duplicate SQLite / "Stacksmith " label</td><td>5.2</td></tr>
+    <tr><td>11</td><td><span class="pill p-low">LOW</span></td><td>Convert hard-coded IoT URL to asset()</td><td>4.2</td></tr>
+    <tr><td>12</td><td><span class="pill p-low">LOW</span></td><td>Add "android app development cost" citable block</td><td>2.3</td></tr>
+    <tr><td>13</td><td><span class="pill p-cos">COSMETIC</span></td><td>Title-case "Latest Cutting-Edge Technologies"</td><td>2.4</td></tr>
+    <tr><td>14</td><td><span class="pill p-cos">VERIFY</span></td><td>WCAG contrast + aria-hidden on deco icons</td><td>7.2/7.3</td></tr>
+  </table>
+</div>
+
+<h2>10. Verification Limits</h2>
+<div class="card">
+  <ul>
+    <li>Keyword volumes are directional — connect Ahrefs/SEMrush to finalise numbers.</li>
+    <li>Confirm XML sitemap at <code>/sitemap.xml</code> (footer only exposes <code>sitemap.html</code>).</li>
+    <li>Breadcrumb/FAQ schema render conditionally from DB; FAQs confirmed live, breadcrumb assumed present — verify the breadcrumb row for this URL.</li>
+    <li><b>No files were modified.</b> This is an audit deliverable only.</li>
+  </ul>
+</div>
+
+<footer>Audit prepared for IMG Global Infotech — Android Application Development page. Audit-only; awaiting your "apply" instruction before any change is made.</footer>
+
+</div>
+</body>
+</html>

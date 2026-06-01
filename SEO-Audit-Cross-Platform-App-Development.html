@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO + Content + UX Audit — Cross-Platform App Development Page</title>
+<style>
+  :root{--blue:#2D86FF;--ink:#1f2430;--muted:#5b6472;--line:#e6e9ef;--bg:#f6f8fc;--card:#fff;--green:#0a8a4a;--amber:#c47d00;--red:#cc2b2b;--grey:#7a8493;--purple:#6A4AF7;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:15px}
+  .wrap{max-width:960px;margin:0 auto;padding:32px 20px 80px}
+  header.top{background:linear-gradient(135deg,#6A4AF7,#9B7BFF);color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:28px;box-shadow:0 10px 30px rgba(106,74,247,.25)}
+  header.top h1{margin:0 0 8px;font-size:25px;line-height:1.25}
+  header.top .meta{font-size:13px;opacity:.95;margin-top:14px}
+  .note{background:#fff8e8;border:1px solid #f0dca8;border-left:4px solid var(--amber);padding:12px 16px;border-radius:10px;font-size:13.5px;margin:18px 0}
+  .good{background:#eefcf3;border:1px solid #c5ecd4;border-left:4px solid var(--green);padding:12px 16px;border-radius:10px;font-size:13.5px;margin:18px 0}
+  h2{font-size:20px;margin:36px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+  h3{font-size:16px;margin:22px 0 8px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:14px 0;box-shadow:0 1px 3px rgba(20,30,60,.04)}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;background:#fff;border-radius:10px;overflow:hidden}
+  th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+  th{background:#f0edff;font-weight:600}
+  tr:nth-child(even) td{background:#fafbfe}
+  code{background:#eef1f6;padding:1px 6px;border-radius:5px;font-size:13px}
+  pre{background:#1f2430;color:#e8ecf3;padding:14px 16px;border-radius:10px;overflow:auto;font-size:13px}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;color:#fff}
+  .p-high{background:var(--red)}.p-med{background:var(--amber)}.p-low{background:#3a7}.p-cos{background:var(--grey)}
+  .ok{color:var(--green);font-weight:600}.bad{color:var(--red);font-weight:600}
+  .score{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.bigscore{font-size:40px;font-weight:800;color:var(--purple)}
+  ul{margin:8px 0 8px 2px;padding-left:20px}li{margin:5px 0}
+  .finding{border-left:4px solid var(--purple);padding-left:14px;margin:16px 0}
+  .finding .sol{background:#eefcf3;border:1px solid #c5ecd4;border-radius:8px;padding:8px 12px;margin-top:8px;font-size:13.5px}
+  footer{margin-top:40px;font-size:12.5px;color:var(--muted);text-align:center;border-top:1px solid var(--line);padding-top:18px}
+  @media print{body{background:#fff}.card,table{box-shadow:none}header.top{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>SEO + Content + UX Audit — Cross-Platform App Development Page</h1>
+  <div class="meta">
+    <div><b>URL:</b> https://www.imgglobalinfotech.com/cross-platform-app-development</div>
+    <div><b>Source:</b> resources/views/tailwind/pages/cross-platform-app-development/cross-platform-app-development.blade.php</div>
+    <div><b>Date:</b> 30 May 2026 &nbsp;•&nbsp; <b>Scope:</b> Audit only — no changes applied</div>
+  </div>
+</header>
+
+<div class="note"><b>Priority order:</b> SEO → Content → UX. Keyword volumes are directional (Ahrefs/SEMrush not connected). <b>No files were modified.</b> Findings verified against the Blade source and the live site.</div>
+
+<div class="good"><b>Overall this is the best-built of the three pages audited.</b> Clean title (no geo conflict), human-sounding intro, inline FAQ + breadcrumb schema with specific cost/timeline data, and consistent <code>asset()</code> links. The issues below are mostly small accuracy/hygiene fixes.</div>
+
+<h2>0. Overall Health Score</h2>
+<div class="card">
+  <div class="score"><span class="bigscore">7.8 / 10</span><span>Strong, well-structured page; a few code typos and the recurring review-schema gap.</span></div>
+  <table>
+    <tr><th>Area</th><th>Score</th><th>Verdict</th></tr>
+    <tr><td>Technical SEO</td><td>8.5/10</td><td>Strong; only sitemap gap + 3 CSS typos</td></tr>
+    <tr><td>On-page SEO (title, meta, headings)</td><td>8.5/10</td><td>Clean, consistent — best of the three</td></tr>
+    <tr><td>Schema / Structured data</td><td>7/10</td><td>Rich inline FAQ+breadcrumb; missing Review schema</td></tr>
+    <tr><td>Internal / External linking</td><td>8.5/10</td><td>All asset(), contextual blog link; noopener gap</td></tr>
+    <tr><td>Images (alt/title)</td><td>7/10</td><td>Full alt coverage; 2 mislabeled logos, 6 missing title</td></tr>
+    <tr><td>Content quality (organic vs AI)</td><td>7.5/10</td><td>Human-sounding intro — much better</td></tr>
+    <tr><td>UX</td><td>7.5/10</td><td>Clean; aspect-square/inline-flex typos affect layout</td></tr>
+    <tr><td>GEO / AI-search readiness</td><td>7/10</td><td>Strong citable FAQ data; see GEO report</td></tr>
+  </table>
+</div>
+
+<h2>1. Technical SEO</h2>
+<div class="card">
+  <h3>Correct (verified live)</h3>
+  <ul>
+    <li><span class="ok">Index/Follow</span>, <span class="ok">self-referencing canonical</span>, <span class="ok">single H1</span>, viewport, WebP, eager hero / lazy below-fold, width/height on images.</li>
+    <li><span class="ok">All internal links use <code>asset()</code></span> — environment-safe.</li>
+    <li><span class="ok">Breadcrumb "Services" link is valid</span> — <code>/services</code> returns 200 and is indexable (verified).</li>
+  </ul>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 1.1 — robots.txt has no Sitemap directive</b>
+    <pre>User-agent: *
+Disallow: /bucket</pre>
+    <div class="sol"><b>Solution:</b> add <code>Sitemap: https://www.imgglobalinfotech.com/sitemap.xml</code>. Confirm an XML sitemap exists (footer only exposes <code>sitemap.html</code>).</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 1.2 — CSS class typos that break layout</b>
+    <ul>
+      <li><code>aspect-squire</code> (3×, process-section images, lines ~3095/3145/3202) — should be <code>aspect-square</code>. The intended aspect ratio is not applied → possible layout shift (CLS).</li>
+      <li><code>inlne-flex</code> (3×, stats blocks, lines ~1665/1671/1677) — should be <code>inline-flex</code>. The "1Cr+ Downloads / 4.5/5 Rating" stat blocks don't get flex layout.</li>
+    </ul>
+    <div class="sol"><b>Solution:</b> fix the typos to <code>aspect-square</code> and <code>inline-flex</code>.</div>
+  </div>
+</div>
+
+<h2>2. On-Page SEO (Title, Meta, Headings)</h2>
+<div class="card">
+  <table>
+    <tr><th>Element</th><th>Current</th><th>Status</th></tr>
+    <tr><td>&lt;title&gt;</td><td>Cross Platform App Development Company | Best Services</td><td class="ok">Good (53 chars), no geo conflict</td></tr>
+    <tr><td>meta description</td><td>…provides Cross Platform App Services using Flutter, React Native &amp; Xamarin.</td><td class="ok">Good — names frameworks</td></tr>
+    <tr><td>og:title</td><td>Custom Cross-Platform App Development Company</td><td>Minor variance</td></tr>
+    <tr><td>twitter:title</td><td>Top Cross-Platform App Development Company</td><td>Minor variance</td></tr>
+    <tr><td>H1</td><td>Cross Platform App Development Company</td><td class="ok">Matches title</td></tr>
+  </table>
+  <p><span class="ok">No India/USA conflict here</span> — schema says "India, USA", content stays global. This is handled better than the Android/iOS pages.</p>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 2.1 — "Cross Platform" vs "Cross-Platform" inconsistency</b>
+    <div class="sol">Title/H1 use "Cross Platform" (no hyphen); body and og/twitter use "Cross-Platform" (hyphen). Pick one (the hyphenated form is the correct compound adjective) and apply consistently.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 2.2 — Keyword targeting (strong, minor gaps)</b>
+    <p>Primary "cross platform app development company" well-placed. Frameworks (Flutter, React Native, Xamarin, Ionic) named in meta + on-page — good. Opportunity terms (confirm in a tool): "Flutter vs React Native" (you have a blog link — leverage it), "cross platform app development cost" (already in FAQ — promote to a visible block).</p>
+    <div class="sol"><b>Solution:</b> surface the cost answer as a visible on-page block; the existing internal blog link to "top-cross-platform-app-frameworks" is a good signal — keep building these.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-cos">COSMETIC</span> 2.3 — Heading casing</b>
+    <div class="sol">H2 "Latest Cutting edge technologies we use" → "Latest Cutting-Edge Technologies We Use" (recurring across pages).</div>
+  </div>
+</div>
+
+<h2>3. Schema / Structured Data</h2>
+<div class="card">
+  <p><b>Present (verified):</b> Organization + WebSite + WebPage (@graph), <b>inline</b> BreadcrumbList, <b>inline</b> Service, <b>inline</b> FAQPage with 7 Q&amp;As. <code>@@context</code> renders correctly. This page hardcodes its FAQ/breadcrumb schema (not DB-driven) — fine, and the FAQ answers include <b>specific data</b> (cost $10k–$50k, timeline 2–6 months) which is excellent for AI search.</p>
+  <div class="finding">
+    <b><span class="pill p-high">HIGH</span> 3.1 — Missing Review / AggregateRating schema</b>
+    <p>Page shows "4.5/5 Rating" + "1Cr+ Downloads" + 6 named testimonials, but no review structured data.</p>
+    <pre>"aggregateRating": {
+  "@type": "AggregateRating",
+  "ratingValue": "4.5",
+  "reviewCount": "6",
+  "bestRating": "5"
+}</pre>
+    <div class="sol"><b>Solution:</b> attach AggregateRating + Review to the Service/Organization node. Genuine on-page reviews only; truthful counts.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">LOW-MED</span> 3.2 — Organization sameAs empty in @graph</b>
+    <div class="sol">First Organization node has <code>"sameAs": []</code> while Service node lists socials. Populate it.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 3.3 — Schema description grammar + URL style</b>
+    <div class="sol">"cross-platform app development services provider in India, USA" is awkward — tidy to "…services provider in India and the USA". Also WebPage/Service/breadcrumb use hard-coded full URLs; standardise on <code>asset()</code>.</div>
+  </div>
+</div>
+
+<h2>4. Internal & External Linking</h2>
+<div class="card">
+  <p><b>Verified:</b> ~31 internal links, <span class="ok">all <code>asset()</code></span>: 12 case studies, AI/AR-VR, 12 industry pages, mobile/web/software/ecommerce, plus a contextual <b>blog link</b> (top-cross-platform-app-frameworks). Strong, clean interlinking.</p>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 4.1 — ~8 target="_blank" links, 0 rel="noopener"</b>
+    <p>The in-content links (blog, ai-dev, ar-vr, mobile/web/software/ecommerce) use <code>target="_blank"</code> with no <code>rel="noopener"</code>. (Fewer than the iOS page, but same gap.)</p>
+    <div class="sol"><b>Solution:</b> add <code>rel="noopener"</code> to all <code>_blank</code> anchors. Consider same-tab for internal links.</div>
+  </div>
+</div>
+
+<h2>5. Images (Alt + Title)</h2>
+<div class="card">
+  <p>All <b>124 images</b> have <code>alt</code>, explicit dimensions, WebP, correct loading. But two tech logos are mislabeled, and the testimonial images are missing <code>title</code> (a difference from the Android/iOS pages, where they had both).</p>
+  <table>
+    <tr><th>Image</th><th>Current alt</th><th>Issue / should be</th><th>Severity</th></tr>
+    <tr><td>frameworksCordova.webp</td><td class="bad">"NativeScript"</td><td>Cordova image labeled NativeScript</td><td><span class="pill p-med">MED</span></td></tr>
+    <tr><td>frameworksPhoneGap.webp</td><td class="bad">"Apache Cordova"</td><td>PhoneGap image labeled Apache Cordova (confused pair with the above)</td><td><span class="pill p-med">MED</span></td></tr>
+    <tr><td>6 testimonial images (asimov, chris-ragain, rod-ferris, joshua-mwatu, raj-shah, mohamad)</td><td>alt present</td><td>Missing <code>title</code> attribute</td><td><span class="pill p-low">LOW</span></td></tr>
+    <tr><td>rod-ferris.webp</td><td class="bad">"man with phone"</td><td>Should be "Review from Mr. Rod Ferris"</td><td><span class="pill p-low">LOW</span></td></tr>
+    <tr><td>programmingTs.webp / mobileAppLaunch.webp</td><td>"TypeScript ", " Deployment…"</td><td>Trailing/leading spaces — trim</td><td><span class="pill p-cos">COSMETIC</span></td></tr>
+  </table>
+  <div class="finding">
+    <b>Why it matters</b>
+    <div class="sol">Verify and correct the Cordova/NativeScript/PhoneGap labels so the displayed tech stack is accurate (wrong tech names mislead users + AI engines). Add <code>title</code> to the testimonial images for consistency with the rest of the site, and fix the Rod Ferris alt.</div>
+  </div>
+</div>
+
+<h2>6. Content Quality (Organic vs AI, E-E-A-T)</h2>
+<div class="card">
+  <div class="good" style="margin-top:0"><b>Positive:</b> the hero intro reads naturally and human ("Reach more users, reduce development time, and maximize ROI with one powerful solution") — no broken AI-style sentences like the Android/iOS pages. Good.</div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 6.1 — Authority signals (E-E-A-T)</b>
+    <div class="sol">No visible author/reviewer byline or "last updated" date. Add a credibility line + surface the schema <code>dateModified</code> (2024-11-13) as a visible date — update honestly on revisions.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW-MED</span> 6.2 — Attribute the stats</b>
+    <div class="sol">"1Cr+ Downloads", "4.5/5 Rating" — attribute to a source ("4.5/5 from 30 reviews on Clutch") to strengthen trust + AI citability.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">POSITIVE</span> 6.3 — Excellent FAQ data</b>
+    <div class="sol">7 FAQs with concrete numbers (cost $10k–$50k, 2–6 month timeline). Keep this — it's highly citable by AI. Consider promoting the cost answer into a visible on-page block too.</div>
+  </div>
+</div>
+
+<h2>7. UX</h2>
+<div class="card">
+  <p><span class="ok">Strong:</span> benefit chips, clear CTA, stats band, responsive layout.</p>
+  <ul>
+    <li><span class="pill p-low">LOW</span> 7.1 — <code>aspect-squire</code> + <code>inlne-flex</code> typos (see 1.2) cause minor layout/aspect issues — fixing improves visual stability.</li>
+    <li><span class="pill p-low">LOW</span> 7.2 — Confirm decorative icons use <code>aria-hidden="true"</code>.</li>
+    <li><span class="pill p-cos">VERIFY</span> 7.3 — WCAG AA contrast on dark/gradient sections + small white text.</li>
+  </ul>
+</div>
+
+<h2>8. Prioritized Action List</h2>
+<div class="card">
+  <table>
+    <tr><th>#</th><th>Priority</th><th>Item</th><th>Ref</th></tr>
+    <tr><td>1</td><td><span class="pill p-high">HIGH</span></td><td>Add Review + AggregateRating schema (truthful)</td><td>3.1</td></tr>
+    <tr><td>2</td><td><span class="pill p-med">MED</span></td><td>Fix mislabeled logos (Cordova/NativeScript/PhoneGap)</td><td>5</td></tr>
+    <tr><td>3</td><td><span class="pill p-med">MED</span></td><td>Fix CSS typos: aspect-squire → aspect-square; inlne-flex → inline-flex</td><td>1.2</td></tr>
+    <tr><td>4</td><td><span class="pill p-med">MED</span></td><td>Add Sitemap: to robots.txt + confirm XML sitemap</td><td>1.1</td></tr>
+    <tr><td>5</td><td><span class="pill p-med">MED</span></td><td>Add rel="noopener" to _blank links</td><td>4.1</td></tr>
+    <tr><td>6</td><td><span class="pill p-med">MED</span></td><td>Add visible author/expertise + last-updated</td><td>6.1</td></tr>
+    <tr><td>7</td><td><span class="pill p-low">LOW</span></td><td>Add title to 6 testimonial images; fix Rod Ferris alt</td><td>5</td></tr>
+    <tr><td>8</td><td><span class="pill p-low">LOW</span></td><td>Populate Organization sameAs in @graph</td><td>3.2</td></tr>
+    <tr><td>9</td><td><span class="pill p-low">LOW</span></td><td>Standardise "Cross-Platform" hyphenation</td><td>2.1</td></tr>
+    <tr><td>10</td><td><span class="pill p-low">LOW</span></td><td>Standardise schema URLs to asset(); tidy description grammar</td><td>3.3</td></tr>
+    <tr><td>11</td><td><span class="pill p-low">LOW</span></td><td>Surface "cost" as a visible on-page block</td><td>2.2/6.3</td></tr>
+    <tr><td>12</td><td><span class="pill p-cos">COSMETIC</span></td><td>Heading casing; trim alt spaces; WCAG contrast; aria-hidden</td><td>2.3/5/7</td></tr>
+  </table>
+</div>
+
+<h2>9. Verification Limits</h2>
+<div class="card">
+  <ul>
+    <li>Keyword volumes directional — connect Ahrefs/SEMrush to finalise.</li>
+    <li>Mislabeled logos, CSS typos, FAQ schema, /services link validity, rating display: <b>verified</b> (source + live).</li>
+    <li>Confirm XML sitemap at <code>/sitemap.xml</code>.</li>
+    <li><b>No files were modified.</b> Audit deliverable only.</li>
+  </ul>
+</div>
+
+<footer>Audit prepared for IMG Global Infotech — Cross-Platform App Development page. Audit-only; awaiting your "apply" instruction before any change is made.</footer>
+
+</div>
+</body>
+</html>
