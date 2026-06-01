@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homepage SEO Audit — Technical · Content · Clusters · Strategy · Backlinks · Competitors · SXO</title>
+<style>
+  :root{--blue:#2D86FF;--ink:#1f2430;--muted:#5b6472;--line:#e6e9ef;--bg:#f6f8fc;--card:#fff;--green:#0a8a4a;--amber:#c47d00;--red:#cc2b2b;--grey:#7a8493;--brand:#1461CC;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:15px}
+  .wrap{max-width:980px;margin:0 auto;padding:32px 20px 80px}
+  header.top{background:linear-gradient(135deg,#1461CC,#4E94FF);color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:24px;box-shadow:0 10px 30px rgba(20,97,204,.25)}
+  header.top h1{margin:0 0 8px;font-size:24px;line-height:1.25}
+  header.top .meta{font-size:13px;opacity:.96;margin-top:14px}
+  nav.toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 20px;margin-bottom:24px;font-size:13.5px}
+  nav.toc a{color:var(--blue);text-decoration:none;margin-right:14px;white-space:nowrap}
+  nav.toc a:hover{text-decoration:underline}
+  .note{background:#fff8e8;border:1px solid #f0dca8;border-left:4px solid var(--amber);padding:12px 16px;border-radius:10px;font-size:13.5px;margin:18px 0}
+  .good{background:#eefcf3;border:1px solid #c5ecd4;border-left:4px solid var(--green);padding:12px 16px;border-radius:10px;font-size:13.5px;margin:18px 0}
+  h2{font-size:20px;margin:38px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+  h3{font-size:16px;margin:22px 0 8px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:14px 0;box-shadow:0 1px 3px rgba(20,30,60,.04)}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;background:#fff;border-radius:10px;overflow:hidden}
+  th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+  th{background:#e8f0fd;font-weight:600}
+  tr:nth-child(even) td{background:#fafbfe}
+  code{background:#eef1f6;padding:1px 6px;border-radius:5px;font-size:13px}
+  pre{background:#1f2430;color:#e8ecf3;padding:14px 16px;border-radius:10px;overflow:auto;font-size:12.5px}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;color:#fff}
+  .p-crit{background:#a01919}.p-high{background:var(--red)}.p-med{background:var(--amber)}.p-low{background:#3a7}.p-cos{background:var(--grey)}
+  .ok{color:var(--green);font-weight:600}.bad{color:var(--red);font-weight:600}.warn{color:var(--amber);font-weight:600}
+  .scorewrap{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+  .bigscore{font-size:42px;font-weight:800;color:var(--brand)}
+  .bar{height:10px;border-radius:6px;background:#e6e9ef;overflow:hidden;min-width:120px;flex:1}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,#1461CC,#4E94FF)}
+  .metarow{display:grid;grid-template-columns:160px 1fr 60px;gap:10px;align-items:center;margin:6px 0;font-size:13px}
+  ul{margin:8px 0 8px 2px;padding-left:20px}li{margin:5px 0}
+  .finding{border-left:4px solid var(--brand);padding-left:14px;margin:16px 0}
+  .finding .sol{background:#eefcf3;border:1px solid #c5ecd4;border-radius:8px;padding:8px 12px;margin-top:8px;font-size:13.5px}
+  .src a{color:var(--blue);text-decoration:none}.src a:hover{text-decoration:underline}
+  footer{margin-top:40px;font-size:12.5px;color:var(--muted);text-align:center;border-top:1px solid var(--line);padding-top:18px}
+  @media print{body{background:#fff}.card,table{box-shadow:none}header.top{box-shadow:none}nav.toc{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Homepage SEO Audit — IMG Global Infotech</h1>
+  <div class="meta">
+    <div><b>URL:</b> https://www.imgglobalinfotech.com/</div>
+    <div><b>Source:</b> resources/views/tailwind/pages/home/home.blade.php</div>
+    <div><b>Date:</b> 1 June 2026 &nbsp;•&nbsp; <b>Scope:</b> Audit only — no changes applied</div>
+    <div><b>Modules:</b> Technical · Content · Keyword Clusters · Strategy/Plan · Backlinks · Competitor Pages · SXO</div>
+  </div>
+</header>
+
+<nav class="toc">
+  <b>Jump to:</b>
+  <a href="#score">Scorecard</a>
+  <a href="#tech">Technical</a>
+  <a href="#content">Content</a>
+  <a href="#schema">Schema</a>
+  <a href="#cluster">Clusters</a>
+  <a href="#plan">Strategy</a>
+  <a href="#backlinks">Backlinks</a>
+  <a href="#competitors">Competitor Pages</a>
+  <a href="#sxo">SXO</a>
+  <a href="#actions">Actions</a>
+</nav>
+
+<div class="note"><b>Priority order:</b> SEO → Content → UX (project rule). Keyword volumes, exact backlink/DR figures and live SERP positions are directional — Ahrefs/DataForSEO are not connected this session, so those are flagged as estimates. <b>No files were modified.</b></div>
+
+<div class="good"><b>The homepage is the strongest, most technically-mature page on the site.</b> Rich layered schema, performance optimisation (preload + LCP <code>fetchpriority</code> + <code>content-visibility</code>), a clean single H1, geo-targeted meta, and genuinely human, engaging copy. The fixes below are mostly schema-consolidation, a broken SearchAction, and the recurring site-wide gaps.</div>
+
+<h2 id="score">Page Scorecard</h2>
+<div class="card">
+  <div class="scorewrap"><span class="bigscore">82 / 100</span><span>Mature homepage; biggest wins are schema consolidation + Review schema + off-page authority.</span></div>
+  <div style="margin-top:14px">
+    <div class="metarow"><span>On-Page SEO</span><span class="bar"><i style="width:88%"></i></span><span>88</span></div>
+    <div class="metarow"><span>Content Quality</span><span class="bar"><i style="width:85%"></i></span><span>85</span></div>
+    <div class="metarow"><span>Technical</span><span class="bar"><i style="width:84%"></i></span><span>84</span></div>
+    <div class="metarow"><span>Schema</span><span class="bar"><i style="width:70%"></i></span><span>70</span></div>
+    <div class="metarow"><span>Images</span><span class="bar"><i style="width:82%"></i></span><span>82</span></div>
+    <div class="metarow"><span>Off-page / GEO authority</span><span class="bar"><i style="width:60%"></i></span><span>60</span></div>
+  </div>
+</div>
+
+<h2 id="tech">1. Technical SEO</h2>
+<div class="card">
+  <h3>Verified correct</h3>
+  <ul>
+    <li><span class="ok">INDEX, FOLLOW</span> in production; <span class="ok">self-referencing canonical</span>; <span class="ok">exactly one H1</span> ("AI-Driven Digital Transformation Company"); viewport set.</li>
+    <li><span class="ok">Performance-engineered:</span> <code>preconnect</code> + <code>preload</code> for hero/LCP images, <code>fetchpriority="high"</code> on the LCP bot image, and <code>content-visibility:auto</code> on below-fold sections with intrinsic-size placeholders (good CLS + render strategy). This is genuinely well done.</li>
+    <li><span class="ok">210 images</span>, WebP via CloudFront CDN, width/height set.</li>
+    <li><span class="ok">Server-rendered (Laravel Blade)</span> — AI crawlers + Googlebot read full content without JS.</li>
+  </ul>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 1.1 — robots.txt has no Sitemap directive</b>
+    <pre>User-agent: *
+Disallow: /bucket</pre>
+    <div class="sol"><b>Solution:</b> add <code>Sitemap: https://www.imgglobalinfotech.com/sitemap.xml</code>. Footer only links <code>sitemap.html</code> — confirm an XML sitemap exists; if not, generate one (critical for a site this large).</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 1.2 — Legacy <code>meta keywords</code> present</b>
+    <div class="sol">Google ignores it; it only exposes your target keywords to competitors. Harmless but removable.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 1.3 — llms.txt served but stale (.php URLs)</b>
+    <div class="sol">The live <code>/llms.txt</code> lists legacy <code>.php</code> URLs; the site uses clean URLs. Low priority (not a ranking lever) but deploy the clean-URL repo version since it's already published.</div>
+  </div>
+</div>
+
+<h2 id="content">2. Content Quality &amp; On-Page</h2>
+<div class="card">
+  <table>
+    <tr><th>Element</th><th>Current</th><th>Status</th></tr>
+    <tr><td>&lt;title&gt;</td><td>IMG Global Infotech: Top Mobile App &amp; AI Development Company</td><td class="ok">59 chars — good</td></tr>
+    <tr><td>meta description</td><td>…top mobile app development company in USA, UK, UAE, and India… startups to large enterprises.</td><td class="ok">~155 chars, geo-rich</td></tr>
+    <tr><td>H1</td><td>AI-Driven Digital Transformation Company</td><td class="ok">Single, on-theme</td></tr>
+    <tr><td>H2s</td><td>"Trusted &amp; Reviewed by Top Platforms", "Fuel up Business…", "Our Portfolio", "Wide Range of Industries…", "The Reviews are in"…</td><td class="ok">Engaging, varied</td></tr>
+  </table>
+  <div class="good" style="margin-top:0"><b>Positive:</b> homepage copy is human, benefit-led and brand-distinct — not AI-templated. Strong narrative hooks ("When Brands think there's no more water, we show them an ocean").</div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 2.1 — Duplicate "Our USP's" H2 + malformed class</b>
+    <p>"Our USP's" appears as an H2 twice (lines ~3318 &amp; ~3543 — likely desktop/mobile variants both rendered). Also line ~3164 has a malformed Tailwind class <code>text-#454444</code> (missing brackets) so that heading colour isn't applied.</p>
+    <div class="sol"><b>Solution:</b> ensure only one renders per viewport (hide the duplicate with responsive utility, don't duplicate the heading text); fix <code>text-#454444</code> → <code>text-[#454444]</code>. Also "USP's" → "USPs" (apostrophe).</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 2.2 — Decorative hero backgrounds carry alt text</b>
+    <div class="sol">The two full-screen background images use <code>alt="AI-Driven Digital Transformation Company"</code> (duplicated, and duplicating the H1). For purely decorative backgrounds, empty <code>alt=""</code> is cleaner and avoids alt-text duplication.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 2.3 — E-E-A-T / freshness</b>
+    <div class="sol">No visible author/leadership attribution or "last updated". Schema <code>dateModified</code> is 2024-04-06 (over a year stale on a homepage). Refresh it honestly when content changes and surface trust signals (named leadership, certifications, client logos with context).</div>
+  </div>
+</div>
+
+<h2 id="schema">3. Schema / Structured Data</h2>
+<div class="card">
+  <p><b>Detected (rich):</b> WebSite (+SearchAction), <code>@graph</code> [Organization, WebSite, WebPage], FAQPage (DB), Service (18 serviceTypes), Corporation (logo + full sameAs). Best schema coverage on the site. <code>@@context</code> renders correctly.</p>
+  <div class="finding">
+    <b><span class="pill p-high">HIGH</span> 3.1 — Broken SearchAction target</b>
+    <p>The standalone WebSite node's SearchAction uses a literal placeholder:</p>
+    <pre>"target": "{search_term_string}",
+"query-input": "required name=search_term_string"</pre>
+    <div class="sol"><b>Solution:</b> if the site has search, use a real template, e.g. <code>"target": "https://www.imgglobalinfotech.com/search?q={search_term_string}"</code>. If there's no site search, <b>remove the SearchAction</b> entirely — a literal <code>{search_term_string}</code> as the URL is invalid and can suppress the sitelinks search box.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-high">HIGH</span> 3.2 — Entity duplication + empty Organization sameAs</b>
+    <p>The same company is described by an <b>Organization</b> node (in @graph, <code>sameAs: []</code> empty) <b>and</b> a separate <b>Corporation</b> node (full sameAs with FB/X/IG/YouTube/LinkedIn). Two org-type entities + two WebSite nodes can fragment entity consolidation in Google's Knowledge Graph and AI engines.</p>
+    <div class="sol"><b>Solution:</b> consolidate to a <b>single Organization</b> node with the same <code>@id</code> referenced everywhere, populate its <code>sameAs</code> with the full social list, add <code>logo</code>, <code>contactPoint</code>, and <code>address</code> (you have India/USA/UAE/Germany offices — add them as <code>location</code>/<code>address</code>). Drop the redundant Corporation node or merge it in.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-high">HIGH</span> 3.3 — Missing Review / AggregateRating schema</b>
+    <p>The page has a "The Reviews are in" section + platform ratings, but no Review/AggregateRating markup.</p>
+    <div class="sol"><b>Solution:</b> add truthful <code>AggregateRating</code> + <code>Review</code> to the Organization node (use the genuine Clutch/Google rating + count). Strong rich-result + AI-trust signal.</div>
+  </div>
+</div>
+
+<h2 id="cluster">4. Keyword Clusters (topical architecture)</h2>
+<div class="card">
+  <p>The site already has <b>broad, well-organised topical coverage</b> (verified from nav + llms.txt): service pillars, hire-developer pages, industry pages, location pages, and cost blogs. The homepage correctly sits as the brand/commercial hub. Suggested cluster map (hub → spokes):</p>
+  <table>
+    <tr><th>Pillar (hub)</th><th>Spokes (existing)</th><th>Cluster gap to fill</th></tr>
+    <tr><td>Mobile App Development</td><td>Android, iOS, Cross-Platform, Flutter, React Native</td><td>"React Native vs Flutter", "native vs hybrid" comparison hubs</td></tr>
+    <tr><td>Hire Developers</td><td>Android/iOS/Flutter/RN/MERN/MEAN/Python/PHP/Java/Node…</td><td>"cost to hire [tech] developer" data pages</td></tr>
+    <tr><td>Industries</td><td>Healthcare, Fintech, Real Estate, Education, Logistics…</td><td>industry × service intersection pages (e.g., "fintech app development")</td></tr>
+    <tr><td>Locations</td><td>India, USA, UK, Canada, Dubai, Australia, Jaipur, Delhi…</td><td>thin-content risk — ensure each location page is genuinely unique (see SXO §8)</td></tr>
+    <tr><td>Cost &amp; Features</td><td>20+ "X app development cost" blogs</td><td>interlink these to matching service pages (strong commercial intent)</td></tr>
+  </table>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 4.1 — Internal-linking the clusters</b>
+    <div class="sol">The cost blogs and service pages should cross-link tightly (cost blog → service page → hire page). The homepage already links broadly; ensure each pillar links down to its spokes and each spoke links back up to the pillar with descriptive anchors.</div>
+  </div>
+</div>
+
+<h2 id="plan">5. Strategy / SEO Plan</h2>
+<div class="card">
+  <h3>30 / 60 / 90-day priorities (homepage + site-wide levers)</h3>
+  <table>
+    <tr><th>Window</th><th>Focus</th><th>Items</th></tr>
+    <tr><td><b>0–30 days (quick wins)</b></td><td>Schema + crawl hygiene</td><td>Fix SearchAction (3.1); consolidate Org/Corporation + populate sameAs (3.2); add Review/AggregateRating (3.3); add <code>Sitemap:</code> to robots.txt (1.1); fix site-wide <code>inlne-flex</code> typo found on Flutter/RN/cross-platform pages.</td></tr>
+    <tr><td><b>30–60 days (content)</b></td><td>Citability + E-E-A-T</td><td>Add visible leadership/author + last-updated; add "What is…" + comparison tables to service pages; surface cost blocks; refresh stale <code>dateModified</code>.</td></tr>
+    <tr><td><b>60–90 days (authority/off-page)</b></td><td>Brand entity</td><td>Create Wikidata entity; build genuine Reddit presence; publish + embed YouTube case-study videos; pursue earned editorial mentions (the strongest AI-visibility lever — see §6).</td></tr>
+  </table>
+</div>
+
+<h2 id="backlinks">6. Backlink Profile (directional — Ahrefs not connected)</h2>
+<div class="card">
+  <p><b>Verified via web search:</b> the brand has a solid <b>review/directory footprint</b> — Clutch (30 reviews), GoodFirms, DesignRush, Trustpilot, TopDevelopers, Techimply. Domain established ~2013/2014. No Wikipedia/Wikidata entity found; weak Reddit/forum footprint.</p>
+  <table>
+    <tr><th>Signal</th><th>Status</th><th>Note</th></tr>
+    <tr><td>Review directories (Clutch/GoodFirms/DesignRush)</td><td class="ok">Strong</td><td>High-trust, niche-relevant — keep fresh</td></tr>
+    <tr><td>Social profiles (FB/X/IG/YouTube/LinkedIn)</td><td class="ok">Present</td><td>But not in Organization <code>sameAs</code> (see 3.2)</td></tr>
+    <tr><td>Wikipedia / Wikidata</td><td class="bad">Missing</td><td>High-value entity signal for ChatGPT/Google KG</td></tr>
+    <tr><td>Reddit / community mentions</td><td class="bad">Weak</td><td>Highest correlation lever for Perplexity/ChatGPT citations</td></tr>
+    <tr><td>Editorial / press backlinks</td><td class="warn">Unknown</td><td>Connect Ahrefs/DataForSEO to quantify DR, referring domains, anchor mix, toxic links</td></tr>
+  </table>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 6.1 — Quantify + diversify</b>
+    <div class="sol"><b>Solution:</b> connect Ahrefs (or Google Search Console + Bing Webmaster for free link data) to get referring-domain counts, anchor distribution, and any toxic links to disavow. Then prioritise <b>brand mentions over raw links</b> (per Dec-2025 data, mentions correlate ~3× more with AI visibility than backlinks): Wikidata, Reddit, YouTube, podcast/press features.</div>
+  </div>
+</div>
+
+<h2 id="competitors">7. Competitor Pages &amp; Gaps</h2>
+<div class="card">
+  <p><b>Competitive landscape (verified via web search):</b> the high-ranking players for "mobile app development company India/USA" include <b>Hyperlink InfoSystem, Appinventiv, TechAhead, The NineHertz, eSparkBiz, Mobulous, WillowTree, Intellectsoft</b>. IMG Global Infotech does not appear in the top directory listicles for these head terms.</p>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 7.1 — Build comparison &amp; alternatives pages</b>
+    <div class="sol">Competitors capture high-intent traffic with <b>"alternatives to [competitor]"</b> and <b>"X vs Y"</b> pages. Create honest comparison pages (e.g., "IMG Global Infotech vs [competitor]", "best Appinventiv alternatives") with a feature/price/turnaround matrix. These rank well and convert bottom-funnel buyers.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 7.2 — Win the listicles</b>
+    <div class="sol">Most buyers find vendors through "top 10 app development companies" listicles (TheNineHertz, TopAppDevelopmentCompanies, DesignRush). Pursue inclusion/outreach + keep Clutch/GoodFirms profiles fully optimised (reviews, portfolio, verified data) — these listicles pull from those profiles.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 7.3 — Differentiation on homepage</b>
+    <div class="sol">Competitors lead with hard proof (e.g., "4,500+ apps", "Clutch Global 2025 winner", named enterprise clients KFC/Adidas/IKEA). Surface your strongest verifiable proof points (1,200+ products, 10+ years, named brand clients) prominently and attributed.</div>
+  </div>
+</div>
+
+<h2 id="sxo">8. SXO — Search Experience &amp; Intent Match</h2>
+<div class="card">
+  <p>Reading the SERPs backwards for the homepage's head terms:</p>
+  <table>
+    <tr><th>Query type</th><th>Dominant SERP intent</th><th>Homepage fit</th></tr>
+    <tr><td>"IMG Global Infotech" (brand)</td><td>Navigational</td><td class="ok">Perfect — homepage is the right target</td></tr>
+    <tr><td>"mobile app development company"</td><td>Commercial — Google shows directories + service pages, not generic homepages</td><td class="warn">Homepage competes weakly; the dedicated <code>/mobile-app-development</code> service page is the better target for this head term</td></tr>
+    <tr><td>"app development company in [city/country]"</td><td>Local/commercial</td><td class="warn">Location pages handle this — must be genuinely unique, not templated (thin-content + index-bloat risk)</td></tr>
+  </table>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 8.1 — Page-type alignment</b>
+    <div class="sol">Don't try to rank the homepage for "mobile app development company" — point that intent at the <code>/mobile-app-development</code> pillar (stronger topical match) and let the homepage own brand + "AI-driven digital transformation" positioning. Internally link accordingly.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 8.2 — Location-page thin-content / index-bloat risk</b>
+    <div class="sol">You have many "Mobile App Development in [country/city]" pages (India, USA, UK, Canada, Dubai, Australia, Kuwait, Saudi, Qatar, Italy, Netherland, Sweden, Spain, Germany, Singapore, Jaipur, Delhi…). If these are templated near-duplicates, they risk thin-content penalties and crawl-budget waste. Audit for unique local content (local case studies, addresses, testimonials) or consolidate/noindex the weakest.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 8.3 — Conversion experience</b>
+    <div class="sol">Strong: clear CTAs, lead popup, exit-intent estimate popup, multi-office trust, WhatsApp. Ensure popups don't trigger intrusive-interstitial penalties on mobile (Google guideline) — keep them user-dismissible and not immediate on load.</div>
+  </div>
+</div>
+
+<h2 id="actions">9. Prioritized Action List</h2>
+<div class="card">
+  <table>
+    <tr><th>#</th><th>Priority</th><th>Item</th><th>Ref</th></tr>
+    <tr><td>1</td><td><span class="pill p-high">HIGH</span></td><td>Fix or remove broken SearchAction (literal {search_term_string})</td><td>3.1</td></tr>
+    <tr><td>2</td><td><span class="pill p-high">HIGH</span></td><td>Consolidate Org/Corporation entities + populate Organization sameAs</td><td>3.2</td></tr>
+    <tr><td>3</td><td><span class="pill p-high">HIGH</span></td><td>Add Review + AggregateRating schema (truthful)</td><td>3.3</td></tr>
+    <tr><td>4</td><td><span class="pill p-med">MED</span></td><td>Add Sitemap: to robots.txt + confirm XML sitemap</td><td>1.1</td></tr>
+    <tr><td>5</td><td><span class="pill p-med">MED</span></td><td>Refresh dateModified + add visible E-E-A-T (leadership/last-updated)</td><td>2.3</td></tr>
+    <tr><td>6</td><td><span class="pill p-med">MED</span></td><td>Audit location pages for thin content / index bloat</td><td>8.2</td></tr>
+    <tr><td>7</td><td><span class="pill p-med">MED</span></td><td>Point "mobile app development company" intent at the service pillar, not homepage</td><td>8.1</td></tr>
+    <tr><td>8</td><td><span class="pill p-med">MED</span></td><td>Build "vs" / "alternatives" competitor pages; pursue listicle inclusion</td><td>7.1/7.2</td></tr>
+    <tr><td>9</td><td><span class="pill p-med">MED</span></td><td>Create Wikidata entity; build Reddit + YouTube presence (brand mentions)</td><td>6.1</td></tr>
+    <tr><td>10</td><td><span class="pill p-low">LOW</span></td><td>Fix duplicate "Our USP's" H2 + malformed text-#454444 class; "USP's"→"USPs"</td><td>2.1</td></tr>
+    <tr><td>11</td><td><span class="pill p-low">LOW</span></td><td>Empty alt on decorative hero backgrounds; remove legacy meta keywords; deploy clean llms.txt</td><td>2.2/1.2/1.3</td></tr>
+  </table>
+</div>
+
+<h2>10. Verification Notes</h2>
+<div class="card">
+  <ul>
+    <li>Title/meta/H1/schema/performance hints: <b>verified</b> from source + live.</li>
+    <li>Competitor landscape + brand directory presence: <b>verified</b> via web search (estimates where noted).</li>
+    <li>Backlink DR/referring-domain counts, keyword volumes, live SERP positions: <b>not measured</b> — connect Ahrefs + DataForSEO + Google Search Console to quantify.</li>
+    <li><b>No files were modified.</b> This is an audit deliverable only.</li>
+  </ul>
+  <p class="src"><b>Sources:</b>
+    <a href="https://clutch.co/profile/img-global-infotech">Clutch</a> ·
+    <a href="https://www.goodfirms.co/company/img-global-infotech-pvt-ltd">GoodFirms</a> ·
+    <a href="https://theninehertz.com/blog/top-companies/mobile-app-development-companies-in-india">TheNineHertz listicle</a> ·
+    <a href="https://topappdevelopmentcompanies.com/">TopAppDevelopmentCompanies</a> ·
+    <a href="https://www.designrush.com/agency/profile/img-global-infotech">DesignRush</a>
+  </p>
+</div>
+
+<footer>Audit prepared for IMG Global Infotech — Homepage. Audit-only; awaiting your "apply" instruction before any change is made.</footer>
+
+</div>
+</body>
+</html>
