@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit — Practo Like App Case Study | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0e1116; --card:#171b22; --card2:#1d222b; --line:#2a313c;
+    --ink:#e8ecf3; --mut:#9aa6b6; --acc:#19b6c9; --accd:#118ea0;
+    --crit:#ff5d5d; --high:#ff9f43; --med:#ffd54a; --low:#6cc6ff; --ok:#46d39a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:32px 20px 80px}
+  header.top{border:1px solid var(--line);background:linear-gradient(160deg,#1a1f27,#12151b);border-radius:18px;padding:26px 28px;margin-bottom:24px}
+  .kicker{color:var(--acc);font-weight:700;letter-spacing:.12em;font-size:12px;text-transform:uppercase}
+  h1{font-size:27px;margin:8px 0 6px;line-height:1.25}
+  .url{color:var(--low);font-size:13px;word-break:break-all}
+  .meta{color:var(--mut);font-size:13px;margin-top:10px}
+  .ymyl{display:inline-block;margin-top:10px;background:rgba(255,93,93,.12);border:1px solid var(--crit);color:#ffb0b0;font-size:12px;font-weight:700;padding:4px 10px;border-radius:8px}
+  .score{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:22px}
+  .ring{--p:40;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;
+    background:conic-gradient(var(--crit) calc(var(--p)*1%), #262c36 0);flex:0 0 auto}
+  .ring .in{width:92px;height:92px;border-radius:50%;background:var(--bg);display:grid;place-items:center;text-align:center}
+  .ring .in b{font-size:28px;display:block;line-height:1}
+  .ring .in span{font-size:11px;color:var(--mut)}
+  .scorecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:18px 0}
+  .barrow{display:flex;align-items:center;gap:12px;margin:9px 0;font-size:13px}
+  .barrow .nm{width:130px;color:var(--mut);flex:0 0 auto}
+  .barrow .track{flex:1;height:10px;background:#262c36;border-radius:6px;overflow:hidden}
+  .barrow .fill{height:100%;border-radius:6px}
+  .barrow .vv{width:54px;text-align:right;font-weight:700;flex:0 0 auto}
+  h2.sec{font-size:20px;margin:38px 0 6px;padding-top:18px;border-top:1px solid var(--line)}
+  .sub{color:var(--mut);font-size:13px;margin:0 0 16px}
+  .issue{background:var(--card);border:1px solid var(--line);border-left-width:4px;border-radius:12px;padding:16px 18px;margin:14px 0}
+  .issue.crit{border-left-color:var(--crit)} .issue.high{border-left-color:var(--high)}
+  .issue.med{border-left-color:var(--med)} .issue.low{border-left-color:var(--low)} .issue.ok{border-left-color:var(--ok)}
+  .ihead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+  .badge{font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
+  .b-crit{background:rgba(255,93,93,.16);color:var(--crit)} .b-high{background:rgba(255,159,67,.16);color:var(--high)}
+  .b-med{background:rgba(255,213,74,.16);color:var(--med)} .b-low{background:rgba(108,198,255,.16);color:var(--low)}
+  .b-ok{background:rgba(70,211,154,.16);color:var(--ok)}
+  .ititle{font-weight:700;font-size:15.5px}
+  .issue p{margin:7px 0}
+  .lbl{display:inline-block;min-width:74px;color:var(--mut);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em;vertical-align:top}
+  .why{color:#ffd9b0} .sol{color:#bff0d6}
+  code{background:#0a0d12;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12.5px;color:#aef0f8;word-break:break-word}
+  .quote{background:#0a0d12;border:1px dashed var(--line);border-radius:8px;padding:8px 12px;color:#ff9a9a;font-style:italic;margin:8px 0;font-size:13.5px}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--card2);color:var(--acc)}
+  .pri td:first-child{font-weight:800;text-align:center;width:34px}
+  .tag{font-size:11px;padding:2px 7px;border-radius:6px;background:var(--card2);color:var(--mut);border:1px solid var(--line)}
+  footer{color:var(--mut);font-size:12px;margin-top:40px;border-top:1px solid var(--line);padding-top:16px}
+  .note{background:rgba(25,182,201,.08);border:1px solid var(--accd);border-radius:10px;padding:12px 16px;color:#c5eef4;font-size:13.5px;margin:16px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">SEO · Content · UX Audit · /seo-page</div>
+  <h1>Practo Like App — Case Study Page Audit</h1>
+  <div class="url">https://www.imgglobalinfotech.com/case-study/practo-like-app</div>
+  <div class="meta">Prepared for IMG Global Infotech · 2 June 2026 · Audit only — no files were changed. Sources: live rendered HTML + local Laravel blade (<code>case-study-practo-like-app.blade.php</code>).</div>
+  <div class="ymyl">⚕ YMYL / Healthcare topic — Google holds this to a higher E-E-A-T &amp; accuracy bar than the other case studies</div>
+
+  <div class="score">
+    <div class="ring" style="--p:40">
+      <div class="in"><div><b>40</b><span>/100</span></div></div>
+    </div>
+    <div style="flex:1;min-width:240px">
+      <strong style="font-size:16px">Why this page never ranked — one line:</strong>
+      <p style="margin:6px 0 0;color:var(--mut)">It's crawlable and indexed, but it's optimised for the <em>brand "Practo"</em> (unwinnable) instead of a commercial keyword, the body is near-duplicate of your other 11 case studies, the H1 is hidden and keyword-less — and because this is a <strong>healthcare (YMYL)</strong> page, real errors hurt extra: a "<strong>Patent App</strong>" heading (should be "Patient"), a "<strong>2cancellation</strong>" typo, a gibberish keyword injection, a competitor ("Doctolib") dropped into a Practo feature, and contradictory doctor counts. No author/medical-reviewer either. Google has no high-trust, intent-matched signal to rank it.</p>
+    </div>
+  </div>
+
+  <div class="scorecard">
+    <div style="font-weight:700;margin-bottom:8px">Page Score Card</div>
+    <div class="barrow"><div class="nm">On-Page SEO</div><div class="track"><div class="fill" style="width:44%;background:var(--high)"></div></div><div class="vv">44/100</div></div>
+    <div class="barrow"><div class="nm">Content Quality</div><div class="track"><div class="fill" style="width:36%;background:var(--crit)"></div></div><div class="vv">36/100</div></div>
+    <div class="barrow"><div class="nm">Technical</div><div class="track"><div class="fill" style="width:60%;background:var(--med)"></div></div><div class="vv">60/100</div></div>
+    <div class="barrow"><div class="nm">Schema</div><div class="track"><div class="fill" style="width:35%;background:var(--crit)"></div></div><div class="vv">35/100</div></div>
+    <div class="barrow"><div class="nm">Images</div><div class="track"><div class="fill" style="width:64%;background:var(--med)"></div></div><div class="vv">64/100</div></div>
+  </div>
+</header>
+
+<div class="note"><strong>Good news first:</strong> Not a technical block. The page returns <code>INDEX, FOLLOW</code>, canonical is correct/self-referencing, it's allowed in <code>robots.txt</code> and in the sitemap, <code>&lt;title&gt;</code> = OG title (consistent), and the "Key Result" actually has quantified numbers (better than the Tinder/Zillow pages). But on a healthcare topic the content errors below are unusually damaging.</div>
+
+<!-- ROOT CAUSE -->
+<h2 class="sec">1. The root cause — why it has never ranked</h2>
+<p class="sub">Most important section.</p>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">Optimised for the brand "Practo", not a keyword you can win</span></div>
+  <p><span class="lbl">Problem</span>Title + H1 + OG all say <code>Practo – Revolutionizing Digital Healthcare Solutions</code>. That's what <strong>Practo's own site</strong> ranks for. An agency case study can't outrank the actual product for its brand name. The commercial phrase ("healthcare app like Practo") only sits in the meta description.</p>
+  <p><span class="lbl why">Why</span>Google ranks on intent. "Practo" searchers want the app; your buyers search "healthcare app development", "build an app like Practo", "telemedicine app development cost". None are in the title/H1, so you rank for nothing winnable.</p>
+  <p><span class="lbl sol">Fix</span>Re-target to commercial intent:<br>Title → <code>Practo Like App Development | Build a Healthcare App Like Practo — IMG Global Infotech</code><br>Visible H1 → <code>Practo Like App / Healthcare App Development — Case Study</code>. Keep "Practo" as context; make "healthcare/telemedicine app development" the head term.</p>
+</div>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">Near-duplicate template across 12 case studies</span></div>
+  <p><span class="lbl">Problem</span>Same skeleton, same shared "Cutting Edge Technologies" logo grid + "AI-Powered Features" block + "Proposed Team &amp; Time" copy as Astrotalk, Uber, Zillow, Tinder, etc. (This page is in fact the <em>source</em> of the leftover <code>practoPolygon/Rectangle/Ellipse</code> shapes that show up on the other case studies.)</p>
+  <p><span class="lbl why">Why</span>Helpful-Content and duplicate systems demote templated pages whose value is a swapped template; 12 lookalikes dilute each other so none becomes the authority for its topic.</p>
+  <p><span class="lbl sol">Fix</span>Make ≥50% of the body unique to <em>healthcare/telemedicine</em>: real build story, architecture (appointment engine, e-prescription, video consults, HIPAA/DISHA-style data security, EHR integration), screenshots, defensible outcomes. Push the shared logo grid to a secondary block.</p>
+</div>
+
+<!-- YMYL ERRORS -->
+<h2 class="sec">2. Errors that hurt extra on a healthcare (YMYL) page</h2>
+<p class="sub">These are exactly the "wrong content / content that doesn't belong" items you asked about.</p>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">"Patent App" heading — should be "Patient App"</span></div>
+  <p><span class="lbl">Problem</span>The feature group heading reads <code>### Patent App</code> instead of <strong>Patient App</strong> (a "patent" is an invention right — nothing to do with healthcare).</p>
+  <p><span class="lbl why">Why</span>It's a visible H3 on a healthcare page. On a YMYL topic, a basic medical-term error in a heading is a strong low-quality / low-expertise signal to both users and Google, and it undercuts the whole "we build healthcare apps" claim.</p>
+  <p><span class="lbl sol">Fix</span>Change to "Patient App". Proofread every heading on the page.</p>
+</div>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">Gibberish keyword injection + a stray-character typo</span></div>
+  <p><span class="lbl">Problem</span>In "What is Practo?":</p>
+  <div class="quote">"In the era of technology, the <strong>IoT-enabled health monitoring app development in charge of the app</strong> also has a novel approach to healthcare."</div>
+  <p>And in a feature line: "Facilitate the booking, rescheduling, and <strong>2cancellation</strong> of appointments…" (stray "2").</p>
+  <p><span class="lbl why">Why</span>"IoT-enabled health monitoring app development in charge of the app" is a keyword phrase jammed into a sentence where it has no grammatical role — classic stuffing/spinning. "2cancellation" is an obvious un-proofread typo. Both scream low-effort, machine-assisted content on a page that needs to look authoritative.</p>
+  <p><span class="lbl sol">Fix</span>Rewrite the sentence in plain English (drop the jammed keyword); fix "2cancellation". Full proofread pass.</p>
+</div>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">Competitor "Doctolib" injected into a Practo feature</span></div>
+  <p><span class="lbl">Problem</span>Doctor-app feature: <span class="quote" style="display:inline-block;margin:4px 0">"Make video calls and consult with patients in a secure communication system <strong>with an app like Doctolib</strong>."</span></p>
+  <p><span class="lbl why">Why</span>Doctolib is a different healthcare brand; dropping it into a Practo feature is off-topic keyword injection that confuses the page's focus and reads as spam — same pattern as the Rapido/Bolt/Ola injections on the Uber page.</p>
+  <p><span class="lbl sol">Fix</span>Remove "an app like Doctolib" from the Practo feature. If you want to target "app like Doctolib", build a dedicated page.</p>
+</div>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">Contradictory / unsourced stats</span></div>
+  <p><span class="lbl">Problem</span>The "What is Practo?" block says <strong>1L+ (100,000) Doctors</strong> and "50K+ Hospitals"; the "Key Result" block says <strong>200,000+ Verified Doctors</strong>, "50 Million+ Downloads", "10 Million+ Consultations". The doctor count contradicts itself, and none are sourced.</p>
+  <p><span class="lbl why">Why</span>Two different numbers for the same metric on one page is a clear accuracy/trust failure — heightened on YMYL. It also blurs attribution: these read as Practo's own corporate figures presented as "the result of the case study", implying you built Practo.</p>
+  <p><span class="lbl sol">Fix</span>Make the numbers consistent, cite the source, and clearly separate "About Practo (context)" stats from "What our client achieved" results. Don't present Practo's brand numbers as your project's outcome.</p>
+</div>
+
+<!-- CONTENT QUALITY -->
+<h2 class="sec">3. Content quality, humanisation &amp; E-E-A-T</h2>
+<p class="sub">Your brief: real, organic, human content — verified. On YMYL, expertise matters most.</p>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">No author / medical reviewer — and AI-spun phrasing</span></div>
+  <p><span class="lbl">Problem</span>No author byline, credentials, or "medically reviewed by" marker. Phrasing is spun, e.g. "Practo has become a fully-fledged <strong>telemedicine app development solution</strong>" (Practo is a healthcare platform, not a dev solution), and the rhetorical "Still, the initial idea of the start-up was completely different…".</p>
+  <p><span class="lbl why">Why</span>For health content Google weighs E-E-A-T heavily; an anonymous, machine-flavoured page about medical services lacks the trust signals it expects, which suppresses ranking. Mislabelling Practo also reads as non-expert.</p>
+  <p><span class="lbl sol">Fix</span>Add a named author/expert box (and ideally a reviewer), rewrite in plain human English, and correct domain terms.</p>
+</div>
+
+<!-- MISSING SECTIONS -->
+<h2 class="sec">4. Missing &amp; weak sections</h2>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">FAQ schema injected, but no FAQ section on the page</span></div>
+  <p><span class="lbl">Problem</span><code>@include('tailwind.schema.faqSchema')</code> runs, but no visible FAQ block renders (no DB FAQ rows for this URL).</p>
+  <p><span class="lbl why">Why</span>You lose easy long-tail capture ("cost to build a healthcare app like Practo", "telemedicine app development cost"), AND FAQ structured data with no matching visible content violates Google policy and risks a manual action — and FAQ rich results are actually best-suited to health/medical pages like this one.</p>
+  <p><span class="lbl sol">Fix</span>Add a real FAQ section (cost, timeline, features, compliance/data-security, monetisation) and populate the FAQ DB row so schema = content.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">No testimonial, no process; image-led Solution; no "Business Goal" section</span></div>
+  <p><span class="lbl">Problem</span>No client quote, no process/approach narrative; "Our Solution" is image-led; and unlike the other case studies this one has no explicit "Business Goal" section (jumps from "What is Practo?" to "Project Ideation").</p>
+  <p><span class="lbl why">Why</span>Trust + structure signals matter for commercial/health content; image-led sections add little crawlable text; a missing goal section weakens the case-study narrative.</p>
+  <p><span class="lbl sol">Fix</span>Add a Business Goal section, a process/approach block, a testimonial, and convert Solution into real text.</p>
+</div>
+
+<!-- TECHNICAL -->
+<h2 class="sec">5. Technical &amp; on-page SEO</h2>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">H1 is hidden and keyword-less</span></div>
+  <p><span class="lbl">Problem</span>Only H1 is <code>&lt;h1 class="hidden"&gt;Practo - Case Study&lt;/h1&gt;</code>. The visible top is a logo image.</p>
+  <p><span class="lbl why">Why</span>The H1 is a primary relevance signal; hiding it with a generic value wastes it and leaves no visible keyword-rich heading.</p>
+  <p><span class="lbl sol">Fix</span>One visible H1 with the target phrase (<code>Practo Like App / Healthcare App Development — Case Study</code>) + a supporting line.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">No Article / CreativeWork / Service / MedicalBusiness schema</span></div>
+  <p><span class="lbl">Problem</span>Only Breadcrumb + (empty) FAQ schema attempted; nothing describes the case study, author, client or service.</p>
+  <p><span class="lbl why">Why</span>Rich structured data helps Google map agency → service → outcome; on a health page, author + organisation schema also reinforce E-E-A-T.</p>
+  <p><span class="lbl sol">Fix</span>Add <code>Article</code>/<code>CreativeWork</code> (author + dates) and <code>Service</code> schema linking to your healthcare-app-development service page.</p>
+</div>
+
+<div class="issue low">
+  <div class="ihead"><span class="badge b-low">Low</span><span class="ititle">Wrong geo meta</span></div>
+  <p><span class="lbl">Problem</span><code>meta geo.region = DE</code> (Germany) on a global page — sitewide template leftover seen on all case studies.</p>
+  <p><span class="lbl why">Why</span>Minor wrong geo mis-signal.</p>
+  <p><span class="lbl sol">Fix</span>Set geo to the intended market or remove it (sitewide).</p>
+</div>
+
+<div class="issue ok">
+  <div class="ihead"><span class="badge b-ok">Pass</span><span class="ititle">What is already correct</span></div>
+  <p><span class="lbl">OK</span>Self-referencing canonical ✓ · <code>INDEX, FOLLOW</code> ✓ · allowed in robots.txt ✓ · in sitemap ✓ · title = OG title (consistent) ✓ · meta description has a commercial hook ✓ · OG + Twitter cards with image ✓ · "Key Result" has quantified numbers ✓ · 128 of 137 content images have alt + title ✓.</p>
+</div>
+
+<!-- IMAGES -->
+<h2 class="sec">6. Images</h2>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">9 decorative shapes have no alt at all + heavy image count</span></div>
+  <p><span class="lbl">Problem</span>Nine decorative SVG shapes (<code>practoPolygon1/2/3</code>, <code>practoRectangle1</code>, <code>practoEllipse1</code>) have no <code>alt</code> or <code>title</code> attribute. 137 images total is the heaviest of the case studies; admin features likely reuse one graphic.</p>
+  <p><span class="lbl why">Why</span>Decorative images should carry an explicit empty <code>alt=""</code> so screen readers skip them; a missing attribute can make them read the filename. The image volume inflates payload and can hurt mobile LCP/INP.</p>
+  <p><span class="lbl sol">Fix</span>Add <code>alt=""</code> to decorative shapes, give each feature a unique image + alt, lazy-load below-the-fold (already lazy on these), and trim the logo wall.</p>
+</div>
+
+<!-- LINKS -->
+<h2 class="sec">7. Internal &amp; external linking</h2>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">No in-content link to a healthcare-app service/money page</span></div>
+  <p><span class="lbl">Problem</span>In-body contextual links go only to 4 other case studies. There's a "Latest Insights" blog block, but <strong>no contextual link</strong> to your healthcare/telemedicine app-development service or cost page from within the unique content.</p>
+  <p><span class="lbl why">Why</span>Internal links pass relevance and authority and route users toward conversion. A deep case-study URL with no contextual links in or out is an island — little equity reaches it, and it passes none to your commercial pages.</p>
+  <p><span class="lbl sol">Fix</span>(1) Add contextual body links to your healthcare-app-development service + cost pages with descriptive anchors. (2) Link <em>into</em> this case study from that service page, related blogs and the case-study hub using anchors like "app like Practo".</p>
+</div>
+
+<!-- URL -->
+<h2 class="sec">8. Is the URL user- &amp; SEO-friendly?</h2>
+
+<div class="issue ok">
+  <div class="ihead"><span class="badge b-ok">Mostly yes</span><span class="ititle">/case-study/practo-like-app</span></div>
+  <p><span class="lbl">Verdict</span>Yes — clean, lowercase, hyphenated, short, readable, keyword present ("practo-like-app"), no parameters/dates, and <code>/case-study/</code> signals content type. <strong>Keep it.</strong></p>
+  <p><span class="lbl why">Note</span>People also search "healthcare app like Practo" / "telemedicine app" / "Practo clone" — capture those in the title, H1 and body, not the slug. Don't change the URL (a change forces redirects and risks losing equity).</p>
+</div>
+
+<!-- UX -->
+<h2 class="sec">9. UX</h2>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">Logo-as-hero, swipe-gated features, image-led Solution, duplicate forms</span></div>
+  <p><span class="lbl">Problem</span>Hero leads with the Practo logo and no descriptive headline; features hide behind a "Swipe to show features" carousel; "Our Solution" is image-led; two near-identical lead forms + exit popup.</p>
+  <p><span class="lbl why">Why</span>Little immediate text tells users/crawlers what the page offers; swipe-gated content is low-discoverability; multiple forms + popup raise interaction cost (INP) and feel pushy.</p>
+  <p><span class="lbl sol">Fix</span>Add a clear text headline + sub-line + primary CTA in the hero; expose features as crawlable text; make Solution text-first; keep one well-placed form.</p>
+</div>
+
+<!-- ACTION PLAN -->
+<h2 class="sec">10. Prioritised action plan (organic)</h2>
+<p class="sub">Top-down. Items 1–4 move the ranking. No URL change required.</p>
+
+<table class="pri">
+  <thead><tr><th>#</th><th>Action</th><th>Fixes</th><th>Effort</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Re-target title + visible H1 + first paragraph to "Practo like app / healthcare app development"</td><td>Brand-intent mismatch, hidden H1</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>2</td><td>Fix YMYL errors: "Patent App"→"Patient App", "2cancellation", the gibberish "IoT… in charge of the app" line, remove "app like Doctolib"</td><td>Healthcare accuracy, off-topic, stuffing</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>3</td><td>Make stats consistent &amp; sourced; separate "About Practo" context from "client result"</td><td>Contradictory/unattributed stats</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>4</td><td>Add author/medical-reviewer (E-E-A-T) + rewrite spun copy; differentiate from the other 11 case studies</td><td>YMYL trust, duplication</td><td><span class="tag">Med</span></td></tr>
+    <tr><td>5</td><td>Build internal links: contextual body links to your healthcare-app service/cost pages + inbound links into this page</td><td>Orphan-island linking</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>6</td><td>Add a real FAQ section + populate FAQ DB row so schema matches</td><td>Missing FAQ, schema policy</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>7</td><td>Add Business Goal + process + testimonial sections; make Solution crawlable text</td><td>Missing sections</td><td><span class="tag">Med</span></td></tr>
+    <tr><td>8</td><td>Add Article/CreativeWork + Service schema</td><td>Schema</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>9</td><td>Add <code>alt=""</code> to decorative shapes; unique feature images; trim payload</td><td>Images, accessibility</td><td><span class="tag">Med</span></td></tr>
+    <tr><td>10</td><td>Clean geo=DE + footer flag (sitewide)</td><td>Quality signals</td><td><span class="tag">Low</span></td></tr>
+  </tbody>
+</table>
+
+<div class="note"><strong>Bottom line:</strong> Same brand-intent + duplication problems as the others — but this is a <em>healthcare (YMYL)</em> page, so the "Patent App" heading, "2cancellation" typo, gibberish injection, "Doctolib" mention, contradictory doctor counts and missing author hurt much more. Fix the target (1), clean the medical errors (2–4), and this URL can finally rank for "healthcare app like Practo / telemedicine app development" terms you can win.</div>
+
+<footer>
+  Audit only — per project instruction, no files were modified. Verified against the live rendered HTML and the local blade <code>resources/views/tailwind/pages/case-study-practo-like-app/case-study-practo-like-app.blade.php</code>. Tell me when you want to apply any of these and I'll implement them.
+</footer>
+
+</div>
+</body>
+</html>
