@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit — Astrotalk Like App Case Study | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0e1116; --card:#171b22; --card2:#1d222b; --line:#2a313c;
+    --ink:#e8ecf3; --mut:#9aa6b6; --acc:#FFDE21; --accd:#caa800;
+    --crit:#ff5d5d; --high:#ff9f43; --med:#ffd54a; --low:#6cc6ff; --ok:#46d39a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:32px 20px 80px}
+  header.top{border:1px solid var(--line);background:linear-gradient(160deg,#1a1f27,#12151b);border-radius:18px;padding:26px 28px;margin-bottom:24px}
+  .kicker{color:var(--acc);font-weight:700;letter-spacing:.12em;font-size:12px;text-transform:uppercase}
+  h1{font-size:27px;margin:8px 0 6px;line-height:1.25}
+  .url{color:var(--low);font-size:13px;word-break:break-all}
+  .meta{color:var(--mut);font-size:13px;margin-top:10px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .stat .n{font-size:24px;font-weight:800}
+  .stat .l{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+  .score{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .ring{--p:38;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;
+    background:conic-gradient(var(--crit) calc(var(--p)*1%), #262c36 0);flex:0 0 auto}
+  .ring .in{width:92px;height:92px;border-radius:50%;background:var(--bg);display:grid;place-items:center;text-align:center}
+  .ring .in b{font-size:28px;display:block;line-height:1}
+  .ring .in span{font-size:11px;color:var(--mut)}
+  h2.sec{font-size:20px;margin:38px 0 6px;padding-top:18px;border-top:1px solid var(--line)}
+  .sub{color:var(--mut);font-size:13px;margin:0 0 16px}
+  .issue{background:var(--card);border:1px solid var(--line);border-left-width:4px;border-radius:12px;padding:16px 18px;margin:14px 0}
+  .issue.crit{border-left-color:var(--crit)} .issue.high{border-left-color:var(--high)}
+  .issue.med{border-left-color:var(--med)} .issue.low{border-left-color:var(--low)} .issue.ok{border-left-color:var(--ok)}
+  .ihead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+  .badge{font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
+  .b-crit{background:rgba(255,93,93,.16);color:var(--crit)} .b-high{background:rgba(255,159,67,.16);color:var(--high)}
+  .b-med{background:rgba(255,213,74,.16);color:var(--med)} .b-low{background:rgba(108,198,255,.16);color:var(--low)}
+  .b-ok{background:rgba(70,211,154,.16);color:var(--ok)}
+  .ititle{font-weight:700;font-size:15.5px}
+  .issue p{margin:7px 0}
+  .lbl{display:inline-block;min-width:74px;color:var(--mut);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em;vertical-align:top}
+  .why{color:#ffd9b0} .sol{color:#bff0d6}
+  code{background:#0a0d12;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12.5px;color:#ffe9a8;word-break:break-word}
+  .quote{background:#0a0d12;border:1px dashed var(--line);border-radius:8px;padding:8px 12px;color:#ff9a9a;font-style:italic;margin:8px 0;font-size:13.5px}
+  ul.tl{margin:6px 0 0;padding-left:20px} ul.tl li{margin:4px 0}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--card2);color:var(--acc)}
+  .pri td:first-child{font-weight:800;text-align:center;width:34px}
+  .tag{font-size:11px;padding:2px 7px;border-radius:6px;background:var(--card2);color:var(--mut);border:1px solid var(--line)}
+  footer{color:var(--mut);font-size:12px;margin-top:40px;border-top:1px solid var(--line);padding-top:16px}
+  .note{background:rgba(255,222,33,.07);border:1px solid var(--accd);border-radius:10px;padding:12px 16px;color:#ffe9a8;font-size:13.5px;margin:16px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">SEO · Content · UX Audit</div>
+  <h1>Astrotalk Like App — Case Study Page Audit</h1>
+  <div class="url">https://www.imgglobalinfotech.com/case-study/astrotalk-like-app</div>
+  <div class="meta">Prepared for IMG Global Infotech · 2 June 2026 · Audit only — no files were changed. Sources: live rendered HTML + local Laravel blade (<code>case-study-astrotalk-like-app.blade.php</code>).</div>
+
+  <div class="score" style="margin-top:22px">
+    <div class="ring" style="--p:38">
+      <div class="in"><div><b>38</b><span>/100</span></div></div>
+    </div>
+    <div style="flex:1;min-width:240px">
+      <strong style="font-size:16px">Why this page never ranked — one line:</strong>
+      <p style="margin:6px 0 0;color:var(--mut)">The page is technically crawlable and indexed, but it is optimised for the <em>brand term "Astrotalk"</em> (which you can never outrank Astrotalk itself for) instead of the <em>commercial intent</em> "build an app like Astrotalk / Astrotalk clone". On top of that the body is thin, AI-spun, near-duplicate of your other 11 case studies, has no keyword-rich H1, and almost no internal links. So Google has no reason to rank it for anything winnable.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="stat"><div class="n" style="color:var(--ok)">Indexable</div><div class="l">Index / Follow ✓</div></div>
+    <div class="stat"><div class="n">129</div><div class="l">Images on page</div></div>
+    <div class="stat"><div class="n" style="color:var(--crit)">Hidden</div><div class="l">H1 visibility</div></div>
+    <div class="stat"><div class="n" style="color:var(--high)">4</div><div class="l">In-body internal links</div></div>
+    <div class="stat"><div class="n" style="color:var(--crit)">0</div><div class="l">FAQ on page</div></div>
+  </div>
+</header>
+
+<div class="note"><strong>Good news first:</strong> This is <em>not</em> a technical blocking problem. The page returns <code>INDEX, FOLLOW</code>, the canonical is correct and self-referencing, it is allowed in <code>robots.txt</code>, and it sits in the sitemap. Every problem below is fixable on-page with content and structure — no replatforming needed.</div>
+
+<!-- ================= WHY NOT RANKING ================= -->
+<h2 class="sec">1. The root cause — why it has never ranked</h2>
+<p class="sub">The single most important section. Everything else is supporting detail.</p>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">Search-intent &amp; keyword mismatch — you are competing with Astrotalk for its own name</span></div>
+  <p><span class="lbl">Problem</span>Title, H1 and meta all target the brand: <code>Astrotalk – Connecting Users with Expert Astrologers Online</code>. That is what <strong>Astrotalk's own app/website</strong> ranks for. A web-development agency case study cannot outrank the actual product for its brand name.</p>
+  <p><span class="lbl why">Why</span>Google matches pages to <em>intent</em>. Anyone typing "Astrotalk" wants the app, not an agency. Your real buyers search commercial-intent phrases like <em>"astrotalk clone app development", "build an app like astrotalk", "astrology app development cost", "astrotalk like app development company"</em>. None of those phrases appear in your title, H1, or first paragraph — so you rank for nothing you can actually win.</p>
+  <p><span class="lbl sol">Fix</span>Re-target the page to commercial intent (organic, no keyword stuffing). Example direction:<br>
+  Title → <code>Astrotalk Like App Development | Build Your Own Astrology App — IMG Global Infotech</code><br>
+  H1 (visible) → <code>Astrotalk Like App Development — Case Study</code><br>
+  First 100 words should naturally contain "develop an app like Astrotalk", "astrology app development", "astrologer consultation app". Keep "Astrotalk" as <em>context</em>, make "<strong>like app development</strong>" the head term.</p>
+</div>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">Near-duplicate template across 12 case studies → low uniqueness / "thin + boilerplate"</span></div>
+  <p><span class="lbl">Problem</span>This page shares the same skeleton, the same "Cutting Edge Technologies" 100+ logo block, the same "AI-Powered Features" section and the same "Proposed Team / Timeline" copy as Uber, Tinder, Netflix, Blinkit, MoneyLion etc. Only the nouns change.</p>
+  <p><span class="lbl why">Why</span>Google's Helpful-Content and duplicate-detection systems demote pages whose primary value is a swapped template. When 12 URLs look 80% identical, none of them is treated as the authoritative answer for its topic — they dilute each other.</p>
+  <p><span class="lbl sol">Fix</span>Make at least 50% of the body genuinely unique to <em>astrology</em>: real problem→solution narrative, specific architecture decisions (real-time chat scale, astrologer payout logic, kundli/horoscope engine, queue management), screenshots, measurable outcomes. Move the giant shared tech-logo grid into a collapsed/secondary block so the unique astrology content dominates.</p>
+</div>
+
+<!-- ================= TECHNICAL SEO ================= -->
+<h2 class="sec">2. Technical &amp; on-page SEO</h2>
+<p class="sub">Meta, headings, index/follow, canonical, schema.</p>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">H1 is hidden and carries no keyword</span></div>
+  <p><span class="lbl">Problem</span>The only live H1 is <code>&lt;h1 class="hidden"&gt;Astrotalk - Case Study&lt;/h1&gt;</code> (visually hidden). The big visible "heading" at the top is just the Astrotalk logo image. A second keyword H1 in the file is commented out.</p>
+  <p><span class="lbl why">Why</span>The H1 is one of the strongest on-page relevance signals. Hiding it with <code>display:none</code> and giving it a generic, keyword-free value wastes that signal, and a visually-hidden H1 can read as a manipulation pattern. There is no visible, keyword-rich primary heading for the user or the crawler.</p>
+  <p><span class="lbl sol">Fix</span>Make one <strong>visible</strong> H1 with the target phrase, e.g. <code>Astrotalk Like App Development</code> with a supporting line. Keep the logo as decorative, not as the heading.</p>
+</div>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">Title &amp; meta description sell Astrotalk, not your service</span></div>
+  <p><span class="lbl">Problem</span>Meta description: <em>"Explore how Astrotalk became a leading astrology platform…"</em> — it markets Astrotalk, with the agency offer buried mid-sentence.</p>
+  <p><span class="lbl why">Why</span>Title + meta are your SERP advert and a ranking/CTR input. Leading with the brand wastes the most valuable pixels on a term you can't win and gives no commercial hook ("cost", "features", "build your own").</p>
+  <p><span class="lbl sol">Fix</span>Rewrite to lead with the service + a benefit + a CTA verb, e.g. <em>"Want to build an app like Astrotalk? See how we developed a scalable astrology consultation platform — features, tech stack &amp; timeline. Get a free quote."</em> Keep it ≤155 chars.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">FAQ schema is injected but there is NO FAQ section on the page</span></div>
+  <p><span class="lbl">Problem</span><code>@include('tailwind.schema.faqSchema')</code> runs, but the rendered page shows no visible Frequently-Asked-Questions block (the DB has no FAQ rows for this URL, so the schema outputs nothing useful — and even if it did, there would be schema with no matching visible content).</p>
+  <p><span class="lbl why">Why</span>Two losses: (1) you miss the FAQ content itself, which is the easiest way to capture long-tail queries like "how much does it cost to build an app like astrotalk"; (2) FAQ structured data without matching on-page content violates Google's structured-data policy and can trigger a manual action.</p>
+  <p><span class="lbl sol">Fix</span>Add a real, visible FAQ section (6–10 genuine questions about cost, timeline, features, tech, monetisation) AND populate the FAQ DB row for this URL so schema and content match.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">No CaseStudy / Article / Service schema — only FAQ &amp; Breadcrumb attempted</span></div>
+  <p><span class="lbl">Problem</span>The page is a case study but exposes no <code>Article</code>, <code>CreativeWork</code> or <code>Service</code>/<code>Organization</code> structured data describing what was built, by whom, the client, the outcome.</p>
+  <p><span class="lbl why">Why</span>Rich structured data helps Google understand entity relationships (agency → service → client outcome) and improves eligibility for enhanced results and AI-overview citations.</p>
+  <p><span class="lbl sol">Fix</span>Add <code>Article</code> or <code>CreativeWork</code> schema with author (E-E-A-T), datePublished/Modified, plus <code>Service</code> linking back to your astrology-app-development service page.</p>
+</div>
+
+<div class="issue low">
+  <div class="ihead"><span class="badge b-low">Low</span><span class="ititle">Stray / wrong meta values from the shared template</span></div>
+  <p><span class="lbl">Problem</span><code>meta geo.region = DE</code> (Germany) on an India/global astrology page; <code>apple-mobile-web-app-title = "My App"</code> (default placeholder); footer "Germany" office uses Canada flag images (<code>canadaFlag.webp</code>, <code>hq-canada.webp</code>).</p>
+  <p><span class="lbl why">Why</span>Individually minor, but wrong geo signals and placeholder values are sloppy-quality signals and can mildly confuse geo-targeting. The flag mismatch is a sitewide footer bug, not unique to this page.</p>
+  <p><span class="lbl sol">Fix</span>Set geo to the intended market (or remove it), replace the "My App" placeholder, and fix the footer flag asset mapping sitewide.</p>
+</div>
+
+<div class="issue ok">
+  <div class="ihead"><span class="badge b-ok">Pass</span><span class="ititle">What is already correct</span></div>
+  <p><span class="lbl">OK</span>Self-referencing canonical ✓ · <code>INDEX, FOLLOW</code> in production ✓ · allowed in robots.txt ✓ · in sitemap.xml ✓ · OG + Twitter cards complete with image ✓ · valid viewport/mobile metas ✓ · every <code>&lt;img&gt;</code> has both <code>alt</code> and <code>title</code> ✓.</p>
+</div>
+
+<!-- ================= CONTENT ================= -->
+<h2 class="sec">3. Content quality, keywords &amp; relevance</h2>
+<p class="sub">Your brief: real organic, humanised content — verified. This is where the page is weakest.</p>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">Content is AI-spun, not human — with broken, embarrassing sentences</span></div>
+  <p><span class="lbl">Problem</span>Several lines are clearly machine-spun and make no sense. Real examples copied from the live page:</p>
+  <div class="quote">"Intelligent suggestions to ensure the appropriate astrologer <strong>rates psychos</strong> according to their choice and requirements."</div>
+  <div class="quote">"Astrotalk is one of the fastest-growing <strong>app developments</strong> that connects millions of users…" (should be "platforms")</div>
+  <div class="quote">"<strong>Facile</strong> registration…", "favorable proportions of margins <strong>purported</strong> for astrologers", "control their availability <strong>rate</strong>", "Monitor all transactions and <strong>Layouts</strong>".</div>
+  <p><span class="lbl why">Why</span>This is exactly the "unhelpful, automatically-generated" signal Google's spam &amp; Helpful-Content systems target. It also destroys E-E-A-T and human trust — a prospect who reads "rates psychos" will not hire you. Spun synonyms ("Facile", "purported") are the classic fingerprint of article-spinner output.</p>
+  <p><span class="lbl sol">Fix</span>Rewrite every section in plain, human English by someone who knows the project. Short sentences, concrete detail, no thesaurus-spinning. This single change lifts both quality signals and conversion.</p>
+</div>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">Factual errors that undermine credibility</span></div>
+  <p><span class="lbl">Problem</span>(a) About section says astrologers give advice <em>"for free"</em> — Astrotalk is a <strong>paid</strong> per-minute consultation model. (b) Random competitor <em>"Panditji"</em> is dropped in with no context. (c) In the "Result" block, <code>Bounce Rate is 65.39%</code> is listed as a positive achievement.</p>
+  <p><span class="lbl why">Why</span>A 65% bounce rate is a <em>problem</em> metric, not a success — showcasing it as a result signals the content was assembled without understanding. False "free" claims and irrelevant brand mentions reduce topical trust and can mislead users.</p>
+  <p><span class="lbl sol">Fix</span>Remove the "free" claim, drop the unexplained "Panditji" mention, and replace the bounce-rate "win" with genuine positive outcomes (retention, consultations completed, repeat-user %, revenue growth) that you can defend.</p>
+</div>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">Leftover content from the Netflix template (proof of copy-paste)</span></div>
+  <p><span class="lbl">Problem</span>The blade still contains commented-out Netflix copy: <em>"See What's Next … Astrotalk is another name for entertainment as the world's top OTT app … keep users binge-watching their favorite zoner."</em> It is commented (not rendered), but it proves the page was duplicated from the Netflix case study rather than written for astrology.</p>
+  <p><span class="lbl why">Why</span>Even commented, it confirms the duplication problem from §1; and a stray paste like this is one edit away from going live. It explains the generic feel Google is reacting to.</p>
+  <p><span class="lbl sol">Fix</span>Delete the dead Netflix block and audit the file for any other carried-over text. Treat each case study as a unique asset, not a clone.</p>
+</div>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">Thin unique body — and a section that does not belong</span></div>
+  <p><span class="lbl">Problem</span>The genuinely unique astrology text is roughly 6 short paragraphs (About, Goal, Idea, Challenges + feature one-liners). The rest is a 100+ logo "Cutting Edge Technologies" grid and a generic "AI-Powered Features" block reused on every case study — large in size, near-zero unique value here.</p>
+  <p><span class="lbl why">Why</span>Word-count isn't the goal, but <em>unique depth</em> is. A page that is mostly shared boilerplate + logo walls gives Google little reason to see it as the best result for "astrotalk like app". The AI-features section is generic filler, not specific to what you actually built.</p>
+  <p><span class="lbl sol">Fix</span>Expand the unique astrology narrative (the build story, decisions, results). Shrink/secondary-rank the shared tech grid. Either make the AI section project-specific (what AI you actually shipped) or remove it.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">Missing sections a ranking case study needs</span></div>
+  <p><span class="lbl">Problem</span>No visible <strong>FAQ</strong>, no <strong>client testimonial/quote</strong>, no <strong>development process/approach</strong> narrative, no <strong>author/expert byline</strong> (E-E-A-T), no clear <strong>cost/timeline-to-build</strong> hook, and the "Our Solution"/"Result" are single images with little crawlable text.</p>
+  <p><span class="lbl why">Why</span>These are the sections that capture long-tail queries, build trust, and give Google extractable text. Image-only "Solution/Result" blocks are invisible to text ranking and AI overviews.</p>
+  <p><span class="lbl sol">Fix</span>Add: process/approach, a real testimonial, an author box, an FAQ, and convert the image-only Solution/Result into real HTML text (keep the image as support).</p>
+</div>
+
+<!-- ================= IMAGES ================= -->
+<h2 class="sec">4. Images</h2>
+<p class="sub">You specifically asked about missing alt/title.</p>
+
+<div class="issue ok">
+  <div class="ihead"><span class="badge b-ok">Pass</span><span class="ititle">Alt &amp; title: present on all 129 images</span></div>
+  <p><span class="lbl">OK</span>Every <code>&lt;img&gt;</code> has both <code>alt</code> and <code>title</code>. Width/height and <code>loading</code>/<code>fetchpriority</code> are set — good for CLS and LCP.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">Same image reused for 6 different "features" + 129 images is heavy</span></div>
+  <p><span class="lbl">Problem</span><code>astrologerAdmin.webp</code> is used as the visual for Astrologer Management, Order &amp; Payment Tracking, Content Management, Reporting, Communication Tools and Fraud Prevention. Several alt texts are also near-duplicated (8× "Astrotalk App Look Like"). 129 images is a large DOM.</p>
+  <p><span class="lbl why">Why</span>Re-using one image for six distinct features is a low-effort signal and confuses users; duplicate alt text adds no value. The image volume (most are the shared tech-logo grid) inflates payload and can hurt LCP/INP on mobile.</p>
+  <p><span class="lbl sol">Fix</span>Give each feature its own visual (or icon) with a unique, descriptive alt. Lazy-load below-the-fold and consider trimming the tech-logo wall.</p>
+</div>
+
+<!-- ================= LINKS ================= -->
+<h2 class="sec">5. Internal &amp; external linking</h2>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">Almost no in-content internal links — and none to a money page</span></div>
+  <p><span class="lbl">Problem</span>Inside the body the only contextual links are to 4 other case studies. There is <strong>no in-content link</strong> to your astrology-app-development service page or to the related blog <code>/blog/astrology-app-development</code> (which only appears in the sitewide footer).</p>
+  <p><span class="lbl why">Why</span>Internal links pass relevance and authority and tell Google how pages relate. A deep case-study URL with no contextual links in or out is effectively an island — little equity flows to it, and it can't pass equity to your commercial pages. This is a major reason a "long-existing" page stays invisible.</p>
+  <p><span class="lbl sol">Fix</span>(1) Add contextual body links from this page to your astrology-app service/cost page using descriptive anchors. (2) More importantly, link <em>into</em> this case study from related blogs, the services page and the main case-study hub with anchor text like "app like Astrotalk". Build the internal cluster.</p>
+</div>
+
+<div class="issue low">
+  <div class="ihead"><span class="badge b-low">Low</span><span class="ititle">No relevant external / authority links</span></div>
+  <p><span class="lbl">Problem</span>The body cites a market stat ("$2.3 billion by 2028") with no source and links to no authoritative reference.</p>
+  <p><span class="lbl why">Why</span>Citing sources for claims is an E-E-A-T and trust signal, especially for stats. Unsourced numbers read as invented.</p>
+  <p><span class="lbl sol">Fix</span>Cite the market-size claim to a named research source (and verify the figure). One or two relevant outbound citations is healthy.</p>
+</div>
+
+<!-- ================= URL ================= -->
+<h2 class="sec">6. Is the URL user- &amp; SEO-friendly?</h2>
+
+<div class="issue ok">
+  <div class="ihead"><span class="badge b-ok">Mostly yes</span><span class="ititle">/case-study/astrotalk-like-app</span></div>
+  <p><span class="lbl">Verdict</span>Yes — it is clean, lowercase, hyphenated, short, readable, contains the keyword "astrotalk-like-app", has no parameters or dates, and the <code>/case-study/</code> folder signals the content type. Both users and search engines can read it. <strong>Keep it.</strong></p>
+  <p><span class="lbl why">Note</span>The only nuance: searchers more often type "app like astrotalk" or "astrotalk clone" than "astrotalk like app". The URL is good enough — do <em>not</em> change it (a change forces redirects and loses any existing equity). Instead, capture those variants in the <em>title, H1 and body</em>, not the slug.</p>
+</div>
+
+<!-- ================= UX ================= -->
+<h2 class="sec">7. UX</h2>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">Logo-as-hero, weak scannability, two big lead forms</span></div>
+  <p><span class="lbl">Problem</span>The hero leads with the Astrotalk logo and no descriptive headline; image-only Solution/Result blocks; a swipe-only feature carousel ("Swipe to show features") that hides most features behind interaction; and two near-identical lead forms plus an exit popup.</p>
+  <p><span class="lbl why">Why</span>Users (and crawlers) get little immediate text telling them what this page offers or what to do. Swipe-gated content is low-discoverability on desktop and for crawlers. Multiple forms + popup can feel pushy and add layout/interaction cost (INP).</p>
+  <p><span class="lbl sol">Fix</span>Add a clear text headline + sub-line + primary CTA in the hero; expose key features as crawlable text (not swipe-only); make Solution/Result text-first; keep one well-placed lead form.</p>
+</div>
+
+<!-- ================= ACTION PLAN ================= -->
+<h2 class="sec">8. Prioritised action plan (organic)</h2>
+<p class="sub">Do them top-down. Items 1–4 are what actually move the ranking. Nothing here requires changing the URL.</p>
+
+<table class="pri">
+  <thead><tr><th>#</th><th>Action</th><th>Fixes</th><th>Effort</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Re-target title, visible H1 &amp; first paragraph to "Astrotalk like app development / build an app like Astrotalk" (commercial intent)</td><td>Intent mismatch, hidden H1, weak title</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>2</td><td>Rewrite all body copy in real human English; delete spun/broken lines ("rates psychos", "Facile", "Layouts")</td><td>AI-spun content, E-E-A-T</td><td><span class="tag">Med</span></td></tr>
+    <tr><td>3</td><td>Make the page genuinely unique vs the other 11 case studies; remove the dead Netflix block; shrink the shared logo wall</td><td>Duplication / thin content</td><td><span class="tag">Med</span></td></tr>
+    <tr><td>4</td><td>Build internal links: from services/blog/hub INTO this page, and from this body OUT to the astrology service + cost page</td><td>Orphan-island linking</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>5</td><td>Add a real visible FAQ section + populate FAQ DB row so schema matches content</td><td>Missing FAQ, schema policy</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>6</td><td>Fix factual errors: remove "free" claim &amp; "Panditji", replace 65% bounce-rate "result" with real outcomes</td><td>Credibility</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>7</td><td>Convert image-only "Solution"/"Result" into crawlable HTML text; add process, testimonial, author box</td><td>Missing sections, E-E-A-T</td><td><span class="tag">Med</span></td></tr>
+    <tr><td>8</td><td>Add Article/CreativeWork + Service schema; cite the market stat to a source</td><td>Schema, sources</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>9</td><td>Unique image per feature; lazy-load below-fold; trim payload</td><td>Reused images, weight</td><td><span class="tag">Med</span></td></tr>
+    <tr><td>10</td><td>Clean stray metas (geo.region=DE, "My App", footer flag mismatch — sitewide)</td><td>Quality signals</td><td><span class="tag">Low</span></td></tr>
+  </tbody>
+</table>
+
+<div class="note"><strong>Bottom line:</strong> The page isn't broken technically — it's pointed at the wrong keyword and filled with duplicated, machine-spun copy that Google has no reason to rank. Fix the target (items 1–4) and the quality (2, 5–7), and this URL can finally start ranking for "app like Astrotalk / astrology app development" terms you can actually win.</div>
+
+<footer>
+  Audit only — per project instruction, no files were modified. All findings verified against the live rendered HTML and the local blade source <code>resources/views/tailwind/pages/case-study-astrotalk-like-app/case-study-astrotalk-like-app.blade.php</code>. Tell me when you want to apply any of these and I'll implement them.
+</footer>
+
+</div>
+</body>
+</html>
