@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit — Tinder Like App Case Study | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0e1116; --card:#171b22; --card2:#1d222b; --line:#2a313c;
+    --ink:#e8ecf3; --mut:#9aa6b6; --acc:#ff5b8a; --accd:#d23a68;
+    --crit:#ff5d5d; --high:#ff9f43; --med:#ffd54a; --low:#6cc6ff; --ok:#46d39a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:32px 20px 80px}
+  header.top{border:1px solid var(--line);background:linear-gradient(160deg,#1a1f27,#12151b);border-radius:18px;padding:26px 28px;margin-bottom:24px}
+  .kicker{color:var(--acc);font-weight:700;letter-spacing:.12em;font-size:12px;text-transform:uppercase}
+  h1{font-size:27px;margin:8px 0 6px;line-height:1.25}
+  .url{color:var(--low);font-size:13px;word-break:break-all}
+  .meta{color:var(--mut);font-size:13px;margin-top:10px}
+  .score{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:22px}
+  .ring{--p:44;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;
+    background:conic-gradient(var(--high) calc(var(--p)*1%), #262c36 0);flex:0 0 auto}
+  .ring .in{width:92px;height:92px;border-radius:50%;background:var(--bg);display:grid;place-items:center;text-align:center}
+  .ring .in b{font-size:28px;display:block;line-height:1}
+  .ring .in span{font-size:11px;color:var(--mut)}
+  .scorecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:18px 0}
+  .barrow{display:flex;align-items:center;gap:12px;margin:9px 0;font-size:13px}
+  .barrow .nm{width:130px;color:var(--mut);flex:0 0 auto}
+  .barrow .track{flex:1;height:10px;background:#262c36;border-radius:6px;overflow:hidden}
+  .barrow .fill{height:100%;border-radius:6px}
+  .barrow .vv{width:54px;text-align:right;font-weight:700;flex:0 0 auto}
+  h2.sec{font-size:20px;margin:38px 0 6px;padding-top:18px;border-top:1px solid var(--line)}
+  .sub{color:var(--mut);font-size:13px;margin:0 0 16px}
+  .issue{background:var(--card);border:1px solid var(--line);border-left-width:4px;border-radius:12px;padding:16px 18px;margin:14px 0}
+  .issue.crit{border-left-color:var(--crit)} .issue.high{border-left-color:var(--high)}
+  .issue.med{border-left-color:var(--med)} .issue.low{border-left-color:var(--low)} .issue.ok{border-left-color:var(--ok)}
+  .ihead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+  .badge{font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
+  .b-crit{background:rgba(255,93,93,.16);color:var(--crit)} .b-high{background:rgba(255,159,67,.16);color:var(--high)}
+  .b-med{background:rgba(255,213,74,.16);color:var(--med)} .b-low{background:rgba(108,198,255,.16);color:var(--low)}
+  .b-ok{background:rgba(70,211,154,.16);color:var(--ok)}
+  .ititle{font-weight:700;font-size:15.5px}
+  .issue p{margin:7px 0}
+  .lbl{display:inline-block;min-width:74px;color:var(--mut);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em;vertical-align:top}
+  .why{color:#ffd9b0} .sol{color:#bff0d6}
+  code{background:#0a0d12;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12.5px;color:#ffc7da;word-break:break-word}
+  .quote{background:#0a0d12;border:1px dashed var(--line);border-radius:8px;padding:8px 12px;color:#ff9a9a;font-style:italic;margin:8px 0;font-size:13.5px}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--card2);color:var(--acc)}
+  .pri td:first-child{font-weight:800;text-align:center;width:34px}
+  .tag{font-size:11px;padding:2px 7px;border-radius:6px;background:var(--card2);color:var(--mut);border:1px solid var(--line)}
+  footer{color:var(--mut);font-size:12px;margin-top:40px;border-top:1px solid var(--line);padding-top:16px}
+  .note{background:rgba(255,91,138,.08);border:1px solid var(--accd);border-radius:10px;padding:12px 16px;color:#ffd2e0;font-size:13.5px;margin:16px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">SEO · Content · UX Audit · /seo-page</div>
+  <h1>Tinder Like App — Case Study Page Audit</h1>
+  <div class="url">https://www.imgglobalinfotech.com/case-study/tinder-like-app</div>
+  <div class="meta">Prepared for IMG Global Infotech · 2 June 2026 · Audit only — no files were changed. Sources: live rendered HTML + local Laravel blade (<code>case-study-tinder-like-app.blade.php</code>).</div>
+
+  <div class="score">
+    <div class="ring" style="--p:44">
+      <div class="in"><div><b>44</b><span>/100</span></div></div>
+    </div>
+    <div style="flex:1;min-width:240px">
+      <strong style="font-size:16px">Why this page never ranked — one line:</strong>
+      <p style="margin:6px 0 0;color:var(--mut)">It's crawlable and indexed, but it's optimised for the <em>brand "Tinder"</em> (impossible to outrank Tinder itself) rather than a commercial keyword you can win, the body is thin and near-duplicate of your other 11 case studies, the H1 is hidden and keyword-less, the "Result" is vague puffery with zero metrics, and the AI-features image still carries a leftover <em>"Practo-Like App"</em> alt. Content is cleaner here than on the Uber/Zillow pages — but there isn't enough unique, intent-matched substance for Google to rank it.</p>
+    </div>
+  </div>
+
+  <div class="scorecard">
+    <div style="font-weight:700;margin-bottom:8px">Page Score Card</div>
+    <div class="barrow"><div class="nm">On-Page SEO</div><div class="track"><div class="fill" style="width:45%;background:var(--high)"></div></div><div class="vv">45/100</div></div>
+    <div class="barrow"><div class="nm">Content Quality</div><div class="track"><div class="fill" style="width:40%;background:var(--crit)"></div></div><div class="vv">40/100</div></div>
+    <div class="barrow"><div class="nm">Technical</div><div class="track"><div class="fill" style="width:60%;background:var(--med)"></div></div><div class="vv">60/100</div></div>
+    <div class="barrow"><div class="nm">Schema</div><div class="track"><div class="fill" style="width:35%;background:var(--crit)"></div></div><div class="vv">35/100</div></div>
+    <div class="barrow"><div class="nm">Images</div><div class="track"><div class="fill" style="width:68%;background:var(--med)"></div></div><div class="vv">68/100</div></div>
+  </div>
+</header>
+
+<div class="note"><strong>Good news first:</strong> Not a technical block. The page returns <code>INDEX, FOLLOW</code>, canonical is correct/self-referencing, it's allowed in <code>robots.txt</code> and in the sitemap, <code>&lt;title&gt;</code> = OG title (consistent), and the copy is more human and on-topic than the Uber/Zillow pages. Every problem below is on-page and fixable.</div>
+
+<!-- ROOT CAUSE -->
+<h2 class="sec">1. The root cause — why it has never ranked</h2>
+<p class="sub">Most important section.</p>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">Optimised for the brand "Tinder", not a keyword you can win</span></div>
+  <p><span class="lbl">Problem</span>Title + H1 + OG all say <code>Tinder – Transforming Online Dating with Smart Matching</code>. That's what <strong>Tinder's own site</strong> ranks for. An agency case study can't outrank the actual product for its brand name. The commercial phrase ("Build your own dating app") sits only in the meta description, not the title/H1.</p>
+  <p><span class="lbl why">Why</span>Google ranks on intent. "Tinder" searchers want the app; your buyers search "dating app development", "build an app like Tinder", "Tinder clone app cost". None of those are in the title/H1, so you rank for nothing winnable.</p>
+  <p><span class="lbl sol">Fix</span>Re-target to commercial intent:<br>Title → <code>Tinder Like App Development | Build a Dating App Like Tinder — IMG Global Infotech</code><br>Visible H1 → <code>Tinder Like App Development — Case Study</code>. Keep "Tinder" as context; make "dating app development / like app" the head term.</p>
+</div>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">Thin + near-duplicate template across 12 case studies</span></div>
+  <p><span class="lbl">Problem</span>This page is one of the thinnest: short Business Goal / Project Idea / Challenges paragraphs, only a User App + Admin Panel feature set, and the same shared "Cutting Edge Technologies" logo grid + "AI-Powered Features" block + "Proposed Talent &amp; Time" copy as Astrotalk, Uber, Zillow, Netflix, etc.</p>
+  <p><span class="lbl why">Why</span>Helpful-Content and duplicate systems demote templated, low-depth pages; 12 lookalikes dilute each other so none becomes the authority for its topic. Thin unique content gives Google little reason to rank this over a competitor's deeper "develop a dating app like Tinder" page.</p>
+  <p><span class="lbl sol">Fix</span>Make ≥50% of the body unique to <em>dating apps</em>: real build story, architecture (geolocation matching, swipe engine, real-time chat, moderation/safety, fake-profile detection), screenshots, defensible outcomes. Push the shared logo grid to a secondary block.</p>
+</div>
+
+<!-- CONTENT THAT DOESN'T BELONG -->
+<h2 class="sec">2. Content / labels that do NOT belong on this page</h2>
+<p class="sub">You asked: kya kisi aur page ka content/label yahan likha hai? Yes — one clear case.</p>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">AI-features image alt says "Practo-Like App" on the Tinder page</span></div>
+  <p><span class="lbl">Problem</span>The heading reads "AI-Powered Features That Make Your <strong>Tinder</strong>-Like App Stand Out", but the image right under it has leftover Practo labels:</p>
+  <div class="quote">![AI-Powered Features That Make Your <strong>Practo</strong>-Like App Stand Out](…/tinderAiPowered.webp "AI-Powered Features That Make Your <strong>Practo</strong>-Like App Stand Out")</div>
+  <p><span class="lbl why">Why</span>Alt/title text is read by search engines and image search. Telling Google this image is about "Practo" on a Tinder page scrambles topical relevance and proves the section was copied from the Practo template without cleanup — the same duplication signal from §1, made visible.</p>
+  <p><span class="lbl sol">Fix</span>Correct the alt/title to match the page: <code>alt="AI-powered features for a dating app like Tinder"</code>. Audit the other case studies for the same leftover.</p>
+</div>
+
+<div class="issue low">
+  <div class="ihead"><span class="badge b-low">Low</span><span class="ititle">Competitor naming &amp; keyword nudges in body</span></div>
+  <p><span class="lbl">Problem</span>"Apps like <strong>OkCupid</strong> are its strong competitors, but when it comes to it, Tinder is paramount." and "…find their perfect match on the dating platform <strong>app like Tinder</strong>." (keyword bolted onto a feature line).</p>
+  <p><span class="lbl why">Why</span>Naming OkCupid is acceptable context, but "when it comes to it, Tinder is paramount" is filler, and the bolted "app like Tinder" reads as a mild keyword nudge rather than natural writing.</p>
+  <p><span class="lbl sol">Fix</span>Tighten the language; drop filler; place the keyword once where it fits naturally.</p>
+</div>
+
+<!-- CONTENT QUALITY -->
+<h2 class="sec">3. Content quality &amp; the "Result" section</h2>
+<p class="sub">Your brief: real, organic, human content with proof — verified.</p>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">The "Result" is vague puffery with zero metrics</span></div>
+  <p><span class="lbl">Problem</span>The entire Result section:</p>
+  <div class="quote">"As a result, the app is on the top charts and exceeded our clients' expectations. It has completely transformed the online dating experience for users and established a strong brand image among its competitors."</div>
+  <p>"Our Solution" is similarly generic ("a sleek dating app with a stunning interface and robust backend").</p>
+  <p><span class="lbl why">Why</span>A case study earns trust and links through <em>specific, verifiable outcomes</em> — downloads, matches/day, retention, time-to-market, revenue. "On the top charts" with no number is unprovable marketing language; it doesn't differentiate you and gives Google/users nothing concrete.</p>
+  <p><span class="lbl sol">Fix</span>Replace with real metrics (e.g. "X downloads in 3 months", "Y% D30 retention", "MVP shipped in 12 weeks", "handled Z concurrent users"). If confidential, use honest ranges.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">Thin body + minor awkward phrasing</span></div>
+  <p><span class="lbl">Problem</span>Unique copy is short (a few sentences per section). Small awkward idioms: "the rest of the history is in front of the world", "counted as one of the sensational dating apps". Team shows "01 App Developer" for a full dating app.</p>
+  <p><span class="lbl why">Why</span>Low word-depth + a couple of non-native idioms reduce both ranking potential (not enough substance) and polish. A one-developer team line can undercut credibility for a complex app.</p>
+  <p><span class="lbl sol">Fix</span>Expand each section with concrete detail; smooth the idioms; present the team realistically.</p>
+</div>
+
+<!-- MISSING SECTIONS -->
+<h2 class="sec">4. Missing &amp; weak sections</h2>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">FAQ schema injected, but no FAQ section on the page</span></div>
+  <p><span class="lbl">Problem</span><code>@include('tailwind.schema.faqSchema')</code> runs, but no visible FAQ block renders (no DB FAQ rows for this URL).</p>
+  <p><span class="lbl why">Why</span>You lose easy long-tail capture ("cost to build a dating app like Tinder", "how long to develop a dating app"), AND FAQ structured data with no matching visible content violates Google policy and risks a manual action.</p>
+  <p><span class="lbl sol">Fix</span>Add a real FAQ section (cost, timeline, features, monetisation, moderation) and populate the FAQ DB row so schema = content.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">No author/E-E-A-T, no testimonial, image-led Solution/Result</span></div>
+  <p><span class="lbl">Problem</span>No author byline, no client quote; "Our Solution"/"Result" are short text + image with little crawlable substance.</p>
+  <p><span class="lbl why">Why</span>Expertise + social-proof signals drive trust and ranking for commercial content; thin image-led sections add little extractable text for ranking or AI overviews.</p>
+  <p><span class="lbl sol">Fix</span>Add an author/expert box, a genuine testimonial, and a process/approach section with real text.</p>
+</div>
+
+<!-- TECHNICAL -->
+<h2 class="sec">5. Technical &amp; on-page SEO</h2>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">H1 is hidden and keyword-less</span></div>
+  <p><span class="lbl">Problem</span>Only H1 is <code>&lt;h1 class="hidden"&gt;Tinder - Case Study&lt;/h1&gt;</code>. The visible top is a logo image.</p>
+  <p><span class="lbl why">Why</span>The H1 is a primary relevance signal; hiding it with a generic value wastes it and leaves no visible keyword-rich heading for users or crawlers.</p>
+  <p><span class="lbl sol">Fix</span>One visible H1 with the target phrase (<code>Tinder Like App Development — Case Study</code>) + a supporting line.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">No Article / CreativeWork / Service schema</span></div>
+  <p><span class="lbl">Problem</span>Only Breadcrumb + (empty) FAQ schema attempted; nothing describes the case study, author, client or service.</p>
+  <p><span class="lbl why">Why</span>Rich structured data helps Google map agency → service → outcome and improves eligibility for enhanced results / AI citations.</p>
+  <p><span class="lbl sol">Fix</span>Add <code>Article</code>/<code>CreativeWork</code> (author + dates) and <code>Service</code> schema linking to your dating-app-development service page.</p>
+</div>
+
+<div class="issue low">
+  <div class="ihead"><span class="badge b-low">Low</span><span class="ititle">Wrong geo meta + unsourced stats</span></div>
+  <p><span class="lbl">Problem</span><code>meta geo.region = DE</code> (Germany) on a global page; "75 million users / 9.7 million subscribers / $2.1 billion revenue" are unsourced.</p>
+  <p><span class="lbl why">Why</span>Wrong geo is a minor mis-signal; unsourced stats weaken trust/E-E-A-T.</p>
+  <p><span class="lbl sol">Fix</span>Set geo to the intended market (or remove); cite and verify the stats.</p>
+</div>
+
+<div class="issue ok">
+  <div class="ihead"><span class="badge b-ok">Pass</span><span class="ititle">What is already correct</span></div>
+  <p><span class="lbl">OK</span>Self-referencing canonical ✓ · <code>INDEX, FOLLOW</code> ✓ · allowed in robots.txt ✓ · in sitemap ✓ · title = OG title (consistent) ✓ · meta description has a commercial hook ✓ · OG + Twitter cards with image ✓ · all 115 images have alt + title ✓ · hero intro mentions "dating app development company" naturally ✓.</p>
+</div>
+
+<!-- IMAGES -->
+<h2 class="sec">6. Images</h2>
+
+<div class="issue ok">
+  <div class="ihead"><span class="badge b-ok">Pass</span><span class="ititle">Alt &amp; title present on all 115 images</span></div>
+  <p><span class="lbl">OK</span>Every <code>&lt;img&gt;</code> has both <code>alt</code> and <code>title</code>; width/height + <code>loading</code>/<code>fetchpriority</code> set — good for CLS/LCP.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">One wrong alt (Practo) + heavy image count + likely reuse</span></div>
+  <p><span class="lbl">Problem</span>The AI-features alt is "Practo-Like App" (see §2); 115 images is a heavy DOM (mostly the shared logo grid); admin features likely reuse one graphic as on the other case studies.</p>
+  <p><span class="lbl why">Why</span>Wrong alt mis-describes content; image volume inflates payload and can hurt mobile LCP/INP; reused images are a low-effort signal.</p>
+  <p><span class="lbl sol">Fix</span>Fix the Practo alt, give each feature a unique image + alt, lazy-load below-the-fold, and trim the logo wall.</p>
+</div>
+
+<!-- LINKS -->
+<h2 class="sec">7. Internal &amp; external linking</h2>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">No in-content link to a dating-app service/money page</span></div>
+  <p><span class="lbl">Problem</span>In-body contextual links go only to 4 other case studies. There's a "Latest Insights" blog block, but <strong>no contextual link</strong> to your dating-app-development service or a cost blog from within the unique content.</p>
+  <p><span class="lbl why">Why</span>Internal links pass relevance and authority and route users toward conversion. A deep case-study URL with no contextual links in or out is an island — little equity reaches it, and it passes none to your commercial pages.</p>
+  <p><span class="lbl sol">Fix</span>(1) Add contextual body links to your dating-app-development service + cost pages with descriptive anchors. (2) Link <em>into</em> this case study from that service page, related blogs and the case-study hub using anchors like "app like Tinder".</p>
+</div>
+
+<!-- URL -->
+<h2 class="sec">8. Is the URL user- &amp; SEO-friendly?</h2>
+
+<div class="issue ok">
+  <div class="ihead"><span class="badge b-ok">Mostly yes</span><span class="ititle">/case-study/tinder-like-app</span></div>
+  <p><span class="lbl">Verdict</span>Yes — clean, lowercase, hyphenated, short, readable, keyword present ("tinder-like-app"), no parameters/dates, and <code>/case-study/</code> signals content type. <strong>Keep it.</strong></p>
+  <p><span class="lbl why">Note</span>People also search "dating app like Tinder" / "Tinder clone" — capture those in the title, H1 and body, not the slug. Don't change the URL (a change forces redirects and risks losing equity).</p>
+</div>
+
+<!-- UX -->
+<h2 class="sec">9. UX</h2>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">Logo-as-hero, swipe-gated features, thin Result, duplicate forms</span></div>
+  <p><span class="lbl">Problem</span>Hero leads with the Tinder logo and no descriptive headline; features hide behind a "Swipe to show features" carousel; Solution/Result are short + image-led; two near-identical lead forms + exit popup.</p>
+  <p><span class="lbl why">Why</span>Little immediate text tells users/crawlers what the page offers; swipe-gated content is low-discoverability; thin proof + multiple forms/popup raise interaction cost (INP) and feel pushy.</p>
+  <p><span class="lbl sol">Fix</span>Add a clear text headline + sub-line + primary CTA in the hero; expose features as crawlable text; make Solution/Result text-first with metrics; keep one well-placed form.</p>
+</div>
+
+<!-- ACTION PLAN -->
+<h2 class="sec">10. Prioritised action plan (organic)</h2>
+<p class="sub">Top-down. Items 1–4 move the ranking. No URL change required.</p>
+
+<table class="pri">
+  <thead><tr><th>#</th><th>Action</th><th>Fixes</th><th>Effort</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Re-target title + visible H1 + first paragraph to "Tinder like app development / build a dating app like Tinder"</td><td>Brand-intent mismatch, hidden H1</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>2</td><td>Fix the "Practo-Like App" alt/title on the AI-features image</td><td>Wrong/leftover alt, relevance</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>3</td><td>Replace the vague "Result"/"Solution" with real, specific metrics</td><td>Unprovable puffery, E-E-A-T</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>4</td><td>Expand &amp; differentiate the body vs the other 11 case studies; shrink the shared logo wall</td><td>Thin / duplicate content</td><td><span class="tag">Med</span></td></tr>
+    <tr><td>5</td><td>Build internal links: contextual body links to your dating-app service/cost pages + inbound links into this page</td><td>Orphan-island linking</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>6</td><td>Add a real FAQ section + populate FAQ DB row so schema matches</td><td>Missing FAQ, schema policy</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>7</td><td>Add author box + testimonial + process section</td><td>Missing E-E-A-T sections</td><td><span class="tag">Med</span></td></tr>
+    <tr><td>8</td><td>Add Article/CreativeWork + Service schema; cite stats</td><td>Schema, sources</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>9</td><td>Smooth awkward phrasing; present the team realistically</td><td>Polish / credibility</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>10</td><td>Unique feature images; lazy-load; trim payload; clean geo=DE (sitewide)</td><td>Images, quality signals</td><td><span class="tag">Med</span></td></tr>
+  </tbody>
+</table>
+
+<div class="note"><strong>Bottom line:</strong> The cleanest-written of the case studies audited, but also one of the thinnest — same brand-intent + duplication problems, a hidden H1, a leftover "Practo" image alt, and a "Result" that proves nothing. Fix the target (1) and add real depth + proof (3–4), and this URL can finally rank for "dating app like Tinder / dating app development" terms you can win.</div>
+
+<footer>
+  Audit only — per project instruction, no files were modified. Verified against the live rendered HTML and the local blade <code>resources/views/tailwind/pages/case-study-tinder-like-app/case-study-tinder-like-app.blade.php</code>. Tell me when you want to apply any of these and I'll implement them.
+</footer>
+
+</div>
+</body>
+</html>
