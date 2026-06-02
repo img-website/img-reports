@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit — Zillow Like App Case Study | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0e1116; --card:#171b22; --card2:#1d222b; --line:#2a313c;
+    --ink:#e8ecf3; --mut:#9aa6b6; --acc:#4f9bff; --accd:#2f6fd0;
+    --crit:#ff5d5d; --high:#ff9f43; --med:#ffd54a; --low:#6cc6ff; --ok:#46d39a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:32px 20px 80px}
+  header.top{border:1px solid var(--line);background:linear-gradient(160deg,#1a1f27,#12151b);border-radius:18px;padding:26px 28px;margin-bottom:24px}
+  .kicker{color:var(--acc);font-weight:700;letter-spacing:.12em;font-size:12px;text-transform:uppercase}
+  h1{font-size:27px;margin:8px 0 6px;line-height:1.25}
+  .url{color:var(--low);font-size:13px;word-break:break-all}
+  .meta{color:var(--mut);font-size:13px;margin-top:10px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .stat .n{font-size:24px;font-weight:800}
+  .stat .l{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+  .score{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .ring{--p:36;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;
+    background:conic-gradient(var(--crit) calc(var(--p)*1%), #262c36 0);flex:0 0 auto}
+  .ring .in{width:92px;height:92px;border-radius:50%;background:var(--bg);display:grid;place-items:center;text-align:center}
+  .ring .in b{font-size:28px;display:block;line-height:1}
+  .ring .in span{font-size:11px;color:var(--mut)}
+  h2.sec{font-size:20px;margin:38px 0 6px;padding-top:18px;border-top:1px solid var(--line)}
+  .sub{color:var(--mut);font-size:13px;margin:0 0 16px}
+  .issue{background:var(--card);border:1px solid var(--line);border-left-width:4px;border-radius:12px;padding:16px 18px;margin:14px 0}
+  .issue.crit{border-left-color:var(--crit)} .issue.high{border-left-color:var(--high)}
+  .issue.med{border-left-color:var(--med)} .issue.low{border-left-color:var(--low)} .issue.ok{border-left-color:var(--ok)}
+  .ihead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+  .badge{font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
+  .b-crit{background:rgba(255,93,93,.16);color:var(--crit)} .b-high{background:rgba(255,159,67,.16);color:var(--high)}
+  .b-med{background:rgba(255,213,74,.16);color:var(--med)} .b-low{background:rgba(108,198,255,.16);color:var(--low)}
+  .b-ok{background:rgba(70,211,154,.16);color:var(--ok)}
+  .ititle{font-weight:700;font-size:15.5px}
+  .issue p{margin:7px 0}
+  .lbl{display:inline-block;min-width:74px;color:var(--mut);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em;vertical-align:top}
+  .why{color:#ffd9b0} .sol{color:#bff0d6}
+  code{background:#0a0d12;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12.5px;color:#bdf0ff;word-break:break-word}
+  .quote{background:#0a0d12;border:1px dashed var(--line);border-radius:8px;padding:8px 12px;color:#ff9a9a;font-style:italic;margin:8px 0;font-size:13.5px}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--card2);color:var(--acc)}
+  .pri td:first-child{font-weight:800;text-align:center;width:34px}
+  .tag{font-size:11px;padding:2px 7px;border-radius:6px;background:var(--card2);color:var(--mut);border:1px solid var(--line)}
+  footer{color:var(--mut);font-size:12px;margin-top:40px;border-top:1px solid var(--line);padding-top:16px}
+  .note{background:rgba(79,155,255,.08);border:1px solid var(--accd);border-radius:10px;padding:12px 16px;color:#cfe4ff;font-size:13.5px;margin:16px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">SEO · Content · UX Audit</div>
+  <h1>Zillow Like App — Case Study Page Audit</h1>
+  <div class="url">https://www.imgglobalinfotech.com/case-study/zillow-like-app</div>
+  <div class="meta">Prepared for IMG Global Infotech · 2 June 2026 · Audit only — no files were changed. Sources: live rendered HTML + local Laravel blade (<code>case-study-zillow-like-app.blade.php</code>).</div>
+
+  <div class="score" style="margin-top:22px">
+    <div class="ring" style="--p:36">
+      <div class="in"><div><b>36</b><span>/100</span></div></div>
+    </div>
+    <div style="flex:1;min-width:240px">
+      <strong style="font-size:16px">Why this page never ranked — one line:</strong>
+      <p style="margin:6px 0 0;color:var(--mut)">It's crawlable and indexed, but it's optimised for the <em>brand term "Zillow"</em> (impossible to outrank Zillow itself) instead of the commercial intent "build a real estate app like Zillow", and the body is the weakest of your case studies so far: a hero image still labelled "Uber Eats", factual errors about Zillow, gibberish phrases, and a "Key Result" that openly admits its stats are <em>hypothetical</em>. Google has no quality, unique, intent-matched signal to rank.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="stat"><div class="n" style="color:var(--ok)">Indexable</div><div class="l">Index / Follow ✓</div></div>
+    <div class="stat"><div class="n">131</div><div class="l">Images on page</div></div>
+    <div class="stat"><div class="n" style="color:var(--crit)">Hidden</div><div class="l">H1 visibility</div></div>
+    <div class="stat"><div class="n" style="color:var(--high)">2</div><div class="l">Images w/o alt+title</div></div>
+    <div class="stat"><div class="n" style="color:var(--crit)">0</div><div class="l">FAQ / money-page link in body</div></div>
+  </div>
+</header>
+
+<div class="note"><strong>Good news first:</strong> Not a technical block. The page returns <code>INDEX, FOLLOW</code>, canonical is correct/self-referencing, it's allowed in <code>robots.txt</code> and in the sitemap, and the <code>&lt;title&gt;</code> and OG title are consistent (better than the Uber page). Every problem below is on-page and fixable.</div>
+
+<!-- ROOT CAUSE -->
+<h2 class="sec">1. The root cause — why it has never ranked</h2>
+<p class="sub">The most important section.</p>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">Optimised for the brand "Zillow", not for a keyword you can win</span></div>
+  <p><span class="lbl">Problem</span>Title + H1 + OG all say <code>Zillow – Redefining Real Estate with Digital Innovation</code>. That's what <strong>Zillow's own site</strong> ranks for. An agency case study cannot outrank the actual product for its brand name. The commercial phrase only appears in the meta description ("Build your own real estate app like Zillow"), not in the title or H1.</p>
+  <p><span class="lbl why">Why</span>Google ranks on intent. "Zillow" searchers want the app; your buyers search "real estate app development", "build an app like Zillow", "Zillow clone app cost". None of those are in your title/H1, so you rank for nothing winnable.</p>
+  <p><span class="lbl sol">Fix</span>Re-target to commercial intent:<br>Title → <code>Zillow Like App Development | Build a Real Estate App Like Zillow — IMG Global Infotech</code><br>Visible H1 → <code>Zillow Like App Development — Case Study</code>. Keep "Zillow" as context; make "real estate app development / like app" the head term.</p>
+</div>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">Near-duplicate template across 12 case studies → low uniqueness</span></div>
+  <p><span class="lbl">Problem</span>Same skeleton, same 100+ logo "Cutting Edge Technologies" grid, same "AI-Powered Features" block, same "Proposed Team &amp; Time" copy as Astrotalk, Uber, Netflix, Practo, etc. Only the nouns change. Even a decorative shape asset is the leftover <code>practoPolygon1.svg</code> from the Practo page.</p>
+  <p><span class="lbl why">Why</span>Helpful-Content and duplicate systems demote templated pages whose value is a swapped template; 12 lookalikes dilute each other so none becomes the authority for its topic.</p>
+  <p><span class="lbl sol">Fix</span>Make ≥50% of the body unique to <em>real estate</em>: real build story, architecture (map/geo search, listings ingestion, valuation model, MLS/IDX feeds), screenshots, defensible outcomes. Push the shared logo grid to a secondary block.</p>
+</div>
+
+<!-- CONTENT THAT DOESN'T BELONG -->
+<h2 class="sec">2. Content / labels that do NOT belong on this page</h2>
+<p class="sub">You asked: kya is page ka content galat ya kisi aur page ka likha hai? Yes — multiple places.</p>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">The hero image is labelled "Uber Eats" on a Zillow page</span></div>
+  <p><span class="lbl">Problem</span>The main hero image uses leftover Uber Eats labels:</p>
+  <div class="quote">![<strong>Uber Eats</strong>](…/zillowHeroImg.webp "<strong>Uber Eats</strong>") &nbsp;— alt="Uber Eats", title="Uber Eats"</div>
+  <p><span class="lbl why">Why</span>The alt/title of your most important (LCP) image describes a food-delivery brand, not real estate. Search engines and image search read alt text — this tells Google the hero is about "Uber Eats", scrambling topical relevance, and it proves the page was copied from the Uber Eats template without cleanup.</p>
+  <p><span class="lbl sol">Fix</span>Change alt/title to something descriptive and on-topic, e.g. <code>alt="Real estate app like Zillow — IMG Global Infotech"</code>.</p>
+</div>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">Factual errors about Zillow</span></div>
+  <p><span class="lbl">Problem</span>Two wrong claims in "What is Zillow?":</p>
+  <div class="quote">"Zillow operates a database of over 135 million properties <strong>in Seattle, Washington.</strong>"</div>
+  <p>(The 135M+ listings cover the whole US; Seattle is only the HQ.)</p>
+  <div class="quote">"<strong>Commercial real estate</strong> apps like Zillow help homeowners and tenants…"</div>
+  <p>(Zillow is <em>residential</em> real estate, not commercial — and the sentence then talks about homeowners/tenants, contradicting "commercial".)</p>
+  <p><span class="lbl why">Why</span>Wrong facts about the very brand the page is built around destroy E-E-A-T and topical trust. It signals the content wasn't written or checked by someone who knows the domain.</p>
+  <p><span class="lbl sol">Fix</span>Correct: 135M+ properties <em>across the U.S.</em> (HQ in Seattle); Zillow is a <em>residential</em> real-estate marketplace. Verify every other stat (e.g. "100 Million", "31,000").</p>
+</div>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">"Key Result" admits its own numbers are hypothetical / negative</span></div>
+  <p><span class="lbl">Problem</span>The results block literally says:</p>
+  <div class="quote">"Bounce Rate is 35% — A <strong>hypothetical</strong> bounce rate of 35% suggests <strong>room for improvement</strong> in user engagement and website navigation."</div>
+  <p>Listed alongside "Over 100 Million", "More Than 31,000", "Zestimate Accuracy 80%".</p>
+  <p><span class="lbl why">Why</span>A case study's "Result" must be real, positive, and verifiable. Publishing a <em>hypothetical</em> stat that admits "room for improvement" is self-defeating — it tells prospects (and Google) the outcomes are invented placeholder text. It's the opposite of a proof point.</p>
+  <p><span class="lbl sol">Fix</span>Remove the hypothetical/bounce-rate line. Replace the whole block with real, defensible outcomes (listings indexed, search latency, users, conversion, time-to-market). If confidential, use honest ranges — never "hypothetical".</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">Keyword forced into admin-feature copy</span></div>
+  <p><span class="lbl">Problem</span><span class="quote" style="display:inline-block;margin:4px 0">"Manage user accounts and permissions and resolve issues efficiently across the <strong>marketplace app like Zillow</strong>."</span></p>
+  <p><span class="lbl why">Why</span>"marketplace app like Zillow" is bolted onto an admin sentence where it adds nothing — a minor keyword-stuffing tell that reads unnaturally.</p>
+  <p><span class="lbl sol">Fix</span>Write the feature plainly; place the keyword once where it fits naturally.</p>
+</div>
+
+<!-- CONTENT QUALITY -->
+<h2 class="sec">3. Content quality &amp; humanisation</h2>
+<p class="sub">Your brief: real, organic, human content — verified.</p>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">AI-spun phrasing, rhetorical filler &amp; an outright gibberish phrase</span></div>
+  <p><span class="lbl">Problem</span>Examples copied from the live page:</p>
+  <div class="quote">"This <strong>investigation</strong> assesses the disruptive innovations that Zillow has leveraged…" / "In the real estate sector today, <strong>as an industry for research</strong>…"</div>
+  <div class="quote">Business Goal: "<strong>What does this imply? This signifies that…</strong> the ideal picture was how Zillow envisioned it; <strong>let us shift our focus</strong> toward how it was developed."</div>
+  <div class="quote">Project Challenges: "attaining a smooth and functional <strong>delay-effective interface</strong>… components of user customization and <strong>manipulation</strong>…"</div>
+  <p><span class="lbl why">Why</span>"Investigation", "as an industry for research", "What does this imply?", "delay-effective", "manipulation" are classic AI-spinner / essay-generator output. This is exactly the low-effort, mass-produced pattern the Helpful-Content system demotes, and it reads as non-human to users.</p>
+  <p><span class="lbl sol">Fix</span>Rewrite in plain human English from the team that built it — what the client needed, what you decided, what you shipped. Kill the rhetorical filler and nonsense words.</p>
+</div>
+
+<!-- TECHNICAL -->
+<h2 class="sec">4. Technical &amp; on-page SEO</h2>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">H1 is hidden and keyword-less</span></div>
+  <p><span class="lbl">Problem</span>Only H1 is <code>&lt;h1 class="hidden"&gt;Zillow - Case Study&lt;/h1&gt;</code>. The visible top is a logo image.</p>
+  <p><span class="lbl why">Why</span>The H1 is a primary relevance signal; hiding it with a generic value wastes it and leaves no visible keyword-rich heading for users or crawlers.</p>
+  <p><span class="lbl sol">Fix</span>One visible H1 with the target phrase (<code>Zillow Like App Development — Case Study</code>) + a supporting line.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">FAQ schema injected, but no FAQ section on the page</span></div>
+  <p><span class="lbl">Problem</span><code>@include('tailwind.schema.faqSchema')</code> runs, but no visible FAQ block renders (no DB FAQ rows for this URL).</p>
+  <p><span class="lbl why">Why</span>You lose easy long-tail capture ("cost to build a real estate app like Zillow"), and FAQ structured data without matching visible content violates Google policy and risks a manual action.</p>
+  <p><span class="lbl sol">Fix</span>Add a real FAQ section (cost, timeline, features, MLS/IDX, monetisation) and populate the FAQ DB row so schema = content.</p>
+</div>
+
+<div class="issue low">
+  <div class="ihead"><span class="badge b-low">Low</span><span class="ititle">2 decorative images have no alt at all + wrong geo meta</span></div>
+  <p><span class="lbl">Problem</span>Two <code>practoPolygon1.svg</code> shapes (lines 217 &amp; 1512) have no <code>alt</code> or <code>title</code> attribute. Also <code>meta geo.region = DE</code> (Germany) and the footer "Germany" office uses Canada flag assets — sitewide template leftovers.</p>
+  <p><span class="lbl why">Why</span>Purely decorative images should carry an explicit empty <code>alt=""</code> so screen readers skip them; a missing attribute can make them read the filename ("practoPolygon"). Wrong geo is a minor mis-signal. The "practo" filename on a Zillow page is more evidence of template copying.</p>
+  <p><span class="lbl sol">Fix</span>Add <code>alt=""</code> (and ideally rename the asset) to decorative shapes; set geo to the real market or remove it; fix the footer flag mapping sitewide.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">No Article / CreativeWork / Service schema</span></div>
+  <p><span class="lbl">Problem</span>Only Breadcrumb + (empty) FAQ schema attempted; nothing describes the case study, author, client or service.</p>
+  <p><span class="lbl why">Why</span>Rich structured data helps Google map agency → service → outcome and improves eligibility for enhanced results / AI citations.</p>
+  <p><span class="lbl sol">Fix</span>Add <code>Article</code>/<code>CreativeWork</code> (author + dates) and <code>Service</code> schema linking to your real-estate-app-development service page.</p>
+</div>
+
+<div class="issue ok">
+  <div class="ihead"><span class="badge b-ok">Pass</span><span class="ititle">What is already correct</span></div>
+  <p><span class="lbl">OK</span>Self-referencing canonical ✓ · <code>INDEX, FOLLOW</code> ✓ · allowed in robots.txt ✓ · in sitemap ✓ · title = OG title (consistent) ✓ · meta description has a commercial hook ✓ · OG + Twitter cards with image ✓ · 129 of 131 images have alt + title ✓.</p>
+</div>
+
+<!-- IMAGES -->
+<h2 class="sec">5. Images</h2>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">Wrong alt on the hero + 2 missing alt + reused images</span></div>
+  <p><span class="lbl">Problem</span>(1) Hero alt/title = "Uber Eats" (see §2). (2) Two decorative shapes have no alt at all. (3) As on the other case studies, several admin-panel features likely reuse one graphic, and 131 images is a heavy DOM (mostly the shared logo grid).</p>
+  <p><span class="lbl why">Why</span>Alt text is a relevance + accessibility + image-SEO signal. A wrong hero alt mis-describes the page's main visual; missing alt hurts accessibility; image volume inflates payload and can hurt mobile LCP/INP.</p>
+  <p><span class="lbl sol">Fix</span>Fix the hero alt, add <code>alt=""</code> to decorative shapes, give each feature a unique image + alt, lazy-load below-the-fold, and trim the logo wall.</p>
+</div>
+
+<!-- LINKS -->
+<h2 class="sec">6. Internal &amp; external linking</h2>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">No in-content link to a real-estate service/money page</span></div>
+  <p><span class="lbl">Problem</span>In-body, the only contextual links are to 4 other case studies. There is <strong>no link</strong> to your real-estate-app-development service page or a related cost blog from within the content (unlike the Uber page, which links to its taxi-app service page).</p>
+  <p><span class="lbl why">Why</span>Internal links pass relevance and authority and route users toward conversion. A deep case-study URL with no contextual links in or out is an island — little equity flows to it, and it passes none to your commercial pages.</p>
+  <p><span class="lbl sol">Fix</span>(1) Add contextual body links to your real-estate-app-development service + cost pages with descriptive anchors. (2) More importantly, link <em>into</em> this case study from that service page, related blogs and the case-study hub using anchors like "app like Zillow".</p>
+</div>
+
+<div class="issue low">
+  <div class="ihead"><span class="badge b-low">Low</span><span class="ititle">Unsourced facts &amp; stats</span></div>
+  <p><span class="lbl">Problem</span>"135 million properties", "Over 100 Million", "31,000", "Zestimate Accuracy 80%" — none are sourced.</p>
+  <p><span class="lbl why">Why</span>Unsourced numbers read as invented and weaken trust/E-E-A-T, especially after the "hypothetical" admission above.</p>
+  <p><span class="lbl sol">Fix</span>Cite figures to named sources and verify them.</p>
+</div>
+
+<!-- URL -->
+<h2 class="sec">7. Is the URL user- &amp; SEO-friendly?</h2>
+
+<div class="issue ok">
+  <div class="ihead"><span class="badge b-ok">Mostly yes</span><span class="ititle">/case-study/zillow-like-app</span></div>
+  <p><span class="lbl">Verdict</span>Yes — clean, lowercase, hyphenated, short, readable, keyword present ("zillow-like-app"), no parameters/dates, and <code>/case-study/</code> signals content type. <strong>Keep it.</strong></p>
+  <p><span class="lbl why">Note</span>People also search "real estate app like Zillow" / "Zillow clone" — capture those in the title, H1 and body, not the slug. Don't change the URL (a change forces redirects and risks losing equity).</p>
+</div>
+
+<!-- UX -->
+<h2 class="sec">8. UX</h2>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">Logo-as-hero, swipe-gated features, image-only Solution, duplicate forms</span></div>
+  <p><span class="lbl">Problem</span>Hero leads with the Zillow logo and no descriptive headline; features hide behind a "Swipe to show features" carousel; "Our Solution" / "Key Result" are image-led with little crawlable text; two near-identical lead forms + exit popup.</p>
+  <p><span class="lbl why">Why</span>Little immediate text tells users/crawlers what the page offers; swipe-gated content is low-discoverability on desktop and for crawlers; multiple forms + popup raise interaction cost (INP) and feel pushy.</p>
+  <p><span class="lbl sol">Fix</span>Add a clear text headline + sub-line + primary CTA in the hero; expose features as crawlable text; make Solution/Result text-first; keep one well-placed form.</p>
+</div>
+
+<!-- ACTION PLAN -->
+<h2 class="sec">9. Prioritised action plan (organic)</h2>
+<p class="sub">Top-down. Items 1–4 move the ranking. No URL change required.</p>
+
+<table class="pri">
+  <thead><tr><th>#</th><th>Action</th><th>Fixes</th><th>Effort</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Re-target title + visible H1 + first paragraph to "Zillow like app development / build a real estate app like Zillow"</td><td>Brand-intent mismatch, hidden H1</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>2</td><td>Fix the hero image alt/title ("Uber Eats" → real-estate descriptive)</td><td>Wrong/leftover alt, topical relevance</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>3</td><td>Correct factual errors (135M "in Seattle", "Commercial" real estate) and remove the "hypothetical" bounce-rate result</td><td>Factual errors, fake result, E-E-A-T</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>4</td><td>Rewrite body in real human English; remove gibberish ("delay-effective", "investigation", "What does this imply?")</td><td>AI-spun content</td><td><span class="tag">Med</span></td></tr>
+    <tr><td>5</td><td>Make the page genuinely unique vs the other 11 case studies; remove leftover Practo assets; shrink the logo wall</td><td>Duplication / thin content</td><td><span class="tag">Med</span></td></tr>
+    <tr><td>6</td><td>Build internal links: contextual body links to your real-estate service/cost pages + inbound links into this page</td><td>Orphan-island linking</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>7</td><td>Add a real FAQ section + populate FAQ DB row so schema matches</td><td>Missing FAQ, schema policy</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>8</td><td>Add author box + testimonial; make Solution/Result crawlable text with real metrics</td><td>Missing E-E-A-T sections</td><td><span class="tag">Med</span></td></tr>
+    <tr><td>9</td><td>Add Article/CreativeWork + Service schema; cite all stats</td><td>Schema, sources</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>10</td><td>Add <code>alt=""</code> to decorative shapes; unique feature images; lazy-load; clean geo=DE + footer flag (sitewide)</td><td>Image &amp; quality signals</td><td><span class="tag">Med</span></td></tr>
+  </tbody>
+</table>
+
+<div class="note"><strong>Bottom line:</strong> This is the weakest of the three case studies audited — same brand-intent + duplication problems as the others, <em>plus</em> a hero labelled "Uber Eats", real factual errors about Zillow, and a "Key Result" that admits it's hypothetical. Fix the target (1) and the credibility/content (2–5), and this URL can finally rank for "real estate app like Zillow / real estate app development" terms you can win.</div>
+
+<footer>
+  Audit only — per project instruction, no files were modified. Verified against the live rendered HTML and the local blade <code>resources/views/tailwind/pages/case-study-zillow-like-app/case-study-zillow-like-app.blade.php</code>. Tell me when you want to apply any of these and I'll implement them.
+</footer>
+
+</div>
+</body>
+</html>
