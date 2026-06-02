@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO Audit — Astrology App Development Page</title>
+<style>
+  :root{--blue:#2D86FF;--ink:#1f2430;--muted:#5b6472;--line:#e6e9ef;--bg:#f6f8fc;--card:#fff;--green:#0a8a4a;--amber:#c47d00;--red:#cc2b2b;--grey:#7a8493;--brand:#9b6dff;--brandd:#6f42c1;--gold:#C9A24B;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:15px}
+  .wrap{max-width:980px;margin:0 auto;padding:32px 20px 80px}
+  header.top{background:linear-gradient(135deg,#2b1b54,#6f42c1);color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:24px;box-shadow:0 10px 30px rgba(111,66,193,.25)}
+  header.top h1{margin:0 0 8px;font-size:24px;line-height:1.25}
+  header.top .meta{font-size:13px;opacity:.96;margin-top:14px}
+  nav.toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 20px;margin-bottom:24px;font-size:13.5px}
+  nav.toc a{color:var(--blue);text-decoration:none;margin-right:14px;white-space:nowrap}
+  nav.toc a:hover{text-decoration:underline}
+  .note{background:#fff8e8;border:1px solid #f0dca8;border-left:4px solid var(--amber);padding:12px 16px;border-radius:10px;font-size:13.5px;margin:18px 0}
+  .good{background:#eefcf3;border:1px solid #c5ecd4;border-left:4px solid var(--green);padding:12px 16px;border-radius:10px;font-size:13.5px;margin:18px 0}
+  .alert{background:#fdecec;border:1px solid #f3c0c0;border-left:4px solid var(--red);padding:12px 16px;border-radius:10px;font-size:13.5px;margin:18px 0}
+  h2{font-size:20px;margin:38px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+  h3{font-size:16px;margin:22px 0 8px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:14px 0;box-shadow:0 1px 3px rgba(20,30,60,.04)}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;background:#fff;border-radius:10px;overflow:hidden}
+  th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+  th{background:#f0eafd;font-weight:600}
+  tr:nth-child(even) td{background:#fafbfe}
+  code{background:#eef1f6;padding:1px 6px;border-radius:5px;font-size:13px}
+  pre{background:#1f2430;color:#e8ecf3;padding:14px 16px;border-radius:10px;overflow:auto;font-size:12.5px}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;color:#fff}
+  .p-crit{background:#a01919}.p-high{background:var(--red)}.p-med{background:var(--amber)}.p-low{background:#3a7}.p-cos{background:var(--grey)}
+  .ok{color:var(--green);font-weight:600}.bad{color:var(--red);font-weight:600}.warn{color:var(--amber);font-weight:600}
+  .scorewrap{display:flex;gap:18px;flex-wrap:wrap;align-items:center}.bigscore{font-size:42px;font-weight:800;color:var(--brandd)}
+  .bar{height:10px;border-radius:6px;background:#e6e9ef;overflow:hidden;min-width:120px;flex:1}.bar i{display:block;height:100%;background:linear-gradient(90deg,#6f42c1,#9b6dff)}
+  .metarow{display:grid;grid-template-columns:160px 1fr 60px;gap:10px;align-items:center;margin:6px 0;font-size:13px}
+  ul{margin:8px 0 8px 2px;padding-left:20px}li{margin:5px 0}
+  .finding{border-left:4px solid var(--brand);padding-left:14px;margin:16px 0}
+  .finding .sol{background:#eefcf3;border:1px solid #c5ecd4;border-radius:8px;padding:8px 12px;margin-top:8px;font-size:13.5px}
+  .src a{color:var(--blue);text-decoration:none}.src a:hover{text-decoration:underline}
+  footer{margin-top:40px;font-size:12.5px;color:var(--muted);text-align:center;border-top:1px solid var(--line);padding-top:18px}
+  @media print{body{background:#fff}.card,table{box-shadow:none}header.top{box-shadow:none}nav.toc{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>SEO Audit — Astrology App Development Page</h1>
+  <div class="meta">
+    <div><b>URL:</b> https://www.imgglobalinfotech.com/astrology-app-development</div>
+    <div><b>Source:</b> resources/views/tailwind/pages/astrology-app-development/astrology-app-development.blade.php</div>
+    <div><b>Date:</b> 2 June 2026 &nbsp;•&nbsp; <b>Scope:</b> Audit only — no changes applied</div>
+    <div><b>Modules:</b> Technical · Content · Clusters · Strategy · Backlinks · Competitor Pages · SXO</div>
+  </div>
+</header>
+
+<nav class="toc">
+  <b>Jump to:</b>
+  <a href="#score">Scorecard</a>
+  <a href="#tech">Technical</a>
+  <a href="#content">Content</a>
+  <a href="#schema">Schema</a>
+  <a href="#cluster">Clusters</a>
+  <a href="#plan">Strategy</a>
+  <a href="#backlinks">Backlinks</a>
+  <a href="#competitors">Competitor Pages</a>
+  <a href="#sxo">SXO</a>
+  <a href="#actions">Actions</a>
+</nav>
+
+<div class="note"><b>Priority order:</b> SEO → Content → UX. Keyword volumes, backlink/DR figures and SERP positions are directional (Ahrefs/DataForSEO not connected). <b>No files were modified.</b></div>
+
+<div class="alert"><b>Headline issue — conflicting ratings:</b> the Product schema declares <b>4.7 / 138</b>; the live page shows <b>"4.7/5"</b> in one place <i>and</i> <b>"4.5/5 Average Rating"</b> in another. So one page displays two different ratings, the schema count (138) is not shown, and the value differs from the sitewide 4.5/5. This is an internal inconsistency + structured-data policy risk. Details in §3.</div>
+
+<h2 id="score">Page Scorecard</h2>
+<div class="card">
+  <div class="scorewrap"><span class="bigscore">78 / 100</span><span>Well-built page (full schema set + local angle); main drag is the conflicting/unsubstantiated rating.</span></div>
+  <div style="margin-top:14px">
+    <div class="metarow"><span>On-Page SEO</span><span class="bar"><i style="width:84%"></i></span><span>84</span></div>
+    <div class="metarow"><span>Content Quality</span><span class="bar"><i style="width:83%"></i></span><span>83</span></div>
+    <div class="metarow"><span>Technical</span><span class="bar"><i style="width:82%"></i></span><span>82</span></div>
+    <div class="metarow"><span>Schema</span><span class="bar"><i style="width:62%"></i></span><span>62</span></div>
+    <div class="metarow"><span>Images</span><span class="bar"><i style="width:82%"></i></span><span>82</span></div>
+    <div class="metarow"><span>Off-page / GEO authority</span><span class="bar"><i style="width:60%"></i></span><span>60</span></div>
+  </div>
+</div>
+
+<h2 id="tech">1. Technical SEO</h2>
+<div class="card">
+  <h3>Verified correct</h3>
+  <ul>
+    <li><span class="ok">INDEX, FOLLOW</span> (live), <span class="ok">self-referencing canonical</span>, <span class="ok">single H1</span>, viewport, WebP/CDN, server-rendered, schema <b>dates present</b> (published 2020-11-27, modified 2024-11-13).</li>
+    <li>96 images with dimensions.</li>
+  </ul>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 1.1 — robots.txt has no Sitemap directive; inlne-flex typo (66×)</b>
+    <pre>User-agent: *
+Disallow: /bucket</pre>
+    <div class="sol"><b>Solution:</b> add <code>Sitemap:</code> line; fix <code>inlne-flex</code> → <code>inline-flex</code> (shared component, affects many pages).</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 1.2 — llms.txt served but stale (.php URLs)</b>
+    <div class="sol">Deploy the clean-URL repo version.</div>
+  </div>
+</div>
+
+<h2 id="content">2. Content Quality &amp; On-Page</h2>
+<div class="card">
+  <table>
+    <tr><th>Element</th><th>Current</th><th>Status</th></tr>
+    <tr><td>&lt;title&gt;</td><td>Astrology App Development Company - IMG Global Infotech</td><td class="ok">54 chars — good</td></tr>
+    <tr><td>meta description</td><td>…leading astrology app development company in India… engaging ai astrology apps. 🔮🚀</td><td class="warn">Emojis + "ai" lowercase</td></tr>
+    <tr><td>H1 (DOM)</td><td>"Astrology App Development Company" (visible heading reads "AI-Powered Astrology App Development Company")</td><td class="warn">"AI-Powered" sits outside the H1 tag</td></tr>
+    <tr><td>H2s</td><td>"Build a Top Astrology App Like Astrotalk", "AI-Powered Astrology App Development Services", "High-Demand Indian Cities Fueling…"</td><td class="ok">Strong, intent-matched</td></tr>
+  </table>
+  <div class="good" style="margin-top:0"><b>Positive:</b> human content, clear AI-powered + Astrotalk-clone positioning, a "3-day launch" hook, and a notable <b>"High-Demand Indian Cities"</b> local-SEO section. Rich serviceType coverage (Kundli, numerology, tarot, panchang).</div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 2.1 — H1 splits the primary keyword</b>
+    <p>Markup is <code>&lt;div&gt;AI-Powered &lt;h1 class="inline"&gt;Astrology App Development Company&lt;/h1&gt;&lt;/div&gt;</code> — so the actual H1 text excludes "AI-Powered" (which is the page's main differentiator and a keyword). Same pattern noted on the OTT page.</p>
+    <div class="sol"><b>Solution:</b> wrap the whole phrase in the H1: <code>&lt;h1&gt;AI-Powered Astrology App Development Company&lt;/h1&gt;</code> (style the span inside).</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 2.2 — Emojis in meta description + casing</b>
+    <div class="sol">🔮🚀 in the meta description is unconventional — Google often truncates/strips it and it can read as spammy on some SERPs. Consider removing. Capitalise "AI" consistently (not "ai astrology").</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 2.3 — E-E-A-T</b>
+    <div class="sol">No author/leadership attribution or visible "last updated". Schema dates exist (good) — surface a visible "last updated" + credibility signal.</div>
+  </div>
+</div>
+
+<h2 id="schema">3. Schema / Structured Data</h2>
+<div class="card">
+  <p><b>Detected (full set):</b> @graph [Organization, WebSite, WebPage], Service, Product (+AggregateRating 4.7/138), FAQPage (DB), BreadcrumbList (DB). Good coverage — better than the OTT page.</p>
+  <div class="finding">
+    <b><span class="pill p-high">HIGH</span> 3.1 — Conflicting / unsubstantiated rating</b>
+    <pre>Schema:        "ratingValue": "4.7", "ratingCount": "138"
+Page shows:    "4.7/5"  (one section)  AND  "4.5/5 Average Rating"  (another)</pre>
+    <p>The page displays <b>two different ratings</b> (4.7/5 and 4.5/5), the schema count (138) appears nowhere, and the value differs from the sitewide 4.5/5. Google requires structured-data ratings to match a single, genuine, visible rating. This is better than the Home Service/Dating pages (where nothing matched) but still inconsistent.</p>
+    <div class="sol"><b>Solution:</b> pick one genuine rating + count, show it visibly, and make schema match it exactly. Remove the conflicting second value. Standardise the rating across all pages.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-high">HIGH</span> 3.2 — Product schema for a service</b>
+    <div class="sol">A Service node already exists. Drop Product; attach the (corrected, truthful) <code>aggregateRating</code> to the Service or Organization node instead.</div>
+  </div>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 3.3 — Organization sameAs empty in @graph</b>
+    <div class="sol">Populate Organization <code>sameAs</code> (Service node already lists socials).</div>
+  </div>
+</div>
+
+<h2 id="cluster">4. Keyword Clusters</h2>
+<div class="card">
+  <p>Spoke in the <b>On-Demand / Consumer App</b> cluster with a strong <b>local (Indian-cities)</b> dimension.</p>
+  <table>
+    <tr><th>Hub</th><th>This page</th><th>Sub-terms / local angle</th></tr>
+    <tr><td>On-Demand Consumer Apps</td><td>Astrology / horoscope apps</td><td>"Astrotalk clone", "Kundli app", "numerology app", "astrology app cost"; + city pages (the page already lists high-demand Indian cities)</td></tr>
+  </table>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 4.1 — Leverage the local angle</b>
+    <div class="sol">The "High-Demand Indian Cities" section is a real differentiator. If you build city-level astrology pages, ensure each is genuinely unique (avoid the templated thin-content risk flagged for the location pages sitewide). Interlink with the astrology-app cost blog.</div>
+  </div>
+</div>
+
+<h2 id="plan">5. Strategy / Plan</h2>
+<div class="card">
+  <table>
+    <tr><th>Window</th><th>Focus</th><th>Items</th></tr>
+    <tr><td><b>0–30 days</b></td><td>Rating + crawl</td><td>Resolve the 4.7 vs 4.5 conflict (3.1); drop Product type (3.2); populate Org sameAs; add Sitemap line; fix inlne-flex; wrap full phrase in H1 (2.1).</td></tr>
+    <tr><td><b>30–60 days</b></td><td>Citability + E-E-A-T</td><td>Add "What is astrology app development / cost" visible blocks; surface "last updated"; remove emojis; fix "AI" casing.</td></tr>
+    <tr><td><b>60–90 days</b></td><td>Authority + local</td><td>Astrotalk/Kundli clone content depth; unique city pages; Reddit/YouTube mentions; Wikidata entity (site-wide).</td></tr>
+  </table>
+</div>
+
+<h2 id="backlinks">6. Backlinks (directional)</h2>
+<div class="card">
+  <p>Site-level profile applies (Clutch 30 reviews, GoodFirms, DesignRush, Trustpilot; no Wikipedia/Wikidata; weak Reddit). For this page, target "astrology app / Astrotalk clone" roundups and astro-tech blogs.</p>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 6.1 — Quantify + page outreach</b>
+    <div class="sol">Connect Ahrefs/GSC for link data. Pursue links from astrology/astro-tech listicles; prioritise brand mentions (Reddit/YouTube/Wikidata).</div>
+  </div>
+</div>
+
+<h2 id="competitors">7. Competitor Pages</h2>
+<div class="card">
+  <p>The astrology-app niche is contested by clone vendors (Appdupe, Octal IT Solution, Suffescom, etc.) ranking with "Astrotalk clone" pages, feature/price matrices and demos. Astrotalk itself is the dominant brand reference.</p>
+  <div class="finding">
+    <b><span class="pill p-med">MEDIUM</span> 7.1 — Comparison + clone content</b>
+    <div class="sol">Add a feature/monetisation comparison (consultation, pay-per-minute, subscription) and an "Astrotalk clone vs custom astrology app" section. You already reference Astrotalk in an H2 — expand it with concrete pricing/feature detail and a demo.</div>
+  </div>
+</div>
+
+<h2 id="sxo">8. SXO — Intent Match</h2>
+<div class="card">
+  <table>
+    <tr><th>Query</th><th>SERP intent</th><th>Page fit</th></tr>
+    <tr><td>"astrology app development" / "Astrotalk clone"</td><td>Commercial</td><td class="ok">Strong — title/H1/content match</td></tr>
+    <tr><td>"astrology app development cost"</td><td>Informational-commercial</td><td class="warn">Surface a visible cost block (FAQ → on-page)</td></tr>
+    <tr><td>"astrology app development company in [city]"</td><td>Local-commercial</td><td class="ok">The Indian-cities section targets this — keep it unique</td></tr>
+  </table>
+  <div class="finding">
+    <b><span class="pill p-low">LOW</span> 8.1 — Conversion experience</b>
+    <div class="sol">Strong: "3-day launch" hook, app-preview carousel, lead popup. Keep popups user-dismissible (avoid mobile intrusive-interstitial penalty).</div>
+  </div>
+</div>
+
+<h2 id="actions">9. Prioritized Action List</h2>
+<div class="card">
+  <table>
+    <tr><th>#</th><th>Priority</th><th>Item</th><th>Ref</th></tr>
+    <tr><td>1</td><td><span class="pill p-high">HIGH</span></td><td>Resolve conflicting ratings (4.7/5 vs 4.5/5 vs schema 4.7/138); one genuine, visible value; align sitewide</td><td>3.1</td></tr>
+    <tr><td>2</td><td><span class="pill p-high">HIGH</span></td><td>Drop Product schema (wrong type); move corrected rating to Service/Org</td><td>3.2</td></tr>
+    <tr><td>3</td><td><span class="pill p-med">MED</span></td><td>Wrap full phrase in H1 ("AI-Powered Astrology App Development Company")</td><td>2.1</td></tr>
+    <tr><td>4</td><td><span class="pill p-med">MED</span></td><td>Populate Organization sameAs; add Sitemap: to robots.txt; fix inlne-flex</td><td>1.1/3.3</td></tr>
+    <tr><td>5</td><td><span class="pill p-med">MED</span></td><td>Add visible E-E-A-T (last-updated/author)</td><td>2.3</td></tr>
+    <tr><td>6</td><td><span class="pill p-med">MED</span></td><td>Add feature/monetisation comparison + Astrotalk-clone-vs-custom section</td><td>7.1</td></tr>
+    <tr><td>7</td><td><span class="pill p-low">LOW</span></td><td>Remove emojis from meta description; fix "AI" casing</td><td>2.2</td></tr>
+    <tr><td>8</td><td><span class="pill p-low">LOW</span></td><td>Surface visible cost block; ensure city pages are unique; deploy clean llms.txt</td><td>8.1/4.1/1.2</td></tr>
+  </table>
+</div>
+
+<h2>10. Verification Notes</h2>
+<div class="card">
+  <ul>
+    <li>Conflicting ratings (4.7/5 + 4.5/5 visible; schema 4.7/138), FAQ, robots, canonical, full schema set, dates: <b>verified</b> (source + live render).</li>
+    <li>Competitor niche + brand directory presence: <b>verified</b> via web search (earlier).</li>
+    <li>Backlink DR/referring domains, keyword volumes, SERP positions: <b>not measured</b> — connect Ahrefs + DataForSEO + GSC.</li>
+    <li><b>No files were modified.</b> Audit deliverable only.</li>
+  </ul>
+  <p class="src"><b>Sources:</b>
+    <a href="https://clutch.co/profile/img-global-infotech">Clutch</a> ·
+    <a href="https://www.goodfirms.co/company/img-global-infotech-pvt-ltd">GoodFirms</a> ·
+    <a href="https://developers.google.com/search/docs/appearance/structured-data/review-snippet">Google review-snippet policy</a>
+  </p>
+</div>
+
+<footer>Audit prepared for IMG Global Infotech — Astrology App Development page. Audit-only; awaiting your "apply" instruction before any change is made.</footer>
+
+</div>
+</body>
+</html>
