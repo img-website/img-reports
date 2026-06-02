@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit — Uber Like App Case Study | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0e1116; --card:#171b22; --card2:#1d222b; --line:#2a313c;
+    --ink:#e8ecf3; --mut:#9aa6b6; --acc:#1ec77d; --accd:#0f9a5e;
+    --crit:#ff5d5d; --high:#ff9f43; --med:#ffd54a; --low:#6cc6ff; --ok:#46d39a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:32px 20px 80px}
+  header.top{border:1px solid var(--line);background:linear-gradient(160deg,#1a1f27,#12151b);border-radius:18px;padding:26px 28px;margin-bottom:24px}
+  .kicker{color:var(--acc);font-weight:700;letter-spacing:.12em;font-size:12px;text-transform:uppercase}
+  h1{font-size:27px;margin:8px 0 6px;line-height:1.25}
+  .url{color:var(--low);font-size:13px;word-break:break-all}
+  .meta{color:var(--mut);font-size:13px;margin-top:10px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .stat .n{font-size:24px;font-weight:800}
+  .stat .l{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+  .score{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .ring{--p:42;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;
+    background:conic-gradient(var(--high) calc(var(--p)*1%), #262c36 0);flex:0 0 auto}
+  .ring .in{width:92px;height:92px;border-radius:50%;background:var(--bg);display:grid;place-items:center;text-align:center}
+  .ring .in b{font-size:28px;display:block;line-height:1}
+  .ring .in span{font-size:11px;color:var(--mut)}
+  h2.sec{font-size:20px;margin:38px 0 6px;padding-top:18px;border-top:1px solid var(--line)}
+  .sub{color:var(--mut);font-size:13px;margin:0 0 16px}
+  .issue{background:var(--card);border:1px solid var(--line);border-left-width:4px;border-radius:12px;padding:16px 18px;margin:14px 0}
+  .issue.crit{border-left-color:var(--crit)} .issue.high{border-left-color:var(--high)}
+  .issue.med{border-left-color:var(--med)} .issue.low{border-left-color:var(--low)} .issue.ok{border-left-color:var(--ok)}
+  .ihead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+  .badge{font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
+  .b-crit{background:rgba(255,93,93,.16);color:var(--crit)} .b-high{background:rgba(255,159,67,.16);color:var(--high)}
+  .b-med{background:rgba(255,213,74,.16);color:var(--med)} .b-low{background:rgba(108,198,255,.16);color:var(--low)}
+  .b-ok{background:rgba(70,211,154,.16);color:var(--ok)}
+  .ititle{font-weight:700;font-size:15.5px}
+  .issue p{margin:7px 0}
+  .lbl{display:inline-block;min-width:74px;color:var(--mut);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em;vertical-align:top}
+  .why{color:#ffd9b0} .sol{color:#bff0d6}
+  code{background:#0a0d12;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12.5px;color:#bdf0ff;word-break:break-word}
+  .quote{background:#0a0d12;border:1px dashed var(--line);border-radius:8px;padding:8px 12px;color:#ff9a9a;font-style:italic;margin:8px 0;font-size:13.5px}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--card2);color:var(--acc)}
+  .pri td:first-child{font-weight:800;text-align:center;width:34px}
+  .tag{font-size:11px;padding:2px 7px;border-radius:6px;background:var(--card2);color:var(--mut);border:1px solid var(--line)}
+  footer{color:var(--mut);font-size:12px;margin-top:40px;border-top:1px solid var(--line);padding-top:16px}
+  .note{background:rgba(30,199,125,.08);border:1px solid var(--accd);border-radius:10px;padding:12px 16px;color:#c5f3df;font-size:13.5px;margin:16px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">SEO · Content · UX Audit</div>
+  <h1>Uber Like App — Case Study Page Audit</h1>
+  <div class="url">https://www.imgglobalinfotech.com/case-study/uber-like-app</div>
+  <div class="meta">Prepared for IMG Global Infotech · 2 June 2026 · Audit only — no files were changed. Sources: live rendered HTML + local Laravel blade (<code>case-study-uber-like-app.blade.php</code>).</div>
+
+  <div class="score" style="margin-top:22px">
+    <div class="ring" style="--p:42">
+      <div class="in"><div><b>42</b><span>/100</span></div></div>
+    </div>
+    <div style="flex:1;min-width:240px">
+      <strong style="font-size:16px">Why this page never ranked — one line:</strong>
+      <p style="margin:6px 0 0;color:var(--mut)">It is crawlable and indexed, but the title chases the <em>informational</em> query "Uber Case Study: Strategy, Growth &amp; Marketing Insights" — a keyword owned by business blogs and B-schools, with the wrong audience and zero chance of winning — while the body is AI-spun, near-duplicate of your other 11 case studies, has a hidden keyword-less H1, and is polluted with competitor keywords (Rapido, Bolt, Ola) that don't belong on an Uber page. So Google can't place it for any commercial term you could actually win.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="stat"><div class="n" style="color:var(--ok)">Indexable</div><div class="l">Index / Follow ✓</div></div>
+    <div class="stat"><div class="n">126</div><div class="l">Images on page</div></div>
+    <div class="stat"><div class="n" style="color:var(--crit)">Hidden</div><div class="l">H1 visibility</div></div>
+    <div class="stat"><div class="n" style="color:var(--high)">Mismatch</div><div class="l">Title vs OG title</div></div>
+    <div class="stat"><div class="n" style="color:var(--crit)">0</div><div class="l">FAQ on page</div></div>
+  </div>
+</header>
+
+<div class="note"><strong>Good news first:</strong> Not a technical block. The page returns <code>INDEX, FOLLOW</code>, canonical is correct/self-referencing, it's allowed in <code>robots.txt</code> and in the sitemap. It even links out to your <code>taxi-app-development-company</code> service page and has a "Latest Insights" blog block — better internal linking than the Astrotalk page. Every problem below is fixable on-page.</div>
+
+<!-- ROOT CAUSE -->
+<h2 class="sec">1. The root cause — why it has never ranked</h2>
+<p class="sub">The most important section. Everything else supports it.</p>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">The title targets an informational query you can't win — and contradicts the OG title</span></div>
+  <p><span class="lbl">Problem</span><code>&lt;title&gt;Uber Case Study: Strategy, Growth &amp; Marketing Insights&lt;/title&gt;</code> and the meta description ("…to inspire entrepreneurs…") aim at <em>"Uber case study"</em> — a query dominated by Harvard/management blogs and read by students, not buyers. Meanwhile <code>og:title</code> and <code>twitter:title</code> say something completely different: <em>"Uber – Transforming the Ridesharing Industry."</em></p>
+  <p><span class="lbl why">Why</span>Two problems at once: (1) <strong>Wrong intent</strong> — even if you ranked for "Uber case study", that traffic wants business theory, not an app-dev agency, so it never converts and bounces (a negative signal). (2) <strong>Split identity</strong> — Google sees one promise in the title and a different one in OG/social. There is no clear commercial target like "build a taxi app like Uber" anywhere in the title.</p>
+  <p><span class="lbl sol">Fix</span>Pick one commercial intent and make title + OG agree, e.g.<br>Title → <code>Uber Like App Development | Build a Taxi App Like Uber — IMG Global Infotech</code><br>Lead the meta description with the service + a CTA ("See features, tech stack, cost &amp; timeline. Get a free quote.").</p>
+</div>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">Near-duplicate template across 12 case studies → low uniqueness</span></div>
+  <p><span class="lbl">Problem</span>Same skeleton, same 100+ logo "Innovative Technologies" grid, same "AI-Driven Solutions" block, same "Proposed Talent &amp; Time" copy as Astrotalk, Tinder, Netflix, Practo, etc. Only the nouns change.</p>
+  <p><span class="lbl why">Why</span>Google's Helpful-Content and duplicate systems demote templated pages whose value is a swapped template. 12 lookalike URLs dilute each other; none becomes the authority for its topic.</p>
+  <p><span class="lbl sol">Fix</span>Make ≥50% of the body unique to <em>ride-hailing</em>: real build narrative, architecture decisions (real-time GPS/matching, surge-pricing engine, driver payout, map SDK choices), screenshots, and defensible outcomes. Push the shared logo grid into a secondary/collapsed block.</p>
+</div>
+
+<!-- CONTENT THAT DOESN'T BELONG -->
+<h2 class="sec">2. Content that does NOT belong on this page</h2>
+<p class="sub">You asked specifically: is there content written here that isn't about this page? Yes — several places.</p>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">Competitor app names injected into Uber feature copy (Rapido / Bolt / Ola)</span></div>
+  <p><span class="lbl">Problem</span>Uber feature descriptions have unrelated competitor keywords jammed in:</p>
+  <div class="quote">Ride Booking — "…specifying a pickup and drop-off location <strong>with an App like Rapido.</strong>"</div>
+  <div class="quote">"For additional safety assistance while on a ride, use <strong>an app like Bolt's</strong> emergency contact choices."</div>
+  <div class="quote">Driver feature — "<strong>With an app like Ola</strong>, you can set your hours of engagement and get paid whenever it suits you."</div>
+  <p><span class="lbl why">Why</span>This is off-topic keyword injection. It makes the copy read like spun SEO spam, confuses the page's topic (is it about Uber, Rapido, Bolt, or Ola?), and dilutes topical focus — the opposite of what helps you rank. Users notice it and trust drops.</p>
+  <p><span class="lbl sol">Fix</span>Remove the Rapido/Bolt/Ola mentions from Uber feature text. If you want to rank for "app like Ola/Rapido", build dedicated pages for them and interlink — don't smuggle them into the Uber page.</p>
+</div>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">Keyword-stuffed, grammatically broken sentences</span></div>
+  <p><span class="lbl">Problem</span>Exact-match keywords are forced into sentences until they break:</p>
+  <div class="quote">"…adjust prices according to changes in supply and demand conditions <strong>to examine the Taxi app development cost</strong>. User safety required…"</div>
+  <div class="quote">"…emergency alert functions as safety features to build user trust <strong>to Build an app like uber</strong>. We created the Uber platform…"</div>
+  <p><span class="lbl why">Why</span>These read as machine-stuffed (the keyword has no grammatical role in the sentence). Keyword stuffing is a classic spam signal and tanks readability/E-E-A-T. "to examine the Taxi app development cost" makes no logical sense in a sentence about pricing algorithms.</p>
+  <p><span class="lbl sol">Fix</span>Rewrite naturally. Mention "taxi app development cost" once, in its own sentence, where it actually fits — not bolted onto unrelated clauses.</p>
+</div>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">Factual error: Uber called a "fleet management software" company</span></div>
+  <p><span class="lbl">Problem</span><span class="quote" style="display:inline-block;margin:4px 0">"Uber has maintained its position as one of the top companies in the <strong>fleet management software industry</strong> for more than ten years…"</span></p>
+  <p><span class="lbl why">Why</span>Uber is a ride-hailing / mobility-as-a-service company, not fleet-management software. Wrong category signals to both readers and Google that the content wasn't written by someone who understands the domain — an E-E-A-T problem and a topical-relevance miss.</p>
+  <p><span class="lbl sol">Fix</span>Correct it to "ride-hailing / mobility" and verify every other claim and stat in the page.</p>
+</div>
+
+<!-- CONTENT QUALITY -->
+<h2 class="sec">3. Content quality &amp; humanisation</h2>
+<p class="sub">Your brief: real, organic, human content — verified.</p>
+
+<div class="issue high">
+  <div class="ihead"><span class="badge b-high">High</span><span class="ititle">AI-spun, stilted phrasing throughout</span></div>
+  <p><span class="lbl">Problem</span>Sentences use the tell-tale inverted "X developed into Y, which reached…" AI structure and vague abstractions:</p>
+  <div class="quote">"The ridesharing industry developed into a multibillion-dollar business, which reached a market value of $73.07 billion in 2020."</div>
+  <div class="quote">"The case study demonstrates how a startup can discover common transportation problems and transform these issues into an expandable digital solution… through the stepwise implementation of AI-based demand prediction systems."</div>
+  <p>Plus small sloppiness: "Monthly ActiveUsers" (missing space), "Country Served Worldwide", "Driver Associated".</p>
+  <p><span class="lbl why">Why</span>This is the "mass-produced, low-effort" pattern the Helpful-Content system targets. The Project Idea reads like generic theory ("the research", "a startup") rather than <em>your</em> build story, so it adds no unique value and no E-E-A-T.</p>
+  <p><span class="lbl sol">Fix</span>Rewrite in plain human English from the perspective of the team that built it: what the client wanted, what you decided, what you shipped, what happened. Fix the label typos.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">"Impact" results are vague, with no real numbers</span></div>
+  <p><span class="lbl">Problem</span>The "Impact That Sets You Apart" block lists Faster Time-to-Market, Scalable User Growth, Optimized Development Cost, Better Business Impact — all qualitative, no measurable figures.</p>
+  <p><span class="lbl why">Why</span>Case studies earn links and trust through <em>specific, verifiable outcomes</em> (%, time, revenue, users). Generic claims are forgettable and don't differentiate you from the other 11 case studies that say the same thing.</p>
+  <p><span class="lbl sol">Fix</span>Replace with real metrics you can stand behind (e.g. "MVP shipped in 14 weeks", "handled X concurrent rides", "Y% lower infra cost"). If confidential, use ranges — but be concrete.</p>
+</div>
+
+<!-- MISSING / WRONG SECTIONS -->
+<h2 class="sec">4. Missing &amp; weak sections</h2>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">FAQ schema injected, but no FAQ section on the page</span></div>
+  <p><span class="lbl">Problem</span><code>@include('tailwind.schema.faqSchema')</code> runs, yet no visible FAQ block renders (no DB FAQ rows for this URL).</p>
+  <p><span class="lbl why">Why</span>You lose the easiest long-tail capture ("cost to build an app like Uber", "how long to develop a taxi app"), AND structured data with no matching visible content breaks Google's policy and risks a manual action.</p>
+  <p><span class="lbl sol">Fix</span>Add a real visible FAQ (cost, timeline, features, tech, monetisation) and populate the FAQ DB row so schema = content.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">No author/E-E-A-T, no testimonial, image-only Solution block</span></div>
+  <p><span class="lbl">Problem</span>No author byline, no client quote, and "Extensive Solution from IMG Global Infotech" / "Impact" lean on images with little crawlable text. There's also a stray empty "01 / 02" step layout under "The Concept of Planning…" with thin content.</p>
+  <p><span class="lbl why">Why</span>For YMYL-adjacent commercial content, expertise signals (author, testimonial, real text) drive trust and ranking. Image-only sections are invisible to text ranking and AI overviews.</p>
+  <p><span class="lbl sol">Fix</span>Add an author/expert box, a genuine testimonial, and convert Solution/Impact into real HTML text with the image as support.</p>
+</div>
+
+<!-- TECHNICAL -->
+<h2 class="sec">5. Technical &amp; on-page SEO</h2>
+
+<div class="issue crit">
+  <div class="ihead"><span class="badge b-crit">Critical</span><span class="ititle">H1 is hidden and carries no keyword</span></div>
+  <p><span class="lbl">Problem</span>The only H1 is <code>&lt;h1 class="hidden"&gt;Uber - Case Study&lt;/h1&gt;</code>. The visible top of the page is a logo image, not a heading.</p>
+  <p><span class="lbl why">Why</span>The H1 is a primary relevance signal. Hiding it and giving it a generic, keyword-free value wastes it and leaves no visible keyword-rich heading for users or crawlers.</p>
+  <p><span class="lbl sol">Fix</span>One visible H1 with the target phrase, e.g. <code>Uber Like App Development — Case Study</code> + a supporting sub-line.</p>
+</div>
+
+<div class="issue low">
+  <div class="ihead"><span class="badge b-low">Low</span><span class="ititle">Wrong / placeholder metas from the shared template</span></div>
+  <p><span class="lbl">Problem</span><code>meta geo.region = DE</code> (Germany) on a global/India page; the footer "Germany" office still uses Canada flag assets — both sitewide template leftovers also seen on other case studies.</p>
+  <p><span class="lbl why">Why</span>Wrong geo + placeholder values are low-quality signals and can mildly confuse geo-targeting.</p>
+  <p><span class="lbl sol">Fix</span>Set geo to the intended market (or remove), and fix the footer flag mapping sitewide.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">No Article / CreativeWork / Service schema</span></div>
+  <p><span class="lbl">Problem</span>Only Breadcrumb + (empty) FAQ schema are attempted. No structured data describes the case study, author, client or service.</p>
+  <p><span class="lbl why">Why</span>Rich structured data helps Google map agency → service → outcome and improves eligibility for enhanced results / AI citations.</p>
+  <p><span class="lbl sol">Fix</span>Add <code>Article</code>/<code>CreativeWork</code> (author, dates) + <code>Service</code> linking to your taxi-app-development page.</p>
+</div>
+
+<div class="issue ok">
+  <div class="ihead"><span class="badge b-ok">Pass</span><span class="ititle">What is already correct</span></div>
+  <p><span class="lbl">OK</span>Self-referencing canonical ✓ · <code>INDEX, FOLLOW</code> ✓ · allowed in robots.txt ✓ · in sitemap ✓ · OG + Twitter cards with image ✓ · every <code>&lt;img&gt;</code> has <code>alt</code> + <code>title</code> ✓ · in-body link to the <code>taxi-app-development-company</code> money page ✓ · "Latest Insights" blog links ✓.</p>
+</div>
+
+<!-- IMAGES -->
+<h2 class="sec">6. Images</h2>
+
+<div class="issue ok">
+  <div class="ihead"><span class="badge b-ok">Pass</span><span class="ititle">Alt &amp; title present on all 126 images</span></div>
+  <p><span class="lbl">OK</span>Every <code>&lt;img&gt;</code> has both <code>alt</code> and <code>title</code>; width/height + <code>loading</code>/<code>fetchpriority</code> are set.</p>
+</div>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">126 images is heavy; admin features likely share one image</span></div>
+  <p><span class="lbl">Problem</span>Most of the 126 images are the shared tech-logo grid; as on the other case studies, several admin-panel features reuse the same graphic.</p>
+  <p><span class="lbl why">Why</span>Large image volume inflates payload and can hurt mobile LCP/INP; reusing one image for many features is a low-effort signal.</p>
+  <p><span class="lbl sol">Fix</span>Lazy-load below-the-fold, trim the logo wall, and give each feature a distinct visual with unique alt.</p>
+</div>
+
+<!-- LINKS -->
+<h2 class="sec">7. Internal &amp; external linking</h2>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">Some internal linking exists, but it's thin and one-directional</span></div>
+  <p><span class="lbl">Problem</span>In-body you link to 4 other case studies + the <code>taxi-app-development-company</code> service page + "Latest Insights" blogs. But there are few <em>contextual</em> links inside the narrative, and (the bigger gap) likely few links <em>into</em> this page from your blogs/services/hub with strong anchors.</p>
+  <p><span class="lbl why">Why</span>One service link is good, but a page ranks when authority flows <em>into</em> it from relevant pages. Without inbound internal links using anchors like "app like Uber" / "taxi app development", a deep case-study URL stays weak.</p>
+  <p><span class="lbl sol">Fix</span>Add contextual body links (not just card links), and link into this case study from the taxi-app service page, related blogs and the case-study hub with descriptive anchors.</p>
+</div>
+
+<div class="issue low">
+  <div class="ihead"><span class="badge b-low">Low</span><span class="ititle">Unsourced market statistics</span></div>
+  <p><span class="lbl">Problem</span>"$73.07 billion in 2020… 19.2% CAGR… $209.60 billion by 2026" — cited to "the latest research" with no named source or link, and the numbers are now dated (2026 is the present).</p>
+  <p><span class="lbl why">Why</span>Unsourced, stale stats hurt trust and E-E-A-T. "Latest research" pointing at 2020 data reads as outdated.</p>
+  <p><span class="lbl sol">Fix</span>Cite a named source, link it, and refresh to current figures.</p>
+</div>
+
+<!-- URL -->
+<h2 class="sec">8. Is the URL user- &amp; SEO-friendly?</h2>
+
+<div class="issue ok">
+  <div class="ihead"><span class="badge b-ok">Mostly yes</span><span class="ititle">/case-study/uber-like-app</span></div>
+  <p><span class="lbl">Verdict</span>Yes — clean, lowercase, hyphenated, short, readable, keyword present ("uber-like-app"), no parameters/dates, and the <code>/case-study/</code> folder signals content type. <strong>Keep it.</strong></p>
+  <p><span class="lbl why">Note</span>Searchers also type "taxi app like Uber" / "app like Uber" — capture those in the title, H1 and body, not the slug. Do not change the URL (a change forces redirects and risks losing any equity).</p>
+</div>
+
+<!-- UX -->
+<h2 class="sec">9. UX</h2>
+
+<div class="issue med">
+  <div class="ihead"><span class="badge b-med">Medium</span><span class="ititle">Logo-as-hero, swipe-gated features, duplicate lead forms</span></div>
+  <p><span class="lbl">Problem</span>Hero leads with the Uber logo and no descriptive headline; features are hidden behind a "Swipe to show features" carousel; Solution/Impact are image-heavy; two near-identical lead forms + an exit popup.</p>
+  <p><span class="lbl why">Why</span>Little immediate text tells users/crawlers what the page offers; swipe-gated content is low-discoverability on desktop and for crawlers; multiple forms + popup add interaction cost (INP) and feel pushy.</p>
+  <p><span class="lbl sol">Fix</span>Add a clear text headline + sub-line + primary CTA in the hero; expose features as crawlable text; make Solution/Impact text-first; keep one well-placed form.</p>
+</div>
+
+<!-- ACTION PLAN -->
+<h2 class="sec">10. Prioritised action plan (organic)</h2>
+<p class="sub">Top-down. Items 1–4 move the ranking. No URL change required.</p>
+
+<table class="pri">
+  <thead><tr><th>#</th><th>Action</th><th>Fixes</th><th>Effort</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Re-target title + meta to commercial intent ("Uber like app development / build a taxi app like Uber") and make OG title match</td><td>Wrong intent, title/OG mismatch</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>2</td><td>Remove competitor injections (Rapido, Bolt, Ola) and keyword-stuffed broken sentences from Uber copy</td><td>Off-topic content, stuffing</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>3</td><td>Rewrite body in real human English; fix "fleet management" error &amp; label typos</td><td>AI-spun, factual error, E-E-A-T</td><td><span class="tag">Med</span></td></tr>
+    <tr><td>4</td><td>Make the page genuinely unique vs the other 11 case studies; shrink the shared logo wall</td><td>Duplication / thin content</td><td><span class="tag">Med</span></td></tr>
+    <tr><td>5</td><td>Add a visible keyword-rich H1 (stop hiding it)</td><td>Hidden H1</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>6</td><td>Add a real FAQ section + populate FAQ DB row so schema matches</td><td>Missing FAQ, schema policy</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>7</td><td>Replace vague "Impact" with real metrics; add author box + testimonial; make Solution/Impact crawlable text</td><td>Weak results, E-E-A-T</td><td><span class="tag">Med</span></td></tr>
+    <tr><td>8</td><td>Build inbound internal links into this page with anchors like "app like Uber"; add contextual body links</td><td>Thin linking</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>9</td><td>Add Article/CreativeWork + Service schema; cite &amp; refresh market stats</td><td>Schema, sources</td><td><span class="tag">Low</span></td></tr>
+    <tr><td>10</td><td>Unique image per feature, lazy-load, trim payload; clean geo=DE &amp; footer flag (sitewide)</td><td>Images, quality signals</td><td><span class="tag">Med</span></td></tr>
+  </tbody>
+</table>
+
+<div class="note"><strong>Bottom line:</strong> Technically fine — but pointed at an informational keyword it can't win, then filled with duplicated, AI-spun copy and competitor keywords that don't belong here. Fix the target (1) and the content (2–4), and this URL can finally rank for "app like Uber / taxi app development" terms you can win.</div>
+
+<footer>
+  Audit only — per project instruction, no files were modified. Verified against the live rendered HTML and the local blade <code>resources/views/tailwind/pages/case-study-uber-like-app/case-study-uber-like-app.blade.php</code>. Tell me when you want to apply any of these and I'll implement them.
+</footer>
+
+</div>
+</body>
+</html>
