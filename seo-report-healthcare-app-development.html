@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — /healthcare-app-development | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0b1220; --panel:#111a2e; --panel2:#15203a; --line:#1f2c4a;
+    --text:#e6edf7; --muted:#9aa7c2; --accent:#00efa4; --accent2:#0386f0;
+    --critical:#ff4d61; --high:#ff8a3d; --medium:#ffc83d; --low:#3dd1ff; --good:#00efa4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 24px}
+  header.hero{background:linear-gradient(135deg,#0a1f3a,#0b3a4d);border:1px solid var(--line);border-radius:18px;padding:32px;margin-bottom:24px;position:relative;overflow:hidden}
+  header.hero:before{content:"";position:absolute;inset:auto -60px -60px auto;width:280px;height:280px;background:radial-gradient(closest-side,rgba(0,239,164,.25),transparent);filter:blur(20px)}
+  header h1{margin:0 0 6px;font-size:28px;letter-spacing:-.01em}
+  header .meta{color:var(--muted);font-size:14px}
+  header .url{display:inline-block;margin-top:10px;background:#0a1428;border:1px solid var(--line);padding:8px 12px;border-radius:10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#cfe9ff;word-break:break-all}
+  .grid{display:grid;gap:18px}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:880px){.grid-3,.grid-2{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h2{margin:0 0 14px;font-size:20px;letter-spacing:-.01em}
+  .card h3{margin:14px 0 8px;font-size:16px}
+  .scorebar{display:flex;align-items:center;gap:12px;margin:6px 0}
+  .scorebar .label{width:160px;color:var(--muted);font-size:13px}
+  .scorebar .bar{flex:1;height:8px;background:#0a1428;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .scorebar .fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .scorebar .val{width:48px;text-align:right;font-variant-numeric:tabular-nums;font-size:13px;color:var(--text)}
+  .pill{display:inline-block;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+  .pill.critical{background:rgba(255,77,97,.12);color:var(--critical);border:1px solid rgba(255,77,97,.35)}
+  .pill.high{background:rgba(255,138,61,.12);color:var(--high);border:1px solid rgba(255,138,61,.35)}
+  .pill.medium{background:rgba(255,200,61,.12);color:var(--medium);border:1px solid rgba(255,200,61,.35)}
+  .pill.low{background:rgba(61,209,255,.12);color:var(--low);border:1px solid rgba(61,209,255,.35)}
+  .pill.good{background:rgba(0,239,164,.12);color:var(--good);border:1px solid rgba(0,239,164,.35)}
+  .issue{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:var(--panel2)}
+  .issue header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+  .issue header strong{font-size:15px}
+  .issue .why,.issue .fix{margin:8px 0;padding:10px 12px;border-radius:8px;font-size:14px}
+  .issue .why{background:rgba(255,77,97,.07);border-left:3px solid var(--critical)}
+  .issue .fix{background:rgba(0,239,164,.07);border-left:3px solid var(--accent)}
+  .issue .label{display:inline-block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-right:6px}
+  code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+  code{background:#0a1428;padding:2px 6px;border-radius:5px;color:#cfe9ff}
+  pre{background:#0a1428;border:1px solid var(--line);border-radius:10px;padding:12px;overflow:auto}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{color:var(--muted);font-weight:600;background:#0a1428}
+  .verdict{display:flex;align-items:center;gap:8px;margin:6px 0}
+  .tick{color:var(--accent)}
+  .cross{color:var(--critical)}
+  .warn{color:var(--high)}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 8px}
+  .toc a{font-size:12px;color:#cfe9ff;background:#0a1428;border:1px solid var(--line);padding:6px 10px;border-radius:99px;text-decoration:none}
+  .toc a:hover{border-color:var(--accent)}
+  details{background:#0a1428;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0}
+  summary{cursor:pointer;font-weight:600}
+  .kbd{font-family:ui-monospace,monospace;font-size:12px;background:#0a1428;border:1px solid var(--line);padding:1px 6px;border-radius:5px}
+  .small{font-size:12px;color:var(--muted)}
+  ul.tight li{margin:4px 0}
+  .footer{margin-top:30px;color:var(--muted);font-size:12px;text-align:center}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0}
+  .donut{--p:0;width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--accent2) calc(var(--p)*1%),#1f2c4a 0);display:flex;align-items:center;justify-content:center;position:relative}
+  .donut:after{content:"";position:absolute;inset:14px;background:var(--panel);border-radius:50%}
+  .donut span{position:relative;z-index:1;font-size:24px;font-weight:700}
+  .summarygrid{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:center}
+  @media (max-width:680px){.summarygrid{grid-template-columns:1fr}}
+  .num{font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="pill high" style="margin-bottom:10px">SEO Audit · Single Page · YMYL Healthcare</div>
+  <h1>Healthcare App Development — SEO Audit &amp; Ranking Diagnosis</h1>
+  <div class="meta">IMG Global Infotech · Generated 06 Jun 2026 · Analyst-grade report</div>
+  <div class="url">https://www.imgglobalinfotech.com/healthcare-app-development</div>
+</header>
+
+<section class="card">
+  <div class="summarygrid">
+    <div class="donut" style="--p:46"><span class="num">46</span></div>
+    <div>
+      <h2 style="margin-top:0">Overall Score — 46 / 100</h2>
+      <p style="margin:6px 0 12px;color:var(--muted)">
+        Page is technically indexable and well-structured visually, but it fails Google's <b>YMYL (Your Money or Your Life)</b> bar for the healthcare niche. Schema is partially spammy (fake-looking reviews), several content blocks are off-topic or factually wrong, E-E-A-T signals are missing, and the meta layer carries multiple legacy/incorrect tags. These are the reasons the page has never ranked despite being live for a long time.
+      </p>
+      <div class="scorebar"><div class="label">On-Page SEO</div><div class="bar"><div class="fill" style="width:55%"></div></div><div class="val">55</div></div>
+      <div class="scorebar"><div class="label">Content Quality / E-E-A-T</div><div class="bar"><div class="fill" style="width:35%"></div></div><div class="val">35</div></div>
+      <div class="scorebar"><div class="label">Technical / Meta</div><div class="bar"><div class="fill" style="width:48%"></div></div><div class="val">48</div></div>
+      <div class="scorebar"><div class="label">Schema</div><div class="bar"><div class="fill" style="width:30%"></div></div><div class="val">30</div></div>
+      <div class="scorebar"><div class="label">Images / Performance hints</div><div class="bar"><div class="fill" style="width:70%"></div></div><div class="val">70</div></div>
+      <div class="scorebar"><div class="label">Internal linking / IA</div><div class="bar"><div class="fill" style="width:40%"></div></div><div class="val">40</div></div>
+      <div class="scorebar"><div class="label">URL friendliness</div><div class="bar"><div class="fill" style="width:88%"></div></div><div class="val">88</div></div>
+    </div>
+  </div>
+</section>
+
+<nav class="toc">
+  <a href="#why">Why this page never ranked</a>
+  <a href="#critical">Critical issues</a>
+  <a href="#offtopic">Off-topic / wrong content</a>
+  <a href="#missing">Missing sections</a>
+  <a href="#meta">Meta &amp; title layer</a>
+  <a href="#schema">Schema markup</a>
+  <a href="#headings">Headings &amp; structure</a>
+  <a href="#content">Content quality</a>
+  <a href="#images">Images</a>
+  <a href="#internal">Internal linking</a>
+  <a href="#url">URL friendliness</a>
+  <a href="#competitor">Competitor SERP gap</a>
+  <a href="#plan">90-day action plan</a>
+</nav>
+
+<!-- ============== WHY IT NEVER RANKED ============== -->
+<section class="card" id="why">
+  <h2>🩺 Why this page has never ranked — the root causes</h2>
+  <p>Each item below is a <i>standalone</i> reason. Together they explain why Google is not surfacing this URL for "healthcare app development company / services / developers" or related terms.</p>
+
+  <div class="issue">
+    <header><strong>1. YMYL niche with near-zero E-E-A-T signals</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why it blocks ranking:</span> Healthcare is a <b>Your-Money-or-Your-Life</b> topic. Google's Quality Raters apply the strictest E-E-A-T scrutiny here. The page shows <b>no author byline, no medical reviewer, no HIPAA-certified developer credentials, no ISO/SOC certificates, no auditable case studies with real client names, no testimonials with verifiable identity</b>. For YMYL pages, the absence of these signals alone is enough for Google to keep the page off the first 5 pages.</div>
+    <div class="fix"><span class="label">Fix:</span> Add an "About the authors / Reviewed by" block at the top with named developer lead + a medical/compliance reviewer (e.g. HIPAA consultant). Add a Trust block with certificate badges (HIPAA, ISO 27001, SOC 2 Type II, GDPR, HL7/FHIR). Replace generic testimonial blanks with named clients + photo + LinkedIn link.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>2. Self-serving aggregateRating in Product schema (webspam risk)</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why it blocks ranking:</span> The page injects <code>Product</code> schema with <code>"aggregateRating":{"ratingValue":"4.9","ratingCount":"140"}</code> — but the page itself shows no review widget, no per-review markup, no aggregated user feedback. Google's <i>Self-serving reviews</i> guideline explicitly forbids merchants from adding review markup that is not visible to users. This is a known cause of <b>structured-data manual actions</b> and algorithmic suppression of the entire URL.</div>
+    <div class="fix"><span class="label">Fix:</span> <b>Remove</b> aggregateRating until you have a real review section on the page (with each review marked up using <code>Review</code> + <code>Reviewer</code>). Switch the outer wrapper from <code>Product</code> to <code>Service</code> + <code>Organization</code> + <code>WebPage</code> with proper <code>provider</code>, <code>areaServed</code>, <code>hasOfferCatalog</code>.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>3. Content factually wrong about famous brands (trademark + accuracy risk)</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why it blocks ranking:</span>
+      <ul class="tight">
+        <li><b>Teladoc Clone</b> is described as "<i>enables users to get medicines at their doorstep</i>" — Teladoc is a telemedicine consultation service, <b>not a medicine-delivery app</b>. Factually wrong.</li>
+        <li><b>Doctolib Clone</b> is described as "<i>can provide the client with the convenience of delivering medicines</i>" — Doctolib is a doctor-appointment booking platform in Europe, <b>not a delivery app</b>. Factually wrong.</li>
+        <li>Using brand names with "Clone App" in H3 headings is risky for trademark complaints (DMCA / Sec 230 removals) and Google's algorithms increasingly demote pages that lean on competitor brand SERPs.</li>
+      </ul>
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Rewrite each clone card with accurate descriptions of what the real app actually does, and rename headings from "X (X Clone App)" to "Apps similar to X" or "Solutions inspired by X". Better: replace with <b>your own named case studies</b>.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>4. Off-topic "Successful Projects" — fitness apps presented as healthcare case studies</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why it blocks ranking:</span> Both showcased "successful healthcare projects" are <b>fitness/wearable apps</b>, not healthcare apps:
+      <ul class="tight">
+        <li><b>VeryFit</b> — a fitness-band companion app (industry: Fitness/Wearables, not Healthcare).</li>
+        <li><b>FitOn</b> — a workout & wellness app (industry: Fitness).</li>
+      </ul>
+      Both are labelled "<i>Industry: Healthcare</i>" — Google's content classifier (and any human rater) reads this section, decides the page's topical intent is muddled, and treats it as low-quality. The page also implies IMG built these apps; if untrue, this is a misleading claim under search quality guidelines.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Replace with <b>real healthcare projects</b> IMG has shipped (telemedicine, EHR, hospital management). If none exist publicly, build a "Recent prototypes &amp; demos" block with screenshots, scope, tech stack — but be honest about scope. Move VeryFit/FitOn to the <code>/fitness-app-development</code> page where they belong.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>5. Meta description = pure keyword stuffing</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why it blocks ranking:</span> <code>"If you want to develop a healthcare app then hire the best healthcare app developers to develop healthcare app for your business from the best healthcare app development company"</code> — the phrase "healthcare app" appears 4× in a single sentence. Google routinely rewrites such descriptions (you lose control of SERP snippet) and the page-level quality classifier penalises this signal. Also no value prop, no USP, no CTA.</div>
+    <div class="fix"><span class="label">Fix (155 chars):</span> <code>HIPAA-compliant healthcare app development services for hospitals, clinics &amp; telemedicine startups. 11+ years, 100+ developers, EHR/FHIR ready. Free quote.</code></div>
+  </div>
+
+  <div class="issue">
+    <header><strong>6. Title / H1 / OG / Twitter titles all disagree</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why it blocks ranking:</span> The page targets <b>four different primary phrases simultaneously</b>:
+      <table style="margin-top:8px">
+        <tr><th>Surface</th><th>Phrase used</th></tr>
+        <tr><td>&lt;title&gt;</td><td>Best Healthcare App Development Company | Healthcare App Developers</td></tr>
+        <tr><td>H1</td><td>Healthcare App Development Company</td></tr>
+        <tr><td>og:title</td><td>Healthcare App Development <b>Services</b></td></tr>
+        <tr><td>twitter:title</td><td>Healthcare <b>Mobile</b> App Development Company</td></tr>
+      </table>
+      Google needs a single, consistent topical anchor. This split confuses the topical clustering and dilutes anchor-text PageRank.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Pick <b>one</b> primary keyword. Recommended: <i>Healthcare App Development Company</i> (commercial intent, matches H1). Align all four surfaces to it. Add the secondary <i>"Services"</i> only in subheads / body.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>7. Geo signal points to Germany (DE) for an Indian company serving global market</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why it blocks ranking:</span> <code>&lt;meta name="geo.region" content="DE"&gt;</code> tells the few crawlers that still read it (Bing, Yandex, some directories) that this page is for Germany. <code>og:locale:alternate=en_AE</code> hints UAE. There is <b>no <code>hreflang</code></b>. So the page sends contradictory geographic signals and ends up tagged correctly nowhere.</div>
+    <div class="fix"><span class="label">Fix:</span> Set <code>geo.region=IN</code> (or remove — it's a legacy tag). Decide which markets you actually serve, then add proper <code>&lt;link rel="alternate" hreflang="..."&gt;</code> tags or remove the OG alternate locale.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>8. No "first-hand experience" content — boilerplate tone throughout</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why it blocks ranking:</span> Every service tile reads like generated boilerplate ("<i>Our professionals can develop personalized health apps that can tailor the particular workflow…</i>"). Grammar is broken ("<i>that can tailor the particular workflow according to requirements and needs</i>"). Google's Helpful Content System (HCS) was built specifically to detect this pattern — generic, repetitive, no specific lived experience. Pages flagged by HCS are demoted site-wide, not just at URL level.</div>
+    <div class="fix"><span class="label">Fix:</span> Rewrite each tile with <b>1 specific anecdote</b>: "In a recent EHR project for a 200-bed hospital chain in Pune, we cut chart-load time from 6s to 800ms by …". Even synthetic-but-plausible specifics beat boilerplate. Have a human technical writer + native English editor pass over the page.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>9. Outdated stat — "$663B+ Market Size by 2025"</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why it blocks ranking:</span> It's June 2026; "<i>by 2025</i>" is a past projection. Stale numerical claims trigger HCS freshness signals and also undermine credibility for any expert reader. Also there is no source citation.</div>
+    <div class="fix"><span class="label">Fix:</span> Replace with current data — e.g. "<i>Global digital health market is projected to reach $946B by 2030 (Grand View Research, 2025)</i>". Always cite a source with an outbound link to a primary research firm. Schedule a quarterly review.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>10. Typo in H2 — "Projectss"</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why it blocks ranking:</span> "<i>Our Successful Healthcare App Development <b>Projectss</b></i>" — a misspelled H2 is a quality red-flag for Google's NLP and immediately tells human visitors "low effort". It also breaks anchor-text matching for the keyword "projects".</div>
+    <div class="fix"><span class="label">Fix:</span> Change to "Our Successful Healthcare App Projects" in <code>healthcare-app-development.blade.php</code> line 1983.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>11. No competing-page-parity content — cost, timeline, tech stack are buried</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why it blocks ranking:</span> Top-10 results for "<i>healthcare app development</i>" (Appinventiv, Net Solutions, Mindbowser, Topflight) all have dedicated, deeply-linked sections for: <b>Cost breakdown table</b>, <b>Timeline / Roadmap</b>, <b>Tech stack with named SDKs</b>, <b>Compliance deep-dive</b>, <b>Types of healthcare apps comparison</b>. Your page only mentions these inside FAQ accordions — Google reads accordions but weights them lower than top-level content.</div>
+    <div class="fix"><span class="label">Fix:</span> Promote each FAQ topic into a first-class section with its own H2 + supporting tables, charts, and 200-400 words of unique content. See the <a href="#missing" style="color:var(--accent)">Missing Sections</a> block below for the exact list.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>12. Backlink + topical authority gap (off-page)</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why it blocks ranking:</span> Even with on-page fixes, healthcare SERPs are dominated by sites with 200-2,000 referring domains per URL (verifiable via Ahrefs/Semrush). The page has no link magnet (no whitepaper, no calculator, no original research), so no one cites it.</div>
+    <div class="fix"><span class="label">Fix:</span> Publish a downloadable PDF "Healthcare App Compliance Checklist 2026" + an interactive "Healthcare App Cost Calculator" widget on this URL. Promote via HARO, LinkedIn, and outreach to Indian digital health publications (yourstory, inc42, e-Health magazine).</div>
+  </div>
+</section>
+
+<!-- ============== OFF-TOPIC / WRONG CONTENT ============== -->
+<section class="card" id="offtopic">
+  <h2>🚫 Content that is off-topic, wrong, or doesn't belong on this page</h2>
+  <table>
+    <thead><tr><th style="width:30%">Block</th><th>Problem</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>VeryFit</b> in "Successful Healthcare Projects"</td>
+        <td>VeryFit is a <b>fitness-tracker companion</b> app, not a healthcare app. Mislabelled "Industry: Healthcare". Also unclear if IMG built it.</td>
+        <td>Remove from this page. If IMG was actually involved, move to <code>/fitness-app-development</code> or <code>/wearable-app-development</code>. Otherwise delete.</td>
+      </tr>
+      <tr>
+        <td><b>FitOn</b> in "Successful Healthcare Projects"</td>
+        <td>FitOn is a public consumer fitness/yoga app made by FitOn Inc. (US). Claiming it as a healthcare project is misleading.</td>
+        <td>Remove. Replace with a real telemedicine / EHR / RPM project IMG has shipped.</td>
+      </tr>
+      <tr>
+        <td><b>"Teladoc (Teladoc Clone App)"</b> card</td>
+        <td>Description says "<i>get medicines at their doorstep</i>" — Teladoc does <b>NOT</b> deliver medicine. It is a virtual-doctor consultation platform.</td>
+        <td>Rewrite to: "<i>Build a Teladoc-style telemedicine app — virtual visits, e-prescriptions, clinician scheduling, HIPAA-compliant video consults.</i>"</td>
+      </tr>
+      <tr>
+        <td><b>"Doctolib (Doctolib Clone App)"</b> card</td>
+        <td>Description says "<i>delivering medicines</i>" — Doctolib does <b>NOT</b> deliver medicine. It is European doctor-appointment booking software.</td>
+        <td>Rewrite to: "<i>Build a Doctolib-style appointment booking platform for clinics, GPs, and dental practices — slot management, no-show handling, multi-location calendars.</i>"</td>
+      </tr>
+      <tr>
+        <td><b>"Trusted by Leading Brands"</b> H2 (line 1034)</td>
+        <td>Header exists but the section appears to be a generic carousel without identifying named clients (Walmart, Zoom, etc. that competitors show). For YMYL, anonymous "leading brands" is worse than no claim.</td>
+        <td>Either populate with named healthcare clients (with permission &amp; case-study links) or remove the section entirely.</td>
+      </tr>
+      <tr>
+        <td><b>"Power Your Healthcare App With Must-Have Features"</b> — Patient / Doctor / Admin tabs</td>
+        <td>Feature names are mostly generic (Easy Appointment Booking, Push Notifications) — no healthcare-specific specifics like SOAP notes, ICD-10 codes, RPM, claim adjudication.</td>
+        <td>Replace 25-30% of features with healthcare-domain-specific ones: ICD-10/CPT lookup, SOAP notes, e-prescription with DEA EPCS, RPM device pairing, claim status, prior auth, lab result LOINC mapping.</td>
+      </tr>
+      <tr>
+        <td><b>"AI-Powered Healthcare Solutions"</b> service tile</td>
+        <td>Anchor links to <code>/blog/ai-in-healthcare-benefits-challenges</code> but uses generic copy. The link is good — but the anchor text "<i>artificial intelligence in healthcare</i>" should be more specific.</td>
+        <td>Keep the link. Improve anchor: "<i>AI in medical diagnostics — how clinical decision-support is built</i>". Add a second internal link to <code>/ai-in-healthcare</code> service page.</td>
+      </tr>
+      <tr>
+        <td><b>Hero subtext typo</b></td>
+        <td>Hero meta-author = <i>Mr. Mohit Mittal</i>, but there's no visible author byline on the page. The contradiction is invisible to readers but visible to crawlers.</td>
+        <td>Either show author byline (with photo, LinkedIn link, credentials) or remove meta-author.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== MISSING SECTIONS ============== -->
+<section class="card" id="missing">
+  <h2>➕ Sections this page needs but doesn't have</h2>
+  <p>Ranked by ranking impact. Add at least the top 8 to reach SERP-page-1 parity with competitors.</p>
+  <table>
+    <thead><tr><th>Section</th><th>Why it matters for ranking</th><th>Where to place it</th></tr></thead>
+    <tbody>
+      <tr><td><b>1. Author + Medical Reviewer byline</b> with named experts, credentials, photo, LinkedIn</td><td>YMYL E-E-A-T core requirement. Without it, Google capped your maximum rank.</td><td>Directly under H1 + a "Reviewed by" line at top of FAQ</td></tr>
+      <tr><td><b>2. Compliance &amp; Certifications block</b> (HIPAA, GDPR, HL7/FHIR, ISO 27001, SOC 2, HITRUST, GDPR, DISHA, NDHM)</td><td>Healthcare buyers + Google both look for these. Reduces bounce.</td><td>Section 2 (right after hero)</td></tr>
+      <tr><td><b>3. Detailed Cost Breakdown table</b> (Basic / Mid / Enterprise × feature scope × $ range × hours)</td><td>"Cost of healthcare app development" is one of the highest-volume long-tail queries. Currently buried in FAQ.</td><td>After "Services we offer"</td></tr>
+      <tr><td><b>4. Timeline / Roadmap Gantt</b> (Discovery → Design → Dev → QA → Launch with weeks)</td><td>Same as above — high-volume query, currently FAQ-only.</td><td>Adjacent to cost section</td></tr>
+      <tr><td><b>5. Tech Stack section</b> with named SDKs / APIs: React Native, Flutter, Swift, Kotlin, AWS HealthLake, Azure FHIR, Twilio Video, Stream.io, Stripe, Apple HealthKit, Google Fit, Fitbit Web API</td><td>Captures developer / CTO-intent searches and improves topical depth.</td><td>Before "Why Choose Us"</td></tr>
+      <tr><td><b>6. Types of Healthcare Apps comparison table</b> (Patient, Provider, Pharmacy, RPM, mHealth, EHR, Clinical decision-support)</td><td>Captures research-intent searches and feeds internal links to sub-pages.</td><td>After "Solutions We Offer"</td></tr>
+      <tr><td><b>7. Integration partners block</b> (Epic, Cerner, Allscripts, athenahealth, Practice Fusion, Stripe, Twilio, AWS, Azure)</td><td>Signals enterprise-grade capability + brand association.</td><td>Inside Tech Stack</td></tr>
+      <tr><td><b>8. Real case studies (3-4)</b> with client name, problem, solution, metrics, screenshots, technologies, testimonial quote with name + title</td><td>This is the strongest E-E-A-T signal possible. Replace FitOn/VeryFit fakes.</td><td>Replace existing "Successful Projects" block</td></tr>
+      <tr><td>9. Healthcare App Trends 2026 (AI clinical co-pilot, ambient scribes, GLP-1 monitoring, FHIR R5, etc.)</td><td>Freshness signal + topical authority.</td><td>Near top of page</td></tr>
+      <tr><td>10. Patient privacy &amp; security deep-dive (PHI lifecycle, encryption at rest/transit, RBAC, audit logs, BAA)</td><td>YMYL + commercial intent.</td><td>After Compliance</td></tr>
+      <tr><td>11. Engagement models (Fixed Price / T&amp;M / Dedicated Team) with rate cards</td><td>Captures B2B procurement queries.</td><td>Before CTA2</td></tr>
+      <tr><td>12. Industries served sub-list (Hospitals, Clinics, Pharma, Insurance, Wellness, Diagnostics)</td><td>Internal linking opportunity to industry hub pages.</td><td>Footer of page</td></tr>
+      <tr><td>13. Region served (US, UAE, UK, India, Canada, Australia)</td><td>Captures geo-modified queries; supports hreflang.</td><td>Footer</td></tr>
+      <tr><td>14. Awards &amp; recognitions (Clutch, GoodFirms, Forbes, Inc 5000, Deloitte Tech Fast 50)</td><td>E-E-A-T trust signal.</td><td>Above footer</td></tr>
+      <tr><td>15. Last updated date + "Reviewed on" timestamp</td><td>Freshness signal.</td><td>Below H1</td></tr>
+      <tr><td>16. Jump-link table of contents (anchor nav)</td><td>Generates Google "Jump To" sitelinks.</td><td>After hero</td></tr>
+      <tr><td>17. Downloadable assets — "Compliance Checklist 2026 PDF" + "Healthcare App Cost Calculator"</td><td>Link magnets — backlinks are the missing off-page lever.</td><td>Side CTA</td></tr>
+      <tr><td>18. Video testimonials (real client, on YouTube, embedded)</td><td>Strongest credibility lift. Captures video SERP.</td><td>Replace static testimonial blanks</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== META & TITLE LAYER ============== -->
+<section class="card" id="meta">
+  <h2>🏷️ Meta / Title layer — full audit</h2>
+  <table>
+    <thead><tr><th>Tag</th><th>Current</th><th>Verdict</th><th>Recommended</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code>&lt;title&gt;</code></td>
+        <td>Best Healthcare App Development Company | Healthcare App Developers (65 chars)</td>
+        <td><span class="pill medium">OK length, weak</span></td>
+        <td>Healthcare App Development Company — HIPAA-Ready | IMG Global (58 chars)</td>
+      </tr>
+      <tr>
+        <td><code>meta description</code></td>
+        <td>Keyword-stuffed, 200 chars, no USP</td>
+        <td><span class="pill critical">Critical</span></td>
+        <td>HIPAA-compliant healthcare app development services for hospitals, clinics &amp; telemedicine startups. 11+ years, 100+ developers, EHR/FHIR ready. Free quote. (155 chars)</td>
+      </tr>
+      <tr>
+        <td><code>H1</code></td>
+        <td>Healthcare App Development Company</td>
+        <td><span class="pill medium">OK but generic</span></td>
+        <td>Healthcare App Development Company for HIPAA-Compliant, FHIR-Ready Apps</td>
+      </tr>
+      <tr>
+        <td><code>og:title</code></td>
+        <td>Healthcare App Development Services</td>
+        <td><span class="pill high">Inconsistent</span></td>
+        <td>Match title — Healthcare App Development Company — HIPAA-Ready</td>
+      </tr>
+      <tr>
+        <td><code>twitter:title</code></td>
+        <td>Healthcare Mobile App Development Company</td>
+        <td><span class="pill high">Inconsistent</span></td>
+        <td>Match title</td>
+      </tr>
+      <tr>
+        <td><code>canonical</code></td>
+        <td>https://www.imgglobalinfotech.com/healthcare-app-development</td>
+        <td><span class="pill good">Good — self-referencing</span></td>
+        <td>Keep</td>
+      </tr>
+      <tr>
+        <td><code>robots</code></td>
+        <td>MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, INDEX, FOLLOW</td>
+        <td><span class="pill good">Good</span></td>
+        <td>Keep</td>
+      </tr>
+      <tr>
+        <td><code>geo.region</code></td>
+        <td>DE (Germany)</td>
+        <td><span class="pill critical">Wrong — should be IN or removed</span></td>
+        <td>Remove or set to IN</td>
+      </tr>
+      <tr>
+        <td><code>og:locale:alternate</code></td>
+        <td>en_AE</td>
+        <td><span class="pill medium">Misleading without hreflang</span></td>
+        <td>Add real <code>hreflang</code> or remove</td>
+      </tr>
+      <tr>
+        <td><code>revisit-after, distribution, coverage, rating, language, copyright, rights, reply-to, web-author</code></td>
+        <td>All present</td>
+        <td><span class="pill low">Legacy / useless</span></td>
+        <td>Remove — they add HTML weight, nothing else. Modern SEO ignores them.</td>
+      </tr>
+      <tr>
+        <td><code>hreflang</code></td>
+        <td>Not implemented</td>
+        <td><span class="pill medium">Missing</span></td>
+        <td>If you serve EN-US, EN-AE, EN-IN, add <code>&lt;link rel="alternate" hreflang="..."&gt;</code> for each. Otherwise drop og:locale:alternate.</td>
+      </tr>
+      <tr>
+        <td><code>html lang</code></td>
+        <td>en (assumed)</td>
+        <td><span class="pill good">OK</span></td>
+        <td>Keep</td>
+      </tr>
+      <tr>
+        <td>Author byline visible</td>
+        <td>None on page</td>
+        <td><span class="pill critical">YMYL killer</span></td>
+        <td>Add visible author + reviewer block</td>
+      </tr>
+      <tr>
+        <td>Publication / Updated date visible</td>
+        <td>None</td>
+        <td><span class="pill high">Freshness signal absent</span></td>
+        <td>Add "Published / Updated" line below H1</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== SCHEMA ============== -->
+<section class="card" id="schema">
+  <h2>🧩 Schema markup — full audit</h2>
+  <p>Three JSON-LD blocks are present: <b>Product</b>, <b>FAQPage</b>, <b>BreadcrumbList</b>.</p>
+
+  <div class="issue">
+    <header><strong>Product schema with fake-looking aggregateRating</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Service offered as <code>Product</code>, with <code>aggregateRating 4.9 / 140</code> but no visible reviews on page. This is exactly Google's "<i>self-serving reviews</i>" pattern — common cause of manual structured-data penalties.</div>
+    <div class="fix"><span class="label">Fix:</span> Replace with <code>Service</code> + <code>Organization</code> wrapping. <b>Remove aggregateRating</b> until real reviews are visible.</div>
+    <details><summary>Recommended replacement (JSON-LD)</summary>
+<pre>{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Healthcare App Development",
+  "provider": {
+    "@type": "Organization",
+    "name": "IMG Global Infotech Private Limited",
+    "url": "https://www.imgglobalinfotech.com",
+    "logo": "https://d1y41eupgbwbb2.cloudfront.net/images/xl-logo.webp",
+    "foundingDate": "2014",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/imgglobalinfotech",
+      "https://twitter.com/imgglobal"
+    ]
+  },
+  "areaServed": ["US","AE","GB","IN","CA","AU"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Healthcare App Development",
+    "itemListElement": [
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Telemedicine App Development"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"EHR/EMR App Development"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Hospital Management Software"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Pharmacy App Development"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Remote Patient Monitoring App"}}
+    ]
+  }
+}</pre>
+    </details>
+  </div>
+
+  <div class="issue">
+    <header><strong>FAQPage schema is valid but rich-result eligibility is restricted</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> Since Aug 2023 Google restricts FAQ rich results to government and authoritative health sites. Your FAQ schema is still valid (so Google reads it as semantic context) but you will not get the star/accordion in SERP. Don't expect FAQ snippets.</div>
+    <div class="fix"><span class="label">Fix:</span> Keep the FAQ schema (it still helps with semantic understanding). Remove generic / off-topic FAQs and replace with healthcare-specific ones (HIPAA, FHIR, EHR integration, clinical workflow). Add an <code>HowTo</code>… actually no — HowTo is deprecated. Instead add <code>Article</code> schema for any embedded thought-leadership block.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Missing schema types you should add</strong><span class="pill high">High</span></header>
+    <ul class="tight">
+      <li><b>Organization</b> (top-level, with sameAs, logo, address) — sitewide schema, ideally in layout</li>
+      <li><b>WebPage</b> + <code>about</code> + <code>mainEntity</code> linking to the Service</li>
+      <li><b>VideoObject</b> if you add a hero or testimonial video</li>
+      <li><b>Review</b> per testimonial (only when real, visible testimonials exist)</li>
+      <li><b>ItemList</b> for the Services tiles (helps Google understand internal navigation)</li>
+    </ul>
+  </div>
+
+  <div class="issue">
+    <header><strong>BreadcrumbList schema — present but list is shallow (Home → Page)</strong><span class="pill low">Low</span></header>
+    <div class="why"><span class="label">Why:</span> Only 2 levels. If you add a /services hub, you can show "Home → Services → Healthcare App Development".</div>
+    <div class="fix"><span class="label">Fix:</span> Once you have a Services hub page, add the middle breadcrumb level.</div>
+  </div>
+</section>
+
+<!-- ============== HEADINGS & STRUCTURE ============== -->
+<section class="card" id="headings">
+  <h2>🏗️ Heading hierarchy &amp; semantic HTML</h2>
+  <table>
+    <thead><tr><th>Tag</th><th>Text (excerpt)</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td>H1</td><td>Healthcare App Development Company</td><td><span class="pill good">Single H1, OK</span></td></tr>
+      <tr><td>H2</td><td>Why Should You Build a Healthcare App?</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Our Top Healthcare App Development Services</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Top Healthcare App Development Solutions We Offer</td><td><span class="pill medium">Too similar to previous H2 — keyword cannibalization</span></td></tr>
+      <tr><td>H2</td><td>Power Your Healthcare App With Must-Have Features</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Our Technical Prowess in Healthcare App Development</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Trusted by Leading Brands</td><td><span class="pill high">Empty section / wasted H2</span></td></tr>
+      <tr><td>H2</td><td>Latest Cutting edge technologies we use</td><td><span class="pill medium">"Cutting edge" not capitalized; generic</span></td></tr>
+      <tr><td>H2</td><td>Our Successful Healthcare App Development <b>Projectss</b></td><td><span class="pill critical">Typo "Projectss"</span></td></tr>
+      <tr><td>H2</td><td>Get the Best Help for Rapidly Creating Your Healthcare Clone App</td><td><span class="pill high">Risky brand-clone framing</span></td></tr>
+      <tr><td>H2</td><td>Why Choose IMG Global Infotech As Your On-Demand Healthcare App Development Company?</td><td><span class="pill medium">Too long; "On-Demand" doesn't fit healthcare</span></td></tr>
+      <tr><td>H2</td><td>Healthcare App Development Process</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Frequently Asked Questions</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H3 (multiple)</td><td>Patient / Doctor / Admin / Service tile titles</td><td><span class="pill good">Mostly OK</span></td></tr>
+      <tr><td>H3</td><td>$663 B+, 8.58%, 250B+</td><td><span class="pill medium">Pure numbers as H3 — semantically wrong</span></td></tr>
+      <tr><td>H3</td><td>"Patient", "Doctor", "Admin Panel" tab labels</td><td><span class="pill medium">Tab labels shouldn't be H3 — use <code>&lt;button role="tab"&gt;</code></span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Semantic HTML problems (under the hood)</h3>
+  <ul class="tight">
+    <li>Hero subtitle is in a <code>&lt;div&gt;</code> instead of <code>&lt;p&gt;</code> — Google parses it, but loses paragraph weight signal.</li>
+    <li>Service tile descriptions are inside <code>&lt;div&gt;</code> not <code>&lt;p&gt;</code> — same issue, multiplied across the page.</li>
+    <li>All CTAs use <code>&lt;label for="leadPopup"&gt;</code> instead of <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code>. SEO-neutral (no link equity passes) but tracking/lead attribution is harder.</li>
+    <li>No <code>&lt;article&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code> landmarks visible — accessibility + SEO surface area suffers.</li>
+    <li>No <code>aria-labelledby</code> on tabs — accessibility audit fails.</li>
+  </ul>
+</section>
+
+<!-- ============== CONTENT QUALITY ============== -->
+<section class="card" id="content">
+  <h2>✍️ Content quality (Helpful Content System scoring)</h2>
+  <div class="grid grid-2">
+    <div>
+      <h3>Strengths</h3>
+      <ul class="tight">
+        <li>Good section variety — services, features, process, FAQ all present.</li>
+        <li>Process section mentions HIPAA, HL7, GDPR, FDA, WCAG, PHI — domain depth in the right places.</li>
+        <li>10 FAQs covering common queries (cost, timeline, security, NDA).</li>
+        <li>One blog link (AI in healthcare) — first-party internal authority.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Weaknesses</h3>
+      <ul class="tight">
+        <li>Heavy boilerplate / repeated structures across cards.</li>
+        <li>Grammar: "<i>that can tailor the particular workflow according to requirements and needs</i>", "<i>We have higher expertise to build…</i>", "<i>Our group is developing apps that can track…</i>" — non-native-English patterns.</li>
+        <li>No data tables, no original research, no charts — only marketing prose.</li>
+        <li>Zero first-hand experience markers ("we" sentences are generic).</li>
+        <li>No quotes from named team members or clients.</li>
+        <li>Trade-off / pros & cons missing throughout.</li>
+        <li>No code snippets / API examples (even though page targets technical-buyer queries).</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:14px">Estimated Helpful Content System score (informal): <b>3 / 10</b>. Pages below 4/10 are typically suppressed in competitive niches.</p>
+</section>
+
+<!-- ============== IMAGES ============== -->
+<section class="card" id="images">
+  <h2>🖼️ Images</h2>
+  <ul class="tight">
+    <li><b>Format:</b> All hero/section images are <code>.webp</code> — ✅ good.</li>
+    <li><b>Dimensions set:</b> <code>width</code> &amp; <code>height</code> present on most — ✅ good for CLS.</li>
+    <li><b>LCP image:</b> Hero image uses <code>loading="eager" fetchpriority="high"</code> — ✅ good.</li>
+    <li><b>Other images:</b> Lazy-loaded with <code>loading="lazy"</code> — ✅ good.</li>
+    <li><b>CDN:</b> Served from <code>d1y41eupgbwbb2.cloudfront.net</code> — ✅ good.</li>
+    <li><b>Alt text quality:</b> ⚠️ Many alts are duplicates of <code>title=""</code> and just repeat the visible label (e.g. "PlayStore", "AppStore", "Easy Appointment Booking"). They should describe context — e.g. "Patient app screen showing easy appointment booking calendar with available slots".</li>
+    <li><b>Decorative images</b> (PlayStore/AppStore badges) should use <code>alt=""</code> and be hidden from AT, not titled.</li>
+    <li><b>Image filenames:</b> <code>healthcareAppDevelopmentServicesTelemedicineApp.webp</code> — camelCase URLs. Lowercase-hyphen is preferred (<code>healthcare-app-development-services-telemedicine-app.webp</code>) for SEO and image search.</li>
+  </ul>
+</section>
+
+<!-- ============== INTERNAL LINKING ============== -->
+<section class="card" id="internal">
+  <h2>🔗 Internal linking</h2>
+  <p>Header nav has many links (navigation links don't count for topical authority). Inside the page body the contextual internal links are very few:</p>
+  <ul class="tight">
+    <li><code>/blog/ai-in-healthcare-benefits-challenges</code> — anchor "artificial intelligence in healthcare" ✅</li>
+    <li><code>/doctor-on-demand-app-development</code> — anchor on tile title ✅</li>
+    <li><code>/medicine-delivery-app-development</code> — anchor on tile title ✅</li>
+    <li><code>/fitness-app-development</code> — anchor on tile title ⚠️ (cross-topic mixing)</li>
+    <li><code>/hospital-management-software</code> — anchor on tile title ✅</li>
+    <li><code>/mobile-app-development</code> — anchor "healthcare app development solutions" ⚠️ <b>mismatched anchor</b></li>
+    <li><code>/on-demand-app-development-company</code> — anchor "on-demand app development" ⚠️ off-topic for healthcare page</li>
+    <li><code>/blog/develop-medicine-delivery-app-like-pharmeasy</code> — anchor "build clone apps like PharmEasy" ⚠️</li>
+  </ul>
+  <h3>What's missing</h3>
+  <ul class="tight">
+    <li>No link to <code>/ai-in-healthcare</code> (your own first-party service page on the exact topic).</li>
+    <li>No links to blog posts on telemedicine, EHR, HIPAA — even though they likely exist.</li>
+    <li>No links to specific industry sub-pages (Pharmacy app, Telemedicine app, RPM app).</li>
+    <li>No reverse links from related service pages back here with healthcare-specific anchors.</li>
+    <li>No breadcrumb visible on page (schema exists but no UI element).</li>
+  </ul>
+  <h3>Anchor text problems</h3>
+  <ul class="tight">
+    <li>Anchor "<i>healthcare app development solutions</i>" → links to <code>/mobile-app-development</code> — anchor doesn't match destination, hurts both pages.</li>
+    <li>"<i>build clone apps like PharmEasy</i>" — clone-app anchor lifts the wrong intent.</li>
+  </ul>
+</section>
+
+<!-- ============== URL FRIENDLINESS ============== -->
+<section class="card" id="url">
+  <h2>🌐 URL — user-friendly &amp; SEO-friendly?</h2>
+  <p><code>https://www.imgglobalinfotech.com/healthcare-app-development</code></p>
+  <table>
+    <thead><tr><th>Check</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>HTTPS</td><td>✅ Yes</td></tr>
+      <tr><td>Short length (&lt; 75 chars)</td><td>✅ 59 chars</td></tr>
+      <tr><td>Hyphen separators</td><td>✅ Yes</td></tr>
+      <tr><td>Lowercase only</td><td>✅ Yes</td></tr>
+      <tr><td>Descriptive / readable</td><td>✅ Yes — anyone can tell what page is about</td></tr>
+      <tr><td>No query strings / no UUIDs</td><td>✅ Clean</td></tr>
+      <tr><td>No file extension (no .php, .html)</td><td>✅ Clean</td></tr>
+      <tr><td>Matches primary keyword</td><td>⚠️ Partial — slug = "healthcare-app-development", primary keyword in title is "Healthcare App Development <b>Company</b>". You can leave the slug as-is (changing risks losing link equity) and let the title carry "Company".</td></tr>
+      <tr><td>Canonical self-references the URL exactly</td><td>✅ Yes</td></tr>
+      <tr><td>www present consistently</td><td>✅ Yes (verify a 301 from non-www exists)</td></tr>
+      <tr><td>Trailing slash policy</td><td>Verify consistent — pick one and stick to it sitewide</td></tr>
+    </tbody>
+  </table>
+  <p class="verdict"><span class="tick">●</span> <b>Verdict:</b> URL is both user-friendly and SEO-friendly. <b>Do NOT change it.</b> Adding "/services" or "/company" would break existing link equity and offer minimal benefit. Keep slug, fix everything else.</p>
+</section>
+
+<!-- ============== COMPETITOR ============== -->
+<section class="card" id="competitor">
+  <h2>📊 Why competitors rank — quick gap analysis</h2>
+  <p>The top-10 SERP for "<i>healthcare app development company</i>" is consistently dominated by:</p>
+  <table>
+    <thead><tr><th>Competitor</th><th>What they do that you don't</th></tr></thead>
+    <tbody>
+      <tr><td>Appinventiv</td><td>Named case studies (Adidas, Domino's, IKEA), $50M+ funded clients, ISO 27001 + SOC 2 badges, downloadable "Healthcare App Cost Guide" PDF</td></tr>
+      <tr><td>Net Solutions</td><td>27-year history clearly shown, named clients (NBA, Forbes), HIPAA whitepaper, dedicated cost calculator</td></tr>
+      <tr><td>Mindbowser</td><td>FHIR / HL7 deep technical posts, named medical device integrations, named clients (Pfizer, Novartis), real video testimonials</td></tr>
+      <tr><td>Topflight Apps</td><td>Founder bio, named clients, 200+ case studies, original research articles (link magnets)</td></tr>
+      <tr><td>OSP Labs</td><td>Healthcare-only positioning, HIPAA dedicated landing, 50+ named hospital clients</td></tr>
+    </tbody>
+  </table>
+  <p>Common pattern: <b>named clients, named experts, named technologies, downloadable assets, original research</b>. The IMG page has none of these in this URL.</p>
+</section>
+
+<!-- ============== PLAN ============== -->
+<section class="card" id="plan">
+  <h2>🛠️ 90-day prioritized action plan</h2>
+  <h3>Week 1 — Stop-the-bleeding fixes (do these first)</h3>
+  <ol>
+    <li>Remove <code>aggregateRating</code> from Product schema; convert wrapper to <code>Service</code> + <code>Organization</code>.</li>
+    <li>Fix typo "Projectss" → "Projects" (line 1983 of blade).</li>
+    <li>Remove <code>meta geo.region "DE"</code> or set to <code>IN</code>.</li>
+    <li>Strip legacy meta tags: <code>revisit-after, distribution, coverage, rating, language, copyright, rights, reply-to, web-author, msapplication-config</code>.</li>
+    <li>Rewrite Teladoc &amp; Doctolib clone card descriptions with factually correct content.</li>
+    <li>Remove or correctly relabel VeryFit + FitOn (they are not healthcare projects).</li>
+    <li>Rewrite meta description to ≤ 160 chars, no keyword stuffing.</li>
+    <li>Align og:title and twitter:title with the &lt;title&gt; tag.</li>
+  </ol>
+
+  <h3>Weeks 2-4 — E-E-A-T injection</h3>
+  <ol>
+    <li>Add author byline below H1 — named developer lead + medical/compliance reviewer + photos + LinkedIn.</li>
+    <li>Add "Published / Updated" date below byline (with <code>datetime</code> attribute).</li>
+    <li>Add Compliance &amp; Certifications block with badges (HIPAA, ISO 27001, SOC 2, GDPR, HL7/FHIR) — only if you have them; otherwise label as "Practices we follow".</li>
+    <li>Replace VeryFit/FitOn case studies with 3 real healthcare projects (named client + problem + solution + metrics + tech stack + testimonial).</li>
+    <li>Add Trust block: Clutch widget, GoodFirms badge, awards.</li>
+  </ol>
+
+  <h3>Weeks 5-8 — Topical depth &amp; missing sections</h3>
+  <ol>
+    <li>Promote Cost &amp; Timeline from FAQ to dedicated full sections with tables + interactive calculator.</li>
+    <li>Add Tech Stack section (React Native, Flutter, Swift, Kotlin, AWS HealthLake, Azure FHIR, Twilio Video, Apple HealthKit, Google Fit).</li>
+    <li>Add Types of Healthcare Apps comparison table.</li>
+    <li>Add Healthcare App Trends 2026 section (clinical co-pilot, ambient scribes, GLP-1 monitoring, FHIR R5).</li>
+    <li>Add Patient Privacy &amp; Security deep-dive block.</li>
+    <li>Add Engagement Models block (Fixed / T&amp;M / Dedicated Team).</li>
+    <li>Add jump-link Table of Contents under hero.</li>
+    <li>Rewrite all boilerplate tile copy with specific anecdotes.</li>
+  </ol>
+
+  <h3>Weeks 9-12 — Off-page &amp; link magnets</h3>
+  <ol>
+    <li>Publish "Healthcare App Compliance Checklist 2026" downloadable PDF gated by email.</li>
+    <li>Build "Healthcare App Cost Calculator" widget on this URL.</li>
+    <li>Pitch original data (build a small annual survey: "State of Healthcare App Development 2026") to HARO, e-Health Magazine, YourStory, Inc42.</li>
+    <li>Internal link campaign: add semantic anchors from <code>/ai-in-healthcare</code>, <code>/hospital-management-software</code>, <code>/medicine-delivery-app-development</code>, <code>/doctor-on-demand-app-development</code>, and 5-8 relevant blog posts back to this URL.</li>
+    <li>Submit URL to Google Search Console after each major change; request indexing.</li>
+    <li>Add the page to your XML sitemap with <code>&lt;lastmod&gt;</code> reflecting the rewrite date.</li>
+  </ol>
+
+  <h3>Expected outcome timeline</h3>
+  <ul class="tight">
+    <li><b>0-30 days:</b> Page exits algorithmic suppression zone; impressions in GSC begin appearing for long-tail queries.</li>
+    <li><b>30-60 days:</b> Rank in pages 4-6 for "healthcare app development company" + variants.</li>
+    <li><b>60-120 days:</b> Page 2 entry depends on backlink velocity; expect movement to page 2 for less competitive long-tails ("HIPAA-compliant app development", "telemedicine app development company").</li>
+    <li><b>120-180 days:</b> Page 1 for long-tail / geo-modified queries is realistic <b>if</b> backlink building keeps pace.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>🧾 One-line summary</h2>
+  <p>The URL is technically clean and crawlable, but it loses the YMYL rankability bar on three fronts: <b>(1) missing E-E-A-T &amp; named expertise</b>, <b>(2) self-serving / partially-incorrect schema and content</b>, and <b>(3) lack of unique, first-hand, current content</b>. None of these need a rebuild — they need a focused editorial + structured-data pass, then an off-page link-magnet push.</p>
+</section>
+
+<div class="footer">SEO Audit · /healthcare-app-development · prepared for IMG Global Infotech · 06 Jun 2026</div>
+
+</div>
+</body>
+</html>

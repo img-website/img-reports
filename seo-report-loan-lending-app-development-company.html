@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — /loan-lending-app-development-company | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0b1220; --panel:#111a2e; --panel2:#15203a; --line:#1f2c4a;
+    --text:#e6edf7; --muted:#9aa7c2; --accent:#2D86FF; --accent2:#4E94FF;
+    --critical:#ff4d61; --high:#ff8a3d; --medium:#ffc83d; --low:#3dd1ff; --good:#00efa4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 24px}
+  header.hero{background:linear-gradient(135deg,#001736,#0a2657);border:1px solid var(--line);border-radius:18px;padding:32px;margin-bottom:24px;position:relative;overflow:hidden}
+  header.hero:before{content:"";position:absolute;inset:auto -60px -60px auto;width:280px;height:280px;background:radial-gradient(closest-side,rgba(45,134,255,.3),transparent);filter:blur(20px)}
+  header h1{margin:0 0 6px;font-size:28px;letter-spacing:-.01em}
+  header .meta{color:var(--muted);font-size:14px}
+  header .url{display:inline-block;margin-top:10px;background:#0a1428;border:1px solid var(--line);padding:8px 12px;border-radius:10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#cfe9ff;word-break:break-all}
+  .grid{display:grid;gap:18px}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:880px){.grid-3,.grid-2{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:18px}
+  .card h2{margin:0 0 14px;font-size:20px;letter-spacing:-.01em}
+  .card h3{margin:14px 0 8px;font-size:16px}
+  .scorebar{display:flex;align-items:center;gap:12px;margin:6px 0}
+  .scorebar .label{width:200px;color:var(--muted);font-size:13px}
+  .scorebar .bar{flex:1;height:8px;background:#0a1428;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .scorebar .fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .scorebar .val{width:48px;text-align:right;font-variant-numeric:tabular-nums;font-size:13px}
+  .pill{display:inline-block;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+  .pill.critical{background:rgba(255,77,97,.12);color:var(--critical);border:1px solid rgba(255,77,97,.35)}
+  .pill.high{background:rgba(255,138,61,.12);color:var(--high);border:1px solid rgba(255,138,61,.35)}
+  .pill.medium{background:rgba(255,200,61,.12);color:var(--medium);border:1px solid rgba(255,200,61,.35)}
+  .pill.low{background:rgba(61,209,255,.12);color:var(--low);border:1px solid rgba(61,209,255,.35)}
+  .pill.good{background:rgba(0,239,164,.12);color:var(--good);border:1px solid rgba(0,239,164,.35)}
+  .issue{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:var(--panel2)}
+  .issue header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;background:transparent;padding:0}
+  .issue header strong{font-size:15px}
+  .issue .why,.issue .fix{margin:8px 0;padding:10px 12px;border-radius:8px;font-size:14px}
+  .issue .why{background:rgba(255,77,97,.07);border-left:3px solid var(--critical)}
+  .issue .fix{background:rgba(0,239,164,.07);border-left:3px solid var(--good)}
+  .issue .label{display:inline-block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-right:6px}
+  code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+  code{background:#0a1428;padding:2px 6px;border-radius:5px;color:#cfe9ff}
+  pre{background:#0a1428;border:1px solid var(--line);border-radius:10px;padding:12px;overflow:auto}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{color:var(--muted);font-weight:600;background:#0a1428}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}
+  .toc a{font-size:12px;color:#cfe9ff;background:#0a1428;border:1px solid var(--line);padding:6px 10px;border-radius:99px;text-decoration:none}
+  .toc a:hover{border-color:var(--accent)}
+  details{background:#0a1428;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0}
+  summary{cursor:pointer;font-weight:600}
+  .small{font-size:12px;color:var(--muted)}
+  ul.tight li{margin:4px 0}
+  .footer{margin-top:30px;color:var(--muted);font-size:12px;text-align:center}
+  .donut{--p:0;width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--accent) calc(var(--p)*1%),#1f2c4a 0);display:flex;align-items:center;justify-content:center;position:relative}
+  .donut:after{content:"";position:absolute;inset:14px;background:var(--panel);border-radius:50%}
+  .donut span{position:relative;z-index:1;font-size:24px;font-weight:700}
+  .summarygrid{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:center}
+  @media (max-width:680px){.summarygrid{grid-template-columns:1fr}}
+  .num{font-variant-numeric:tabular-nums}
+  .verdict{display:flex;align-items:center;gap:8px;margin:6px 0}
+  .tick{color:var(--good)}
+  .cross{color:var(--critical)}
+  .warn{color:var(--high)}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="pill critical" style="margin-bottom:10px">SEO Audit · YMYL FinTech · Lending</div>
+  <h1>Loan Lending App Development Company — SEO Audit &amp; Ranking Diagnosis</h1>
+  <div class="meta">IMG Global Infotech · Generated 06 Jun 2026 · Analyst-grade report</div>
+  <div class="url">https://www.imgglobalinfotech.com/loan-lending-app-development-company</div>
+</header>
+
+<section class="card">
+  <div class="summarygrid">
+    <div class="donut" style="--p:38"><span class="num">38</span></div>
+    <div>
+      <h2 style="margin-top:0">Overall Score — 38 / 100</h2>
+      <p style="margin:6px 0 12px;color:var(--muted)">
+        Lending is the <b>highest-tier YMYL niche</b> on the web — Google applies maximum scrutiny. This URL is technically reachable and indexable but trips multiple ranking-killer signals at once: <b>spammy self-serving review schema</b>, <b>schema duplication / invalid JSON</b>, <b>off-topic outbound linking</b>, <b>zero regulatory/compliance content</b> (RBI Digital Lending Guidelines, PCI-DSS, KYC, NBFC), <b>broken-grammar H2s</b>, and <b>copy-paste leftovers</b> in the case-study block. Each by itself would suppress the page; combined, Google has consistently held it off SERP.
+      </p>
+      <div class="scorebar"><div class="label">On-Page SEO</div><div class="bar"><div class="fill" style="width:50%"></div></div><div class="val">50</div></div>
+      <div class="scorebar"><div class="label">Content Quality / E-E-A-T</div><div class="bar"><div class="fill" style="width:25%"></div></div><div class="val">25</div></div>
+      <div class="scorebar"><div class="label">Technical / Meta</div><div class="bar"><div class="fill" style="width:42%"></div></div><div class="val">42</div></div>
+      <div class="scorebar"><div class="label">Schema</div><div class="bar"><div class="fill" style="width:25%"></div></div><div class="val">25</div></div>
+      <div class="scorebar"><div class="label">Images / Performance</div><div class="bar"><div class="fill" style="width:65%"></div></div><div class="val">65</div></div>
+      <div class="scorebar"><div class="label">Internal linking / IA</div><div class="bar"><div class="fill" style="width:30%"></div></div><div class="val">30</div></div>
+      <div class="scorebar"><div class="label">Regulatory / FinTech-domain depth</div><div class="bar"><div class="fill" style="width:15%"></div></div><div class="val">15</div></div>
+      <div class="scorebar"><div class="label">URL friendliness</div><div class="bar"><div class="fill" style="width:80%"></div></div><div class="val">80</div></div>
+    </div>
+  </div>
+</section>
+
+<nav class="toc">
+  <a href="#why">Why this page never ranked</a>
+  <a href="#offtopic">Wrong / off-topic content</a>
+  <a href="#missing">Missing sections</a>
+  <a href="#meta">Meta &amp; title</a>
+  <a href="#schema">Schema</a>
+  <a href="#headings">Headings</a>
+  <a href="#content">Content quality</a>
+  <a href="#images">Images</a>
+  <a href="#internal">Internal linking</a>
+  <a href="#url">URL friendliness</a>
+  <a href="#competitor">Competitor gap</a>
+  <a href="#plan">Action plan</a>
+</nav>
+
+<!-- ============== WHY ============== -->
+<section class="card" id="why">
+  <h2>💰 Why this page has never ranked — root causes (with WHY)</h2>
+
+  <div class="issue">
+    <header><strong>1. Highest-tier YMYL niche but zero financial E-E-A-T signals</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Lending sits at the very top of Google's YMYL list — money decisions that affect a user's life. Quality Raters demand auditable expertise: <b>NBFC license / regulator linkage, RBI Digital Lending Guidelines compliance, PCI-DSS certification, named CISO/CTO with photo, ISO 27001 / SOC 2 badges, third-party security audit references</b>. This page shows <b>none</b> of these. For YMYL Finance, this alone caps the page's maximum possible rank well below page 1.</div>
+    <div class="fix"><span class="label">Fix:</span> Add a "Trust &amp; Compliance" section near the top with HIPAA-of-finance equivalents: RBI Digital Lending Guidelines (Sep 2022), PCI-DSS Level 1, ISO 27001, SOC 2 Type II, GDPR, India's DPDP Act 2023. Add a "Reviewed by" block with named compliance officer + photo + LinkedIn.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>2. Self-serving aggregateRating 4.7/143 in Product schema</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> The page injects <code>Product</code> schema with <code>aggregateRating</code> 4.7 over 143 reviews — but the page itself shows <b>no review block, no per-review markup, no testimonials section even</b>. Google's "<i>self-serving reviews</i>" policy explicitly forbids merchants from adding aggregated review markup not visible to users. This is one of the most common causes of <b>structured-data manual actions</b> and silent algorithmic suppression. Worse, the Product schema also has <code>"image":""</code> (empty string), which is invalid and will throw a Rich Results error.</div>
+    <div class="fix"><span class="label">Fix:</span> Drop the Product schema entirely. The Service schema already covers the offering. If you keep Product, set a valid image URL and <b>remove aggregateRating</b> until you have a visible, populated review widget on the page with per-review markup.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>3. Invalid FAQ JSON-LD (raw newlines inside string)</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> The FAQ schema's first <code>text</code> value contains raw line breaks and tabs without JSON escaping:
+      <pre>"text": "Here are some steps to develop a loan app
+            Market Research
+            Proper Planning ..."</pre>
+      Raw newlines inside a JSON string value are <b>invalid JSON</b>. Google's parser will either drop this FAQ from the eligible set or, in stricter cases, ignore the entire FAQ block. Validator tools (Rich Results Test) will flag this as a parse error.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Replace newlines with <code>\n</code> or with HTML <code>&lt;br&gt;</code> entities. Better still, rewrite each FAQ answer as one well-structured paragraph in a single line. Then validate with <a href="https://search.google.com/test/rich-results" style="color:var(--accent)">Google Rich Results Test</a>.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>4. Schema duplication — Service AND Product describe the same offering</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> The same page declares the offering as <code>Service</code> (correct) <b>and</b> as <code>Product</code> (incorrect for a B2B service). Google can pick the wrong one. Worse, the two contradict each other on properties — the <code>brand</code> in Product points to IMG (your brand isn't the product), while <code>provider</code> in Service correctly points to IMG. Combined with the fake aggregateRating, this looks like classic structured-data spam.</div>
+    <div class="fix"><span class="label">Fix:</span> Keep <code>Organization</code>, <code>WebSite</code>, <code>WebPage</code>, <code>Service</code>, <code>BreadcrumbList</code>, and <code>FAQPage</code>. <b>Delete the Product block.</b></div>
+  </div>
+
+  <div class="issue">
+    <header><strong>5. Brand misuse in H2 — "Like MoneyView and Lazypay"</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Hero-adjacent H2 reads "<i>Create Your Own App for Instant Loans Like MoneyView and Lazypay</i>". Both are <b>live, registered Indian NBFC-backed lending brands</b>. Three problems:
+      <ul class="tight">
+        <li>Trademark / DMCA exposure — these brands have legal teams that file regular take-downs.</li>
+        <li>Google increasingly demotes pages that piggyback on competitor brand SERPs (the "clone app" pattern).</li>
+        <li>Builds zero topical authority for "<i>loan lending app development</i>" because the H2 is about a competitor, not about your service.</li>
+      </ul>
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Rewrite to focus on outcomes, not competitor names: "<i>Build a Compliant Instant Loan App for Indian and Global Markets</i>". If you need a clone-app comparison, give it its own clearly-labeled "<i>Apps inspired by leading lenders</i>" sub-block lower on the page.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>6. Copy-paste leftovers in case-study block (the Pocketly logo file)</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> The "Pocketly" case study card pulls its logo from <code>loanLandingAppEventTicketsPlusLogo.webp</code> — a filename clearly belonging to an <b>event-tickets</b> app, not a lending app. This is a smoking-gun copy-paste leftover from a template page, confirming the case studies were not built bespoke for this URL. Combined with the unverifiable claim "<i>We develop powerful instant loan apps like NextFin/Pocketly</i>", Google's content classifier reads this as a templated, low-quality page. For YMYL, that's a hard pass.</div>
+    <div class="fix"><span class="label">Fix:</span> Replace with real, named IMG case studies — client logo, client name, real metrics, named contact for reference (with permission). If real cases don't exist publicly, remove the section entirely. Half-fabricated case studies are worse than no case studies on YMYL pages.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>7. Zero regulatory / compliance content for lending</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> The page mentions "<i>data security, payment integration, AI-based credit scoring</i>" in passing, but nowhere covers the <b>actual regulatory frame a buyer needs to comply with</b>: RBI Digital Lending Guidelines (Sep 2022), DLG / FLDG rules, KYC/AML/CFT, eKYC via Aadhaar/CKYC, eSign / NSDL, credit bureau integration (CIBIL, Experian, Equifax, CRIF), NACH / eNACH for repayment, Account Aggregator framework (NPCI), Cooling-Off Period, Key Fact Statement (KFS), grievance redressal. These are <b>the content topics that rank for "loan lending app development"</b>. Without them you can't compete topically.</div>
+    <div class="fix"><span class="label">Fix:</span> Add a dedicated H2 "<i>RBI &amp; Global Lending Compliance We Build For</i>" — 600-800 words covering each compliance area with a sub-table. This single block has more topical lift than 5 design/process changes combined.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>8. Meta description is short, brand-led, no USP</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> "<i>IMG Global Infotech is the best loan lending app development company, offering secure, scalable, and custom fintech solutions to simplify digital lending.</i>" — 154 chars. Starts with the brand name (wasted prime SERP real estate), no numbers, no compliance signal, no CTA.</div>
+    <div class="fix"><span class="label">Fix (158 chars):</span> <code>RBI-compliant loan &amp; lending app development — KYC, eSign, CIBIL &amp; UPI ready. 100+ developers, 11+ years, PCI-DSS &amp; ISO 27001 stack. Get a free quote.</code></div>
+  </div>
+
+  <div class="issue">
+    <header><strong>9. Title / og:title / twitter:title all differ</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Three different primary phrases compete:
+      <table style="margin-top:8px">
+        <tr><th>Surface</th><th>Phrase</th></tr>
+        <tr><td>&lt;title&gt;</td><td>Best Loan Lending App Development Company</td></tr>
+        <tr><td>og:title</td><td>Loan Lending App Development Company</td></tr>
+        <tr><td>twitter:title</td><td><b>Top</b> Loan Lending App Development Company</td></tr>
+        <tr><td>H1</td><td>Loan Lending App Development Company <span style="color:var(--high)">(trailing space)</span></td></tr>
+      </table>
+      Same disorientation pattern as the healthcare page — Google can't pick a single topical anchor.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Align all four to one phrase. Recommended primary: "<i>Loan Lending App Development Company</i>" + secondary modifier "<i>RBI-Compliant</i>". Trim H1 trailing space.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>10. Title is too short (41 chars)</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> "Best Loan Lending App Development Company" wastes 15-20 SERP characters. No differentiator, no brand suffix, no compliance keyword.</div>
+    <div class="fix"><span class="label">Fix (58 chars):</span> <code>Loan &amp; Lending App Development Company — RBI Compliant</code></div>
+  </div>
+
+  <div class="issue">
+    <header><strong>11. og:image and twitter:image expose /public/ webroot</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Both images use <code>https://www.imgglobalinfotech.com/public/tailwind/img/og/loan-lending-app-development-company.jpg</code> — exposing Laravel's <code>/public</code> directory is a configuration tell-tale that smells like a misconfigured deployment. Healthcare-page version correctly uses the <code>d1y41eupgbwbb2.cloudfront.net</code> CDN. Two issues: (a) URL aesthetics matter for social-share CTR, (b) it signals deployment immaturity to crawlers and AI scrapers.</div>
+    <div class="fix"><span class="label">Fix:</span> Move OG image to the cloudfront CDN URL like every other page on the site, and ensure your <code>/public</code> path isn't being served publicly (Laravel should route through <code>APP_URL</code>). Verify your webserver root points to <code>/public</code>, not the project root.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>12. Geo signal wrong (DE) and inconsistent locale</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> <code>meta geo.region = "DE"</code> says Germany. <code>og:locale = "en_US"</code> + <code>og:locale:alternate = "en_AE"</code>. No <code>hreflang</code>. Conflicting geo signals push the page into "Other" geo bucket — it ranks for no specific market.</div>
+    <div class="fix"><span class="label">Fix:</span> Remove <code>geo.region</code> or set to <code>IN</code>. If you serve US/AE/IN, add proper <code>&lt;link rel="alternate" hreflang="..."&gt;</code>. Otherwise drop og:locale:alternate.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>13. Unsourced statistical claims in "Impact" section</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> The Impact section claims 85% loan processing speed rise, 78% customer acquisition increase, 72% process efficiency improvement, 65% operational cost reduction — <b>with no client attribution, no methodology, no source citation</b>. For YMYL Finance, unsourced quantitative claims are a Quality Rater red flag and the algorithm equivalent of an HCS hit.</div>
+    <div class="fix"><span class="label">Fix:</span> Either anchor each percentage to a named client and a date ("<i>For Client X, in Q3 2025, we cut loan processing time from 6 days to 21 hours — an 85% drop</i>") or remove the section. Boilerplate numbers without sources hurt more than they help.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>14. "Tap into the 5.62 Billion FinTech Market" — wrong unit or wrong number</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> Global fintech revenue is in the hundreds of billions of dollars; "5.62 billion" is far too small to be the global market. It's either a typo for "$5.62 Trillion" or a localized number missing context (5.62B users? 5.62B INR?). Either way, a single-number claim with no unit/source on a YMYL page hurts credibility.</div>
+    <div class="fix"><span class="label">Fix:</span> Replace with a sourced, current stat — e.g. "<i>Global fintech market is projected at $1.13 trillion by 2032 (Allied Market Research, 2024)</i>". Hyperlink to source.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>15. Boilerplate / broken English in H2s and body</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Multiple ranking-blocking grammar/word-choice errors:
+      <ul class="tight">
+        <li>H2: "<i>FinTech Responses for Your Business</i>" — should be "<i>Solutions</i>", not "<i>Responses</i>".</li>
+        <li>H2: "<i>Why You Select IMG Global Infotech…</i>" — should be "<i>Why Select</i>" or "<i>Why Choose</i>".</li>
+        <li>H1: trailing space "<i>Loan Lending App Development Company </i>".</li>
+        <li>H2: "<i>Impact Created by Our Loan Lending App Development Services Is Exceptional</i>" — grammatically OK but verbose marketing speak.</li>
+        <li>Body: "<i>We have higher expertise to build…</i>", "<i>Our group is developing apps that can track…</i>" (carried over from the same template).</li>
+      </ul>
+      Helpful Content System (HCS) and SpamBrain detect this consistent non-native English pattern at the site level, not just the page level — meaning these errors hurt rankings on <b>every</b> page on the domain.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Run a copyedit pass with a native English editor or a careful LLM check. Replace "Responses" → "Solutions"; "Why You Select" → "Why Choose"; remove trailing whitespaces from all headings. Do this site-wide.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>16. Off-topic outbound section "Other On-Demand App Development Services"</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Last content section before footer lists 8 unrelated apps: Healthcare, Food Delivery, Medicine Delivery, Beauty &amp; Salon, Laundry, Car Wash, Doctor on Demand, Grocery Delivery. For a loan/fintech page, this <b>dilutes topical signal</b>, splits link equity outward to unrelated topics, and tells Google "this page is part of a generic on-demand app cluster, not a fintech cluster".</div>
+    <div class="fix"><span class="label">Fix:</span> Replace with related fintech pages: <i>eWallet App Development, Digital Gold App, Investment App, Trading App, WealthTech App, Insurance App, Financial Advisor App, Fintech App Development</i>. Same component, just relevant destinations. This re-routes link equity into the fintech cluster.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>17. dateModified looks frozen — page hasn't actually been updated</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> WebPage schema declares <code>"datePublished":"2025-08-18"</code> and <code>"dateModified":"2025-08-18"</code> — only ~22 minutes apart. The user has stated the page has been live for a long time with no rankings. Either the dateModified is hardcoded (lying about freshness) or the page has truly never been updated since launch. Both are bad: stale page or fake freshness.</div>
+    <div class="fix"><span class="label">Fix:</span> Make dateModified dynamic from the file's last edit timestamp. Then commit real content updates each quarter (cost stats, regulations, FAQ refresh) so the page is actually fresh.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>18. "Why Choose Us" is too generic for YMYL Finance</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> 4 cards: "Reliable Technology Support", "Affordable Solutions", "Complete Support", "Relevant Experience" — these are vague claims any agency can copy. For a fintech buyer they answer nothing. Google rewards specificity.</div>
+    <div class="fix"><span class="label">Fix:</span> Replace with finance-specific differentiators: "RBI Digital Lending Guidelines expertise", "PCI-DSS Level 1 stack", "Live CIBIL/Experian integrations shipped", "24/7 fraud monitoring with named SOC team", "NDA-backed engagements", "Aadhaar eKYC + eSign certified developers".</div>
+  </div>
+</section>
+
+<!-- ============== OFF-TOPIC / WRONG ============== -->
+<section class="card" id="offtopic">
+  <h2>🚫 Content that's wrong, off-topic, or doesn't belong here</h2>
+  <table>
+    <thead><tr><th style="width:30%">Block</th><th>Problem</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>H2 "<i>Create Your Own App for Instant Loans Like MoneyView and Lazypay</i>"</td>
+        <td>Uses competitor brand names in a top-of-page H2 — trademark risk + competitor-brand-SERP demotion pattern.</td>
+        <td>Rename to outcome-focused H2: "Build a Compliant Instant Loan App for Your Market".</td>
+      </tr>
+      <tr>
+        <td>"Pocketly" case study logo file</td>
+        <td>Logo file is <code>loanLandingAppEventTicketsPlusLogo.webp</code> — clearly a leftover from another template. The case study is not bespoke.</td>
+        <td>Replace with real IMG case study OR remove. Half-fabricated case studies hurt YMYL pages more than missing ones.</td>
+      </tr>
+      <tr>
+        <td>"NextFin: Instant Loan" case study</td>
+        <td>Claim "<i>We develop powerful instant loan apps like NextFin</i>" — does not specify whether IMG built NextFin or "apps like" it. Ambiguous attribution is a Quality Rater red flag.</td>
+        <td>Be explicit: either "<i>IMG built NextFin for Client X</i>" with verifiable proof, or "<i>Inspired by NextFin's UX, we can build a similar app for you</i>". No middle ground.</td>
+      </tr>
+      <tr>
+        <td>"Impact" section percentages (85% / 78% / 72% / 65%)</td>
+        <td>Unsourced, unattributed. For YMYL Finance this triggers HCS and Quality Rater flags.</td>
+        <td>Anchor each percentage to a named client + date + methodology, or remove.</td>
+      </tr>
+      <tr>
+        <td>H3 "<i>Launch Your Highly Secure &amp; Top Notch FinTech App With us!</i>"</td>
+        <td>An H3 used for a marketing CTA — semantic misuse. "Top Notch" is unprofessional copy for a fintech buyer.</td>
+        <td>Demote to a <code>&lt;p&gt;</code> or <code>&lt;button&gt;</code>. Rewrite copy: "Talk to our RBI compliance lead".</td>
+      </tr>
+      <tr>
+        <td>H2 "<i>Tap into the 5.62 Billion FinTech Market</i>"</td>
+        <td>Number too small to be global fintech market — missing unit or wrong figure. Stale stat.</td>
+        <td>Use sourced 2025/2026 number with currency unit and citation.</td>
+      </tr>
+      <tr>
+        <td>"Other On-Demand App Development Services Offered by Us" — 8 unrelated apps</td>
+        <td>Links out to Healthcare / Food Delivery / Salon / Laundry / Car Wash — completely off-topic for a fintech page. Dilutes topical authority.</td>
+        <td>Replace with related fintech pages (Fintech, eWallet, Digital Gold, Insurance, Investment, Trading, WealthTech, Financial Advisor).</td>
+      </tr>
+      <tr>
+        <td>"AI-Integrated Features" — only 4 generic cards</td>
+        <td>"Improved Data Encryption", "AI Chatbot Assistance", "Implemented Blockchain Security", "Enhanced Peer-to-Peer Lending" — all generic, none are actually AI-specific. Encryption ≠ AI. Blockchain ≠ AI.</td>
+        <td>Replace with real AI features: AI-driven credit scoring with alternative data, fraud detection ML, OCR-based document KYC, voice-bot collections, NLP-driven sentiment risk scoring, generative-AI loan agreements.</td>
+      </tr>
+      <tr>
+        <td>H1 trailing space</td>
+        <td>"<i>Loan Lending App Development Company </i>" — extra whitespace after "Company". Tiny but suggests automation/template build, not hand-crafted.</td>
+        <td>Trim. Verify across other pages — likely a sitewide pattern.</td>
+      </tr>
+      <tr>
+        <td>Hero image alt = title</td>
+        <td>Alt: "<i>Loan Lending App Development Company </i>" (with trailing space) — same as title attribute. Generic, doesn't describe the visual.</td>
+        <td>Rewrite alt: "Mobile loan application screen showing instant approval flow and EMI calculator".</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== MISSING ============== -->
+<section class="card" id="missing">
+  <h2>➕ Sections this page needs but doesn't have</h2>
+  <p>Ranked by ranking impact for fintech / lending SERPs.</p>
+  <table>
+    <thead><tr><th>Section</th><th>Why it matters</th><th>Where to place</th></tr></thead>
+    <tbody>
+      <tr><td><b>1. RBI &amp; Global Lending Compliance block</b> (RBI Digital Lending Guidelines, NBFC partnership models, KYC/AML/CFT, eKYC, NACH, KFS, FLDG/DLG rules)</td><td>Biggest topical-authority gap. This is the content top-rankers own.</td><td>After hero, before services</td></tr>
+      <tr><td><b>2. Author + Compliance Reviewer byline</b> (named developer lead + named compliance officer with photo, role, LinkedIn)</td><td>YMYL E-E-A-T core. Without it, max rank capped.</td><td>Below H1</td></tr>
+      <tr><td><b>3. Security &amp; Certifications strip</b> (PCI-DSS Level 1, ISO 27001, SOC 2 Type II, GDPR, India DPDP Act 2023)</td><td>Trust signal that fintech buyers explicitly search for.</td><td>Adjacent to hero</td></tr>
+      <tr><td><b>4. Real Case Studies (3-4)</b> with named client, problem, solution, named tech stack, real metrics (with attribution), real testimonial with reviewer photo + LinkedIn</td><td>Replaces the NextFin / Pocketly half-fabrications. Strongest E-E-A-T signal possible.</td><td>Replace existing case-study block</td></tr>
+      <tr><td><b>5. Detailed Cost Breakdown table</b> (Basic / Standard / Enterprise × feature × $ range × hours) — promote from FAQ to first-class section</td><td>"Cost of loan app development" is one of the highest-volume long-tail queries in this niche.</td><td>After services</td></tr>
+      <tr><td><b>6. Timeline / Roadmap with milestones</b> — promote from FAQ to first-class section</td><td>Second-biggest long-tail query.</td><td>Next to cost</td></tr>
+      <tr><td><b>7. Tech Stack section</b> with named tools: React Native, Flutter, Node, Python, AWS / Azure, Plaid, Razorpay, Cashfree, Setu, Decentro, Account Aggregator, CIBIL/Experian/Equifax/CRIF APIs, NSDL eSign, NPCI UPI, NACH</td><td>Captures developer/CTO buyer intent; topical depth.</td><td>Before "Why Choose"</td></tr>
+      <tr><td><b>8. Types of Loan Apps comparison table</b> (Personal loan, BNPL, P2P, SME, MSME, salary advance, gold loan, education loan)</td><td>Internal linking + research-intent traffic.</td><td>After services</td></tr>
+      <tr><td><b>9. Monetization &amp; Business Models block</b> (interest spread, processing fee, late fee, FLDG, DSA, SaaS for lenders, white-label)</td><td>Buyer-intent content.</td><td>Mid-page</td></tr>
+      <tr><td><b>10. Fraud Prevention &amp; Risk block</b> (device fingerprinting, location intel, alternative-data credit scoring, document forgery detection, mule-account detection)</td><td>YMYL critical content.</td><td>After Compliance</td></tr>
+      <tr><td><b>11. Integration partners</b> (Razorpay, Cashfree, Setu, Decentro, Karza, Signzy, IDfy, Hyperverge, Bureau, Perfios, FinBox, Account Aggregator, NPCI)</td><td>Brand association signal.</td><td>Inside Tech Stack</td></tr>
+      <tr><td><b>12. Engagement models</b> (Fixed Price / T&amp;M / Dedicated Team) with rate cards</td><td>Procurement-buyer intent.</td><td>Before CTA2</td></tr>
+      <tr><td>13. Region served (US, UK, UAE, Singapore, India, Africa)</td><td>Geo-modified queries; supports hreflang.</td><td>Footer</td></tr>
+      <tr><td>14. Awards &amp; recognitions (Clutch, GoodFirms, Inc 5000, NASSCOM, Crisil)</td><td>Trust signal.</td><td>Above footer</td></tr>
+      <tr><td>15. Downloadable assets — "RBI Digital Lending Compliance Checklist 2026 PDF" + "Loan App Cost Calculator widget"</td><td>Link magnets — single biggest off-page lever.</td><td>Side CTA + dedicated block</td></tr>
+      <tr><td>16. Last updated date + "Reviewed on" timestamp visible on page</td><td>Freshness signal.</td><td>Below H1</td></tr>
+      <tr><td>17. Jump-link table of contents</td><td>Drives Google "Jump To" sitelinks.</td><td>After hero</td></tr>
+      <tr><td>18. Video testimonials (real client, embedded YouTube)</td><td>Strongest credibility lift; captures video SERP.</td><td>Inside testimonial block</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== META ============== -->
+<section class="card" id="meta">
+  <h2>🏷️ Meta / Title layer — full audit</h2>
+  <table>
+    <thead><tr><th>Tag</th><th>Current</th><th>Verdict</th><th>Recommended</th></tr></thead>
+    <tbody>
+      <tr><td><code>&lt;title&gt;</code></td><td>Best Loan Lending App Development Company (41 chars)</td><td><span class="pill high">Too short, no USP</span></td><td>Loan &amp; Lending App Development Company — RBI Compliant (58 chars)</td></tr>
+      <tr><td>meta description</td><td>Brand-led, 154 chars, no number/USP/CTA</td><td><span class="pill high">Weak</span></td><td>RBI-compliant loan &amp; lending app development — KYC, eSign, CIBIL &amp; UPI ready. 100+ developers, 11+ years, PCI-DSS &amp; ISO 27001 stack. Get a free quote. (158 chars)</td></tr>
+      <tr><td>H1</td><td>Loan Lending App Development Company <span style="color:var(--high)">(trailing space)</span></td><td><span class="pill medium">Trim space, add modifier</span></td><td>Loan &amp; Lending App Development Company for RBI-Compliant Fintech</td></tr>
+      <tr><td>og:title</td><td>Loan Lending App Development Company</td><td><span class="pill high">Inconsistent with title</span></td><td>Match title</td></tr>
+      <tr><td>twitter:title</td><td>Top Loan Lending App Development Company</td><td><span class="pill high">Inconsistent with title</span></td><td>Match title</td></tr>
+      <tr><td>canonical</td><td>https://www.imgglobalinfotech.com/loan-lending-app-development-company</td><td><span class="pill good">Self-referencing, good</span></td><td>Keep</td></tr>
+      <tr><td>og:image / twitter:image</td><td>https://www.imgglobalinfotech.com/<b>public/</b>tailwind/img/og/…</td><td><span class="pill high">Exposes /public/ webroot</span></td><td>Move to cloudfront CDN (like healthcare page does)</td></tr>
+      <tr><td>robots</td><td>MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1, INDEX, FOLLOW</td><td><span class="pill good">Good</span></td><td>Keep</td></tr>
+      <tr><td>geo.region</td><td>DE</td><td><span class="pill critical">Germany — wrong</span></td><td>Remove or set to IN</td></tr>
+      <tr><td>og:locale:alternate</td><td>en_AE</td><td><span class="pill medium">Misleading without hreflang</span></td><td>Implement hreflang or drop</td></tr>
+      <tr><td>hreflang</td><td>Missing</td><td><span class="pill medium">Missing</span></td><td>Add for served markets</td></tr>
+      <tr><td>Legacy tags: revisit-after, distribution, coverage, rating, language, copyright, rights, reply-to, web-author, msapplication-config</td><td>All present</td><td><span class="pill low">Useless bloat</span></td><td>Remove</td></tr>
+      <tr><td>Author byline visible</td><td>Not on page</td><td><span class="pill critical">YMYL killer</span></td><td>Add named author + named compliance reviewer with photo + LinkedIn</td></tr>
+      <tr><td>Publication / Updated date visible</td><td>Not on page</td><td><span class="pill high">Freshness signal absent</span></td><td>Add "Published / Updated" with <code>datetime</code></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== SCHEMA ============== -->
+<section class="card" id="schema">
+  <h2>🧩 Schema markup — full audit</h2>
+  <p>Six JSON-LD blocks present: <b>Organization, WebSite, WebPage (in @graph), BreadcrumbList, Service, Product, FAQPage</b>. Multiple problems.</p>
+
+  <div class="issue">
+    <header><strong>Product schema — fake-looking reviews + empty image</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> <code>"image":""</code> is an invalid value (Google Rich Results requires a valid URL). <code>aggregateRating 4.7/143</code> with no visible reviews = self-serving review spam pattern. Service schema already covers the offering, so Product is redundant and contradictory.</div>
+    <div class="fix"><span class="label">Fix:</span> <b>Delete the Product schema block entirely</b>.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>FAQ schema — invalid JSON (raw newlines)</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> First FAQ <code>text</code> contains raw line breaks inside the string — invalid JSON. Google may drop the entire FAQ block.</div>
+    <div class="fix"><span class="label">Fix:</span> Rewrite as single-line string with proper punctuation or use <code>\n</code>. Validate with Google Rich Results Test after deploy.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Organization schema — sameAs empty array</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> <code>"sameAs": []</code> in the top-level Organization schema is a wasted opportunity. The Service schema has correct sameAs (FB, X, IG, LinkedIn, YouTube) but the top-level Organization doesn't.</div>
+    <div class="fix"><span class="label">Fix:</span> Populate Organization sameAs with all official social profiles + Crunchbase + Clutch + GoodFirms profile URLs. This is a key entity-confidence signal for Google's Knowledge Graph.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Recommended Service schema rewrite</strong><span class="pill good">Good</span></header>
+    <details>
+      <summary>Click to see drop-in JSON-LD</summary>
+<pre>{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Loan &amp; Lending App Development",
+  "provider": {
+    "@type": "Organization",
+    "name": "IMG Global Infotech Private Limited",
+    "url": "https://www.imgglobalinfotech.com",
+    "logo": "https://d1y41eupgbwbb2.cloudfront.net/images/xl-logo.webp",
+    "address": { "@type": "PostalAddress", "addressCountry": "IN" },
+    "sameAs": [
+      "https://www.facebook.com/imgglobalinfotech",
+      "https://x.com/imgglobal",
+      "https://www.instagram.com/imgglobalinfotech/",
+      "https://www.linkedin.com/company/imgglobalinfotech/",
+      "https://www.youtube.com/@imgglobalinfotech"
+    ]
+  },
+  "areaServed": ["IN","US","AE","GB","SG"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Loan App Development",
+    "itemListElement": [
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Personal Loan App Development"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"P2P Lending App Development"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"BNPL App Development"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"SME / MSME Loan App Development"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Salary Advance App Development"}}
+    ]
+  }
+}</pre>
+    </details>
+  </div>
+
+  <div class="issue">
+    <header><strong>Missing schema types to add</strong><span class="pill high">High</span></header>
+    <ul class="tight">
+      <li><b>Review</b> per testimonial (only when real, visible reviews exist).</li>
+      <li><b>VideoObject</b> when you embed real video testimonials.</li>
+      <li><b>HowTo</b> — <b>do NOT add</b>. Deprecated by Google.</li>
+      <li><b>Article</b> for embedded thought-leadership block (if added).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============== HEADINGS ============== -->
+<section class="card" id="headings">
+  <h2>🏗️ Heading hierarchy</h2>
+  <table>
+    <thead><tr><th>Tag</th><th>Text</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td>H1</td><td>Loan Lending App Development Company <span style="color:var(--high)">(trailing space)</span></td><td><span class="pill medium">Single H1 OK; trim space</span></td></tr>
+      <tr><td>H2</td><td>Create Your Own App for Instant Loans Like MoneyView and Lazypay</td><td><span class="pill critical">Brand-clone framing in H2 — trademark risk</span></td></tr>
+      <tr><td>H2</td><td>Impact Created by Our Loan Lending App Development Services Is Exceptional</td><td><span class="pill medium">Verbose; unsourced metrics inside</span></td></tr>
+      <tr><td>H2</td><td>FinTech <b>Responses</b> for Your Business</td><td><span class="pill critical">Wrong word — should be "Solutions"</span></td></tr>
+      <tr><td>H2</td><td>Explore The Fintech Industry with Loan Lending Mobile App Development</td><td><span class="pill medium">CTA wording; OK</span></td></tr>
+      <tr><td>H2</td><td>Our Successful Projects on Fintech Development</td><td><span class="pill medium">OK but projects below are not bespoke</span></td></tr>
+      <tr><td>H3</td><td>NextFin: Instant Loan / Pocketly</td><td><span class="pill high">Pocketly logo is copy-paste leftover</span></td></tr>
+      <tr><td>H2</td><td>Key Features of Loan Lending App</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H3</td><td>User / Service Provider / Admin Panel (tab labels)</td><td><span class="pill medium">Tab labels shouldn't be H3 — use <code>role="tab"</code></span></td></tr>
+      <tr><td>H2</td><td>Upgrade Your Loan Lending App Development with AI-Integrated Features</td><td><span class="pill medium">Cards are not AI-specific (encryption ≠ AI)</span></td></tr>
+      <tr><td>H3</td><td>Launch Your Highly Secure &amp; Top Notch FinTech App With us!</td><td><span class="pill high">CTA wrongly marked-up as H3; "Top Notch" unprofessional</span></td></tr>
+      <tr><td>H2</td><td>Tap into the 5.62 Billion FinTech Market with a Cutting-Edge Fintech App Development</td><td><span class="pill high">Wrong/unsourced number; verbose</span></td></tr>
+      <tr><td>H2</td><td>Loan Lending Mobile App Development Process We Follow</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td><b>Why You Select</b> IMG Global Infotech As Loan Lending App Development Company</td><td><span class="pill critical">Broken English — "Why You Select"</span></td></tr>
+      <tr><td>H2</td><td>Your Next Loan Lending Mobile App Could Look Like This</td><td><span class="pill good">OK</span></td></tr>
+      <tr><td>H2</td><td>Frequently Asked Questions</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Other On-Demand App Development Services Offered by Us</td><td><span class="pill high">Off-topic cross-linking</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Semantic HTML problems</h3>
+  <ul class="tight">
+    <li>Hero subtitle in <code>&lt;div&gt;</code>, not <code>&lt;p&gt;</code> — loses paragraph weight signal.</li>
+    <li>Tile descriptions in <code>&lt;div&gt;</code>, not <code>&lt;p&gt;</code> — multiplied across the page.</li>
+    <li>CTA buttons use <code>&lt;label for="leadPopup"&gt;</code> instead of <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code>.</li>
+    <li>Tab labels are H3 inside <code>&lt;label&gt;</code> — heading inside an interactive element is bad accessibility &amp; semantics.</li>
+    <li>No <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code> landmarks.</li>
+  </ul>
+</section>
+
+<!-- ============== CONTENT ============== -->
+<section class="card" id="content">
+  <h2>✍️ Content quality (Helpful Content System scoring)</h2>
+  <div class="grid grid-2">
+    <div>
+      <h3>Strengths</h3>
+      <ul class="tight">
+        <li>Section coverage is broad (services, features, process, FAQ, case studies, AI features).</li>
+        <li>FAQ block has 7 useful entries covering common buyer queries.</li>
+        <li>Process section organizes the development lifecycle clearly.</li>
+        <li>Hero CTA visible and clear.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Weaknesses</h3>
+      <ul class="tight">
+        <li>Zero regulatory / RBI content — biggest topical gap for the niche.</li>
+        <li>Boilerplate prose, broken grammar carried over from other pages.</li>
+        <li>Brand misuse in H2 (MoneyView, Lazypay) and case studies (NextFin, Pocketly with mis-named logo).</li>
+        <li>Unsourced metric claims throughout Impact section.</li>
+        <li>"AI features" section isn't actually AI.</li>
+        <li>No first-hand specifics — no anecdotes, no client names, no tech-stack specifics.</li>
+        <li>"Other On-Demand…" cross-linking is wildly off-topic.</li>
+        <li>Outdated/wrong market-size claim (5.62B without unit).</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:14px">Estimated Helpful Content System score (informal): <b>2.5 / 10</b>. For YMYL Finance, anything below 5/10 is suppressed.</p>
+</section>
+
+<!-- ============== IMAGES ============== -->
+<section class="card" id="images">
+  <h2>🖼️ Images</h2>
+  <ul class="tight">
+    <li><b>Format:</b> All images <code>.webp</code> — ✅ good.</li>
+    <li><b>Dimensions set:</b> <code>width</code> &amp; <code>height</code> present — ✅ good for CLS.</li>
+    <li><b>LCP image:</b> Hero uses <code>loading="eager" fetchpriority="high"</code> — ✅ good.</li>
+    <li><b>CDN:</b> Most images served from <code>d1y41eupgbwbb2.cloudfront.net</code> — ✅. <b>But OG image is on <code>/public/</code> directly</b> — ⚠️ inconsistent.</li>
+    <li><b>Alt text:</b> Mostly duplicates of <code>title=""</code>. Hero alt = "Loan Lending App Development Company " (with trailing space).</li>
+    <li><b>Case study logo mismatch:</b> Pocketly card uses <code>loanLandingAppEventTicketsPlusLogo.webp</code> — wrong filename, indicates template copy-paste.</li>
+    <li><b>Decorative buttons</b> (PlayStore / AppStore badges): alt="PlayStore" / "AppStore" — should be <code>alt=""</code> with an aria-label like "Download on Google Play".</li>
+    <li><b>Image filenames:</b> camelCase (<code>loanLandingAppNextfin.webp</code>) — prefer lowercase-hyphen (<code>loan-landing-app-nextfin.webp</code>) for image-search SEO.</li>
+  </ul>
+</section>
+
+<!-- ============== INTERNAL LINKING ============== -->
+<section class="card" id="internal">
+  <h2>🔗 Internal linking</h2>
+  <p>Body-content internal links visible on the page:</p>
+  <ul class="tight">
+    <li>Header navigation lists every service (helps crawl, doesn't lift this page's topical authority).</li>
+    <li>"Other On-Demand App Development Services" links to 8 <b>unrelated</b> pages (Healthcare, Food Delivery, Medicine Delivery, Salon, Laundry, Car Wash, Doctor on Demand, Grocery) — wrong cluster.</li>
+    <li>Very few contextual links from within the body copy.</li>
+  </ul>
+  <h3>What's missing</h3>
+  <ul class="tight">
+    <li>No body-link to <code>/fintech-software-development</code> (your fintech hub).</li>
+    <li>No body-link to <code>/ewallet-app-development</code>.</li>
+    <li>No body-link to <code>/digital-gold-app-development-company</code>.</li>
+    <li>No body-link to <code>/insurance-app-development-company</code>.</li>
+    <li>No body-link to <code>/wealthtech-app-development-company</code>.</li>
+    <li>No body-link to <code>/financial-advisor-app-development</code>.</li>
+    <li>No body-link to <code>/investment-app-development</code> or <code>/stock-trading-app-development</code>.</li>
+    <li>No links to blog posts on RBI Digital Lending, KYC, eSign, CIBIL integration.</li>
+    <li>No visible UI breadcrumb (schema only).</li>
+  </ul>
+  <h3>Anchor-text problems</h3>
+  <ul class="tight">
+    <li>"Other On-Demand…" anchor block sends the lender-intent reader to laundry &amp; car-wash pages — broken intent match.</li>
+    <li>No descriptive anchors like "<i>RBI digital lending guidelines</i>" or "<i>CIBIL credit bureau integration</i>" pointing to deeper articles.</li>
+  </ul>
+</section>
+
+<!-- ============== URL ============== -->
+<section class="card" id="url">
+  <h2>🌐 URL — user-friendly &amp; SEO-friendly?</h2>
+  <p><code>https://www.imgglobalinfotech.com/loan-lending-app-development-company</code></p>
+  <table>
+    <thead><tr><th>Check</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>HTTPS</td><td>✅ Yes</td></tr>
+      <tr><td>Length (full URL)</td><td>✅ 69 chars — acceptable</td></tr>
+      <tr><td>Slug length</td><td>⚠️ 41 chars — slightly long, contains redundancy ("loan-lending" → both words mean similar)</td></tr>
+      <tr><td>Hyphen separators</td><td>✅ Yes</td></tr>
+      <tr><td>Lowercase only</td><td>✅ Yes</td></tr>
+      <tr><td>Descriptive / readable</td><td>✅ Yes — buyer can tell what page is about</td></tr>
+      <tr><td>No query strings / UUIDs</td><td>✅ Clean</td></tr>
+      <tr><td>No file extension</td><td>✅ Clean</td></tr>
+      <tr><td>Matches title keyword</td><td>✅ Exact match</td></tr>
+      <tr><td>Canonical = URL</td><td>✅ Self-referencing</td></tr>
+      <tr><td>www consistent</td><td>✅ Yes (verify 301 from apex)</td></tr>
+      <tr><td>Trailing slash policy</td><td>Verify consistent sitewide</td></tr>
+    </tbody>
+  </table>
+  <p class="verdict"><span class="tick">●</span> <b>Verdict:</b> URL is both user-friendly and SEO-friendly. The "<i>loan-lending</i>" double-word is a minor redundancy but acceptable. <b>Do NOT change the slug</b> — changing would forfeit any earned link equity. Fix everything else instead.</p>
+</section>
+
+<!-- ============== COMPETITOR ============== -->
+<section class="card" id="competitor">
+  <h2>📊 Why competitors rank — quick SERP gap</h2>
+  <p>Top-10 for "<i>loan app development company</i>" / "<i>lending app development</i>" is dominated by:</p>
+  <table>
+    <thead><tr><th>Competitor</th><th>What they do that you don't</th></tr></thead>
+    <tbody>
+      <tr><td>Appinventiv</td><td>Named fintech clients (Domino's Wallet, Asian Bank), $50M+ funded clients, RBI guidance posts, PCI-DSS + ISO 27001 badges, gated "Loan App Cost Guide" PDF.</td></tr>
+      <tr><td>Mindinventory</td><td>Named lending clients, deep RBI Digital Lending Guidelines posts, KYC/AML guides, video case studies.</td></tr>
+      <tr><td>Sparx IT</td><td>Compliance-led positioning, founder bios, named NBFC client list, blog posts on FLDG/DLG rules.</td></tr>
+      <tr><td>Hyperlink Infosystem</td><td>Heavy backlink profile, named clients (Walmart, Disney), original research, downloadable trend reports.</td></tr>
+      <tr><td>Net Solutions</td><td>27-year history with verifiable timeline, named clients in financial services, dedicated lending whitepaper.</td></tr>
+    </tbody>
+  </table>
+  <p>Common pattern: <b>named clients, named compliance officers, deep regulatory content, downloadable assets, fresh statistics with sources, third-party badges</b>. Your page has zero of these.</p>
+</section>
+
+<!-- ============== PLAN ============== -->
+<section class="card" id="plan">
+  <h2>🛠️ 90-day prioritized action plan</h2>
+
+  <h3>Week 1 — Stop-the-bleeding</h3>
+  <ol>
+    <li>Delete the Product schema block (lines ~109-127 of blade).</li>
+    <li>Fix FAQ schema JSON — escape or remove raw newlines in the first answer.</li>
+    <li>Remove or correct <code>meta geo.region "DE"</code>.</li>
+    <li>Move OG / Twitter image to CloudFront CDN (drop <code>/public/</code> path).</li>
+    <li>Trim trailing whitespace from H1 and hero image alt.</li>
+    <li>Rename H2 "FinTech Responses for Your Business" → "FinTech Solutions for Your Business".</li>
+    <li>Rename H2 "Why You Select IMG Global Infotech" → "Why Choose IMG Global Infotech".</li>
+    <li>Rewrite H2 "Create Your Own App for Instant Loans Like MoneyView and Lazypay" → outcome-focused phrasing.</li>
+    <li>Fix Pocketly logo filename or remove the Pocketly card.</li>
+    <li>Replace "5.62 Billion FinTech Market" with sourced, current stat.</li>
+    <li>Align title / og:title / twitter:title to a single phrase.</li>
+    <li>Strip legacy meta tags (revisit-after, distribution, coverage, rating, language, copyright, rights, reply-to, web-author).</li>
+  </ol>
+
+  <h3>Weeks 2-4 — E-E-A-T injection</h3>
+  <ol>
+    <li>Add author + compliance reviewer byline below H1 (named, photo, role, LinkedIn).</li>
+    <li>Add visible Published / Updated date (sourced from real file mtime).</li>
+    <li>Add Trust strip with PCI-DSS, ISO 27001, SOC 2, GDPR, India DPDP Act 2023 badges.</li>
+    <li>Replace NextFin + Pocketly with 2-3 real, named IMG case studies (with client permission + verifiable metrics + named contact).</li>
+    <li>Add Clutch / GoodFirms / NASSCOM badges.</li>
+  </ol>
+
+  <h3>Weeks 5-8 — Topical depth (the biggest lift)</h3>
+  <ol>
+    <li><b>Add the RBI &amp; Lending Compliance H2 section</b> (600-1000 words). This single block is the most leverage in the plan.</li>
+    <li>Promote Cost &amp; Timeline from FAQ to dedicated H2 sections with tables + interactive cost calculator.</li>
+    <li>Add Tech Stack section with named SDKs/APIs (Razorpay, Cashfree, Setu, Decentro, Karza, Signzy, IDfy, NPCI, NSDL).</li>
+    <li>Add Types of Loan Apps comparison table (Personal, P2P, BNPL, SME, MSME, salary advance, gold, education).</li>
+    <li>Add Fraud Prevention &amp; Risk block (device fingerprinting, alt-data credit scoring, document forgery detection).</li>
+    <li>Add Monetization &amp; Business Models block.</li>
+    <li>Replace "AI-Integrated Features" cards with actual AI: alt-data credit scoring, OCR-based KYC, NLP sentiment risk, voice-bot collections.</li>
+    <li>Replace "Other On-Demand…" cross-link block with related fintech pages.</li>
+    <li>Add jump-link Table of Contents under hero.</li>
+  </ol>
+
+  <h3>Weeks 9-12 — Off-page link magnets</h3>
+  <ol>
+    <li>Publish "RBI Digital Lending Compliance Checklist 2026" gated PDF.</li>
+    <li>Build a "Loan App Cost Calculator" widget on the page.</li>
+    <li>Pitch original research (Indian Lending App Cost Survey 2026) to inc42, YourStory, Moneycontrol, Mint, FinTech Magazine, e27.</li>
+    <li>Internal-link campaign: from <code>/fintech-software-development</code>, <code>/ewallet-app-development</code>, <code>/digital-gold-app-development-company</code>, <code>/wealthtech-app-development-company</code>, <code>/insurance-app-development-company</code> back to this URL with descriptive anchors.</li>
+    <li>Add to XML sitemap with fresh <code>&lt;lastmod&gt;</code>; re-submit to GSC after each major batch.</li>
+    <li>Pursue listings on Clutch, GoodFirms, ITFirms, DesignRush — these pages link out with strong domain authority.</li>
+  </ol>
+
+  <h3>Expected outcome timeline</h3>
+  <ul class="tight">
+    <li><b>0-30 days:</b> Exit algorithmic suppression; impressions start in GSC for long-tail compliance queries.</li>
+    <li><b>30-60 days:</b> Page 5-7 for "loan lending app development company"; page 3-4 for long-tails like "RBI compliant loan app development".</li>
+    <li><b>60-120 days:</b> Page 2 for less competitive long-tails ("P2P lending app development", "BNPL app development company") with backlink push.</li>
+    <li><b>120-180 days:</b> Page 1 candidate for geo-modified queries ("loan app developers India", "fintech app development Jaipur"). Top-10 for "loan lending app development" is realistic <b>only with</b> consistent off-page momentum.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>🧾 One-line summary</h2>
+  <p>The URL is crawlable and the slug is fine, but the page is suppressed by a stack of YMYL-Finance ranking-killers: <b>self-serving Product schema, invalid FAQ JSON, brand-clone framing, copy-paste case studies, zero RBI/compliance content, broken-English H2s, and off-topic outbound linking</b>. None of these need a rebuild — they need a focused content + structured-data + editorial pass, then an off-page link-magnet push tied to RBI compliance.</p>
+</section>
+
+<div class="footer">SEO Audit · /loan-lending-app-development-company · prepared for IMG Global Infotech · 06 Jun 2026</div>
+
+</div>
+</body>
+</html>
