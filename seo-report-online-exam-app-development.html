@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — /online-exam-app-development | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0b1220; --panel:#111a2e; --panel2:#15203a; --line:#1f2c4a;
+    --text:#e6edf7; --muted:#9aa7c2; --accent:#2D86FF; --accent2:#00BBF5;
+    --critical:#ff4d61; --high:#ff8a3d; --medium:#ffc83d; --low:#3dd1ff; --good:#00efa4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 24px}
+  header.hero{background:linear-gradient(135deg,#001736,#0a3760);border:1px solid var(--line);border-radius:18px;padding:32px;margin-bottom:24px;position:relative;overflow:hidden}
+  header.hero:before{content:"";position:absolute;inset:auto -60px -60px auto;width:280px;height:280px;background:radial-gradient(closest-side,rgba(45,134,255,.28),transparent);filter:blur(20px)}
+  header h1{margin:0 0 6px;font-size:28px;letter-spacing:-.01em}
+  header .meta{color:var(--muted);font-size:14px}
+  header .url{display:inline-block;margin-top:10px;background:#0a1428;border:1px solid var(--line);padding:8px 12px;border-radius:10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#cfe9ff;word-break:break-all}
+  .grid{display:grid;gap:18px}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:880px){.grid-3,.grid-2{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:18px}
+  .card h2{margin:0 0 14px;font-size:20px;letter-spacing:-.01em}
+  .card h3{margin:14px 0 8px;font-size:16px}
+  .scorebar{display:flex;align-items:center;gap:12px;margin:6px 0}
+  .scorebar .label{width:210px;color:var(--muted);font-size:13px}
+  .scorebar .bar{flex:1;height:8px;background:#0a1428;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .scorebar .fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .scorebar .val{width:48px;text-align:right;font-variant-numeric:tabular-nums;font-size:13px}
+  .pill{display:inline-block;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+  .pill.critical{background:rgba(255,77,97,.12);color:var(--critical);border:1px solid rgba(255,77,97,.35)}
+  .pill.high{background:rgba(255,138,61,.12);color:var(--high);border:1px solid rgba(255,138,61,.35)}
+  .pill.medium{background:rgba(255,200,61,.12);color:var(--medium);border:1px solid rgba(255,200,61,.35)}
+  .pill.low{background:rgba(61,209,255,.12);color:var(--low);border:1px solid rgba(61,209,255,.35)}
+  .pill.good{background:rgba(0,239,164,.12);color:var(--good);border:1px solid rgba(0,239,164,.35)}
+  .issue{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:var(--panel2)}
+  .issue header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;background:transparent;padding:0}
+  .issue header strong{font-size:15px}
+  .issue .why,.issue .fix{margin:8px 0;padding:10px 12px;border-radius:8px;font-size:14px}
+  .issue .why{background:rgba(255,77,97,.07);border-left:3px solid var(--critical)}
+  .issue .fix{background:rgba(0,239,164,.07);border-left:3px solid var(--good)}
+  .issue .label{display:inline-block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-right:6px}
+  code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+  code{background:#0a1428;padding:2px 6px;border-radius:5px;color:#cfe9ff}
+  pre{background:#0a1428;border:1px solid var(--line);border-radius:10px;padding:12px;overflow:auto}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{color:var(--muted);font-weight:600;background:#0a1428}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}
+  .toc a{font-size:12px;color:#cfe9ff;background:#0a1428;border:1px solid var(--line);padding:6px 10px;border-radius:99px;text-decoration:none}
+  .toc a:hover{border-color:var(--accent)}
+  details{background:#0a1428;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0}
+  summary{cursor:pointer;font-weight:600}
+  .small{font-size:12px;color:var(--muted)}
+  ul.tight li{margin:4px 0}
+  .footer{margin-top:30px;color:var(--muted);font-size:12px;text-align:center}
+  .donut{--p:0;width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--accent) calc(var(--p)*1%),#1f2c4a 0);display:flex;align-items:center;justify-content:center;position:relative}
+  .donut:after{content:"";position:absolute;inset:14px;background:var(--panel);border-radius:50%}
+  .donut span{position:relative;z-index:1;font-size:24px;font-weight:700}
+  .summarygrid{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:center}
+  @media (max-width:680px){.summarygrid{grid-template-columns:1fr}}
+  .num{font-variant-numeric:tabular-nums}
+  .verdict{display:flex;align-items:center;gap:8px;margin:6px 0}
+  .tick{color:var(--good)}
+  .cross{color:var(--critical)}
+  .warn{color:var(--high)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="pill high" style="margin-bottom:10px">SEO Audit · Online Exam App · EdTech</div>
+  <h1>Online Exam App Development — SEO Audit &amp; Ranking Diagnosis</h1>
+  <div class="meta">IMG Global Infotech · Generated 06 Jun 2026 · Analyst-grade report</div>
+  <div class="url">https://www.imgglobalinfotech.com/online-exam-app-development</div>
+</header>
+
+<section class="card">
+  <div class="summarygrid">
+    <div class="donut" style="--p:39"><span class="num">39</span></div>
+    <div>
+      <h2 style="margin-top:0">Overall Score — 39 / 100</h2>
+      <p style="margin:6px 0 12px;color:var(--muted)">
+        This URL is technically crawlable but ranking-suppressed by a stack of small-but-loud quality problems: <b>title vs og:title vs twitter:title mismatch</b> (Company / Portal / Solution — three different nouns for one page), an <b>extremely short meta description</b> (109 chars), a <b>typo in the hero image alt ("Comapny")</b>, an <b>image filename typo ("Eaxm")</b> used across 7 admin tiles as the same placeholder, a <b>self-serving Product schema</b> with no visible reviews, <b>zero domain depth</b> on proctoring / question banks / LMS / accessibility / exam-cheating prevention, <b>brand-piggyback case studies</b> (EduRev, Class 10 Exam) without clean attribution, and a <b>"Germany office" footer card that renders the Canada flag</b>. Each item looks minor; together they tell Google's classifier this is a templated, hand-untouched URL.
+      </p>
+      <div class="scorebar"><div class="label">On-Page SEO</div><div class="bar"><div class="fill" style="width:48%"></div></div><div class="val">48</div></div>
+      <div class="scorebar"><div class="label">Content Quality / E-E-A-T</div><div class="bar"><div class="fill" style="width:25%"></div></div><div class="val">25</div></div>
+      <div class="scorebar"><div class="label">Topical Depth (exam / proctoring / LMS)</div><div class="bar"><div class="fill" style="width:15%"></div></div><div class="val">15</div></div>
+      <div class="scorebar"><div class="label">Technical / Meta</div><div class="bar"><div class="fill" style="width:45%"></div></div><div class="val">45</div></div>
+      <div class="scorebar"><div class="label">Schema</div><div class="bar"><div class="fill" style="width:28%"></div></div><div class="val">28</div></div>
+      <div class="scorebar"><div class="label">Images / Performance</div><div class="bar"><div class="fill" style="width:60%"></div></div><div class="val">60</div></div>
+      <div class="scorebar"><div class="label">Internal linking / IA</div><div class="bar"><div class="fill" style="width:35%"></div></div><div class="val">35</div></div>
+      <div class="scorebar"><div class="label">URL friendliness</div><div class="bar"><div class="fill" style="width:90%"></div></div><div class="val">90</div></div>
+    </div>
+  </div>
+</section>
+
+<nav class="toc">
+  <a href="#why">Why this page never ranked</a>
+  <a href="#offtopic">Wrong / off-topic content</a>
+  <a href="#missing">Missing sections</a>
+  <a href="#meta">Meta &amp; title</a>
+  <a href="#schema">Schema</a>
+  <a href="#headings">Headings</a>
+  <a href="#content">Content quality</a>
+  <a href="#images">Images</a>
+  <a href="#internal">Internal linking</a>
+  <a href="#url">URL friendliness</a>
+  <a href="#competitor">Competitor gap</a>
+  <a href="#plan">Action plan</a>
+</nav>
+
+<!-- ============== WHY ============== -->
+<section class="card" id="why">
+  <h2>📝 Why this page has never ranked — root causes (WHY + FIX)</h2>
+
+  <div class="issue">
+    <header><strong>1. Title / og:title / twitter:title use three different nouns</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Google needs one consistent topical anchor per URL. This page sends three:
+      <table style="margin-top:8px">
+        <tr><th>Surface</th><th>Phrase</th></tr>
+        <tr><td>&lt;title&gt;</td><td>Online Exam <b>App</b> Development <b>Company</b> | Build an Online Exam App</td></tr>
+        <tr><td>og:title</td><td>Online Exam <b>Portal</b> Development <b>Company</b></td></tr>
+        <tr><td>twitter:title</td><td>Custom Exam <b>App</b> Development <b>Solution</b></td></tr>
+        <tr><td>H1</td><td>Online Exam App Development Company</td></tr>
+      </table>
+      "App" vs "Portal" vs "Solution" — three different head-of-funnel keywords. Google sees a confused topic, social previews show "Portal" while organic snippet shows "App", which also tanks click-through quality.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Pick one phrase ("Online Exam App Development Company"), copy it into all four surfaces. Use "Portal" / "Solution" only inside body subheads if needed.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>2. Meta description is too short and weak (109 chars)</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Current: <code>Develop an online exam app to streamline assessments and expand your educational reach, driving better ROI.</code> — 109 chars. The 150-160 char SERP slot is wasted by ~50 chars. No proctoring mention, no compliance, no number, no USP, no CTA. Google often rewrites short descriptions, so you also lose snippet control.</div>
+    <div class="fix"><span class="label">Fix (158 chars):</span> <code>Custom online exam app development with AI proctoring, LMS &amp; QTI imports, role-based dashboards, anti-cheat lockdown. 100+ devs, 11+ years. Free quote.</code></div>
+  </div>
+
+  <div class="issue">
+    <header><strong>3. Hero image alt has a misspelling — "Comapny"</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> <code>alt="Online Exam App Development <b>Comapny</b>"</code> on the hero image (line 105 of the blade). Misspelling of the primary keyword on the LCP image is a clean "low effort" signal for Helpful Content System, and it also breaks image-search relevance for "online exam app development company".</div>
+    <div class="fix"><span class="label">Fix:</span> Change to <code>alt="Online exam app dashboard showing student-facing test interface with timer and question navigator"</code> — descriptive, includes keyword, no typo.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>4. Image filename typo "Eaxm" used as placeholder across 7 admin tiles</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> The image <code>onlineEaxmAdmin.webp</code> (typo "Eaxm" instead of "Exam") is used as the SAME image for 7 different Admin Dashboard feature tiles:
+      <ul class="tight">
+        <li>Admin Login</li>
+        <li>Exam Creation &amp; Management</li>
+        <li>Student Management</li>
+        <li>Result &amp; Report Generation</li>
+        <li>Real-time Exam Monitoring</li>
+        <li>Notifications &amp; Announcements</li>
+        <li>(generic) admin</li>
+      </ul>
+      That's a placeholder image with a misspelled filename copy-pasted across a feature carousel. Visitors see the same picture seven times; Google's image AI sees seven identical alt-to-image bindings; the typo in the filename leaks "templated, never QAd" signal.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Rename the file to <code>onlineExamAdmin.webp</code>, and produce 7 distinct admin screenshots / mockups. If you only have one image, only show one tile.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>5. Self-serving aggregateRating 4.9/140 in Product schema</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Product schema injects <code>aggregateRating 4.9 / 140</code> but the page shows no review widget. Classic self-serving reviews pattern — common cause of structured-data manual actions and silent suppression. Product is also the wrong type for a B2B service offering (should be Service).</div>
+    <div class="fix"><span class="label">Fix:</span> Delete Product schema. Add Service + Organization + WebPage in @graph. Reinstate aggregateRating only if and when you have a real visible review widget with per-review markup.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>6. Brand piggyback in case studies — EduRev, Class 10 Exam</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> "<i>Want to build an online exam app <b>like EduRev</b>?</i>" and "<i>Build intuitive, feature-packed educational platforms <b>like class 10 exam apps</b> with us.</i>" — the wording is ambiguous (did IMG build these? probably not), but the brand-clone framing piggybacks on competitor SERPs and risks algorithmic demotion. EduRev is a known Indian edtech with active legal team.</div>
+    <div class="fix"><span class="label">Fix:</span> Either name a real IMG-built exam app with proof, or relabel the block "<i>Apps that inspire our designs</i>" with clear separation from your own case studies.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>7. Zero domain depth on proctoring / question banks / LMS / accessibility / anti-cheating</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> The page sells "online exam apps" but does not mention any of the topics buyers actually search for in 2026:
+      <ul class="tight">
+        <li><b>AI proctoring</b> (face detection, gaze tracking, audio room-scan, multi-person detection) — Proctorio, ProctorU, Honorlock-style.</li>
+        <li><b>Browser lockdown</b> (Safe Exam Browser SEB, Respondus LockDown).</li>
+        <li><b>Question bank formats</b> — QTI 2.x / 3.x, AIKEN, Moodle XML, GIFT, IMS Common Cartridge.</li>
+        <li><b>LMS integrations</b> — Moodle, Canvas, Blackboard, Schoology, Google Classroom, Microsoft Teams Education.</li>
+        <li><b>Standards / compliance</b> — FERPA (US), GDPR (EU), India DPDP Act 2023, accessibility WCAG 2.2 AA, AICTE / UGC guidelines.</li>
+        <li><b>Question types</b> — MCQ, MSQ, descriptive, numerical, drag-drop, hotspot, code-evaluation, image upload, video answer.</li>
+        <li><b>Use cases</b> — UPSC, JEE, NEET, GATE, CAT, SSC, RRB, SAT, GRE, IELTS, TOEFL, GMAT.</li>
+      </ul>
+      Every page on page 1 covers most of these. The ranking gap is content depth, not SEO mechanics.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Add three substantive sections: "<i>AI Proctoring &amp; Anti-Cheat</i>", "<i>Question Bank &amp; LMS Integrations</i>", "<i>Accessibility &amp; Compliance</i>". 400-600 words each, with named tools and standards.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>8. FAQ accordion may not be rendering answers in static HTML</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> The live render shows only the FAQ questions ("<i>Which features are contained in...</i>", "<i>Is it possible for me to make...</i>") without any answer text. This pattern suggests the answers are hidden behind JavaScript accordion clicks. If the answers are not in the initial HTML, Google may not extract them — at minimum Quality Rater experience suffers, and the FAQ schema becomes orphaned from visible content (Google's policy requires FAQ schema content to be visible to users on page load).</div>
+    <div class="fix"><span class="label">Fix:</span> Make sure the FAQ answer text is in the initial HTML (use <code>&lt;details&gt;/&lt;summary&gt;</code> or pre-rendered hidden divs with text already present). Verify with "View source" — if answers aren't in the HTML, fix the template.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>9. Schema is unusually thin (only Product + FAQ + Breadcrumb)</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Compared to your sister pages, this URL has no Organization @graph node, no WebPage, no Service block. Lower entity-resolution confidence + no proper service representation. Combined with the fake-rating Product, the structured-data layer is actively hurting more than helping.</div>
+    <div class="fix"><span class="label">Fix:</span> Replace Product with the @graph pattern used on loan-lending: Organization → WebSite → WebPage → Service → FAQPage → BreadcrumbList. Schema rewrite block included below.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>10. Geo signal = DE (Germany) but no German content + footer flag bug</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> <code>meta geo.region "DE"</code>. The footer office cards show "Germany" but use <code>hq-canada.webp</code> + <code>canadaFlag.webp</code> — a <b>Canada flag is displayed for the Germany office</b>. That's a content bug Quality Raters notice immediately. The og:locale:alternate=en_AE with no hreflang adds further geo confusion.</div>
+    <div class="fix"><span class="label">Fix:</span> Fix the Germany flag image (<code>hq-germany.webp</code> + <code>germanyFlag.webp</code>). Remove <code>geo.region</code> tag or set it to <code>IN</code>. Implement <code>hreflang</code> if you serve multiple markets, otherwise drop the alternate locale.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>11. Hero H1 wrapped in <code>&lt;div&gt;</code> with <code>&lt;h1 class="inline"&gt;</code></strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> The hero markup is <code>&lt;div&gt;&lt;h1 class="inline"&gt;Online Exam App Development Company&lt;/h1&gt;&lt;/div&gt;</code>. The visible text matches the H1 here (better than pet-care which split "Best" outside), but using an inline H1 inside a styled div is unusual and indicates the same template pattern that breaks other pages. It works but is a code-smell.</div>
+    <div class="fix"><span class="label">Fix:</span> Make H1 a block element with its own classes — no need for the wrapping div with inline override.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>12. "Coca cola, Adani, Tata, Colgate" client-logo strip on an exam-app page</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> The shared "Partner with us" section at the bottom shows Coca-Cola, Adani, Tata, Colgate logos as if they are clients of this online-exam offering. None of those Fortune-tier brands run public exam apps with IMG. This is a sitewide template strip placed on every URL — a classic Quality-Rater "implausible claim" trip.</div>
+    <div class="fix"><span class="label">Fix:</span> Either show real verifiable clients (with permission) or remove the strip from this URL. Replace with edtech-relevant logos (schools, edtech startups, coaching institutes).</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>13. "4.5/5 Average Rating" claim near the form — same self-serving pattern</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> Footer marketing block shows "<i>4.5/5 Average Rating</i>" with no source, no review widget, no per-review markup. Repeats the unverifiable rating pattern.</div>
+    <div class="fix"><span class="label">Fix:</span> Link to a Clutch / GoodFirms / Google profile where the rating can be verified, with proper Review schema.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>14. No author byline, no publication / updated date</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Page is sold as content from "IMG Global Infotech" but shows no author byline, no date the page was first published, no date last updated. For a tactical / commercial-intent page about a regulated topic (student data, exam integrity), buyers and Quality Raters expect named expertise.</div>
+    <div class="fix"><span class="label">Fix:</span> Add author byline below H1 (named developer lead + named edtech consultant). Add visible Published / Updated date with <code>datetime</code> attribute.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>15. "Latest Insights" section is empty</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> A heading "Latest Insights" appears but no blog cards or links follow. Empty / orphaned sections are HCS-detectable patterns.</div>
+    <div class="fix"><span class="label">Fix:</span> Either populate with 3 latest exam-tech blog posts (with thumbnails + titles + dates) or remove the heading.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>16. Boilerplate "Why Choose Us" — only 4 generic cards</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> "<i>Advanced Online Exam App</i>", "<i>Effortless Integrations</i>", "<i>Post Launch Support</i>", "<i>Powerful Features</i>" — generic claims any agency makes about anything. For an exam app these say nothing.</div>
+    <div class="fix"><span class="label">Fix:</span> Replace with exam-tech-specific differentiators: "<i>QTI 3.0 import/export ready</i>", "<i>LMS connectors shipped: Moodle, Canvas, Google Classroom</i>", "<i>AI-proctoring SDKs integrated: Proctorio, Mercer Mettl, Honorlock</i>", "<i>WCAG 2.2 AA accessibility audits included</i>".</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>17. Same legacy meta-tag pollution + outdated copyright "©2014 - 2026"</strong><span class="pill low">Low</span></header>
+    <div class="why"><span class="label">Why:</span> revisit-after, distribution, coverage, rating, language, copyright, rights, reply-to, web-author — useless 2020s-era tags. Footer copyright spans 2014-2026 — a small detail, but means template hasn't been audited for year drift.</div>
+    <div class="fix"><span class="label">Fix:</span> Strip legacy meta at layout level. Make footer year dynamic (<code>date('Y')</code>).</div>
+  </div>
+</section>
+
+<!-- ============== OFF-TOPIC / WRONG ============== -->
+<section class="card" id="offtopic">
+  <h2>🚫 Content that's wrong, off-topic, or doesn't belong here</h2>
+  <table>
+    <thead><tr><th style="width:30%">Block</th><th>Problem</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Hero image alt — "<b>Comapny</b>"</td>
+        <td>Typo of primary keyword on the LCP image — HCS red flag, image-search loss.</td>
+        <td>Fix typo. Rewrite alt to describe the actual visual.</td>
+      </tr>
+      <tr>
+        <td>7× admin tiles all use <code>onlineEaxmAdmin.webp</code></td>
+        <td>Same placeholder image reused 7 times; filename has the typo "Eaxm" (instead of Exam). Visitors see seven identical pictures across the carousel.</td>
+        <td>Rename file → <code>onlineExamAdmin.webp</code>; create 7 distinct admin screenshots, or reduce the tile count.</td>
+      </tr>
+      <tr>
+        <td>Case studies "EduRev" + "Class 10 Exam"</td>
+        <td>Brand piggyback wording — ambiguous attribution. Did IMG actually build them?</td>
+        <td>Either name as real builds with proof, or relabel "Apps that inspire our designs" with separation from your own work.</td>
+      </tr>
+      <tr>
+        <td>Germany office card uses <b>Canada flag</b></td>
+        <td>Footer card says "Germany" but image files are <code>hq-canada.webp</code> + <code>canadaFlag.webp</code>. Visible content-quality bug.</td>
+        <td>Replace with Germany flag assets.</td>
+      </tr>
+      <tr>
+        <td>"Partner with us" client logo strip — Coca-Cola, Adani, Tata, Colgate</td>
+        <td>Implausible client claim for an online-exam product page; sitewide template strip.</td>
+        <td>Either prove with case-study links or remove from this URL. Use edtech-relevant clients instead.</td>
+      </tr>
+      <tr>
+        <td>"4.5/5 Average Rating" near footer</td>
+        <td>Unverifiable, no source, no review markup — self-serving review pattern.</td>
+        <td>Link to a verifiable third-party profile (Clutch/Google) with proper Review schema.</td>
+      </tr>
+      <tr>
+        <td>"Latest Insights" heading with no insights</td>
+        <td>Empty heading.</td>
+        <td>Populate with 3 latest exam-tech blog cards or remove.</td>
+      </tr>
+      <tr>
+        <td>og:title "Online Exam <b>Portal</b>" vs &lt;title&gt; "Online Exam <b>App</b>"</td>
+        <td>Two different primary keywords for one page.</td>
+        <td>Align both to one phrase.</td>
+      </tr>
+      <tr>
+        <td>twitter:title "Custom Exam App Development <b>Solution</b>"</td>
+        <td>Third primary keyword variant; "Solution" doesn't match any user query.</td>
+        <td>Align to one phrase.</td>
+      </tr>
+      <tr>
+        <td>"Why Choose Us" cards</td>
+        <td>Generic — no exam-tech specifics.</td>
+        <td>Replace with exam-domain specifics (QTI, AI proctoring, LMS, WCAG).</td>
+      </tr>
+      <tr>
+        <td>"Build a Future-Ready..." + "Transform Your Ideas..." CTAs</td>
+        <td>Two consecutive CTA blocks before/after process — visually fine but content-thin.</td>
+        <td>Keep one CTA between Process and Why Choose Us; remove the duplicate.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== MISSING ============== -->
+<section class="card" id="missing">
+  <h2>➕ Sections this page needs but doesn't have</h2>
+  <p>Ranked by likely ranking impact for exam-app SERPs.</p>
+  <table>
+    <thead><tr><th>Section</th><th>Why it matters</th><th>Where to place</th></tr></thead>
+    <tbody>
+      <tr><td><b>1. AI Proctoring &amp; Anti-Cheat block</b> (face detection, gaze tracking, audio room-scan, multi-person detection, browser lockdown SEB, Respondus, screen recording, tab-switch detection)</td><td>The single biggest topical gap. Every page that ranks for "online exam app development" covers this in depth.</td><td>After services tiles</td></tr>
+      <tr><td><b>2. Question Bank Formats &amp; LMS Integrations</b> (QTI 2.x/3.x, AIKEN, Moodle XML, GIFT, IMS Common Cartridge; Moodle, Canvas, Blackboard, Schoology, Google Classroom)</td><td>Buyer-intent search cluster competitors own.</td><td>Tech stack section</td></tr>
+      <tr><td><b>3. Accessibility &amp; Compliance block</b> (WCAG 2.2 AA, FERPA, GDPR, India DPDP Act 2023, AICTE / UGC / NMC guidelines, additional-time accommodations, screen reader compatibility)</td><td>Government / institutional buyers require this.</td><td>Mid-page</td></tr>
+      <tr><td><b>4. Question Types matrix</b> (MCQ / MSQ / descriptive / numerical / drag-drop / hotspot / code-evaluation / image upload / video answer / audio response)</td><td>Helps Google understand topical depth.</td><td>After Key Features</td></tr>
+      <tr><td><b>5. Use Cases by Exam Type</b> (UPSC, JEE, NEET, GATE, CAT, SSC, RRB, SAT, GRE, IELTS, TOEFL, GMAT, internal corporate L&amp;D, recruitment screening)</td><td>Captures geo + exam-specific long-tail queries — biggest traffic opportunity for an Indian agency.</td><td>After audience block</td></tr>
+      <tr><td><b>6. Real case studies</b> with named client, problem, solution, screenshots, metrics, testimonial with reviewer photo + LinkedIn</td><td>Replace EduRev/Class 10 Exam piggyback. Strongest E-E-A-T lift.</td><td>Replace existing case studies</td></tr>
+      <tr><td><b>7. Detailed Cost Breakdown table</b> (Basic / Mid / Enterprise × feature × $ range × hours) promoted from FAQ to dedicated H2 section</td><td>"Cost of online exam app" is a top long-tail query.</td><td>Before Why Choose Us</td></tr>
+      <tr><td><b>8. Timeline / Roadmap with milestones</b></td><td>Same — top long-tail.</td><td>Next to cost</td></tr>
+      <tr><td><b>9. Tech Stack section</b> with named SDKs (React Native, Flutter, Node.js, Python, AWS/Azure, Twilio Video, MediaSoup for WebRTC, S3 for media, OpenAI Whisper for audio, AI proctoring providers)</td><td>Captures CTO-intent traffic.</td><td>Before Why Choose Us</td></tr>
+      <tr><td><b>10. SaaS vs Self-hosted comparison table</b></td><td>Procurement-buyer intent.</td><td>Mid-page</td></tr>
+      <tr><td><b>11. Author + Edtech Advisor byline</b> with named expert (e.g. ex-CBSE/ex-UGC consultant)</td><td>E-E-A-T lift for student-data niche.</td><td>Below H1</td></tr>
+      <tr><td><b>12. Question bank import/export demo</b> — sample QTI file, sample CSV, Moodle XML — downloadable</td><td>Link magnet + deep expertise signal.</td><td>Tech section side</td></tr>
+      <tr><td><b>13. Real-time exam scaling notes</b> — "<i>handled 18,000 concurrent test-takers in NEET mock</i>" — with arch diagram</td><td>Enterprise-buyer trust signal.</td><td>After tech stack</td></tr>
+      <tr><td><b>14. Awards &amp; recognitions</b> (Clutch, GoodFirms, NASSCOM, India EdTech Awards) — for exam-tech specifically</td><td>Trust signal.</td><td>Above footer</td></tr>
+      <tr><td><b>15. Downloadable assets</b> — "<i>2026 Online Exam Compliance &amp; Proctoring Checklist</i>" PDF + "<i>Exam App Cost Calculator</i>" widget</td><td>Link magnets — biggest off-page lever.</td><td>Side CTA</td></tr>
+      <tr><td><b>16. Engagement models</b> (Fixed / T&amp;M / Dedicated Team)</td><td>Procurement intent.</td><td>Before CTA2</td></tr>
+      <tr><td><b>17. Visible Published / Updated date with <code>datetime</code></b></td><td>Freshness signal.</td><td>Below H1</td></tr>
+      <tr><td><b>18. Jump-link Table of Contents</b></td><td>Drives Google "Jump To" sitelinks.</td><td>After hero</td></tr>
+      <tr><td><b>19. Video walkthrough</b> (real product demo or named-client video testimonial embedded from YouTube)</td><td>Captures video SERP + strongest credibility lift.</td><td>After process</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== META ============== -->
+<section class="card" id="meta">
+  <h2>🏷️ Meta / Title layer — full audit</h2>
+  <table>
+    <thead><tr><th>Tag</th><th>Current</th><th>Verdict</th><th>Recommended</th></tr></thead>
+    <tbody>
+      <tr><td>&lt;title&gt;</td><td>Online Exam App Development Company | Build an Online Exam App (62 chars)</td><td><span class="pill medium">Length OK; "Build an…" wastes chars</span></td><td>Online Exam App Development Company — Proctoring, LMS &amp; QTI Ready (60 chars)</td></tr>
+      <tr><td>meta description</td><td>109 chars, generic ROI talk, no USP</td><td><span class="pill critical">Too short, weak</span></td><td>Custom online exam app development with AI proctoring, LMS &amp; QTI imports, role-based dashboards, anti-cheat lockdown. 100+ devs, 11+ years. Free quote. (158 chars)</td></tr>
+      <tr><td>H1</td><td>Online Exam App Development Company</td><td><span class="pill medium">OK; matches title</span></td><td>Online Exam App Development Company for Schools, Universities &amp; Coaching</td></tr>
+      <tr><td>og:title</td><td>Online Exam <b>Portal</b> Development Company</td><td><span class="pill critical">Different noun ("Portal")</span></td><td>Match the cleaned title</td></tr>
+      <tr><td>twitter:title</td><td>Custom Exam App Development <b>Solution</b></td><td><span class="pill critical">Third different noun ("Solution")</span></td><td>Match the cleaned title</td></tr>
+      <tr><td>canonical</td><td>https://www.imgglobalinfotech.com/online-exam-app-development</td><td><span class="pill good">Self-referencing, good</span></td><td>Keep</td></tr>
+      <tr><td>og:image / twitter:image</td><td>Cloudfront CDN — <code>online-exam-app-development.jpg</code></td><td><span class="pill good">Good</span></td><td>Keep</td></tr>
+      <tr><td>robots</td><td>MAX-IMAGE-PREVIEW:LARGE, INDEX, FOLLOW</td><td><span class="pill good">Good</span></td><td>Keep</td></tr>
+      <tr><td>geo.region</td><td>DE (Germany)</td><td><span class="pill critical">Wrong / inconsistent with content</span></td><td>Remove or set to IN</td></tr>
+      <tr><td>og:locale:alternate</td><td>en_AE</td><td><span class="pill medium">Misleading without hreflang</span></td><td>Add hreflang or drop</td></tr>
+      <tr><td>Legacy tags (revisit-after, distribution, coverage, rating, language, copyright, rights, reply-to, web-author, msapplication-config)</td><td>All present</td><td><span class="pill low">Useless bloat</span></td><td>Remove at layout level</td></tr>
+      <tr><td>Author byline visible</td><td>Not on page</td><td><span class="pill high">Missing</span></td><td>Add named author + edtech advisor with photo + LinkedIn</td></tr>
+      <tr><td>Publication / Updated date visible</td><td>Not on page</td><td><span class="pill high">Missing</span></td><td>Add "Published / Updated" with <code>datetime</code></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== SCHEMA ============== -->
+<section class="card" id="schema">
+  <h2>🧩 Schema markup — full audit</h2>
+  <p>Schema blocks present: <b>Product, FAQPage (via include), BreadcrumbList (via include)</b>. <b>No Organization, no WebPage, no Service.</b> Compared to your healthcare/loan pages, this URL has the thinnest schema layer.</p>
+
+  <div class="issue">
+    <header><strong>Product schema — fake-looking aggregateRating</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> <code>aggregateRating 4.9 / 140</code> with no visible reviews; B2B service mis-typed as Product; brand URL self-references this URL (should be the root domain).</div>
+    <div class="fix"><span class="label">Fix:</span> Delete Product schema entirely. Replace with the @graph block below.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>FAQ schema — answers may not be visible</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> The live render shows FAQ questions but not answer text — answers appear hidden behind JS accordion. Google requires FAQ schema content to be visible to the user. If answers are not in the initial HTML, the schema is non-compliant.</div>
+    <div class="fix"><span class="label">Fix:</span> Make sure answers are in the initial HTML (use <code>&lt;details&gt;&lt;summary&gt;</code> or pre-rendered hidden divs with text present in source). Verify via "View source" not just the rendered DOM.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Recommended schema rewrite (drop-in)</strong><span class="pill good">Good</span></header>
+    <details>
+      <summary>Click to see drop-in JSON-LD</summary>
+<pre>{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.imgglobalinfotech.com/#organization",
+      "name": "IMG Global Infotech Private Limited",
+      "url": "https://www.imgglobalinfotech.com/",
+      "logo": "https://d1y41eupgbwbb2.cloudfront.net/images/xl-logo.webp",
+      "sameAs": [
+        "https://www.facebook.com/imgglobalinfotech",
+        "https://x.com/imgglobal",
+        "https://www.instagram.com/imgglobalinfotech/",
+        "https://www.linkedin.com/company/imgglobalinfotech/",
+        "https://www.youtube.com/@imgglobalinfotech"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.imgglobalinfotech.com/#website",
+      "url": "https://www.imgglobalinfotech.com/",
+      "name": "IMG Global Infotech",
+      "publisher": { "@id": "https://www.imgglobalinfotech.com/#organization" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.imgglobalinfotech.com/online-exam-app-development#webpage",
+      "url": "https://www.imgglobalinfotech.com/online-exam-app-development",
+      "name": "Online Exam App Development Company",
+      "isPartOf": { "@id": "https://www.imgglobalinfotech.com/#website" },
+      "inLanguage": "en-US",
+      "datePublished": "2018-01-15",
+      "dateModified": "2026-06-06"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Online Exam App Development",
+      "provider": { "@id": "https://www.imgglobalinfotech.com/#organization" },
+      "areaServed": ["IN","US","AE","GB","CA","AU"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Online Exam App Development",
+        "itemListElement": [
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Online Exam Platform for Schools"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"University &amp; College Exam Platform"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Coaching / Test-Prep App (UPSC, JEE, NEET, GATE)"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Corporate Assessment &amp; L&amp;D Platform"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"AI-Proctored Remote Exam Suite"}}
+        ]
+      }
+    }
+  ]
+}</pre>
+    </details>
+  </div>
+
+  <div class="issue">
+    <header><strong>Missing schema types to add later</strong><span class="pill medium">Medium</span></header>
+    <ul class="tight">
+      <li><b>Review</b> per visible testimonial (only when real, named reviewers are on page).</li>
+      <li><b>VideoObject</b> if you embed a product or testimonial video.</li>
+      <li><b>HowTo</b> — <b>do NOT add</b> (deprecated by Google).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============== HEADINGS ============== -->
+<section class="card" id="headings">
+  <h2>🏗️ Heading hierarchy</h2>
+  <table>
+    <thead><tr><th>Tag</th><th>Text</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td>H1</td><td>Online Exam App Development Company</td><td><span class="pill good">Single H1, OK</span></td></tr>
+      <tr><td>H2</td><td>Online Exam App Development Services: Your Idea, Our Expertise!</td><td><span class="pill medium">Exclamation = marketing fluff</span></td></tr>
+      <tr><td>H2</td><td>Key Features of Our Online Exam App</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H3 ×2</td><td>Student App / Admin Dashboard (tab labels)</td><td><span class="pill medium">Tab labels shouldn't be H3</span></td></tr>
+      <tr><td>H2</td><td>Build a Future-Ready Online Exam App with Us</td><td><span class="pill medium">CTA H2</span></td></tr>
+      <tr><td>H2</td><td>Who Can Benefit from Online Exam App Solutions?</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H3 ×3</td><td>Schools / Colleges/Universities / Training Centers</td><td><span class="pill medium">Missing major segments — Coaching/Test-Prep, Corporate L&amp;D</span></td></tr>
+      <tr><td>H2</td><td>Our Successful Online Exam App Development Projects</td><td><span class="pill high">Projects shown are EduRev / Class 10 Exam (brand piggyback)</span></td></tr>
+      <tr><td>H3 ×2</td><td>EduRev / Class 10 Exam</td><td><span class="pill high">Brand piggyback case studies</span></td></tr>
+      <tr><td>H2</td><td>On-Demand Exam App Development: The Process We Follow</td><td><span class="pill medium">"On-Demand" doesn't fit exam context</span></td></tr>
+      <tr><td>H3 ×5</td><td>Research &amp; Analysis / Wireframing &amp; Designing / Development &amp; Integrations / Quality Assurance / Launch &amp; Maintenance</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Transform Your Ideas into a Custom Online Exam App</td><td><span class="pill medium">CTA H2</span></td></tr>
+      <tr><td>H2</td><td>Why Choose IMG Global Infotech As Your Online Exam App Development Company?</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H3 ×4</td><td>Advanced Online Exam App / Effortless Integrations / Post Launch Support / Powerful Features</td><td><span class="pill medium">Generic; no exam-tech specifics</span></td></tr>
+      <tr><td>H2</td><td>Frequently Asked Questions</td><td><span class="pill good">Good — but FAQ answers may be JS-hidden</span></td></tr>
+      <tr><td>H2</td><td>Latest Insights</td><td><span class="pill medium">Empty section</span></td></tr>
+      <tr><td>H2</td><td>Partner with us to scale 10x faster with our Ai-Driven solutions</td><td><span class="pill medium">"Ai-Driven" misspelled (should be "AI-driven")</span></td></tr>
+      <tr><td>H2</td><td>From idea to execution, we've got you covered.</td><td><span class="pill good">Form intro — OK</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Semantic HTML notes</h3>
+  <ul class="tight">
+    <li>H1 wrapped in <code>&lt;div&gt;</code> with inline override — works but unusual.</li>
+    <li>Tab labels use H3 inside <code>&lt;label&gt;</code> — heading inside interactive element.</li>
+    <li>One body section correctly uses <code>&lt;p&gt;</code> (the "Your Idea, Our Expertise!" block).</li>
+    <li>CTA buttons use <code>&lt;label for="leadPopup"&gt;</code> instead of <code>&lt;a&gt;</code> / <code>&lt;button&gt;</code>.</li>
+    <li>No <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code> landmarks.</li>
+  </ul>
+</section>
+
+<!-- ============== CONTENT ============== -->
+<section class="card" id="content">
+  <h2>✍️ Content quality (Helpful Content System scoring)</h2>
+  <div class="grid grid-2">
+    <div>
+      <h3>Strengths</h3>
+      <ul class="tight">
+        <li>Hero copy uses <code>&lt;p&gt;</code> tags in one section (rare on the site).</li>
+        <li>Student + Admin features split into two tab panels.</li>
+        <li>Process section is clean and structured.</li>
+        <li>OG image uses CDN consistently.</li>
+        <li>URL slug is excellent (short, descriptive, lowercase, hyphenated).</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Weaknesses</h3>
+      <ul class="tight">
+        <li>Hero alt typo "Comapny" of the primary keyword.</li>
+        <li>7 admin tiles share one image with filename typo "Eaxm".</li>
+        <li>Three different primary keywords across title surfaces.</li>
+        <li>Meta description 109 chars (50 chars wasted).</li>
+        <li>Zero coverage of proctoring, LMS, QTI, accessibility — the actual buyer-search topics.</li>
+        <li>FAQ answers likely hidden behind JS.</li>
+        <li>Brand piggyback case studies (EduRev, Class 10 Exam) without clean attribution.</li>
+        <li>"Germany" footer card displays Canada flag.</li>
+        <li>"Latest Insights" heading with no insights.</li>
+        <li>Boilerplate "Why Choose Us".</li>
+        <li>Sitewide "Coca-Cola / Adani / Tata / Colgate" client strip on an edtech URL.</li>
+        <li>Unverifiable "4.5/5 Average Rating" footer claim.</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:14px">Estimated Helpful Content System score (informal): <b>2.5 / 10</b>. Most damaging gap is the absence of proctoring / LMS / accessibility depth — the actual buyer-search topics in 2026.</p>
+</section>
+
+<!-- ============== IMAGES ============== -->
+<section class="card" id="images">
+  <h2>🖼️ Images</h2>
+  <ul class="tight">
+    <li><b>Format:</b> All images <code>.webp</code> (a couple <code>.jpg</code> for OG). ✅ good.</li>
+    <li><b>Dimensions set:</b> Most have <code>width</code> &amp; <code>height</code> — ✅ good for CLS.</li>
+    <li><b>LCP image:</b> Hero uses <code>loading="eager" fetchpriority="high"</code> — ✅ good.</li>
+    <li><b>CDN:</b> All on <code>d1y41eupgbwbb2.cloudfront.net</code> — ✅ good.</li>
+    <li><b>Alt text quality:</b> Mostly duplicates of <code>title=""</code>. Hero alt has typo "<b>Comapny</b>". 🚨</li>
+    <li><b>Repeated placeholder image:</b> <code>onlineEaxmAdmin.webp</code> used 7 times in the Admin panel carousel. Filename typo "<b>Eaxm</b>". 🚨</li>
+    <li><b>Germany office image:</b> <code>hq-canada.webp</code> + <code>canadaFlag.webp</code> — wrong flag for the Germany office card. 🚨</li>
+    <li><b>Image filenames:</b> camelCase (<code>onlineExamHeroImg.webp</code>) — lowercase-hyphen preferred for image-search SEO.</li>
+    <li><b>Decorative app-store badges:</b> alt="PlayStore"/"AppStore" — should be <code>alt=""</code> with <code>aria-label</code>.</li>
+  </ul>
+</section>
+
+<!-- ============== INTERNAL LINKING ============== -->
+<section class="card" id="internal">
+  <h2>🔗 Internal linking</h2>
+  <p>Body-content internal linking from this URL is sparse:</p>
+  <ul class="tight">
+    <li>One body link to <code>/mobile-app-development</code> with anchor "<i>custom app development</i>" — generic, doesn't match exam intent.</li>
+    <li>No links to related edtech sub-pages.</li>
+    <li>Footer has a long list of generic city/country app-development links but none are exam/edtech focused.</li>
+  </ul>
+  <h3>What's missing</h3>
+  <ul class="tight">
+    <li>No links to your edtech sister pages:
+      <ul class="tight">
+        <li><code>/elearning-app-development</code></li>
+        <li><code>/school-management-software-development</code></li>
+        <li><code>/college-management-software-development</code></li>
+        <li><code>/university-management-software-development</code></li>
+        <li><code>/institute-management-software-development</code></li>
+        <li><code>/edtech-software-development</code></li>
+        <li><code>/assessment-testing-practice-app-development</code> (this is your most relevant sibling — link it!)</li>
+      </ul>
+    </li>
+    <li>No links to blog posts on cost / proctoring / LMS / QTI.</li>
+    <li>The footer has 2 relevant links (<code>/edtech-software-development</code>, <code>/assessment-testing-practice-app-development</code>) — make them prominent body links too.</li>
+  </ul>
+  <h3>Anchor-text problems</h3>
+  <ul class="tight">
+    <li>The single body link uses generic "custom app development" anchor pointing to <code>/mobile-app-development</code>. Replace with descriptive anchor pointing to a more relevant target.</li>
+  </ul>
+</section>
+
+<!-- ============== URL ============== -->
+<section class="card" id="url">
+  <h2>🌐 URL — user-friendly &amp; SEO-friendly?</h2>
+  <p><code>https://www.imgglobalinfotech.com/online-exam-app-development</code></p>
+  <table>
+    <thead><tr><th>Check</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>HTTPS</td><td>✅ Yes</td></tr>
+      <tr><td>Length (full URL)</td><td>✅ 60 chars</td></tr>
+      <tr><td>Slug length</td><td>✅ 27 chars — excellent</td></tr>
+      <tr><td>Hyphen separators</td><td>✅ Yes</td></tr>
+      <tr><td>Lowercase only</td><td>✅ Yes</td></tr>
+      <tr><td>Descriptive / readable</td><td>✅ Yes — anyone instantly knows the topic</td></tr>
+      <tr><td>No query strings / UUIDs</td><td>✅ Clean</td></tr>
+      <tr><td>No file extension</td><td>✅ Clean</td></tr>
+      <tr><td>Matches title primary keyword</td><td>✅ Partial (slug missing "company")</td></tr>
+      <tr><td>Canonical = URL</td><td>✅ Self-referencing</td></tr>
+      <tr><td>www consistent</td><td>✅ Yes (verify 301 from apex)</td></tr>
+    </tbody>
+  </table>
+  <p class="verdict"><span class="tick">●</span> <b>Verdict:</b> URL is both user- and SEO-friendly. Of the 5 pages audited so far this is the cleanest slug. <b>Do NOT change it.</b> Fix everything else.</p>
+</section>
+
+<!-- ============== COMPETITOR ============== -->
+<section class="card" id="competitor">
+  <h2>📊 Why competitors rank — quick SERP gap</h2>
+  <p>Top results for "<i>online exam app development</i>" / "<i>online examination software</i>" are dominated by:</p>
+  <table>
+    <thead><tr><th>Competitor</th><th>What they do that you don't</th></tr></thead>
+    <tbody>
+      <tr><td>Mindinventory</td><td>Proctoring + LMS depth, named edtech clients, downloadable QTI sample, real video case studies.</td></tr>
+      <tr><td>Hidden Brains</td><td>Real edtech case studies (Embibe-style), AICTE / UGC compliance posts, named CTOs, original cost research.</td></tr>
+      <tr><td>Sphinx Solutions</td><td>Exam-vertical positioning, named coaching-institute clients, AI proctoring deep dive.</td></tr>
+      <tr><td>OnGraph</td><td>Question-type matrix, QTI import documentation, named institutional clients.</td></tr>
+      <tr><td>Talentnow / Sloneek-style edtech specialists</td><td>Whole sites built on exam-tech expertise; backlink moats.</td></tr>
+    </tbody>
+  </table>
+  <p>Common pattern: <b>named edtech clients, AI proctoring depth, QTI/LMS integration evidence, accessibility content, real product screenshots</b>. Your page has zero of these in substantive form.</p>
+</section>
+
+<!-- ============== PLAN ============== -->
+<section class="card" id="plan">
+  <h2>🛠️ 90-day prioritized action plan</h2>
+
+  <h3>Week 1 — Stop-the-bleeding fixes</h3>
+  <ol>
+    <li>Fix hero alt typo "<b>Comapny</b>" → "Company" (rewrite alt to describe the visual).</li>
+    <li>Rename <code>onlineEaxmAdmin.webp</code> → <code>onlineExamAdmin.webp</code>; produce 7 distinct admin images OR reduce tile count.</li>
+    <li>Fix Germany office card — replace Canada flag images with German ones.</li>
+    <li>Delete Product schema; replace with the @graph block (Organization → WebSite → WebPage → Service).</li>
+    <li>Align title / og:title / twitter:title to one phrase.</li>
+    <li>Rewrite meta description to ~158 chars with proctoring / LMS / QTI keywords.</li>
+    <li>Remove <code>meta geo.region "DE"</code>.</li>
+    <li>Strip legacy meta tags at layout level.</li>
+    <li>Make footer copyright year dynamic.</li>
+    <li>Verify FAQ answer text is in the initial HTML; fix template if not.</li>
+    <li>Remove or substantiate Coca-Cola / Adani / Tata / Colgate logo strip on this URL.</li>
+    <li>Remove or substantiate the unverifiable "4.5/5 Average Rating" footer claim.</li>
+  </ol>
+
+  <h3>Weeks 2-4 — E-E-A-T &amp; trust</h3>
+  <ol>
+    <li>Add author byline + edtech / assessment advisor (named, photo, LinkedIn).</li>
+    <li>Add visible Published / Updated date with real file mtime.</li>
+    <li>Replace EduRev / Class 10 Exam blocks with real, named IMG-built exam apps or relabel as "Apps that inspire our designs".</li>
+    <li>Add Clutch / GoodFirms / NASSCOM badges with verifiable links.</li>
+    <li>Populate Organization sameAs with all social + listing URLs.</li>
+    <li>Replace empty "Latest Insights" with 3 real exam-tech blog cards.</li>
+  </ol>
+
+  <h3>Weeks 5-8 — Topical depth (the biggest lift)</h3>
+  <ol>
+    <li><b>Add the AI Proctoring &amp; Anti-Cheat H2 section</b> (600-1000 words). Single biggest leverage in the plan.</li>
+    <li><b>Add the Question Bank Formats &amp; LMS Integrations H2 section</b> (QTI 2/3, AIKEN, Moodle XML, IMS Common Cartridge; Moodle, Canvas, Blackboard, Schoology, Google Classroom, MS Teams).</li>
+    <li><b>Add the Accessibility &amp; Compliance H2 section</b> (WCAG 2.2 AA, FERPA, GDPR, India DPDP, AICTE/UGC).</li>
+    <li>Promote Cost &amp; Timeline from FAQ to dedicated H2 sections (table + calculator).</li>
+    <li>Add Tech Stack section with named SDKs.</li>
+    <li>Add "Use Cases by Exam Type" matrix (UPSC, JEE, NEET, GATE, SAT, GRE, IELTS, GMAT, corporate L&amp;D, recruitment).</li>
+    <li>Add Question Types matrix (MCQ / MSQ / descriptive / numerical / drag-drop / hotspot / code / image upload / video answer).</li>
+    <li>Add SaaS vs Self-hosted comparison table.</li>
+    <li>Add real-time scaling notes (concurrent test-takers handled + arch diagram).</li>
+    <li>Add jump-link Table of Contents.</li>
+    <li>Replace generic "Why Choose Us" cards with exam-tech-specific differentiators.</li>
+  </ol>
+
+  <h3>Weeks 9-12 — Off-page link magnets</h3>
+  <ol>
+    <li>Publish "<i>2026 Online Exam Compliance &amp; Proctoring Checklist</i>" gated PDF.</li>
+    <li>Build "<i>Exam App Cost Calculator</i>" widget on this URL.</li>
+    <li>Pitch original survey ("<i>State of Online Examination Tech in India 2026</i>") to edtech publications: EdTechReview, Indian School Education, Higher Education Digest, Education Times, EdSurge.</li>
+    <li>Internal-link campaign: link from <code>/elearning-app-development</code>, <code>/edtech-software-development</code>, <code>/school-management-software-development</code>, <code>/assessment-testing-practice-app-development</code>, <code>/college-management-software-development</code> back to this URL with descriptive anchors.</li>
+    <li>Submit to GSC after each major batch; bump <code>&lt;lastmod&gt;</code>.</li>
+    <li>Pursue listings on Clutch / GoodFirms / DesignRush / ITFirms specifically in "Education App Development" categories.</li>
+  </ol>
+
+  <h3>Expected outcome timeline</h3>
+  <ul class="tight">
+    <li><b>0-30 days:</b> Page exits algorithmic suppression after the Week-1 fixes; impressions in GSC begin for long-tail like "online exam app development india", "ai proctoring app development".</li>
+    <li><b>30-60 days:</b> Page 4-6 for "online exam app development"; page 2-3 for long-tails like "QTI exam app development", "AI proctored exam software".</li>
+    <li><b>60-120 days:</b> Page 2 candidate for primary keyword; page 1 for clearer long-tails ("school exam app development india", "exam app for coaching institute").</li>
+    <li><b>120-180 days:</b> Page 1 for primary keyword realistic <b>only with</b> consistent off-page momentum.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>🧾 One-line summary</h2>
+  <p>The URL slug is the best of the audited pages, but the page is held back by a stack of avoidable quality bugs (typo'd hero alt, single placeholder image reused 7×, Canada flag on the Germany card, three different head-titles, fake-looking review schema, empty "Insights" heading, and unverifiable Fortune-500 logos) and by an absence of the topics buyers actually search in 2026 (AI proctoring, LMS / QTI integration, accessibility, exam-type use cases). Fix the bugs in Week 1, inject E-E-A-T in Weeks 2-4, then add 3 depth sections in Weeks 5-8 — that's the path off the bench.</p>
+</section>
+
+<div class="footer">SEO Audit · /online-exam-app-development · prepared for IMG Global Infotech · 06 Jun 2026</div>
+
+</div>
+</body>
+</html>
