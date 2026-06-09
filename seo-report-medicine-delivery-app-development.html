@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — /medicine-delivery-app-development | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0b1220; --panel:#111a2e; --panel2:#15203a; --line:#1f2c4a;
+    --text:#e6edf7; --muted:#9aa7c2; --accent:#159789; --accent2:#22B8A8;
+    --critical:#ff4d61; --high:#ff8a3d; --medium:#ffc83d; --low:#3dd1ff; --good:#00efa4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 24px}
+  header.hero{background:linear-gradient(135deg,#0D3A3D,#159789);border:1px solid var(--line);border-radius:18px;padding:32px;margin-bottom:24px;position:relative;overflow:hidden}
+  header.hero:before{content:"";position:absolute;inset:auto -60px -60px auto;width:280px;height:280px;background:radial-gradient(closest-side,rgba(34,184,168,.28),transparent);filter:blur(20px)}
+  header h1{margin:0 0 6px;font-size:28px;letter-spacing:-.01em}
+  header .meta{color:var(--muted);font-size:14px}
+  header .url{display:inline-block;margin-top:10px;background:#0a1428;border:1px solid var(--line);padding:8px 12px;border-radius:10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#cfe9ff;word-break:break-all}
+  .grid{display:grid;gap:18px}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:880px){.grid-3,.grid-2{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:18px}
+  .card h2{margin:0 0 14px;font-size:20px;letter-spacing:-.01em}
+  .card h3{margin:14px 0 8px;font-size:16px}
+  .scorebar{display:flex;align-items:center;gap:12px;margin:6px 0}
+  .scorebar .label{width:220px;color:var(--muted);font-size:13px}
+  .scorebar .bar{flex:1;height:8px;background:#0a1428;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .scorebar .fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .scorebar .val{width:48px;text-align:right;font-variant-numeric:tabular-nums;font-size:13px}
+  .pill{display:inline-block;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+  .pill.critical{background:rgba(255,77,97,.12);color:var(--critical);border:1px solid rgba(255,77,97,.35)}
+  .pill.high{background:rgba(255,138,61,.12);color:var(--high);border:1px solid rgba(255,138,61,.35)}
+  .pill.medium{background:rgba(255,200,61,.12);color:var(--medium);border:1px solid rgba(255,200,61,.35)}
+  .pill.low{background:rgba(61,209,255,.12);color:var(--low);border:1px solid rgba(61,209,255,.35)}
+  .pill.good{background:rgba(0,239,164,.12);color:var(--good);border:1px solid rgba(0,239,164,.35)}
+  .issue{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:var(--panel2)}
+  .issue header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;background:transparent;padding:0}
+  .issue header strong{font-size:15px}
+  .issue .why,.issue .fix{margin:8px 0;padding:10px 12px;border-radius:8px;font-size:14px}
+  .issue .why{background:rgba(255,77,97,.07);border-left:3px solid var(--critical)}
+  .issue .fix{background:rgba(0,239,164,.07);border-left:3px solid var(--good)}
+  .issue .label{display:inline-block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-right:6px}
+  code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+  code{background:#0a1428;padding:2px 6px;border-radius:5px;color:#cfe9ff}
+  pre{background:#0a1428;border:1px solid var(--line);border-radius:10px;padding:12px;overflow:auto}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{color:var(--muted);font-weight:600;background:#0a1428}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}
+  .toc a{font-size:12px;color:#cfe9ff;background:#0a1428;border:1px solid var(--line);padding:6px 10px;border-radius:99px;text-decoration:none}
+  .toc a:hover{border-color:var(--accent)}
+  details{background:#0a1428;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0}
+  summary{cursor:pointer;font-weight:600}
+  .small{font-size:12px;color:var(--muted)}
+  ul.tight li{margin:4px 0}
+  .footer{margin-top:30px;color:var(--muted);font-size:12px;text-align:center}
+  .donut{--p:0;width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--accent) calc(var(--p)*1%),#1f2c4a 0);display:flex;align-items:center;justify-content:center;position:relative}
+  .donut:after{content:"";position:absolute;inset:14px;background:var(--panel);border-radius:50%}
+  .donut span{position:relative;z-index:1;font-size:24px;font-weight:700}
+  .summarygrid{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:center}
+  @media (max-width:680px){.summarygrid{grid-template-columns:1fr}}
+  .num{font-variant-numeric:tabular-nums}
+  .verdict{display:flex;align-items:center;gap:8px;margin:6px 0}
+  .tick{color:var(--good)}
+  .cross{color:var(--critical)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="pill high" style="margin-bottom:10px">SEO Audit · Medicine Delivery · YMYL Pharmacy</div>
+  <h1>Medicine Delivery App Development — SEO Audit &amp; Ranking Diagnosis</h1>
+  <div class="meta">IMG Global Infotech · Generated 06 Jun 2026 · Analyst-grade report</div>
+  <div class="url">https://www.imgglobalinfotech.com/medicine-delivery-app-development</div>
+</header>
+
+<section class="card">
+  <div class="summarygrid">
+    <div class="donut" style="--p:36"><span class="num">36</span></div>
+    <div>
+      <h2 style="margin-top:0">Overall Score — 36 / 100</h2>
+      <p style="margin:6px 0 12px;color:var(--muted)">
+        This page is medicine-adjacent — pharmacy/medicine delivery touches health (YMYL) and is regulated by CDSCO + DPCO/NPPA in India, DSCSA + DEA scheduling in the US, MHRA in the UK. Google expects expert depth and signals. The page actually has <b>some genuine strengths</b> (sourced market stat with a real outbound citation, semantic <code>&lt;p&gt;</code> tags, schema sameAs uses the correct <code>x.com/imgglobal</code> — better than several other pages on the site). But it's still suppressed because of a stack of avoidable issues: <b>four different head-titles, a hero typo ("Inotech" missing the "f"), keyword-stuffed legacy meta tags, the same off-topic 11 case studies, brand-piggyback content (1mg, Netmeds, "Replica"), fake-rating Product schema, "Eprescription" / "Ai Powered" typos in H3s, and zero CDSCO / DPCO / Schedule-H content</b>. Each item is fixable; together they keep the URL out of SERPs.
+      </p>
+      <div class="scorebar"><div class="label">On-Page SEO</div><div class="bar"><div class="fill" style="width:45%"></div></div><div class="val">45</div></div>
+      <div class="scorebar"><div class="label">Content Quality / E-E-A-T</div><div class="bar"><div class="fill" style="width:25%"></div></div><div class="val">25</div></div>
+      <div class="scorebar"><div class="label">Topical Depth (CDSCO, Rx, scheduling)</div><div class="bar"><div class="fill" style="width:20%"></div></div><div class="val">20</div></div>
+      <div class="scorebar"><div class="label">Technical / Meta</div><div class="bar"><div class="fill" style="width:38%"></div></div><div class="val">38</div></div>
+      <div class="scorebar"><div class="label">Schema</div><div class="bar"><div class="fill" style="width:38%"></div></div><div class="val">38</div></div>
+      <div class="scorebar"><div class="label">Images / Performance</div><div class="bar"><div class="fill" style="width:65%"></div></div><div class="val">65</div></div>
+      <div class="scorebar"><div class="label">Internal linking / IA</div><div class="bar"><div class="fill" style="width:30%"></div></div><div class="val">30</div></div>
+      <div class="scorebar"><div class="label">URL friendliness</div><div class="bar"><div class="fill" style="width:90%"></div></div><div class="val">90</div></div>
+    </div>
+  </div>
+</section>
+
+<nav class="toc">
+  <a href="#why">Why this page never ranked</a>
+  <a href="#offtopic">Wrong / off-topic content</a>
+  <a href="#missing">Missing sections</a>
+  <a href="#meta">Meta &amp; title</a>
+  <a href="#schema">Schema</a>
+  <a href="#headings">Headings</a>
+  <a href="#content">Content quality</a>
+  <a href="#images">Images</a>
+  <a href="#internal">Internal linking</a>
+  <a href="#url">URL friendliness</a>
+  <a href="#competitor">Competitor gap</a>
+  <a href="#plan">Action plan</a>
+</nav>
+
+<!-- ============== WHY ============== -->
+<section class="card" id="why">
+  <h2>💊 Why this page has never ranked — root causes (WHY + FIX)</h2>
+
+  <div class="issue">
+    <header><strong>1. Hero subtitle has a brand typo — "IMG Global <b>Inotech</b>"</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Hero body copy (line 144 of blade) says "<i>Connect with IMG Global <b>Inotech</b>, a leading medicine delivery app development company...</i>" — missing the "<b>f</b>". A typo of your own brand name in the LCP-adjacent hero copy is the strongest possible "<i>this page is templated and never QAd</i>" signal Google's Helpful Content System can detect. Same family of bug as the "Comapny" alt-text on the online-exam page.</div>
+    <div class="fix"><span class="label">Fix:</span> Change "<i>Inotech</i>" → "<i>Infotech</i>" on line 144. Add a sitewide build-time spell-check for the words IMG Global Infotech / IMGGlobalInfotech to prevent recurrence.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>2. Four different head-titles for one URL (worst-of-six audited)</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> No other page on the site has four different adjectives splitting the topical signal this badly:
+      <table style="margin-top:8px">
+        <tr><th>Surface</th><th>Phrase</th></tr>
+        <tr><td>&lt;title&gt;</td><td>Medicine Delivery App Development Company | IMG Global Infotech</td></tr>
+        <tr><td>og:title</td><td><b>On-Demand</b> Medicine Delivery App Development Company</td></tr>
+        <tr><td>twitter:title</td><td><b>Custom</b> Medicine Delivery App Development Company</td></tr>
+        <tr><td>H1</td><td><b>Top</b> Medicine Delivery App Development Company</td></tr>
+      </table>
+      Title also brand-stuffs "<i>| IMG Global Infotech</i>" (wastes ~25 chars of keyword space). The visible H1 says "Top", the OG card on social posts says "On-Demand", the Twitter card says "Custom" — every channel sends a different topical signal.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Pick one phrase, use everywhere. Recommended primary title (58 chars):<br><code>Medicine Delivery App Development Company — Pharmacy &amp; Rx</code></div>
+  </div>
+
+  <div class="issue">
+    <header><strong>3. 11 off-topic case studies — same sitewide template block</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> "<i>Case Studies Inspiring Innovation</i>" lists Blinkit, Astrotalk, Zillow, Uber, Tinder, TikTok, MoneyLion, TaskRabbit, UberEats, Netflix, Practo. None are medicine-delivery apps. (Practo is closest — telemedicine — but not pharmacy.) On a regulated pharmacy URL Google reads this and decides "<i>generic app shop, not a pharmacy specialist</i>". Same template block dragging down every page on the site.</div>
+    <div class="fix"><span class="label">Fix:</span> Delete from this URL. Replace with 3-5 real or labeled-concept pharmacy/medicine projects: a 1mg-style Rx-upload app, a multi-vendor pharmacy marketplace, a chronic-care subscription pillbox app, a B2B distributor (DPCO-priced) app, a hospital pharmacy management module.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>4. Massive keyword-stuffed legacy meta tags (this page has the worst)</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Other pages on the site have legacy meta bloat (revisit-after, distribution, etc.) — but this URL also adds <b>abstract, summary, owner, pagename, category, subtitle</b>. The <code>category</code> tag is a 14-keyword stuffing:
+      <pre>"Medicine Delivery App Development, Healthcare App Solutions, On-Demand Delivery Services, telemedicine, telemedicine app, medicine delivery, online medicine delivery, online medicine delivery <b>app apps</b>, online medicine delivery <b>app near me</b>, on demand delivery services, medicine ordering app, medicine app, pharmacy delivery app, pharmacy development"</pre>
+      Note "<b>app apps</b>" (typo) and "<b>app near me</b>" (local-intent term stuffed into a global page). The <code>owner</code> tag is worse — it says "<i>Transfer your unique Pharmacy <b>deliver</b> app like <b>tata 1MG</b> idea to reality...</i>" — typo + competitor brand piggyback. These tags don't help SEO any more, but they actively flag the head as "templated, never-audited spam attempt" for any classifier that does look.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Delete <code>abstract, summary, owner, pagename, category, subtitle</code> from the blade entirely. Plus the sitewide legacy tags (revisit-after, distribution, coverage, rating, language, copyright, rights, reply-to, web-author) at the layout level.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>5. Brand piggyback in meta description + body — "1mg / Netmeds / tata 1MG / Replica"</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span>
+      <ul class="tight">
+        <li>Meta description: "<i>Get custom pharmacy app solutions <b>like 1mg or Netmeds</b> and start an online medicine business today!</i>"</li>
+        <li><code>owner</code> meta: "<i>pharmacy <b>deliver</b> app like <b>tata 1MG</b></i>"</li>
+        <li>H2 below the fold: "<i>Expertise to Build Custom Medicine App <b>Replica</b></i>"</li>
+      </ul>
+      "Replica" = clone. Tata 1mg, Netmeds (Reliance), Apollo Pharmacy all have active legal teams that file regular take-downs. Google's algorithm increasingly demotes pages that piggyback competitor brand SERPs.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Rewrite meta description without competitor brands. Rename H2 from "Replica" → "Apps inspired by leading pharmacy platforms". Remove the offending <code>owner</code> meta entirely.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>6. Self-serving aggregateRating 4.9/140 in Product schema</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Same self-serving reviews pattern. No visible review widget on page. Plus Product is wrong type for a B2B service.</div>
+    <div class="fix"><span class="label">Fix:</span> Delete the Product schema block (lines 5-23).</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>7. Zero CDSCO / DPCO / Schedule-H / Rx-verification content</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Medicine delivery is a regulated, YMYL-adjacent niche. Buyers expect:
+      <ul class="tight">
+        <li><b>CDSCO</b> (Central Drugs Standard Control Organisation, India)</li>
+        <li><b>DPCO / NPPA</b> price controls (Drug Price Control Order)</li>
+        <li><b>Schedule H / H1 / X</b> prescription drugs — verification flow, e-prescription rules</li>
+        <li><b>State Pharmacy Council</b> registration of dispensing pharmacist</li>
+        <li><b>DSCSA</b> (US Drug Supply Chain Security Act) — track &amp; trace</li>
+        <li><b>DEA scheduling</b> (US) — controlled substances</li>
+        <li><b>HIPAA, GDPR, India DPDP Act 2023</b></li>
+        <li><b>FDA 21 CFR Part 11</b> for e-records</li>
+        <li><b>Rx-verification integrations</b> — Pharmacy First, India Pharmacy registers, RxNorm, FHIR Medications</li>
+      </ul>
+      Page mentions HIPAA only as a one-line tile. None of the others. Without this depth, the URL's maximum rank is capped well below page 1.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Add a dedicated H2 "<i>Pharmacy &amp; Drug Compliance We Build For</i>" — 800-1200 words covering each regulator and standard. Then an "<i>Rx Verification &amp; Pharmacy Workflow Integrations</i>" H2 with named systems.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>8. Typos in H3 tile headings — "Ai Powered" / "Eprescription"</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Two H3 tiles in the "High-Tech Medicine Delivery App Development Solutions" section have casing/spelling slips:
+      <ul class="tight">
+        <li><b>"Ai Powered Medicine Ordering Setups"</b> — should be "AI-Powered". "Setups" is also an odd word; "platforms" or "workflows" is more natural.</li>
+        <li><b>"Secure Eprescription Management Systems"</b> — should be "E-Prescription" (or "Electronic Prescription"). "Eprescription" is not a recognised industry term.</li>
+      </ul>
+      Both are visible to Google's NLP and to human Quality Raters as low-effort errors. They also break exact-match for related queries (people search "e-prescription", "ai-powered", not "eprescription" / "ai powered").
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Change to "<i>AI-Powered Medicine Ordering Workflows</i>" and "<i>Secure E-Prescription Management Systems</i>".</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>9. og:description has a leading space</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> <code>&lt;meta property="og:description" content="&nbsp;As a leading...</code> — leading space inside the value. Most social parsers trim, but some Telegram / Discord clients display the literal " As..." with the space. Indicates the template wasn't audited.</div>
+    <div class="fix"><span class="label">Fix:</span> Remove leading space (line 118 of blade).</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>10. Schema "name" stuffs the brand into the title</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Product, WebPage, and Service schemas all use <code>"name": "Medicine Delivery App Development Company | IMG Global Infotech"</code> — pipe-stuffing the brand into the structured-data name. Google reads the schema name as the canonical entity title, and pipe-delimited brand suffix in name field is a known low-quality pattern.</div>
+    <div class="fix"><span class="label">Fix:</span> Change all schema <code>name</code> values to "<i>Medicine Delivery App Development Company</i>" (without the brand pipe). Add a sitewide spell-check rule to prevent the pipe-stuff pattern.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>11. Brand-string inconsistency in schemas</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> Organization name "IMGGlobalInfotech" (no spaces) ❌ — the rest of the site has "IMG Global Infotech". The page's sameAs at least uses the correct <code>x.com/imgglobal</code> URL ✅ (one of the few audited pages with this right).</div>
+    <div class="fix"><span class="label">Fix:</span> Standardise on "IMG Global Infotech" (with spaces) across all schema blocks.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>12. H2 "<i>Expertise to Build Custom Medicine App Replica</i>"</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> "Replica" is the clone-app pattern. On a YMYL-adjacent page this looks worse — buyers (CTO of pharmacy chain, pharma D2C founder) don't want a "replica"; they want a compliant differentiated product.</div>
+    <div class="fix"><span class="label">Fix:</span> Rename "Apps inspired by leading pharmacy platforms" (with clear separation from your real case studies).</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>13. H2 "<i>Why <b>Select</b> IMG Global Infotech for Medicine Delivery App Services?</i>"</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> "Why Select" reads awkwardly in English; "Why Choose" is standard. Same non-native phrasing as appears on other pages in the site — signals "templated, never edited".</div>
+    <div class="fix"><span class="label">Fix:</span> Change to "<i>Why Choose IMG Global Infotech for Medicine Delivery App Services</i>".</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>14. Off-topic "Other On-Demand…" cross-linking</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Final block lists 8 unrelated apps — Healthcare (relevant), Taxi (not), Food Delivery (not), Beauty/Salon (not), Laundry (not), Car Wash (not), Doctor on Demand (relevant), Grocery (not). Most send pharmacy-intent traffic outward to unrelated topics.</div>
+    <div class="fix"><span class="label">Fix:</span> Replace with related pharma/health pages: <code>/healthcare-app-development</code>, <code>/doctor-on-demand-app-development</code>, <code>/hospital-management-software</code>, <code>/diet-and-nutrition-app-development</code>, <code>/fitness-app-development</code>, plus a new <code>/pharmacy-pos-software</code> if you build it.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>15. Geo signal = DE (Germany) — same sitewide bug</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> <code>meta geo.region "DE"</code>; <code>og:locale:alternate en_AE</code>; no <code>hreflang</code>.</div>
+    <div class="fix"><span class="label">Fix:</span> Remove the legacy <code>geo.region</code> tag; implement <code>hreflang</code> properly if you serve multi-region.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>16. No author byline + no compliance reviewer + no published / updated date</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> For YMYL pharmacy/medicine, the absence of named expertise is a major E-E-A-T gap.</div>
+    <div class="fix"><span class="label">Fix:</span> Add a byline block with named developer lead + a named pharmacy / regulatory advisor (registered pharmacist or ex-CDSCO consultant) with photo + LinkedIn. Add visible Published / Updated date with <code>datetime</code>.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>17. Buzzword "Progressive Technologies" tech section</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> 4 cards: Artificial Intelligence, Gen AI, Machine Learning, Business Analytics. Three are the same concept ("AI / Gen AI / ML"); Business Analytics is generic. No pharmacy-specific use case mentioned.</div>
+    <div class="fix"><span class="label">Fix:</span> Replace with pharmacy-specific tech: "<i>OCR-based prescription intake (handwriting + Rx pad)</i>", "<i>Drug-interaction checks via FDB / Lexicomp</i>", "<i>Cold-chain temperature logging with IoT</i>", "<i>RxNorm + ICD-10 mapping for telemedicine integration</i>".</div>
+  </div>
+</section>
+
+<!-- ============== OFF-TOPIC / WRONG ============== -->
+<section class="card" id="offtopic">
+  <h2>🚫 Content that's wrong, off-topic, or doesn't belong here</h2>
+  <table>
+    <thead><tr><th style="width:30%">Block</th><th>Problem</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Hero subtitle "<b>IMG Global Inotech</b>"</td>
+        <td>Typo of the brand name in LCP-adjacent body copy.</td>
+        <td>Fix to "Infotech".</td>
+      </tr>
+      <tr>
+        <td><b>"Case Studies Inspiring Innovation" — 11 cards</b></td>
+        <td>Blinkit, Astrotalk, Zillow, Uber, Tinder, TikTok, MoneyLion, TaskRabbit, UberEats, Netflix, Practo. Zero pharmacy / medicine-delivery case studies.</td>
+        <td>Delete completely; replace with 3-5 pharmacy/medicine projects.</td>
+      </tr>
+      <tr>
+        <td>Meta description — "<i>like 1mg or Netmeds</i>"</td>
+        <td>Competitor-brand piggyback in the meta description that Google rewrites or strips.</td>
+        <td>Rewrite without competitor names.</td>
+      </tr>
+      <tr>
+        <td>Meta <code>owner</code> tag — "<i>pharmacy <b>deliver</b> app like <b>tata 1MG</b></i>"</td>
+        <td>Useless tag + typo + brand piggyback. The triple-fault.</td>
+        <td>Delete the meta entirely.</td>
+      </tr>
+      <tr>
+        <td>Meta <code>category</code> — 14 stuffed keywords</td>
+        <td>"<i>app apps</i>" (typo) + "<i>app near me</i>" (local-intent stuffed into global page).</td>
+        <td>Delete the meta entirely. Meta keywords haven't been a ranking signal since 2009.</td>
+      </tr>
+      <tr>
+        <td>Meta <code>abstract, summary, pagename, subtitle</code></td>
+        <td>Useless legacy / non-standard tags.</td>
+        <td>Delete all four.</td>
+      </tr>
+      <tr>
+        <td>H2 "<i>Expertise to Build Custom Medicine App <b>Replica</b></i>"</td>
+        <td>"Replica" = clone-app pattern.</td>
+        <td>Rename to "<i>Apps inspired by leading pharmacy platforms</i>".</td>
+      </tr>
+      <tr>
+        <td>H2 "<i>Why <b>Select</b> IMG Global Infotech…</i>"</td>
+        <td>Non-native English wording.</td>
+        <td>"Why Choose IMG Global Infotech…".</td>
+      </tr>
+      <tr>
+        <td>H3 "<i>Ai Powered Medicine Ordering Setups</i>"</td>
+        <td>Casing + word choice.</td>
+        <td>"AI-Powered Medicine Ordering Workflows".</td>
+      </tr>
+      <tr>
+        <td>H3 "<i>Secure <b>Eprescription</b> Management Systems</i>"</td>
+        <td>"Eprescription" is not a recognised industry term; should be "E-Prescription".</td>
+        <td>"Secure E-Prescription Management Systems".</td>
+      </tr>
+      <tr>
+        <td>"Other On-Demand…" — 8 unrelated apps</td>
+        <td>Off-topic cross-linking (Taxi / Salon / Laundry / Car Wash on a pharmacy page).</td>
+        <td>Replace with pharma / health-related pages.</td>
+      </tr>
+      <tr>
+        <td>og:description has leading space</td>
+        <td>Some social clients display literal " As..." with the space.</td>
+        <td>Remove leading space (line 118).</td>
+      </tr>
+      <tr>
+        <td>Schema <code>name</code> "<i>Medicine Delivery App Development Company | IMG Global Infotech</i>"</td>
+        <td>Pipe-stuffed brand suffix in name field — Google reads as canonical entity title.</td>
+        <td>Drop the pipe suffix; use clean keyword phrase only.</td>
+      </tr>
+      <tr>
+        <td>Sitewide "Coca-Cola / Adani / Tata / Colgate" client logo strip (if appears here too)</td>
+        <td>Implausible-client claim on a pharmacy page.</td>
+        <td>Remove or substantiate.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== MISSING ============== -->
+<section class="card" id="missing">
+  <h2>➕ Sections this page needs but doesn't have</h2>
+  <p>Ranked by likely ranking impact in the medicine-delivery / pharmacy-app niche.</p>
+  <table>
+    <thead><tr><th>Section</th><th>Why it matters</th><th>Where to place</th></tr></thead>
+    <tbody>
+      <tr><td><b>1. Pharmacy &amp; Drug Compliance block</b> — CDSCO, DPCO/NPPA, Schedule H/H1/X, State Pharmacy Council, DSCSA (US), DEA scheduling, FDA 21 CFR Part 11, MHRA (UK), HIPAA, India DPDP Act 2023</td><td>Single biggest topical-authority lever. Without it, ranking is capped.</td><td>After hero, before services</td></tr>
+      <tr><td><b>2. Author + Pharmacist advisor byline</b> — named developer lead + registered pharmacist / ex-CDSCO consultant with photo + LinkedIn</td><td>YMYL-adjacent E-E-A-T core.</td><td>Below H1</td></tr>
+      <tr><td><b>3. Rx Workflow &amp; Integrations</b> — prescription OCR, FDB / Lexicomp drug-interaction checks, RxNorm, FHIR Medications, telemedicine handoff, pharmacist verification</td><td>Buyer-intent topic + named-entity trust.</td><td>Tech stack section</td></tr>
+      <tr><td><b>4. Multi-vendor pharmacy marketplace block</b> — onboarding pharmacies, commission models, license verification per pharmacy, GST / VAT handling, pharmacist-on-shift attestation</td><td>One of the biggest revenue models in this niche.</td><td>After services</td></tr>
+      <tr><td><b>5. Cold-chain &amp; logistics block</b> — temperature loggers (IoT), insulin / vaccine handling, last-mile partners (Dunzo, Shadowfax, Loadshare, FedEx), packaging</td><td>Differentiator for high-value medicines.</td><td>Mid-page</td></tr>
+      <tr><td><b>6. Real pharmacy/medicine case studies (3-5)</b> with named client (or labeled-concept), scope, integration, metric, testimonial with reviewer photo + LinkedIn</td><td>Replaces the off-topic block. Strongest E-E-A-T lift.</td><td>Replace existing case studies</td></tr>
+      <tr><td><b>7. Detailed Cost Breakdown table</b> (Basic single-pharmacy / Multi-vendor / Enterprise hospital-pharmacy × feature × $ range × hours)</td><td>High long-tail volume.</td><td>Before Why Choose</td></tr>
+      <tr><td><b>8. Timeline / Roadmap with milestones</b></td><td>Top long-tail.</td><td>Next to cost</td></tr>
+      <tr><td><b>9. Tech stack with named SDKs</b> — React Native, Flutter, Node.js, Python, AWS HealthLake / Azure FHIR, Stripe, Razorpay, Twilio Video (for tele-pharma), Google Maps + Mapbox, FCM/APNs, Apple HealthKit / Google Fit (for medication tracking)</td><td>Captures CTO/architect-intent queries.</td><td>Before Why Choose</td></tr>
+      <tr><td><b>10. Use-case matrix</b> — D2C consumer Rx delivery, B2B distributor, hospital outpatient pharmacy, chronic-care subscription pillbox, veterinary medicine, OTC marketplace, telemedicine bundled Rx</td><td>Captures vertical-specific long-tails.</td><td>After services</td></tr>
+      <tr><td><b>11. Anti-counterfeit &amp; pharmacovigilance block</b> — barcode/2D-data-matrix verification, batch lookup, adverse-event reporting (PvPI India, FAERS US)</td><td>YMYL trust signal.</td><td>After Compliance</td></tr>
+      <tr><td><b>12. Telemedicine-Rx integration block</b> — how the app accepts e-Rx from telemedicine partners (Practo, mfine, Tata 1mg's healthcare arm), MCI Telemedicine Practice Guidelines compliance</td><td>Growing query cluster.</td><td>Mid-page</td></tr>
+      <tr><td><b>13. Engagement models (Fixed / T&amp;M / Dedicated Team)</b> with rate cards</td><td>Procurement-buyer intent.</td><td>Before CTA2</td></tr>
+      <tr><td><b>14. Awards &amp; recognitions</b> (Clutch, GoodFirms, NASSCOM, India Health-Tech Awards)</td><td>Trust signal.</td><td>Above footer</td></tr>
+      <tr><td><b>15. Downloadable assets</b> — "<i>2026 Pharmacy App Compliance &amp; Rx Workflow Checklist</i>" PDF + "<i>Pharmacy App Cost Calculator</i>" widget</td><td>Link magnets — biggest off-page lever.</td><td>Side CTA</td></tr>
+      <tr><td><b>16. Visible Published / Updated date with <code>datetime</code></b></td><td>Freshness signal.</td><td>Below H1</td></tr>
+      <tr><td><b>17. Jump-link Table of Contents</b></td><td>Drives Google "Jump To" sitelinks.</td><td>After hero</td></tr>
+      <tr><td><b>18. Video demo / customer testimonial embedded from YouTube</b></td><td>Captures video SERP + credibility lift.</td><td>After process</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== META ============== -->
+<section class="card" id="meta">
+  <h2>🏷️ Meta / Title layer — full audit</h2>
+  <table>
+    <thead><tr><th>Tag</th><th>Current</th><th>Verdict</th><th>Recommended</th></tr></thead>
+    <tbody>
+      <tr><td>&lt;title&gt;</td><td>Medicine Delivery App Development Company | IMG Global Infotech (63 chars)</td><td><span class="pill high">Brand pipe-stuffed; wastes ~25 chars of keyword space</span></td><td>Medicine Delivery App Development Company — Pharmacy &amp; Rx (58 chars)</td></tr>
+      <tr><td>meta description</td><td>"<i>...like 1mg or Netmeds...</i>" (175 chars)</td><td><span class="pill critical">Competitor brand piggyback</span></td><td>Custom medicine &amp; pharmacy delivery app development — Rx OCR, multi-vendor marketplace, cold-chain &amp; HIPAA-ready. 11+ yrs, 100+ devs. Free quote. (158 chars)</td></tr>
+      <tr><td>H1</td><td><b>Top</b> Medicine Delivery App Development Company</td><td><span class="pill high">Adjective "Top" inconsistent with title / og / twitter</span></td><td>Match the cleaned title</td></tr>
+      <tr><td>og:title</td><td><b>On-Demand</b> Medicine Delivery App Development Company</td><td><span class="pill high">Different adjective</span></td><td>Match the cleaned title</td></tr>
+      <tr><td>twitter:title</td><td><b>Custom</b> Medicine Delivery App Development Company</td><td><span class="pill high">Different adjective</span></td><td>Match the cleaned title</td></tr>
+      <tr><td>og:description</td><td>Starts with a leading space</td><td><span class="pill medium">Template bug</span></td><td>Remove leading space</td></tr>
+      <tr><td>canonical</td><td>https://www.imgglobalinfotech.com/medicine-delivery-app-development</td><td><span class="pill good">Self-referencing</span></td><td>Keep</td></tr>
+      <tr><td>og:image / twitter:image</td><td>Cloudfront CDN ✅</td><td><span class="pill good">Good</span></td><td>Keep</td></tr>
+      <tr><td>robots</td><td>MAX-IMAGE-PREVIEW:LARGE, INDEX, FOLLOW</td><td><span class="pill good">Good</span></td><td>Keep</td></tr>
+      <tr><td>geo.region</td><td>DE</td><td><span class="pill critical">Wrong</span></td><td>Remove or set to IN</td></tr>
+      <tr><td>og:locale:alternate</td><td>en_AE</td><td><span class="pill medium">Misleading without hreflang</span></td><td>Add hreflang or drop</td></tr>
+      <tr><td><b>abstract, summary, owner, pagename, category, subtitle</b></td><td>All present + keyword-stuffed</td><td><span class="pill critical">Spammy bloat unique to this URL</span></td><td>Delete all six</td></tr>
+      <tr><td>Legacy tags (revisit-after, distribution, coverage, rating, language, copyright, rights, reply-to, web-author)</td><td>All present</td><td><span class="pill low">Useless bloat</span></td><td>Strip at layout level</td></tr>
+      <tr><td>Author byline visible</td><td>Not on page</td><td><span class="pill critical">YMYL-adjacent killer</span></td><td>Add named author + named pharmacist advisor</td></tr>
+      <tr><td>Published / Updated visible</td><td>Not on page</td><td><span class="pill high">Missing</span></td><td>Add with <code>datetime</code></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== SCHEMA ============== -->
+<section class="card" id="schema">
+  <h2>🧩 Schema markup — full audit</h2>
+  <p>Blocks present: <b>Product, Organization (in @graph), WebSite, WebPage, Service, FAQPage (via include), BreadcrumbList (via include)</b>.</p>
+
+  <div class="issue">
+    <header><strong>Product schema with fake-looking aggregateRating</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> <code>aggregateRating 4.9/140</code> with no visible review widget — self-serving reviews pattern.</div>
+    <div class="fix"><span class="label">Fix:</span> Delete the Product block entirely.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Schema <code>name</code> uses pipe-stuffed brand</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Product / WebPage / Service all use <code>"name": "Medicine Delivery App Development Company | IMG Global Infotech"</code>. Pipe-delimited brand stuff is a known low-quality structured-data signal.</div>
+    <div class="fix"><span class="label">Fix:</span> Change all <code>name</code> values to "<i>Medicine Delivery App Development Company</i>".</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Brand-string inconsistency</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> Organization name "IMGGlobalInfotech" (no spaces) ❌. Standardise on "IMG Global Infotech".</div>
+    <div class="fix"><span class="label">Fix:</span> Standardise across all schema blocks.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Bright spot — sameAs uses correct x.com URL</strong><span class="pill good">Good</span></header>
+    <div class="why"><span class="label">Why:</span> Service schema sameAs lists <code>https://x.com/imgglobal</code> + Instagram + LinkedIn + YouTube — better than several other audited pages (which still use legacy <code>twitter.com</code> + wrong username). Keep this pattern.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Recommended drop-in schema</strong><span class="pill good">Good</span></header>
+    <details>
+      <summary>Click to see drop-in JSON-LD</summary>
+<pre>{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.imgglobalinfotech.com/#organization",
+      "name": "IMG Global Infotech Private Limited",
+      "url": "https://www.imgglobalinfotech.com/",
+      "logo": "https://d1y41eupgbwbb2.cloudfront.net/images/xl-logo.webp",
+      "address": { "@type": "PostalAddress", "addressCountry": "IN" },
+      "sameAs": [
+        "https://www.facebook.com/imgglobalinfotech",
+        "https://x.com/imgglobal",
+        "https://www.instagram.com/imgglobalinfotech/",
+        "https://www.linkedin.com/company/imgglobalinfotech/",
+        "https://www.youtube.com/@imgglobalinfotech"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.imgglobalinfotech.com/#website",
+      "url": "https://www.imgglobalinfotech.com/",
+      "name": "IMG Global Infotech",
+      "publisher": { "@id": "https://www.imgglobalinfotech.com/#organization" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.imgglobalinfotech.com/medicine-delivery-app-development#webpage",
+      "url": "https://www.imgglobalinfotech.com/medicine-delivery-app-development",
+      "name": "Medicine Delivery App Development Company",
+      "isPartOf": { "@id": "https://www.imgglobalinfotech.com/#website" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Medicine Delivery App Development",
+      "provider": { "@id": "https://www.imgglobalinfotech.com/#organization" },
+      "areaServed": ["IN","US","AE","GB","CA","AU"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Medicine Delivery App Development",
+        "itemListElement": [
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"D2C Pharmacy &amp; Rx Delivery App"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Multi-Vendor Pharmacy Marketplace"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Hospital Outpatient Pharmacy App"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Chronic-Care Subscription &amp; Pillbox App"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Telemedicine-Bundled e-Rx Workflow"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"B2B Pharma Distributor App"}}
+        ]
+      }
+    }
+  ]
+}</pre>
+    </details>
+  </div>
+</section>
+
+<!-- ============== HEADINGS ============== -->
+<section class="card" id="headings">
+  <h2>🏗️ Heading hierarchy</h2>
+  <table>
+    <thead><tr><th>Tag</th><th>Text</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td>H1</td><td>"<i>Top Medicine Delivery</i>" (span) + " App Development Company"</td><td><span class="pill medium">"Top" inconsistent with title; double space inside H1</span></td></tr>
+      <tr><td>H2</td><td>Why Every Pharmacy Business Requires a Medicine Delivery App</td><td><span class="pill good">Good — uses sourced market stat ✅</span></td></tr>
+      <tr><td>H2</td><td>High-Tech Medicine Delivery App Development Solutions</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H3</td><td><b>Ai</b> Powered Medicine Ordering <b>Setups</b></td><td><span class="pill high">Casing + odd word</span></td></tr>
+      <tr><td>H3</td><td>Secure <b>Eprescription</b> Management Systems</td><td><span class="pill high">Should be "E-Prescription"</span></td></tr>
+      <tr><td>H2</td><td>Flawless Medicine Delivery App Development Services</td><td><span class="pill medium">"Flawless" = overpromise</span></td></tr>
+      <tr><td>H3 ×6 (services)</td><td>Custom / On-Demand / Hire Developers / Design &amp; Dev / Consulting / Maintenance</td><td><span class="pill good">Good coverage</span></td></tr>
+      <tr><td>H2</td><td>Core Features of Medicine Delivery Mobile App Development</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H3 ×4 (tab labels)</td><td>Customer / Pharmacy / Driver / Admin Panel</td><td><span class="pill medium">Tab labels shouldn't be H3</span></td></tr>
+      <tr><td>H2</td><td>Advanced Features for Custom Medicine Delivery App Development</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Case Studies Inspiring Innovation</td><td><span class="pill critical">All 11 case studies are off-topic</span></td></tr>
+      <tr><td>H3 ×11</td><td>Blinkit / Astrotalk / Zillow / Uber / Tinder / TikTok / MoneyLion / TaskRabbit / UberEats / Netflix / Practo</td><td><span class="pill critical">Zero pharmacy case studies</span></td></tr>
+      <tr><td>H2</td><td>Expertise to Build Custom Medicine App <b>Replica</b></td><td><span class="pill high">"Replica" = clone-app pattern</span></td></tr>
+      <tr><td>H2</td><td>Progressive Technologies Boosting Scalable Medicine Delivery Apps</td><td><span class="pill medium">"Progressive" buzzword</span></td></tr>
+      <tr><td>H3 ×4 (tech)</td><td>AI / Gen AI / ML / Business Analytics</td><td><span class="pill medium">3 of 4 overlap; no pharmacy-specific use case</span></td></tr>
+      <tr><td>H2</td><td>Major Benefits of Medicine Delivery App Development in Your Business</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Development Process for Medicine Delivery Apps</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H3 ×5 (process)</td><td>Requirement / Design / Development / Testing / Launch</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Why <b>Select</b> IMG Global Infotech…</td><td><span class="pill medium">"Why Select" awkward English</span></td></tr>
+      <tr><td>H3 ×4 (Why)</td><td>Secure Payment / <b>HIPAA-Compliant</b> ✅ / Multi-Platform / Post-Launch</td><td><span class="pill medium">Only HIPAA is pharmacy-relevant</span></td></tr>
+      <tr><td>H2</td><td>Other On-Demand App Development Services Offered by Us</td><td><span class="pill high">Off-topic outbound section</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Semantic HTML notes</h3>
+  <ul class="tight">
+    <li>H1 has an inline <code>&lt;span&gt;</code> with trailing space — extra whitespace inside H1.</li>
+    <li><b>Hero subtitle uses real <code>&lt;p&gt;</code> tags ✅</b> — rare bright spot on this site.</li>
+    <li>Tab labels use H3 inside <code>&lt;label&gt;</code>.</li>
+    <li>CTAs use <code>&lt;label for="leadPopup"&gt;</code> instead of <code>&lt;a&gt;</code> / <code>&lt;button&gt;</code>.</li>
+    <li>No <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code> landmarks.</li>
+  </ul>
+</section>
+
+<!-- ============== CONTENT ============== -->
+<section class="card" id="content">
+  <h2>✍️ Content quality (Helpful Content System scoring)</h2>
+  <div class="grid grid-2">
+    <div>
+      <h3>Strengths</h3>
+      <ul class="tight">
+        <li><b>Sourced market statistic</b> with real outbound citation (Coherent Market Insights) — first audited page that does this. ✅</li>
+        <li>Hero subtitle uses real <code>&lt;p&gt;</code> tags. ✅</li>
+        <li>Schema sameAs uses correct <code>x.com/imgglobal</code> URL (unlike stock-trading / insurance pages). ✅</li>
+        <li>HIPAA mention in Why Choose Us (only relevant signal in the block).</li>
+        <li>Service tiles include "Consulting" (often missing on other pages).</li>
+        <li>URL slug is clean and descriptive.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Weaknesses</h3>
+      <ul class="tight">
+        <li>Hero brand typo "Inotech".</li>
+        <li>Four different head-titles.</li>
+        <li>11 off-topic case studies.</li>
+        <li>"Replica" + 1mg / Netmeds / Tata 1MG brand piggyback.</li>
+        <li>Self-serving Product schema.</li>
+        <li>Pipe-stuffed schema name.</li>
+        <li>6 extra useless meta tags (abstract / summary / owner / pagename / category / subtitle) — including keyword-stuffed category and typo'd brand-piggyback owner.</li>
+        <li>"Eprescription" / "Ai Powered" / "Setups" typos in H3s.</li>
+        <li>Generic Why Choose Us (only HIPAA is pharmacy-specific).</li>
+        <li>Zero CDSCO / DPCO / Schedule-H content.</li>
+        <li>No named pharmacist advisor / byline.</li>
+        <li>No published / updated date visible.</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:14px">Estimated Helpful Content System score (informal): <b>3 / 10</b>. The sourced stat and proper paragraphs lift this page above some peers, but the typos and stuffed legacy metas drag it back down.</p>
+</section>
+
+<!-- ============== IMAGES ============== -->
+<section class="card" id="images">
+  <h2>🖼️ Images</h2>
+  <ul class="tight">
+    <li><b>Format:</b> All <code>.webp</code> (OG <code>.jpg</code>). ✅ good.</li>
+    <li><b>Dimensions set:</b> Hero <code>width="815" height="579"</code>. ✅ good for CLS.</li>
+    <li><b>LCP image:</b> Hero uses <code>loading="eager" fetchpriority="high"</code>. ✅ good.</li>
+    <li><b>CDN:</b> All on <code>d1y41eupgbwbb2.cloudfront.net</code>. ✅ good.</li>
+    <li><b>Alt text:</b> Hero alt = "Top Medicine Delivery App Development Company" — generic, duplicates the H1.</li>
+    <li><b>Second hero image:</b> alt = "Top Medicine Delivery App Development Company Background" — decorative background image with an alt that includes the keyword (mild over-optimization).</li>
+    <li><b>Image filenames:</b> camelCase (<code>medicineHeroImage.webp</code>). Lowercase-hyphen preferred for image-search SEO.</li>
+  </ul>
+</section>
+
+<!-- ============== INTERNAL LINKING ============== -->
+<section class="card" id="internal">
+  <h2>🔗 Internal linking</h2>
+  <p>Body-content internal linking:</p>
+  <ul class="tight">
+    <li>One outbound link to <code>coherentmarketinsights.com</code> (sourced stat) — ✅ good practice for E-E-A-T.</li>
+    <li>11 case-study links go to <code>/case-study/{brand}-like-app</code> — off-topic, clone-app pattern.</li>
+    <li>"Other On-Demand…" 8 unrelated links (Taxi / Salon / Laundry / Car Wash / etc.).</li>
+  </ul>
+  <h3>What's missing</h3>
+  <ul class="tight">
+    <li>No body link to <code>/healthcare-app-development</code>.</li>
+    <li>No body link to <code>/doctor-on-demand-app-development</code> (highly relevant for tele-prescription handoff).</li>
+    <li>No body link to <code>/hospital-management-software</code>.</li>
+    <li>No body link to <code>/diet-and-nutrition-app-development</code> (chronic-care-adjacent).</li>
+    <li>No body link to <code>/ai-in-healthcare</code> (drug-interaction ML).</li>
+    <li>No body link to <code>/blog/develop-medicine-delivery-app-like-pharmeasy</code> (your own blog).</li>
+    <li>No body link to <code>/blog/telemedicine-app-development-features-and-cost</code> (your own blog).</li>
+  </ul>
+  <h3>Anchor-text problems</h3>
+  <ul class="tight">
+    <li>Case-study anchors are all brand-clone names.</li>
+    <li>No descriptive anchors like "<i>CDSCO compliance for online pharmacies</i>" or "<i>e-Prescription verification workflow</i>".</li>
+  </ul>
+</section>
+
+<!-- ============== URL ============== -->
+<section class="card" id="url">
+  <h2>🌐 URL — user-friendly &amp; SEO-friendly?</h2>
+  <p><code>https://www.imgglobalinfotech.com/medicine-delivery-app-development</code></p>
+  <table>
+    <thead><tr><th>Check</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>HTTPS</td><td>✅ Yes</td></tr>
+      <tr><td>Length (full URL)</td><td>✅ 64 chars</td></tr>
+      <tr><td>Slug length</td><td>✅ 35 chars — clean</td></tr>
+      <tr><td>Hyphen separators</td><td>✅ Yes</td></tr>
+      <tr><td>Lowercase only</td><td>✅ Yes</td></tr>
+      <tr><td>Descriptive / readable</td><td>✅ Yes</td></tr>
+      <tr><td>No query strings / UUIDs</td><td>✅ Clean</td></tr>
+      <tr><td>No file extension</td><td>✅ Clean</td></tr>
+      <tr><td>Matches title primary keyword</td><td>✅ Exact match (modulo brand pipe in title)</td></tr>
+      <tr><td>Canonical = URL</td><td>✅ Self-referencing</td></tr>
+      <tr><td>www consistent</td><td>✅ Yes (verify 301 from apex)</td></tr>
+    </tbody>
+  </table>
+  <p class="verdict"><span class="tick">●</span> <b>Verdict:</b> URL is both user- and SEO-friendly. <b>Do NOT change.</b> Fix everything else.</p>
+</section>
+
+<!-- ============== COMPETITOR ============== -->
+<section class="card" id="competitor">
+  <h2>📊 Why competitors rank — quick SERP gap</h2>
+  <p>Top results for "<i>medicine delivery app development</i>" / "<i>pharmacy app development</i>":</p>
+  <table>
+    <thead><tr><th>Competitor</th><th>What they do that you don't</th></tr></thead>
+    <tbody>
+      <tr><td>Appinventiv</td><td>Named pharmacy clients, CDSCO + DSCSA dedicated posts, original cost guide PDF, named telemedicine integrations.</td></tr>
+      <tr><td>Mindbowser</td><td>Real Rx-OCR depth, named drug-interaction integrations (FDB, Lexicomp), HIPAA case studies.</td></tr>
+      <tr><td>Mindinventory</td><td>Named pharmacy clients, multi-vendor marketplace depth, cold-chain content.</td></tr>
+      <tr><td>Net Solutions</td><td>27-year history, named US pharmacy clients, dedicated DSCSA whitepaper.</td></tr>
+      <tr><td>Hyperlink Infosystem</td><td>Heavy backlink profile, named pharmacy clients in India + US.</td></tr>
+    </tbody>
+  </table>
+  <p>Common pattern: <b>named pharmacy clients, drug-interaction integrations, regulatory deep-dives, downloadable assets, sourced statistics</b>. Your page has the sourced stat (great) but lacks the rest.</p>
+</section>
+
+<!-- ============== PLAN ============== -->
+<section class="card" id="plan">
+  <h2>🛠️ 90-day prioritized action plan</h2>
+
+  <h3>Week 1 — Stop-the-bleeding fixes</h3>
+  <ol>
+    <li><b>Fix hero typo "Inotech" → "Infotech"</b> (line 144 of blade). Add sitewide spell-check.</li>
+    <li>Delete the off-topic case-study section. Highest leverage.</li>
+    <li>Delete the Product schema block.</li>
+    <li>Drop the brand pipe ("| IMG Global Infotech") from all schema <code>name</code> values and the &lt;title&gt;.</li>
+    <li>Align title / og:title / twitter:title / H1 to one phrase.</li>
+    <li>Rewrite meta description without "1mg" / "Netmeds" piggyback.</li>
+    <li>Delete the meta tags <code>abstract, summary, owner, pagename, category, subtitle</code>.</li>
+    <li>Remove leading space from og:description (line 118).</li>
+    <li>Fix H3 typos: "Ai Powered" → "AI-Powered"; "Eprescription" → "E-Prescription".</li>
+    <li>Rename H2 "Custom Medicine App Replica" → "Apps inspired by leading pharmacy platforms".</li>
+    <li>Rename H2 "Why Select" → "Why Choose".</li>
+    <li>Remove <code>meta geo.region "DE"</code>.</li>
+    <li>Strip remaining legacy meta tags at layout level.</li>
+  </ol>
+
+  <h3>Weeks 2-4 — E-E-A-T &amp; trust</h3>
+  <ol>
+    <li>Add author byline + a named registered pharmacist / ex-CDSCO advisor (photo + LinkedIn).</li>
+    <li>Add visible Published / Updated date with real file mtime.</li>
+    <li>Replace deleted case-study block with 3-5 real or labeled-concept pharmacy projects.</li>
+    <li>Add Clutch / GoodFirms / NASSCOM badges (fintech/healthtech category).</li>
+    <li>Replace generic "Why Choose Us" cards with pharmacy-specific (CDSCO familiar, Rx OCR shipped, drug-interaction ML, cold-chain IoT, multi-pharmacy onboarding).</li>
+  </ol>
+
+  <h3>Weeks 5-8 — Topical depth (the big lift)</h3>
+  <ol>
+    <li><b>Add Pharmacy &amp; Drug Compliance H2 section</b> (800-1200 words) covering CDSCO / DPCO / NPPA / Schedule H/H1/X / DSCSA / DEA / FDA 21 CFR Part 11 / HIPAA / DPDP Act 2023.</li>
+    <li><b>Add Rx Workflow &amp; Integrations H2 section</b> (OCR, FDB / Lexicomp drug-interaction checks, RxNorm, FHIR Medications, pharmacist verification).</li>
+    <li>Add Multi-Vendor Pharmacy Marketplace block (commission, license-per-pharmacy verification).</li>
+    <li>Add Cold-chain &amp; Logistics block (temperature loggers, vaccine handling, named last-mile partners).</li>
+    <li>Add Anti-counterfeit &amp; Pharmacovigilance block (2D-data-matrix verification, PvPI / FAERS reporting).</li>
+    <li>Add Telemedicine-Rx Integration block (MCI Telemedicine Practice Guidelines compliance).</li>
+    <li>Promote Cost &amp; Timeline from FAQ to dedicated H2 sections.</li>
+    <li>Add Tech Stack section with named SDKs.</li>
+    <li>Add Use-Case matrix (D2C / multi-vendor / hospital OPD / chronic-care subscription / veterinary / OTC marketplace / telemedicine-bundled).</li>
+    <li>Replace generic "Progressive Technologies" cards with pharmacy use-cases.</li>
+    <li>Replace "Other On-Demand…" off-topic block with related pharma/health pages.</li>
+    <li>Add jump-link Table of Contents.</li>
+  </ol>
+
+  <h3>Weeks 9-12 — Off-page link magnets</h3>
+  <ol>
+    <li>Publish "<i>2026 Pharmacy App Compliance &amp; Rx Workflow Checklist</i>" gated PDF.</li>
+    <li>Build "<i>Pharmacy App Cost Calculator</i>" widget on this URL.</li>
+    <li>Pitch original survey to Pharmabiz, e-Health magazine, ETHealthworld, YourStory, Inc42, Pharmacy Times.</li>
+    <li>Internal-link campaign from <code>/healthcare-app-development</code>, <code>/doctor-on-demand-app-development</code>, <code>/hospital-management-software</code>, <code>/ai-in-healthcare</code>, and your blog posts on telemedicine + medicine delivery.</li>
+    <li>Submit to GSC after each major batch; bump <code>&lt;lastmod&gt;</code>.</li>
+    <li>Pursue listings on Clutch / GoodFirms / DesignRush in "Pharmacy App Development" categories.</li>
+  </ol>
+
+  <h3>Expected outcome timeline</h3>
+  <ul class="tight">
+    <li><b>0-30 days:</b> Page exits algorithmic suppression after Week-1 fixes; long-tail impressions begin in GSC for "CDSCO compliant pharmacy app", "e-Prescription app development".</li>
+    <li><b>30-60 days:</b> Page 4-6 for "medicine delivery app development"; page 2-3 for long-tails ("multi-vendor pharmacy marketplace development", "pharmacy app cost in India").</li>
+    <li><b>60-120 days:</b> Page 2 candidate for primary keyword; page 1 for clearer long-tails ("Rx delivery app development India", "DSCSA compliant pharmacy app").</li>
+    <li><b>120-180 days:</b> Page 1 for primary keyword realistic <b>only with</b> consistent off-page momentum + at least one named pharmacy case study live.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>🧾 One-line summary</h2>
+  <p>The URL slug is excellent, and the page has the only sourced market statistic in the site (rare bright spot). But it's suppressed by a stack of avoidable problems: a <b>hero brand typo "Inotech", four different head-titles, brand piggyback (1mg / Netmeds / "Replica" / Tata 1MG), keyword-stuffed legacy meta tags (with typos), self-serving Product schema, the same 11 off-topic case studies, and zero CDSCO / DPCO / Schedule-H / Rx-verification content</b>. Fix the bleeding in Week 1, inject pharmacist expertise in Weeks 2-4, then add CDSCO / Rx-workflow / cold-chain depth in Weeks 5-8 — that's the path off the bench.</p>
+</section>
+
+<div class="footer">SEO Audit · /medicine-delivery-app-development · prepared for IMG Global Infotech · 06 Jun 2026</div>
+
+</div>
+</body>
+</html>
