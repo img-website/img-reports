@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — /insurance-app-development-company | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0b1220; --panel:#111a2e; --panel2:#15203a; --line:#1f2c4a;
+    --text:#e6edf7; --muted:#9aa7c2; --accent:#598CFF; --accent2:#5670F3;
+    --critical:#ff4d61; --high:#ff8a3d; --medium:#ffc83d; --low:#3dd1ff; --good:#00efa4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 24px}
+  header.hero{background:linear-gradient(135deg,#0850F2,#1D0C69);border:1px solid var(--line);border-radius:18px;padding:32px;margin-bottom:24px;position:relative;overflow:hidden}
+  header.hero:before{content:"";position:absolute;inset:auto -60px -60px auto;width:280px;height:280px;background:radial-gradient(closest-side,rgba(89,140,255,.28),transparent);filter:blur(20px)}
+  header h1{margin:0 0 6px;font-size:28px;letter-spacing:-.01em}
+  header .meta{color:var(--muted);font-size:14px}
+  header .url{display:inline-block;margin-top:10px;background:#0a1428;border:1px solid var(--line);padding:8px 12px;border-radius:10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#cfe9ff;word-break:break-all}
+  .grid{display:grid;gap:18px}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:880px){.grid-3,.grid-2{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:18px}
+  .card h2{margin:0 0 14px;font-size:20px;letter-spacing:-.01em}
+  .card h3{margin:14px 0 8px;font-size:16px}
+  .scorebar{display:flex;align-items:center;gap:12px;margin:6px 0}
+  .scorebar .label{width:220px;color:var(--muted);font-size:13px}
+  .scorebar .bar{flex:1;height:8px;background:#0a1428;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .scorebar .fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .scorebar .val{width:48px;text-align:right;font-variant-numeric:tabular-nums;font-size:13px}
+  .pill{display:inline-block;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+  .pill.critical{background:rgba(255,77,97,.12);color:var(--critical);border:1px solid rgba(255,77,97,.35)}
+  .pill.high{background:rgba(255,138,61,.12);color:var(--high);border:1px solid rgba(255,138,61,.35)}
+  .pill.medium{background:rgba(255,200,61,.12);color:var(--medium);border:1px solid rgba(255,200,61,.35)}
+  .pill.low{background:rgba(61,209,255,.12);color:var(--low);border:1px solid rgba(61,209,255,.35)}
+  .pill.good{background:rgba(0,239,164,.12);color:var(--good);border:1px solid rgba(0,239,164,.35)}
+  .issue{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:var(--panel2)}
+  .issue header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;background:transparent;padding:0}
+  .issue header strong{font-size:15px}
+  .issue .why,.issue .fix{margin:8px 0;padding:10px 12px;border-radius:8px;font-size:14px}
+  .issue .why{background:rgba(255,77,97,.07);border-left:3px solid var(--critical)}
+  .issue .fix{background:rgba(0,239,164,.07);border-left:3px solid var(--good)}
+  .issue .label{display:inline-block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-right:6px}
+  code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+  code{background:#0a1428;padding:2px 6px;border-radius:5px;color:#cfe9ff}
+  pre{background:#0a1428;border:1px solid var(--line);border-radius:10px;padding:12px;overflow:auto}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{color:var(--muted);font-weight:600;background:#0a1428}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}
+  .toc a{font-size:12px;color:#cfe9ff;background:#0a1428;border:1px solid var(--line);padding:6px 10px;border-radius:99px;text-decoration:none}
+  .toc a:hover{border-color:var(--accent)}
+  details{background:#0a1428;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0}
+  summary{cursor:pointer;font-weight:600}
+  .small{font-size:12px;color:var(--muted)}
+  ul.tight li{margin:4px 0}
+  .footer{margin-top:30px;color:var(--muted);font-size:12px;text-align:center}
+  .donut{--p:0;width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--accent) calc(var(--p)*1%),#1f2c4a 0);display:flex;align-items:center;justify-content:center;position:relative}
+  .donut:after{content:"";position:absolute;inset:14px;background:var(--panel);border-radius:50%}
+  .donut span{position:relative;z-index:1;font-size:24px;font-weight:700}
+  .summarygrid{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:center}
+  @media (max-width:680px){.summarygrid{grid-template-columns:1fr}}
+  .num{font-variant-numeric:tabular-nums}
+  .verdict{display:flex;align-items:center;gap:8px;margin:6px 0}
+  .tick{color:var(--good)}
+  .cross{color:var(--critical)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="pill critical" style="margin-bottom:10px">SEO Audit · Insurance · Top-Tier YMYL</div>
+  <h1>Insurance App Development Company — SEO Audit &amp; Ranking Diagnosis</h1>
+  <div class="meta">IMG Global Infotech · Generated 06 Jun 2026 · Analyst-grade report</div>
+  <div class="url">https://www.imgglobalinfotech.com/insurance-app-development-company</div>
+</header>
+
+<section class="card">
+  <div class="summarygrid">
+    <div class="donut" style="--p:33"><span class="num">33</span></div>
+    <div>
+      <h2 style="margin-top:0">Overall Score — 33 / 100</h2>
+      <p style="margin:6px 0 12px;color:var(--muted)">
+        Insurance is in the highest tier of YMYL alongside healthcare and trading — Google demands strong E-E-A-T proof before ranking it. This URL ships with all the same sitewide quality bugs as the rest of the site (<b>three different head-titles, fake-rating Product schema, geo:DE, invalid leading-space URL in WebPage schema, wrong Twitter handle, 11 off-topic case studies</b>) plus an insurance-specific bug: the <b>H1 says "Insurance Application" while the title / URL say "Insurance App"</b> — a keyword fragmentation that splits topical signal in half. There's also no IRDAI / GDPR / Bima Sugam content, no real insurer case studies, and a typo in the Service schema ("Insurance App Discussion" — meaningless). Each item alone could suppress the page; stacked together, Google has consistently kept this URL out of the SERPs.
+      </p>
+      <div class="scorebar"><div class="label">On-Page SEO</div><div class="bar"><div class="fill" style="width:38%"></div></div><div class="val">38</div></div>
+      <div class="scorebar"><div class="label">Content Quality / E-E-A-T</div><div class="bar"><div class="fill" style="width:20%"></div></div><div class="val">20</div></div>
+      <div class="scorebar"><div class="label">Topical Depth (IRDAI, insurers, claims)</div><div class="bar"><div class="fill" style="width:18%"></div></div><div class="val">18</div></div>
+      <div class="scorebar"><div class="label">Technical / Meta</div><div class="bar"><div class="fill" style="width:42%"></div></div><div class="val">42</div></div>
+      <div class="scorebar"><div class="label">Schema</div><div class="bar"><div class="fill" style="width:28%"></div></div><div class="val">28</div></div>
+      <div class="scorebar"><div class="label">Images / Performance</div><div class="bar"><div class="fill" style="width:65%"></div></div><div class="val">65</div></div>
+      <div class="scorebar"><div class="label">Internal linking / IA</div><div class="bar"><div class="fill" style="width:28%"></div></div><div class="val">28</div></div>
+      <div class="scorebar"><div class="label">URL friendliness</div><div class="bar"><div class="fill" style="width:88%"></div></div><div class="val">88</div></div>
+    </div>
+  </div>
+</section>
+
+<nav class="toc">
+  <a href="#why">Why this page never ranked</a>
+  <a href="#offtopic">Wrong / off-topic content</a>
+  <a href="#missing">Missing sections</a>
+  <a href="#meta">Meta &amp; title</a>
+  <a href="#schema">Schema</a>
+  <a href="#headings">Headings</a>
+  <a href="#content">Content quality</a>
+  <a href="#images">Images</a>
+  <a href="#internal">Internal linking</a>
+  <a href="#url">URL friendliness</a>
+  <a href="#competitor">Competitor gap</a>
+  <a href="#plan">Action plan</a>
+</nav>
+
+<!-- ============== WHY ============== -->
+<section class="card" id="why">
+  <h2>🛡️ Why this page has never ranked — root causes (WHY + FIX)</h2>
+
+  <div class="issue">
+    <header><strong>1. H1 says "Application", title / URL / OG all say "App" — keyword fragmentation</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Hero H1 is "<i>Insurance <b>Application</b> Development Company</i>" but every other surface uses "<i>Insurance <b>App</b> Development Company</i>". "App" and "Application" are not synonymous to Google's keyword index — they map to different search-volume buckets. The page is competing with itself: half of its topical weight goes to "application" (low-volume) and half to "app" (high-volume). On a site where one phrasing already loses to dozens of competitors, splitting the signal is fatal.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Change H1 to "<i>Insurance App Development Company for Insurers, Brokers &amp; InsurTech Startups</i>". Mention "application" once in body as a synonym, but don't use it as the primary anchor.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>2. Top-tier YMYL Insurance with zero IRDAI / regulatory content</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Insurance sits at the absolute top of YMYL — money, health, contracts all in one. Google demands the strictest possible expertise signals before ranking a service page in this niche. A buyer looking for "insurance app development company" expects to see depth on:
+      <ul class="tight">
+        <li><b>IRDAI</b> (Insurance Regulatory and Development Authority of India) registration, sandbox, e-Insurance Account, Bima Sugam framework, Insurance Acts (1938, IRDA Act 1999)</li>
+        <li><b>Global regulators</b> — NAIC (US), Solvency II (EU), PRA / FCA (UK), MAS (Singapore), APRA (Australia)</li>
+        <li><b>Standards</b> — IFRS 17 / Ind AS 117, HIPAA (US health), GDPR, India DPDP Act 2023, PCI-DSS for payments</li>
+        <li><b>Insurer integrations</b> — Acko, Digit, PolicyBazaar, PhonePe Insurance, Bajaj Allianz, HDFC ERGO, ICICI Lombard, Tata AIG, Star Health, Lemonade, Root, Hippo</li>
+        <li><b>Claim &amp; underwriting tech</b> — image-OCR claim intake, fraud-graph ML, telematics (TSP) APIs, IoT for property/health, NLP claim adjudication</li>
+        <li><b>Bima Sugam</b> (India's open insurance marketplace) — building for it is a major buyer-search trend in 2026</li>
+      </ul>
+      The page mentions <b>none</b>. Without this depth, the URL's maximum possible rank is capped well below page 1.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Add a dedicated H2 "<i>IRDAI &amp; Global Insurance Compliance We Build For</i>" — 800-1,200 words covering each regulator and standard. Then a "<i>Insurer &amp; InsurTech Integrations</i>" H2 with named partners and APIs.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>3. 11 off-topic case studies — sitewide template block</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Same offending block as your other URLs: Blinkit (grocery), Astrotalk (astrology), Zillow (real estate), Uber, Tinder, TikTok, MoneyLion (banking — only fintech-adjacent), TaskRabbit, UberEats, Netflix, Practo. <b>Zero insurance case studies.</b> On a YMYL Insurance page Google reads this and concludes "<i>this is a generic app shop, not an insurance specialist</i>". The case-study URLs use the <code>/case-study/{brand}-like-app</code> clone-app pattern — additional algorithmic-quality demotion.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Delete the entire off-topic block from this URL. Replace with 3-5 real or labeled-concept insurance projects: a motor-insurance app with TSP integration, a health-insurance claim-intake app, a Bima Sugam plug-in, a SME group-insurance dashboard, a parametric crop-insurance prototype.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>4. WebPage schema URL has invalid leading space</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Same exact bug as the stock-trading page:
+      <pre>"url": " https://www.imgglobalinfotech.com/insurance-app-development-company"</pre>
+      Leading space before <code>https://</code> — invalid URL per RFC 3986. Google's schema parser drops the WebPage node. Likely a sitewide template bug.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Remove the leading space (line 41 of blade). Fix the layout-level template so every page benefits.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>5. Self-serving Product schema with aggregateRating 4.7/143</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Same self-serving reviews pattern. Service schema already represents the offering; Product is duplicate and miscategorised for a B2B service. Brand URL self-references this page URL instead of the root domain.</div>
+    <div class="fix"><span class="label">Fix:</span> Delete the Product schema block entirely.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>6. Service schema has a meaningless serviceType — "Insurance App Discussion"</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> One of the <code>serviceType</code> entries is literally "<i>Insurance App Discussion</i>" — not a service. Likely a copy-paste / autocomplete leftover from "Insurance App Design" or "Insurance App Consulting". Google reads this as an unintended low-quality signal in the structured-data layer, and any AI assistant indexing services would echo it back to users.</div>
+    <div class="fix"><span class="label">Fix:</span> Remove the entry or rename to "<i>Insurance App Consulting</i>" / "<i>Insurance App Strategy</i>". Tighten the whole list to insurance-domain specifics (motor, health, life, property, travel, group, microinsurance, parametric).</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>7. Title is too short (33 chars) + title / og:title / twitter:title differ</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span>
+      <table style="margin-top:8px">
+        <tr><th>Surface</th><th>Phrase</th></tr>
+        <tr><td>&lt;title&gt;</td><td>Insurance App Development Company (33 chars — wastes 25+)</td></tr>
+        <tr><td>og:title</td><td><b>Best</b> Insurance App Development Company</td></tr>
+        <tr><td>twitter:title</td><td><b>Top</b> Insurance App Development Company</td></tr>
+        <tr><td>H1</td><td>Insurance <b>Application</b> Development Company</td></tr>
+      </table>
+      Three different adjectives + the "App vs Application" split = the messiest title layer of any page audited.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Align all four to one phrase. Recommended primary title (58 chars):<br><code>Insurance App Development Company — IRDAI &amp; HIPAA Ready</code></div>
+  </div>
+
+  <div class="issue">
+    <header><strong>8. Wrong Twitter URL in Organization sameAs</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> <code>"https://twitter.com/imgglobalinfo"</code> — legacy domain (should be <code>x.com</code>) and wrong username (<code>imgglobalinfo</code> vs <code>imgglobal</code> used elsewhere). Also missing Instagram, YouTube, Crunchbase, Clutch, GoodFirms. Same template bug as the stock-trading page.</div>
+    <div class="fix"><span class="label">Fix:</span> Standardise sameAs across all pages to the same canonical list with correct usernames.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>9. Brand-string inconsistency in schemas</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> Organization name = "IMG Global Infotech" (with spaces) ✅. WebSite + Service + Product names = "IMGGlobalInfotech" (no spaces) ❌. Google's entity model prefers the human-readable form. Same template bug.</div>
+    <div class="fix"><span class="label">Fix:</span> Standardise on "IMG Global Infotech" across all schema blocks.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>10. dateModified = datePublished (fake freshness)</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> Both 2025-09-11 with a 22-minute delta. The user says the page has been live for a long time; the dates either lie about freshness or the page truly hasn't been touched since launch.</div>
+    <div class="fix"><span class="label">Fix:</span> Make dateModified dynamic from real file mtime; commit a substantive content update quarterly.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>11. Geo signal = DE (Germany)</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> <code>meta geo.region "DE"</code> on a page targeting India / US / UAE buyers; conflicts with <code>og:locale en_US</code> + <code>og:locale:alternate en_AE</code>; no <code>hreflang</code>. Confuses geo bucketing.</div>
+    <div class="fix"><span class="label">Fix:</span> Remove <code>geo.region</code>; implement <code>hreflang</code> if multi-market.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>12. Hero copy is casual / unprofessional for YMYL B2B</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> "<i>Does your insurance business need a transformation? No worries, we are a leading insurance app development company...</i>" — "<i>No worries</i>" is too casual for an insurance buyer (CTO of insurer, head of digital transformation, InsurTech founder). On a YMYL page it reads "amateur shop". Also uses "<i>on-demand insurance app</i>" — insurance isn't on-demand in the rideshare sense; the term doesn't fit.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Rewrite hero copy in confident, expert tone: "<i>From IRDAI sandbox prototypes to multi-line, multi-channel insurance platforms, we ship secure mobile and web apps for insurers, MGA / TPAs, brokers and InsurTech startups. HIPAA, GDPR &amp; PCI-DSS by default.</i>"</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>13. Generic "Why Choose Us" — no insurance-specific signals</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> 4 cards: "<i>Industry Experience</i>", "<i>AI &amp; Blockchain Integration</i>", "<i>Reliable Architecture</i>", "<i>Personalized Insurance Solutions</i>". Only the second is somewhat specific; the rest could be any agency. For an insurance buyer they answer nothing.</div>
+    <div class="fix"><span class="label">Fix:</span> Replace with insurance-specific differentiators: "<i>IRDAI Bima Sugam-ready architectures shipped</i>", "<i>Live Acko / Digit / PolicyBazaar API integrations</i>", "<i>Claims-graph fraud ML — 23% loss-ratio reduction for X client</i>", "<i>HIPAA + GDPR + PCI-DSS by default</i>", "<i>Telematics (TSP) integrations — Octo, Cambridge Mobile Telematics</i>".</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>14. "Next-Gen Technologies" section is buzzword salad</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> 6 H3 cards: Blockchain, Data Analytics, AI, IoT, Chatbot Support, Cloud Computing. Generic buzzwords without insurance-specific application. "Cloud Computing" is not a feature in 2026 — it's table stakes. The buyer wants to know <i>how</i> blockchain helps (parametric payouts via smart contracts?), <i>how</i> IoT helps (telematics for motor, wearables for health?), <i>how</i> AI helps (NLP claim adjudication, underwriting model?).</div>
+    <div class="fix"><span class="label">Fix:</span> Rewrite each card with the insurance-specific use case: "<i>Smart-contract parametric payouts for crop/travel insurance</i>", "<i>Telematics-based UBI motor insurance (Cambridge Mobile Telematics SDK)</i>", "<i>Claim image-OCR + fraud-graph ML</i>", "<i>NLP-based claims adjudication and policy chatbot</i>".</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>15. No author byline + no compliance reviewer + no visible dates</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> For top-tier YMYL Insurance, the absence of named expertise is one of the strongest E-E-A-T disqualifiers.</div>
+    <div class="fix"><span class="label">Fix:</span> Add a visible byline block below H1 with a named developer lead + a named insurance / IRDAI advisor (contract an ex-insurer compliance officer or InsurTech veteran). Add visible Published / Updated date with <code>datetime</code>.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>16. Same legacy meta-tag bloat + outdated copyright drift</strong><span class="pill low">Low</span></header>
+    <div class="why"><span class="label">Why:</span> revisit-after, distribution, coverage, rating, language, copyright, rights, reply-to, web-author — useless tags polluting the head.</div>
+    <div class="fix"><span class="label">Fix:</span> Strip at layout level (one fix benefits every page on the site).</div>
+  </div>
+</section>
+
+<!-- ============== OFF-TOPIC / WRONG ============== -->
+<section class="card" id="offtopic">
+  <h2>🚫 Content that's wrong, off-topic, or doesn't belong here</h2>
+  <table>
+    <thead><tr><th style="width:30%">Block</th><th>Problem</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>"Case Studies Inspiring Innovation"</b> — 11 cards</td>
+        <td>Blinkit, Astrotalk, Zillow, Uber, Tinder, TikTok, MoneyLion (only adjacent), TaskRabbit, UberEats, Netflix, Practo. Zero insurance case studies.</td>
+        <td>Delete completely. Replace with 3-5 insurance projects (real or labeled "concept / demo").</td>
+      </tr>
+      <tr>
+        <td><b>Case-study target URLs use "X-like-app" pattern</b></td>
+        <td><code>/case-study/blinkit-like-app</code>, <code>/case-study/tinder-like-app</code>, etc. — clone-app URL pattern.</td>
+        <td>Move all "like-app" case studies under a clearly labeled "<i>Apps that inspire our designs</i>" hub, separate from your own case studies.</td>
+      </tr>
+      <tr>
+        <td>H1 "<i>Insurance <b>Application</b> Development Company</i>"</td>
+        <td>Uses "Application" — splits keyword signal from title / URL ("App").</td>
+        <td>Use "App" in H1 to match title and URL.</td>
+      </tr>
+      <tr>
+        <td>Hero subtitle "<i>on-demand insurance app...No worries</i>"</td>
+        <td>Casual tone + "on-demand" doesn't fit insurance.</td>
+        <td>Rewrite in confident, expert tone targeting CTO / digital-transformation buyer.</td>
+      </tr>
+      <tr>
+        <td>Service schema serviceType "<b>Insurance App Discussion</b>"</td>
+        <td>Meaningless / copy-paste leftover. Not a service.</td>
+        <td>Remove or rename to "Insurance App Consulting".</td>
+      </tr>
+      <tr>
+        <td>"Why Choose Us" cards</td>
+        <td>Generic — Industry Experience, AI &amp; Blockchain, Reliable Architecture, Personalized Solutions.</td>
+        <td>Replace with insurance-domain specifics (IRDAI, named insurer APIs, telematics SDKs, claim-fraud ML metrics).</td>
+      </tr>
+      <tr>
+        <td>"Next-Gen Technologies" — 6 buzzword cards</td>
+        <td>Generic buzzwords with no insurance-specific use case.</td>
+        <td>Rewrite each with insurance use case (parametric smart-contracts, telematics UBI, claim OCR, etc.).</td>
+      </tr>
+      <tr>
+        <td>WebPage schema URL with <b>leading space</b></td>
+        <td>Invalid URL — schema parser drops the WebPage node.</td>
+        <td>Remove leading space (line 41 of blade); fix sitewide.</td>
+      </tr>
+      <tr>
+        <td>sameAs Twitter URL <code>twitter.com/imgglobalinfo</code></td>
+        <td>Wrong username + legacy domain.</td>
+        <td>Standardise on canonical <code>x.com/imgglobal</code> + add Instagram + YouTube + Clutch.</td>
+      </tr>
+      <tr>
+        <td>Brand-string mismatch in schemas</td>
+        <td>"IMG Global Infotech" vs "IMGGlobalInfotech".</td>
+        <td>Standardise on "IMG Global Infotech" everywhere.</td>
+      </tr>
+      <tr>
+        <td>Sitewide Coca-Cola / Adani / Tata / Colgate client strip (if appearing here too)</td>
+        <td>Implausible-client claim on a YMYL Insurance page.</td>
+        <td>Remove or substantiate with verifiable insurer / InsurTech clients.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== MISSING ============== -->
+<section class="card" id="missing">
+  <h2>➕ Sections this page needs but doesn't have</h2>
+  <p>Ranked by likely ranking impact in the insurance-app niche.</p>
+  <table>
+    <thead><tr><th>Section</th><th>Why it matters</th><th>Where to place</th></tr></thead>
+    <tbody>
+      <tr><td><b>1. IRDAI &amp; Global Insurance Compliance block</b> — IRDAI registration, e-Insurance Account, Bima Sugam framework, IFRS 17 / Ind AS 117, HIPAA (US), GDPR, India DPDP Act 2023, Solvency II (EU), NAIC (US), PRA / FCA (UK), MAS (SG), APRA (AU), PCI-DSS for payments</td><td>Single biggest topical-authority lever. Without it, ranking is capped.</td><td>After hero, before services</td></tr>
+      <tr><td><b>2. Author + Insurance Advisor byline</b> — named developer lead + named ex-insurer / IRDAI consultant with photo + LinkedIn</td><td>YMYL E-E-A-T core. Without it, max rank capped.</td><td>Below H1</td></tr>
+      <tr><td><b>3. Insurer &amp; InsurTech Integrations block</b> — Acko, Digit, PolicyBazaar, PhonePe Insurance, Bajaj Allianz, HDFC ERGO, ICICI Lombard, Tata AIG, Star Health, Lemonade, Root, Hippo; APIs: Plum, Pazcare, Loop Health; Bima Sugam SDK; Setu, M2P, Decentro for embedded</td><td>Named-entity trust signal + buyer-intent capture.</td><td>Tech stack section</td></tr>
+      <tr><td><b>4. Bima Sugam-ready block</b> (India's open insurance marketplace) — protocol, ONDC-style architecture, how IMG ships apps that plug into Bima Sugam</td><td>Hottest 2026 trend in Indian insurance — uncontested ranking opportunity.</td><td>Top of page</td></tr>
+      <tr><td><b>5. Real insurance case studies (3-5)</b> with named client, scope, claim-automation metrics, fraud-loss reduction, NPS lift, testimonial with reviewer photo + LinkedIn</td><td>Replaces off-topic block. Strongest E-E-A-T lift.</td><td>Replace existing case studies</td></tr>
+      <tr><td><b>6. Detailed Cost Breakdown table</b> (Basic policy app / Multi-line / Enterprise Bima Sugam × feature × $ range × hours) — promote from FAQ to dedicated H2</td><td>High long-tail volume.</td><td>Before Why Choose</td></tr>
+      <tr><td><b>7. Timeline / Roadmap with milestones</b></td><td>Top long-tail.</td><td>Next to cost</td></tr>
+      <tr><td><b>8. Claim Automation block</b> — image-OCR claim intake, fraud-graph ML, NLP claim adjudication, MGA / TPA workflow, surveyor app, parametric payouts via smart contracts</td><td>Domain depth Google rewards in insurance niche.</td><td>Mid-page</td></tr>
+      <tr><td><b>9. Underwriting AI block</b> — model risk management, alternative data (credit, telematics, wearables), regulatory model documentation</td><td>High-value buyer segment.</td><td>After Claim Automation</td></tr>
+      <tr><td><b>10. Telematics &amp; IoT for Insurance block</b> — motor UBI (Cambridge Mobile Telematics, Octo, Geotab), health wearables (Apple HealthKit, Google Fit, Fitbit), property sensors (smart-home, IoT leak detectors)</td><td>Captures usage-based insurance search queries.</td><td>Tech section</td></tr>
+      <tr><td><b>11. Insurance Verticals matrix</b> (Motor, Health, Life, Property, Travel, Crop / Parametric, SME group, Microinsurance, Pet, Cyber, Marine) — expand the existing 6-card block</td><td>Vertical-specific long-tail traffic.</td><td>Replace/expand current solutions block</td></tr>
+      <tr><td><b>12. Tech Stack section</b> with named SDKs &amp; cloud — AWS HealthLake (for health insurance PHI), Azure / GCP, MongoDB / TimescaleDB, FHIR servers, FastAPI, Node, microservices, Kubernetes</td><td>Captures CTO/architect-intent traffic.</td><td>Before Why Choose</td></tr>
+      <tr><td><b>13. Embedded Insurance &amp; D2C block</b> — how IMG builds checkout-embedded insurance (Acko-style), API distribution, white-label brokerages</td><td>Emerging high-margin buyer segment.</td><td>Mid-page</td></tr>
+      <tr><td><b>14. Engagement models (Fixed / T&amp;M / Dedicated Team)</b> with rate cards</td><td>Procurement-buyer intent.</td><td>Before CTA2</td></tr>
+      <tr><td><b>15. Awards &amp; recognitions</b> (Clutch, GoodFirms, NASSCOM, IAMAI, India InsurTech Awards) in fintech / insurtech category</td><td>Trust signal.</td><td>Above footer</td></tr>
+      <tr><td><b>16. Downloadable assets</b> — "<i>2026 IRDAI Insurance App Compliance Checklist</i>" PDF + "<i>Insurance App Cost Calculator</i>" widget</td><td>Link magnets — biggest off-page lever.</td><td>Side CTA</td></tr>
+      <tr><td><b>17. Visible Published / Updated date</b></td><td>Freshness signal.</td><td>Below H1</td></tr>
+      <tr><td><b>18. Jump-link Table of Contents</b></td><td>Drives Google "Jump To" sitelinks.</td><td>After hero</td></tr>
+      <tr><td><b>19. Video walkthrough / customer testimonial embedded from YouTube</b></td><td>Captures video SERP + strongest credibility lift.</td><td>After process</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== META ============== -->
+<section class="card" id="meta">
+  <h2>🏷️ Meta / Title layer — full audit</h2>
+  <table>
+    <thead><tr><th>Tag</th><th>Current</th><th>Verdict</th><th>Recommended</th></tr></thead>
+    <tbody>
+      <tr><td>&lt;title&gt;</td><td>Insurance App Development Company (33 chars)</td><td><span class="pill critical">Too short by ~25 chars</span></td><td>Insurance App Development Company — IRDAI &amp; HIPAA Ready (58 chars)</td></tr>
+      <tr><td>meta description</td><td>158 chars, generic</td><td><span class="pill medium">Length OK, content weak</span></td><td>IRDAI-aware insurance app development — Bima Sugam, claim-OCR, telematics UBI, embedded insurance. HIPAA / GDPR / PCI-DSS by default. Free quote. (158 chars)</td></tr>
+      <tr><td>H1</td><td>Insurance <b>Application</b> Development Company</td><td><span class="pill critical">"Application" fragments primary keyword</span></td><td>Insurance App Development Company for Insurers, Brokers &amp; InsurTech Startups</td></tr>
+      <tr><td>og:title</td><td><b>Best</b> Insurance App Development Company</td><td><span class="pill high">Inconsistent (different adjective)</span></td><td>Match the cleaned title</td></tr>
+      <tr><td>twitter:title</td><td><b>Top</b> Insurance App Development Company</td><td><span class="pill high">Inconsistent</span></td><td>Match the cleaned title</td></tr>
+      <tr><td>canonical</td><td>https://www.imgglobalinfotech.com/insurance-app-development-company</td><td><span class="pill good">Self-referencing</span></td><td>Keep</td></tr>
+      <tr><td>og:image / twitter:image</td><td>Cloudfront CDN — <code>insurance-app-development-company.jpg</code></td><td><span class="pill good">Good</span></td><td>Keep</td></tr>
+      <tr><td>robots</td><td>MAX-IMAGE-PREVIEW:LARGE, INDEX, FOLLOW</td><td><span class="pill good">Good</span></td><td>Keep</td></tr>
+      <tr><td>geo.region</td><td>DE</td><td><span class="pill critical">Wrong</span></td><td>Remove or set to IN</td></tr>
+      <tr><td>og:locale:alternate</td><td>en_AE</td><td><span class="pill medium">Misleading without hreflang</span></td><td>Add hreflang or drop</td></tr>
+      <tr><td>Legacy tags (revisit-after, distribution, coverage, rating, language, copyright, rights, reply-to, web-author)</td><td>All present</td><td><span class="pill low">Useless bloat</span></td><td>Remove at layout level</td></tr>
+      <tr><td>Author byline visible</td><td>Not on page</td><td><span class="pill critical">YMYL killer</span></td><td>Add named author + insurance advisor</td></tr>
+      <tr><td>Published / Updated visible</td><td>Not on page</td><td><span class="pill high">Missing</span></td><td>Add with <code>datetime</code></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== SCHEMA ============== -->
+<section class="card" id="schema">
+  <h2>🧩 Schema markup — full audit</h2>
+  <p>Blocks present: <b>BreadcrumbList (via include), FAQPage (via include), Organization (in @graph), WebSite, WebPage, Service, Product</b>.</p>
+
+  <div class="issue">
+    <header><strong>Product schema — fake-looking aggregateRating</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> <code>aggregateRating 4.7/143</code> with no visible reviews. B2B service mis-typed as Product. Brand URL self-references the page URL.</div>
+    <div class="fix"><span class="label">Fix:</span> Delete the Product block entirely.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>WebPage schema URL invalid (leading space)</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> <code>"url": " https://..."</code> — invalid URL. Schema validators reject the WebPage node. Sitewide template bug.</div>
+    <div class="fix"><span class="label">Fix:</span> Remove the leading space (line 41 of blade).</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Service schema serviceType has meaningless entry "Insurance App Discussion"</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> "Discussion" isn't a service. Hand-crafted structured data with a copy-paste typo signals low quality.</div>
+    <div class="fix"><span class="label">Fix:</span> Remove or rename. Better: replace the entire serviceType list with insurance-domain-specific items (motor, health, life, property, travel, group, microinsurance, Bima Sugam plugin, embedded insurance).</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Organization sameAs is short + wrong Twitter URL</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> <code>twitter.com/imgglobalinfo</code> (wrong domain + wrong username). Missing Instagram, YouTube, Crunchbase, Clutch, GoodFirms.</div>
+    <div class="fix"><span class="label">Fix:</span> Standardise on the canonical list across all pages.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Brand-string inconsistency</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> "IMG Global Infotech" in Organization vs "IMGGlobalInfotech" in WebSite/Service/Product. Same template bug.</div>
+    <div class="fix"><span class="label">Fix:</span> Standardise on "IMG Global Infotech" everywhere.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Recommended drop-in schema</strong><span class="pill good">Good</span></header>
+    <details>
+      <summary>Click to see drop-in JSON-LD</summary>
+<pre>{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.imgglobalinfotech.com/#organization",
+      "name": "IMG Global Infotech Private Limited",
+      "url": "https://www.imgglobalinfotech.com/",
+      "logo": "https://d1y41eupgbwbb2.cloudfront.net/images/xl-logo.webp",
+      "address": { "@type": "PostalAddress", "addressCountry": "IN" },
+      "sameAs": [
+        "https://www.facebook.com/imgglobalinfotech",
+        "https://x.com/imgglobal",
+        "https://www.instagram.com/imgglobalinfotech/",
+        "https://www.linkedin.com/company/imgglobalinfotech/",
+        "https://www.youtube.com/@imgglobalinfotech"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.imgglobalinfotech.com/#website",
+      "url": "https://www.imgglobalinfotech.com/",
+      "name": "IMG Global Infotech",
+      "publisher": { "@id": "https://www.imgglobalinfotech.com/#organization" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.imgglobalinfotech.com/insurance-app-development-company#webpage",
+      "url": "https://www.imgglobalinfotech.com/insurance-app-development-company",
+      "name": "Insurance App Development Company",
+      "isPartOf": { "@id": "https://www.imgglobalinfotech.com/#website" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Insurance App Development",
+      "provider": { "@id": "https://www.imgglobalinfotech.com/#organization" },
+      "areaServed": ["IN","US","AE","GB","SG","AU"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Insurance App Development",
+        "itemListElement": [
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Motor Insurance App Development (UBI / Telematics)"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Health Insurance App Development (HIPAA-Compliant)"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Life Insurance App Development"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Property &amp; Travel Insurance App Development"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Bima Sugam Plugin &amp; ONDC-Style Distribution"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Claim Automation &amp; Fraud Detection Engine"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Embedded Insurance &amp; D2C Distribution Apps"}}
+        ]
+      }
+    }
+  ]
+}</pre>
+    </details>
+  </div>
+</section>
+
+<!-- ============== HEADINGS ============== -->
+<section class="card" id="headings">
+  <h2>🏗️ Heading hierarchy</h2>
+  <table>
+    <thead><tr><th>Tag</th><th>Text</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td>H1</td><td>Insurance <b>Application</b> Development Company</td><td><span class="pill critical">"Application" fragments keyword from title/URL</span></td></tr>
+      <tr><td>H2</td><td>Insurance App Development Services</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Custom Insurance App Development Services by IMG Global Infotech</td><td><span class="pill medium">Redundant — same as previous H2</span></td></tr>
+      <tr><td>H2</td><td>Key Features of Insurance Apps</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H3 ×3</td><td>User App / Insurance Provider App / Admin Panel (tab labels)</td><td><span class="pill medium">Tab labels shouldn't be H3</span></td></tr>
+      <tr><td>H2</td><td>Case Studies Inspiring Innovation</td><td><span class="pill critical">All 11 case studies are off-topic</span></td></tr>
+      <tr><td>H3 ×11</td><td>Blinkit / Astrotalk / Zillow / Uber / Tinder / TikTok / MoneyLion / TaskRabbit / UberEats / Netflix / Practo</td><td><span class="pill critical">Zero insurance case studies</span></td></tr>
+      <tr><td>H2</td><td>The Cutting-Edge Insurance App Solutions</td><td><span class="pill good">Good — but "Cutting-Edge" is buzzword</span></td></tr>
+      <tr><td>H3 ×6</td><td>Vehicle / Health / Life / Business / Property / Travel Insurance App Development</td><td><span class="pill good">Strong domain coverage — keep, expand</span></td></tr>
+      <tr><td>H2</td><td>Next-Gen Technologies in Reliable Insurance Apps</td><td><span class="pill medium">"Next-Gen" buzzword</span></td></tr>
+      <tr><td>H3 ×6</td><td>Blockchain / Data Analytics / AI / IoT / Chatbot Support / Cloud Computing</td><td><span class="pill medium">Generic buzzwords, no insurance-specific use case</span></td></tr>
+      <tr><td>H2</td><td>Development Process</td><td><span class="pill medium">Too generic — should be "Insurance App Development Process"</span></td></tr>
+      <tr><td>H3 ×5 (process stages)</td><td>Discovery / Wireframe / Development / QA / Launch</td><td><span class="pill good">OK</span></td></tr>
+      <tr><td>H2</td><td>Why Choose IMG Global Infotech to Develop a Custom Insurance App</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H3 ×4 (Why Choose)</td><td>Industry Experience / AI &amp; Blockchain Integration / Reliable Architecture / Personalized Insurance Solutions</td><td><span class="pill high">3 of 4 are generic; replace with insurance specifics</span></td></tr>
+      <tr><td>H2</td><td>What Our Clients Say About Us</td><td><span class="pill good">Good — verify real testimonials, not placeholders</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Semantic HTML notes</h3>
+  <ul class="tight">
+    <li>H1 is a real block element ✅ — better than pet-care.</li>
+    <li>Hero subtitle in <code>&lt;div&gt;</code> (not <code>&lt;p&gt;</code>) — semantic weakness.</li>
+    <li>Tab labels use H3 inside <code>&lt;label&gt;</code>.</li>
+    <li>CTAs use <code>&lt;label for="leadPopup"&gt;</code> instead of <code>&lt;a&gt;</code> / <code>&lt;button&gt;</code>.</li>
+    <li>No <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code> landmarks.</li>
+  </ul>
+</section>
+
+<!-- ============== CONTENT ============== -->
+<section class="card" id="content">
+  <h2>✍️ Content quality (Helpful Content System scoring)</h2>
+  <div class="grid grid-2">
+    <div>
+      <h3>Strengths</h3>
+      <ul class="tight">
+        <li>Insurance verticals block (Vehicle / Health / Life / Business / Property / Travel) covers the main categories — solid foundation to expand.</li>
+        <li>One body section uses <code>&lt;p&gt;</code> tags.</li>
+        <li>Schema layer has Organization → WebSite → WebPage → Service (better than online-exam).</li>
+        <li>H1 matches the visible hero text (no "Best" outside).</li>
+        <li>OG image on CDN, correct format.</li>
+        <li>URL slug is clean.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Weaknesses</h3>
+      <ul class="tight">
+        <li>H1 uses "Application", title/URL use "App" — keyword fragmentation.</li>
+        <li>11 off-topic case studies on a YMYL Insurance page.</li>
+        <li>Zero IRDAI / Bima Sugam / regulator depth.</li>
+        <li>"Insurance App Discussion" in Service schema.</li>
+        <li>Three different head-titles.</li>
+        <li>Casual hero tone ("No worries").</li>
+        <li>Buzzword tech section.</li>
+        <li>Generic Why Choose Us.</li>
+        <li>Self-serving Product schema.</li>
+        <li>WebPage schema URL has leading space.</li>
+        <li>Wrong Twitter URL in sameAs.</li>
+        <li>Brand-string inconsistency.</li>
+        <li>No author / insurance advisor byline.</li>
+        <li>No published / updated date visible.</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:14px">Estimated Helpful Content System score (informal): <b>2 / 10</b>. For top-tier YMYL Insurance, anything below 6/10 is suppressed.</p>
+</section>
+
+<!-- ============== IMAGES ============== -->
+<section class="card" id="images">
+  <h2>🖼️ Images</h2>
+  <ul class="tight">
+    <li><b>Format:</b> All <code>.webp</code> (OG <code>.jpg</code>). ✅ good.</li>
+    <li><b>Dimensions set:</b> Hero <code>width="683" height="544"</code> + <code>aspect-[683/544]</code>. ✅ good for CLS.</li>
+    <li><b>LCP image:</b> Hero uses <code>loading="eager" fetchpriority="high"</code>. ✅ good.</li>
+    <li><b>CDN:</b> All on <code>d1y41eupgbwbb2.cloudfront.net</code>. ✅ good.</li>
+    <li><b>Alt text:</b> Hero alt = "Insurance Application Development Company" — uses "Application" (same fragmentation bug as H1). Generic.</li>
+    <li><b>Filename pattern:</b> camelCase (<code>insuranceDevelopmentHero.webp</code>) — lowercase-hyphen preferred for image SEO.</li>
+    <li><b>Decorative app-store badges (if any):</b> use <code>alt=""</code> + <code>aria-label</code>.</li>
+  </ul>
+</section>
+
+<!-- ============== INTERNAL LINKING ============== -->
+<section class="card" id="internal">
+  <h2>🔗 Internal linking</h2>
+  <p>Body-content internal linking is sparse and off-target:</p>
+  <ul class="tight">
+    <li>11 case-study links go to <code>/case-study/{brand}-like-app</code> — clone-app pattern, off-topic.</li>
+    <li>No body link to other fintech sister pages.</li>
+    <li>Header / footer nav does the heavy lifting.</li>
+  </ul>
+  <h3>What's missing</h3>
+  <ul class="tight">
+    <li>No body link to <code>/fintech-software-development</code>.</li>
+    <li>No body link to <code>/wealthtech-app-development-company</code>.</li>
+    <li>No body link to <code>/loan-lending-app-development-company</code>.</li>
+    <li>No body link to <code>/healthcare-app-development</code> (relevant for health insurance).</li>
+    <li>No body link to <code>/ai-chatbot-development-services</code> (relevant for claim NLP).</li>
+    <li>No links to blog posts on IRDAI, Bima Sugam, telematics UBI, claim OCR.</li>
+  </ul>
+  <h3>Anchor-text problems</h3>
+  <ul class="tight">
+    <li>All case-study anchors are brand-clone names ("X-like-app").</li>
+    <li>No descriptive anchors like "<i>IRDAI sandbox framework</i>" or "<i>Bima Sugam integration</i>" pointing to deep articles.</li>
+  </ul>
+</section>
+
+<!-- ============== URL ============== -->
+<section class="card" id="url">
+  <h2>🌐 URL — user-friendly &amp; SEO-friendly?</h2>
+  <p><code>https://www.imgglobalinfotech.com/insurance-app-development-company</code></p>
+  <table>
+    <thead><tr><th>Check</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>HTTPS</td><td>✅ Yes</td></tr>
+      <tr><td>Length (full URL)</td><td>✅ 65 chars</td></tr>
+      <tr><td>Slug length</td><td>✅ 36 chars — slightly long but clean</td></tr>
+      <tr><td>Hyphen separators</td><td>✅ Yes</td></tr>
+      <tr><td>Lowercase only</td><td>✅ Yes</td></tr>
+      <tr><td>Descriptive / readable</td><td>✅ Yes</td></tr>
+      <tr><td>No query strings / UUIDs</td><td>✅ Clean</td></tr>
+      <tr><td>No file extension</td><td>✅ Clean</td></tr>
+      <tr><td>Matches title primary keyword</td><td>✅ Exact match (note H1 uses "Application")</td></tr>
+      <tr><td>Canonical = URL</td><td>✅ Self-referencing</td></tr>
+      <tr><td>www consistent</td><td>✅ Yes (verify 301 from apex)</td></tr>
+    </tbody>
+  </table>
+  <p class="verdict"><span class="tick">●</span> <b>Verdict:</b> URL is both user- and SEO-friendly. The slug uses "App" (matches title), even though the H1 uses "Application". <b>Do NOT change the URL.</b> Fix the H1 to match the URL.</p>
+</section>
+
+<!-- ============== COMPETITOR ============== -->
+<section class="card" id="competitor">
+  <h2>📊 Why competitors rank — quick SERP gap</h2>
+  <p>Top results for "<i>insurance app development company</i>" / "<i>InsurTech app development</i>" are dominated by:</p>
+  <table>
+    <thead><tr><th>Competitor</th><th>What they do that you don't</th></tr></thead>
+    <tbody>
+      <tr><td>Appinventiv</td><td>Named insurer clients, IRDAI/Bima Sugam dedicated posts, original "InsurTech trends" research, gated PDF cost guide.</td></tr>
+      <tr><td>Mindbowser</td><td>HIPAA-deep posts for health insurance, named telematics integrations (Cambridge Mobile Telematics), real video case studies.</td></tr>
+      <tr><td>Mindinventory</td><td>Named insurance clients, claim-automation deep dives, downloadable Bima Sugam architecture guide.</td></tr>
+      <tr><td>Net Solutions</td><td>27-year history clearly shown, named insurance clients (US), IRDAI-aware India landing.</td></tr>
+      <tr><td>Damco Solutions</td><td>InsurTech vertical positioning with named carriers, dedicated UBI / parametric microsites.</td></tr>
+    </tbody>
+  </table>
+  <p>Common pattern: <b>named carrier clients, named telematics / OCR / claim integrations, deep regulatory content, downloadable assets, sourced statistics</b>. Your page has zero of these.</p>
+</section>
+
+<!-- ============== PLAN ============== -->
+<section class="card" id="plan">
+  <h2>🛠️ 90-day prioritized action plan</h2>
+
+  <h3>Week 1 — Stop-the-bleeding fixes</h3>
+  <ol>
+    <li>Change H1 from "Insurance <b>Application</b>" to "Insurance <b>App</b>" — align with title and URL.</li>
+    <li>Delete the off-topic case-study section (Blinkit / Tinder / Netflix / etc.). Highest leverage.</li>
+    <li>Fix the WebPage schema URL leading space (line 41 of blade) — fix sitewide if possible.</li>
+    <li>Remove "<i>Insurance App Discussion</i>" from Service serviceType list; replace with insurance-domain specifics.</li>
+    <li>Delete the Product schema block.</li>
+    <li>Standardise Twitter URL in sameAs to <code>https://x.com/imgglobal</code>; add Instagram + YouTube.</li>
+    <li>Standardise brand string to "IMG Global Infotech" in all schemas.</li>
+    <li>Align title / og:title / twitter:title to one phrase.</li>
+    <li>Rewrite title to ~58 chars with IRDAI / HIPAA hint.</li>
+    <li>Rewrite meta description with IRDAI / Bima Sugam / telematics keywords.</li>
+    <li>Remove <code>meta geo.region "DE"</code>.</li>
+    <li>Strip legacy meta tags at layout level.</li>
+    <li>Rewrite the casual hero copy ("No worries") in expert B2B tone.</li>
+  </ol>
+
+  <h3>Weeks 2-4 — E-E-A-T &amp; trust</h3>
+  <ol>
+    <li>Add author byline + a named insurance / ex-IRDAI advisor with photo + LinkedIn.</li>
+    <li>Add visible Published / Updated date with real file mtime.</li>
+    <li>Replace deleted case-study block with 3-5 real or labeled-concept insurance projects (named carriers + metrics).</li>
+    <li>Add Clutch / GoodFirms / NASSCOM / IAMAI badges in fintech/insurtech category.</li>
+    <li>Add a Trust block with HIPAA, GDPR, PCI-DSS, ISO 27001, SOC 2, India DPDP Act 2023.</li>
+    <li>Add testimonials with named reviewers (photo + role + LinkedIn).</li>
+  </ol>
+
+  <h3>Weeks 5-8 — Topical depth (the big lift)</h3>
+  <ol>
+    <li><b>Add the IRDAI &amp; Global Insurance Compliance H2 section</b> (800-1200 words).</li>
+    <li><b>Add the Bima Sugam-ready block</b> — biggest 2026 opportunity in Indian insurance.</li>
+    <li><b>Add Insurer &amp; InsurTech Integrations H2 section</b> with named carriers and APIs.</li>
+    <li>Add Claim Automation block (OCR, NLP, fraud-graph ML).</li>
+    <li>Add Underwriting AI block.</li>
+    <li>Add Telematics &amp; IoT block (CMT, Octo, Geotab, HealthKit, Google Fit).</li>
+    <li>Add Embedded Insurance &amp; D2C block.</li>
+    <li>Promote Cost &amp; Timeline from FAQ to dedicated H2 sections + interactive calculator.</li>
+    <li>Add Tech Stack section with named SDKs.</li>
+    <li>Expand Insurance Verticals matrix (add Crop / Parametric, SME group, Microinsurance, Pet, Cyber, Marine).</li>
+    <li>Rewrite "Next-Gen Technologies" cards with insurance-specific use cases.</li>
+    <li>Rewrite "Why Choose Us" with insurance-domain differentiators.</li>
+    <li>Add jump-link Table of Contents.</li>
+  </ol>
+
+  <h3>Weeks 9-12 — Off-page link magnets</h3>
+  <ol>
+    <li>Publish "<i>2026 IRDAI Insurance App Compliance Checklist</i>" gated PDF.</li>
+    <li>Build "<i>Insurance App Cost Calculator</i>" widget on this URL.</li>
+    <li>Pitch original survey ("<i>State of Indian InsurTech 2026</i>") to Inc42, YourStory, Moneycontrol, Mint, FinTech Magazine, e27, India InsurTech Association.</li>
+    <li>Internal-link campaign: from <code>/fintech-software-development</code>, <code>/healthcare-app-development</code>, <code>/loan-lending-app-development-company</code>, <code>/wealthtech-app-development-company</code>, <code>/ai-chatbot-development-services</code> with descriptive anchors back to this URL.</li>
+    <li>Submit to GSC after each major batch; bump <code>&lt;lastmod&gt;</code>.</li>
+    <li>Pursue listings on Clutch / GoodFirms / DesignRush / ITFirms in "InsurTech App Development" categories.</li>
+  </ol>
+
+  <h3>Expected outcome timeline</h3>
+  <ul class="tight">
+    <li><b>0-30 days:</b> Page exits algorithmic suppression; long-tail impressions begin in GSC for queries like "IRDAI insurance app development", "Bima Sugam app development".</li>
+    <li><b>30-60 days:</b> Page 4-6 for "insurance app development company"; page 2-3 for long-tails ("UBI motor insurance app development", "claim automation app development").</li>
+    <li><b>60-120 days:</b> Page 2 candidate for primary keyword; page 1 for clearer long-tails ("Bima Sugam app development India", "InsurTech app development company").</li>
+    <li><b>120-180 days:</b> Page 1 for primary keyword realistic <b>only with</b> consistent off-page momentum and at least one named carrier case study live.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>🧾 One-line summary</h2>
+  <p>The URL slug is fine and the schema scaffolding is partially there, but the page is suppressed by an unusual mix of bugs: <b>an "App vs Application" keyword fragmentation between H1 and title, a meaningless "Insurance App Discussion" in the Service schema, the same site-wide leading-space URL bug + wrong Twitter handle + Product schema fake-rating, three different head-titles, the 11 off-topic case studies, no IRDAI / Bima Sugam content, and casual "no worries" hero copy on a top-tier YMYL page</b>. Fix the bleeding in Week 1, inject named insurance expertise in Weeks 2-4, then add IRDAI / Bima Sugam / claim-automation / telematics depth in Weeks 5-8 — that's the path off the bench.</p>
+</section>
+
+<div class="footer">SEO Audit · /insurance-app-development-company · prepared for IMG Global Infotech · 06 Jun 2026</div>
+
+</div>
+</body>
+</html>
