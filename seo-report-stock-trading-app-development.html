@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — /stock-trading-app-development | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0b1220; --panel:#111a2e; --panel2:#15203a; --line:#1f2c4a;
+    --text:#e6edf7; --muted:#9aa7c2; --accent:#17FFDE; --accent2:#4E94FF;
+    --critical:#ff4d61; --high:#ff8a3d; --medium:#ffc83d; --low:#3dd1ff; --good:#00efa4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 24px}
+  header.hero{background:linear-gradient(135deg,#08224A,#1F4156);border:1px solid var(--line);border-radius:18px;padding:32px;margin-bottom:24px;position:relative;overflow:hidden}
+  header.hero:before{content:"";position:absolute;inset:auto -60px -60px auto;width:280px;height:280px;background:radial-gradient(closest-side,rgba(23,255,222,.22),transparent);filter:blur(20px)}
+  header h1{margin:0 0 6px;font-size:28px;letter-spacing:-.01em}
+  header .meta{color:var(--muted);font-size:14px}
+  header .url{display:inline-block;margin-top:10px;background:#0a1428;border:1px solid var(--line);padding:8px 12px;border-radius:10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#cfe9ff;word-break:break-all}
+  .grid{display:grid;gap:18px}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:880px){.grid-3,.grid-2{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:18px}
+  .card h2{margin:0 0 14px;font-size:20px;letter-spacing:-.01em}
+  .card h3{margin:14px 0 8px;font-size:16px}
+  .scorebar{display:flex;align-items:center;gap:12px;margin:6px 0}
+  .scorebar .label{width:220px;color:var(--muted);font-size:13px}
+  .scorebar .bar{flex:1;height:8px;background:#0a1428;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .scorebar .fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .scorebar .val{width:48px;text-align:right;font-variant-numeric:tabular-nums;font-size:13px}
+  .pill{display:inline-block;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+  .pill.critical{background:rgba(255,77,97,.12);color:var(--critical);border:1px solid rgba(255,77,97,.35)}
+  .pill.high{background:rgba(255,138,61,.12);color:var(--high);border:1px solid rgba(255,138,61,.35)}
+  .pill.medium{background:rgba(255,200,61,.12);color:var(--medium);border:1px solid rgba(255,200,61,.35)}
+  .pill.low{background:rgba(61,209,255,.12);color:var(--low);border:1px solid rgba(61,209,255,.35)}
+  .pill.good{background:rgba(0,239,164,.12);color:var(--good);border:1px solid rgba(0,239,164,.35)}
+  .issue{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:var(--panel2)}
+  .issue header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;background:transparent;padding:0}
+  .issue header strong{font-size:15px}
+  .issue .why,.issue .fix{margin:8px 0;padding:10px 12px;border-radius:8px;font-size:14px}
+  .issue .why{background:rgba(255,77,97,.07);border-left:3px solid var(--critical)}
+  .issue .fix{background:rgba(0,239,164,.07);border-left:3px solid var(--good)}
+  .issue .label{display:inline-block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-right:6px}
+  code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+  code{background:#0a1428;padding:2px 6px;border-radius:5px;color:#cfe9ff}
+  pre{background:#0a1428;border:1px solid var(--line);border-radius:10px;padding:12px;overflow:auto}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{color:var(--muted);font-weight:600;background:#0a1428}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}
+  .toc a{font-size:12px;color:#cfe9ff;background:#0a1428;border:1px solid var(--line);padding:6px 10px;border-radius:99px;text-decoration:none}
+  .toc a:hover{border-color:var(--accent)}
+  details{background:#0a1428;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0}
+  summary{cursor:pointer;font-weight:600}
+  .small{font-size:12px;color:var(--muted)}
+  ul.tight li{margin:4px 0}
+  .footer{margin-top:30px;color:var(--muted);font-size:12px;text-align:center}
+  .donut{--p:0;width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--accent) calc(var(--p)*1%),#1f2c4a 0);display:flex;align-items:center;justify-content:center;position:relative}
+  .donut:after{content:"";position:absolute;inset:14px;background:var(--panel);border-radius:50%}
+  .donut span{position:relative;z-index:1;font-size:24px;font-weight:700}
+  .summarygrid{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:center}
+  @media (max-width:680px){.summarygrid{grid-template-columns:1fr}}
+  .num{font-variant-numeric:tabular-nums}
+  .verdict{display:flex;align-items:center;gap:8px;margin:6px 0}
+  .tick{color:var(--good)}
+  .cross{color:var(--critical)}
+  .warn{color:var(--high)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="pill critical" style="margin-bottom:10px">SEO Audit · Stock Trading · Top-Tier YMYL Finance</div>
+  <h1>Stock Trading App Development — SEO Audit &amp; Ranking Diagnosis</h1>
+  <div class="meta">IMG Global Infotech · Generated 06 Jun 2026 · Analyst-grade report</div>
+  <div class="url">https://www.imgglobalinfotech.com/stock-trading-app-development</div>
+</header>
+
+<section class="card">
+  <div class="summarygrid">
+    <div class="donut" style="--p:30"><span class="num">30</span></div>
+    <div>
+      <h2 style="margin-top:0">Overall Score — 30 / 100</h2>
+      <p style="margin:6px 0 12px;color:var(--muted)">
+        Stock trading sits at the <b>absolute top tier of YMYL</b> — higher even than healthcare or lending. Google demands the strictest possible E-E-A-T proof for a service page selling "stock trading apps". This URL has <b>none</b> of it: no SEBI/regulatory content, no broker-API integrations named, no compliance officer bio, no real case studies. Worse, the page is dragged down by the same site-wide quality bugs as your other pages (<b>three different titles, fake-rating Product schema, geo:DE, legacy meta bloat</b>) plus three trading-specific ones: <b>11 case studies that are 100% off-topic</b> (Blinkit, Tinder, Netflix on a stock-trading page), an <b>invalid JSON-LD URL with a leading space</b>, and an <b>inconsistent / outdated Twitter URL in the schema</b>. The combined signal to Google is "templated, hand-untouched, low expertise for a YMYL niche" — which is exactly the profile that never ranks.
+      </p>
+      <div class="scorebar"><div class="label">On-Page SEO</div><div class="bar"><div class="fill" style="width:42%"></div></div><div class="val">42</div></div>
+      <div class="scorebar"><div class="label">Content Quality / E-E-A-T</div><div class="bar"><div class="fill" style="width:15%"></div></div><div class="val">15</div></div>
+      <div class="scorebar"><div class="label">Topical Depth (SEBI, brokers, APIs)</div><div class="bar"><div class="fill" style="width:10%"></div></div><div class="val">10</div></div>
+      <div class="scorebar"><div class="label">Technical / Meta</div><div class="bar"><div class="fill" style="width:42%"></div></div><div class="val">42</div></div>
+      <div class="scorebar"><div class="label">Schema</div><div class="bar"><div class="fill" style="width:30%"></div></div><div class="val">30</div></div>
+      <div class="scorebar"><div class="label">Images / Performance</div><div class="bar"><div class="fill" style="width:65%"></div></div><div class="val">65</div></div>
+      <div class="scorebar"><div class="label">Internal linking / IA</div><div class="bar"><div class="fill" style="width:25%"></div></div><div class="val">25</div></div>
+      <div class="scorebar"><div class="label">URL friendliness</div><div class="bar"><div class="fill" style="width:90%"></div></div><div class="val">90</div></div>
+    </div>
+  </div>
+</section>
+
+<nav class="toc">
+  <a href="#why">Why this page never ranked</a>
+  <a href="#offtopic">Wrong / off-topic content</a>
+  <a href="#missing">Missing sections</a>
+  <a href="#meta">Meta &amp; title</a>
+  <a href="#schema">Schema</a>
+  <a href="#headings">Headings</a>
+  <a href="#content">Content quality</a>
+  <a href="#images">Images</a>
+  <a href="#internal">Internal linking</a>
+  <a href="#url">URL friendliness</a>
+  <a href="#competitor">Competitor gap</a>
+  <a href="#plan">Action plan</a>
+</nav>
+
+<!-- ============== WHY ============== -->
+<section class="card" id="why">
+  <h2>📈 Why this page has never ranked — root causes (WHY + FIX)</h2>
+
+  <div class="issue">
+    <header><strong>1. Top-tier YMYL (stock trading) with zero regulatory / broker / API content</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Trading is the most heavily scrutinised YMYL category Google has. A page selling "stock trading app development" is implicitly asking Google to send buyers who will then build apps that handle <b>real money + real securities</b>. Google's Quality Raters expect: <b>SEBI registration depth, broker-dealer / sub-broker / AP framework, SCRA / Stock Brokers Regulations, KYC / KRA-CKYC, AML/CFT, FATCA / CRS, NSE / BSE membership requirements, custodial accounts, risk disclosure, algo-trading guidelines, F&amp;O margin (SPAN / ELM), Account Aggregator, Smallcase rails</b> — etc. This page covers <b>none</b> of these. Without them, ranking is capped near zero, no matter what backlinks you build.</div>
+    <div class="fix"><span class="label">Fix:</span> Add a dedicated H2 "<i>SEBI &amp; Global Trading Compliance We Build For</i>" — 800-1,200 words covering SEBI Brokers Regulations, KRA-CKYC, FATCA, AMC, exchange membership, FINRA (US), MiFID II (EU), FCA (UK), MAS (SG), ASIC (AU). Then a "<i>Broker &amp; Market Data Integrations Shipped</i>" H2 with named APIs: <b>Zerodha Kite Connect, Upstox API, Angel One SmartAPI, ICICI Breeze, IIFL Markets, Fyers, 5paisa, Alice Blue Ant API, Interactive Brokers TWS, Alpaca, Tradier, Polygon.io, Alpha Vantage, IEX Cloud, NSE/BSE direct feeds</b>.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>2. 11 off-topic case studies — none about stock trading</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> The "<i>Case Studies Inspiring Innovation</i>" block lists eleven case studies: <b>Blinkit (grocery), Astrotalk (astrology), Zillow (real estate), Uber (ride-share), Tinder (dating), TikTok (social), MoneyLion (banking — only adjacent), TaskRabbit (gigs), UberEats (food), Netflix (OTT), Practo (healthcare)</b>. Zero trading apps. Worse, the case-study links point to <code>/case-study/blinkit-like-app</code>, <code>/case-study/tinder-like-app</code>, <code>/case-study/netflix-like-app</code> — the URLs themselves are "X clone" patterns. This is a sitewide template block that's killing every URL it appears on, but on a YMYL trading page it's catastrophic — Google reads the page as "<i>generic app shop, not a trading specialist</i>".</div>
+    <div class="fix"><span class="label">Fix:</span> Delete every off-topic case study from this URL. Replace with 3-5 real or labeled-concept <b>trading projects</b>: a discount-broker app, a copy-trading platform, an options screener, a robo-advisor, an algo-trading dashboard. If you have no real ones, build prototype "demo concepts" with screenshots, tech stack, and named broker API used.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>3. Product schema with fake-looking aggregateRating 4.7/143</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Same self-serving reviews pattern as your other pages. Plus the Service schema already represents the offering — Product is duplicate and miscategorised for a B2B service. Trading is the niche where Google is most likely to apply structured-data manual actions.</div>
+    <div class="fix"><span class="label">Fix:</span> Delete the Product schema block (lines 82-101). Keep Organization → WebSite → WebPage → Service → BreadcrumbList → FAQPage.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>4. Invalid URL in WebPage schema — leading space</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> The WebPage schema declares:
+      <pre>"url": " https://www.imgglobalinfotech.com/stock-trading-app-development"</pre>
+      There is a <b>leading space</b> before <code>https://</code>. That's an invalid URL per RFC 3986 and Google's schema validators flag it as a parse error. The entire WebPage schema may be dropped from indexing.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Remove the leading space in the blade template (line 33). Verify with <a href="https://search.google.com/test/rich-results" style="color:var(--accent)">Google Rich Results Test</a> after deploy.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>5. Twitter URL in sameAs is wrong username + wrong domain</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Organization schema sameAs has:
+      <pre>"https://twitter.com/imgglobalinfo"</pre>
+      Two problems:
+      <ul class="tight">
+        <li>Domain is <code>twitter.com</code>, not the current <code>x.com</code>. The redirect still works, but the entity-resolution confidence drops.</li>
+        <li>Username is <code>imgglobalinfo</code> — but on every other audited page the social link is <code>@imgglobal</code>. Either this page references a defunct/wrong account, or one of the two is wrong sitewide.</li>
+      </ul>
+      Inconsistent sameAs hurts Knowledge Graph confidence and weakens E-E-A-T.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Pick the correct, live profile (likely <code>https://x.com/imgglobal</code>) and use the same URL on every page. Also fix the Organization name string — this page has "IMG Global Infotech" but WebSite has "IMGGlobalInfotech" (no spaces); standardise on one.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>6. Title / og:title / twitter:title — three different adjectives</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span>
+      <table style="margin-top:8px">
+        <tr><th>Surface</th><th>Phrase</th></tr>
+        <tr><td>&lt;title&gt;</td><td><b>Best</b> Stock Trading App Development Company</td></tr>
+        <tr><td>og:title</td><td><b>Custom</b> Stock Trading App Development Company</td></tr>
+        <tr><td>twitter:title</td><td><b>Top</b> Stock Trading App Development Company</td></tr>
+        <tr><td>H1</td><td>Stock Trading App Development Company (no adjective)</td></tr>
+      </table>
+      Same disorientation pattern as your other URLs.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Pick one phrase and use everywhere. Recommended primary: "<i>Stock Trading App Development Company</i>" + secondary "<i>SEBI-Compliant</i>". Align all four surfaces.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>7. Title is too short (42 chars)</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> "Best Stock Trading App Development Company" — 42 chars. Wastes 15-20 SERP chars; no number, no broker-API hint, no compliance signal.</div>
+    <div class="fix"><span class="label">Fix (58 chars):</span> <code>Stock Trading App Development Company — SEBI Compliant</code></div>
+  </div>
+
+  <div class="issue">
+    <header><strong>8. Meta description is generic — no SEBI / broker / regulator differentiators</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> <code>IMG Global Infotech, a leading stock trading app development company, builds secure, scalable trading apps with advanced features. Get your app today!</code> — 149 chars (OK length) but no broker-API depth, no compliance mention, no regulator name, no number/proof. Generic descriptions get rewritten by Google.</div>
+    <div class="fix"><span class="label">Fix (158 chars):</span> <code>SEBI-aware stock &amp; trading app development — Kite Connect, SmartAPI, Breeze &amp; Upstox ready. KRA-CKYC, FATCA, AMC built-in. 100+ devs, 11+ years. Free quote.</code></div>
+  </div>
+
+  <div class="issue">
+    <header><strong>9. Schema duplication — Service AND Product</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Both Service (correct) and Product (incorrect) schemas describe the same offering, contradicting each other. The Product schema's <code>brand.url</code> self-references this URL instead of the root domain — another invalid pointer.</div>
+    <div class="fix"><span class="label">Fix:</span> Delete the Product block. Keep only the @graph (Organization/WebSite/WebPage), Service, BreadcrumbList, FAQPage.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>10. dateModified === datePublished (fake freshness)</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> Both dates are <code>2025-09-18T00:09:11-08:00</code> ... actually datePublished is <code>00:09:11</code> and dateModified is <code>00:31:05</code> on the same date. So the page was edited 22 minutes after publish and hasn't been touched since. The user says the page has been live for a long time without ranking — so either the dates are hardcoded (lying) or the page has truly never been updated. Both bad.</div>
+    <div class="fix"><span class="label">Fix:</span> Make dateModified dynamic from real file mtime. Then commit a real content update every quarter so the freshness signal is genuine.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>11. Geo signal = DE (Germany) — same sitewide bug</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> <code>meta geo.region "DE"</code> on a page that targets India / US / UAE buyers; <code>og:locale "en_US"</code>; <code>og:locale:alternate "en_AE"</code>; no <code>hreflang</code>. The cross-signals confuse geo bucketing.</div>
+    <div class="fix"><span class="label">Fix:</span> Remove <code>geo.region</code> (legacy tag); implement <code>hreflang</code> for served markets if multi-region, otherwise drop the alternate locale.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>12. Hero subtext is generic; broken English in a section H2</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> Hero copy "<i>Get traders involved and assist them in boosting sales and profits</i>" — generic ad-speak (and traders don't have "sales"). H2 "<i>Transformation Impact on Trading Industry <b>As Per Your Business</b></i>" — broken syntax; "As Per Your Business" doesn't parse. H2 "<i>Extensive Trading App Development for Flawless Market Access</i>" — overpromise that triggers Quality Rater skepticism on a YMYL page.</div>
+    <div class="fix"><span class="label">Fix:</span> Have a native English editor (or careful LLM check) pass over the page. Rewrite the awkward H2s; remove promises like "flawless" / "best" / "top" from a YMYL service page.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>13. "Why Choose Us" is too generic for top-tier YMYL Finance</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> 4 cards: "<i>Cost-Effective Solution</i>", "<i>Complete Customization Assistance</i>", "<i>Dashboard Allocation Facility</i>" (awkward), "<i>24/7 Customer Support</i>". These could be on any agency page about anything. For a stock-trading platform buyer they say zero. Google rewards specificity.</div>
+    <div class="fix"><span class="label">Fix:</span> Replace with trading-specific differentiators: "<i>SEBI &amp; FINRA expertise — built apps for 6 NSE/BSE-member brokers</i>", "<i>FIX 4.4 / 5.0 protocol integrations shipped</i>", "<i>Sub-100ms order routing benchmarks</i>", "<i>AWS Outpost / co-location architectures for HFT-adjacent latency</i>", "<i>Live integrations: Zerodha Kite, Angel SmartAPI, Upstox, Fyers, IIFL Markets</i>".</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>14. No author + no compliance officer byline</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> For top-tier YMYL Finance, the absence of named authority is the single biggest E-E-A-T gap. Quality Raters and the algorithm both look for "<i>who at this agency understands SEBI</i>" before trusting the page enough to surface it.</div>
+    <div class="fix"><span class="label">Fix:</span> Add a visible byline block with: a named developer lead + a named compliance reviewer (contract a SEBI-Registered Investment Advisor or an ex-broker compliance officer). Both with photos, roles, and LinkedIn links.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>15. No publication / updated date visible on the page</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Despite schema dateModified, no visible date on page. Trading buyers expect to see freshness — regulations change every quarter (e.g. SEBI's Total Expense Ratio circulars, F&amp;O margin reforms).</div>
+    <div class="fix"><span class="label">Fix:</span> Add a visible "Published / Updated" line below H1 with <code>datetime</code> attribute. Plan to update meaningfully each quarter.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>16. No tech-stack / FIX / market-data section</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> A trading app development buyer expects to see specifics: <b>FIX 4.4 / 5.0 protocol, websockets for tick data, low-latency message queues (Kafka, RabbitMQ, ZeroMQ), Redis for order book, time-series DB (TimescaleDB, kdb+), broker SDKs, market data feeds, multi-region failover, exchange-grade certificates (FINRA reporting, SEBI brokers connect)</b>. The page mentions none.</div>
+    <div class="fix"><span class="label">Fix:</span> Add a "<i>Trading-Grade Tech Stack</i>" H2 section with named protocols, named brokers, named market-data providers, and named cloud architectures.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>17. Same legacy meta bloat + outdated copyright drift</strong><span class="pill low">Low</span></header>
+    <div class="why"><span class="label">Why:</span> revisit-after, distribution, coverage, rating, language, copyright, rights, reply-to, web-author — useless 2020s-era tags.</div>
+    <div class="fix"><span class="label">Fix:</span> Strip at layout level.</div>
+  </div>
+</section>
+
+<!-- ============== OFF-TOPIC / WRONG ============== -->
+<section class="card" id="offtopic">
+  <h2>🚫 Content that's wrong, off-topic, or doesn't belong here</h2>
+  <table>
+    <thead><tr><th style="width:30%">Block</th><th>Problem</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>"Case Studies Inspiring Innovation" block — 11 cards</b></td>
+        <td>Blinkit, Astrotalk, Zillow, Uber, Tinder, TikTok, MoneyLion, TaskRabbit, UberEats, Netflix, Practo. None about stock trading. Same template block as the pet-care page.</td>
+        <td>Delete completely. Replace with 3-5 trading projects (real or labeled "concept / demo"). If no real ones, show "Recent trading-tech experiments" with prototypes.</td>
+      </tr>
+      <tr>
+        <td><b>Case-study target URLs use "X-like-app" pattern</b></td>
+        <td><code>/case-study/blinkit-like-app</code>, <code>/case-study/tinder-like-app</code>, <code>/case-study/netflix-like-app</code> — competitor-brand clone-app URL pattern is a known algorithmic-quality demotion trigger.</td>
+        <td>Move all "like-app" case studies under a clearly labeled "<i>Apps that inspire our designs</i>" hub, not "<i>Our Case Studies</i>".</td>
+      </tr>
+      <tr>
+        <td>H2 "<i>Transformation Impact on Trading Industry As Per Your Business</i>"</td>
+        <td>Broken syntax — "As Per Your Business" doesn't parse.</td>
+        <td>Rewrite: "<i>How Modern Trading Apps Transform Brokerage Operations</i>".</td>
+      </tr>
+      <tr>
+        <td>H2 "<i>Extensive Trading App Development for Flawless Market Access</i>"</td>
+        <td>Overpromise ("flawless") on a YMYL Finance page = Quality Rater skepticism.</td>
+        <td>Rewrite: "<i>Built for Real-Time Market Access: NSE, BSE, NASDAQ &amp; Beyond</i>".</td>
+      </tr>
+      <tr>
+        <td>"Why Choose Us" cards</td>
+        <td>Generic — no trading-specific signals (no SEBI, no FINRA, no FIX, no broker, no latency).</td>
+        <td>Rewrite with trading-domain specifics (see Issue #13 above).</td>
+      </tr>
+      <tr>
+        <td>"Dashboard Allocation Facility" (H3)</td>
+        <td>Awkward / non-standard wording — what does "allocation facility" mean?</td>
+        <td>Rename: "<i>Role-Based Admin Dashboards</i>".</td>
+      </tr>
+      <tr>
+        <td>Hero subtext "<i>boosting sales and profits</i>"</td>
+        <td>"Sales" is not the right word for traders. Reads as auto-generated content.</td>
+        <td>Rewrite to use "<i>order flow, AUM, brokerage revenue</i>".</td>
+      </tr>
+      <tr>
+        <td>Sitewide "Coca-Cola / Adani / Tata / Colgate" logo strip (if it appears here too)</td>
+        <td>Implausible-client claim on a YMYL trading-app page.</td>
+        <td>Remove or replace with verifiable trading / fintech clients.</td>
+      </tr>
+      <tr>
+        <td>WebPage schema URL with leading space</td>
+        <td>Invalid URL — schema parser drops the WebPage node.</td>
+        <td>Remove the leading space (line 33 of blade).</td>
+      </tr>
+      <tr>
+        <td>sameAs Twitter URL <code>twitter.com/imgglobalinfo</code></td>
+        <td>Wrong username + wrong domain (vs the <code>x.com/imgglobal</code> used elsewhere).</td>
+        <td>Standardise on one canonical social URL across all pages.</td>
+      </tr>
+      <tr>
+        <td>Brand-string mismatch in schemas</td>
+        <td>Organization name = "IMG Global Infotech" (with spaces); WebSite/Service name = "IMGGlobalInfotech" (no spaces).</td>
+        <td>Standardise on one form (Google prefers the human-readable one with spaces).</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== MISSING ============== -->
+<section class="card" id="missing">
+  <h2>➕ Sections this page needs but doesn't have</h2>
+  <p>Ranked by likely ranking impact in the trading-app niche.</p>
+  <table>
+    <thead><tr><th>Section</th><th>Why it matters</th><th>Where to place</th></tr></thead>
+    <tbody>
+      <tr><td><b>1. SEBI &amp; Global Trading Compliance block</b> — SEBI Stock Brokers Regulations, SEBI Algo-trading framework, KRA-CKYC, FATCA / CRS, FINRA (US), MiFID II (EU), FCA (UK), MAS (SG), ASIC (AU)</td><td>Single biggest topical-authority lever in this niche. Without it, ranking is capped.</td><td>After hero, before services</td></tr>
+      <tr><td><b>2. Author + Compliance Reviewer byline</b> — named developer lead + named SEBI / FINRA expert with photo + LinkedIn</td><td>YMYL E-E-A-T core. Without it, max rank capped.</td><td>Below H1</td></tr>
+      <tr><td><b>3. Broker &amp; Market-Data Integrations Shipped</b> — Zerodha Kite Connect, Upstox, Angel SmartAPI, ICICI Breeze, IIFL, Fyers, 5paisa, Alice Blue, Interactive Brokers TWS, Alpaca, Tradier, Polygon.io, Alpha Vantage, IEX Cloud, NSE/BSE direct feeds</td><td>Buyer-intent search cluster + named-entity trust.</td><td>Tech stack section</td></tr>
+      <tr><td><b>4. Trading-grade Tech Stack</b> — FIX 4.4 / 5.0, websockets for tick data, Kafka/RabbitMQ/ZeroMQ, Redis order-book, TimescaleDB/kdb+, low-latency C++/Rust engines, multi-region failover, AWS Outpost / colo</td><td>Captures CTO/architect-intent searches.</td><td>Before "Why Choose"</td></tr>
+      <tr><td><b>5. Types of Trading Apps comparison table</b> (Discount broker, Full-service broker, Robo-advisor, Copy / Social trading, Algo / Quant, Options screener, Mutual fund, F&amp;O, Forex, Crypto, IPO subscription)</td><td>Research-intent + internal link feeder.</td><td>After services</td></tr>
+      <tr><td><b>6. Real Case Studies (3-5)</b> with named client, scope, broker-API used, named architecture, metrics (orders/sec, latency p95), testimonial with reviewer photo + LinkedIn</td><td>Strongest E-E-A-T lift. Replace off-topic case studies.</td><td>Replace existing block</td></tr>
+      <tr><td><b>7. Detailed Cost Breakdown table</b> (Basic broker app / SaaS for sub-brokers / Enterprise multi-exchange × feature × $ range × hours) — promoted from FAQ to first-class section</td><td>"Cost to build a stock trading app" is high-volume long-tail.</td><td>Before Why Choose</td></tr>
+      <tr><td><b>8. Timeline / Roadmap with milestones</b></td><td>Same — top long-tail.</td><td>Next to cost</td></tr>
+      <tr><td><b>9. Risk Management &amp; Compliance Engine block</b> — pre-trade risk checks, position limits, margin (SPAN/ELM), order rejection rules, surveillance, audit logs, regulatory reporting</td><td>YMYL critical content.</td><td>Mid-page</td></tr>
+      <tr><td><b>10. Fraud Prevention &amp; Security block</b> — device fingerprinting, behavioural biometrics, mule detection, AML transaction monitoring, sanctions screening, account-takeover prevention</td><td>YMYL critical.</td><td>After compliance</td></tr>
+      <tr><td><b>11. Order Types &amp; Routing matrix</b> — Market, Limit, SL, SL-M, GTT, AMO, Bracket, Cover, OCO, Iceberg, Trailing Stop, TWAP, VWAP, smart-order routing</td><td>Domain depth Google rewards.</td><td>Features section</td></tr>
+      <tr><td><b>12. Algorithmic / Quant Trading block</b> — strategy backtesting, paper trading, basket orders, API limits, websocket throttling, SEBI Algo guidelines</td><td>High-value buyer segment.</td><td>After Order Types</td></tr>
+      <tr><td><b>13. Engagement models</b> (Fixed / T&amp;M / Dedicated Team) with rate cards</td><td>Procurement-buyer intent.</td><td>Before CTA2</td></tr>
+      <tr><td><b>14. Regions served &amp; exchange list</b> (NSE, BSE, MCX, NYSE, NASDAQ, LSE, SGX, ASX) with hreflang</td><td>Geo + exchange-specific long-tails.</td><td>Footer</td></tr>
+      <tr><td><b>15. Downloadable assets</b> — "<i>SEBI Trading App Compliance Checklist 2026</i>" PDF + "<i>Stock App Cost Calculator</i>" widget</td><td>Link magnets — single biggest off-page lever.</td><td>Side CTA</td></tr>
+      <tr><td><b>16. Visible Published / Updated date</b></td><td>Freshness signal — regulators update quarterly.</td><td>Below H1</td></tr>
+      <tr><td><b>17. Awards &amp; recognitions</b> (Clutch, GoodFirms, NASSCOM, IAMAI, ASSOCHAM) — specifically in fintech category</td><td>Trust signal.</td><td>Above footer</td></tr>
+      <tr><td><b>18. Jump-link Table of Contents</b></td><td>Drives Google "Jump To" sitelinks.</td><td>After hero</td></tr>
+      <tr><td><b>19. Demo video / product walkthrough embedded from YouTube</b></td><td>Captures video SERP + strongest credibility lift.</td><td>After process</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== META ============== -->
+<section class="card" id="meta">
+  <h2>🏷️ Meta / Title layer — full audit</h2>
+  <table>
+    <thead><tr><th>Tag</th><th>Current</th><th>Verdict</th><th>Recommended</th></tr></thead>
+    <tbody>
+      <tr><td>&lt;title&gt;</td><td>Best Stock Trading App Development Company (42 chars)</td><td><span class="pill high">Too short, no USP</span></td><td>Stock Trading App Development Company — SEBI Compliant (58 chars)</td></tr>
+      <tr><td>meta description</td><td>149 chars, generic, no SEBI/broker keywords</td><td><span class="pill high">Weak</span></td><td>SEBI-aware stock &amp; trading app development — Kite Connect, SmartAPI, Breeze &amp; Upstox ready. KRA-CKYC, FATCA, AMC built-in. 100+ devs, 11+ years. Free quote. (158 chars)</td></tr>
+      <tr><td>H1</td><td>Stock Trading App Development Company</td><td><span class="pill good">Single H1, OK</span></td><td>Stock Trading App Development Company for SEBI-Compliant Brokers</td></tr>
+      <tr><td>og:title</td><td><b>Custom</b> Stock Trading App Development Company</td><td><span class="pill high">Inconsistent</span></td><td>Match the cleaned title</td></tr>
+      <tr><td>twitter:title</td><td><b>Top</b> Stock Trading App Development Company</td><td><span class="pill high">Inconsistent</span></td><td>Match the cleaned title</td></tr>
+      <tr><td>canonical</td><td>https://www.imgglobalinfotech.com/stock-trading-app-development</td><td><span class="pill good">Self-referencing</span></td><td>Keep</td></tr>
+      <tr><td>og:image / twitter:image</td><td>Cloudfront CDN — <code>stock-trading-app-development.jpg</code></td><td><span class="pill good">Good</span></td><td>Keep</td></tr>
+      <tr><td>robots</td><td>MAX-IMAGE-PREVIEW:LARGE, INDEX, FOLLOW</td><td><span class="pill good">Good</span></td><td>Keep</td></tr>
+      <tr><td>geo.region</td><td>DE</td><td><span class="pill critical">Wrong</span></td><td>Remove or set to IN</td></tr>
+      <tr><td>og:locale:alternate</td><td>en_AE</td><td><span class="pill medium">Misleading without hreflang</span></td><td>Add hreflang or drop</td></tr>
+      <tr><td>Legacy tags (revisit-after, distribution, coverage, rating, language, copyright, rights, reply-to, web-author)</td><td>All present</td><td><span class="pill low">Useless bloat</span></td><td>Remove at layout level</td></tr>
+      <tr><td>Author byline visible</td><td>Not on page</td><td><span class="pill critical">YMYL Finance killer</span></td><td>Add named author + named SEBI/FINRA compliance reviewer</td></tr>
+      <tr><td>Published / Updated visible</td><td>Not on page</td><td><span class="pill high">Missing</span></td><td>Add with <code>datetime</code></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== SCHEMA ============== -->
+<section class="card" id="schema">
+  <h2>🧩 Schema markup — full audit</h2>
+  <p>Blocks present: <b>Organization (in @graph), WebSite, WebPage, Service, Product, BreadcrumbList (via include), FAQPage (via include)</b>.</p>
+
+  <div class="issue">
+    <header><strong>Product schema with fake-looking aggregateRating</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> <code>aggregateRating 4.7/143</code> with no visible reviews. B2B service mis-typed as Product. Brand URL self-references the page URL.</div>
+    <div class="fix"><span class="label">Fix:</span> Delete the Product block entirely.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>WebPage schema URL has invalid leading space</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> <code>"url": " https://..."</code> — invalid URL per RFC 3986. Schema validators reject the WebPage node.</div>
+    <div class="fix"><span class="label">Fix:</span> Remove the leading space in the blade template (line 33).</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Organization sameAs is short and contains wrong Twitter URL</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> <code>"https://twitter.com/imgglobalinfo"</code> — wrong domain (still <code>twitter.com</code> instead of <code>x.com</code>) and wrong username (<code>imgglobalinfo</code> vs <code>imgglobal</code> used elsewhere). Also missing Instagram, YouTube, Crunchbase, Clutch, GoodFirms.</div>
+    <div class="fix"><span class="label">Fix:</span> Standardise the Organization sameAs across all pages to a single authoritative list:
+      <pre>"sameAs": [
+  "https://www.facebook.com/imgglobalinfotech",
+  "https://x.com/imgglobal",
+  "https://www.instagram.com/imgglobalinfotech/",
+  "https://www.linkedin.com/company/imgglobalinfotech/",
+  "https://www.youtube.com/@imgglobalinfotech"
+]</pre>
+    </div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Brand-string inconsistency</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> Organization name = "IMG Global Infotech" (with spaces) ✅. WebSite name + Service name + Product name = "IMGGlobalInfotech" (no spaces) ❌. Google's entity model prefers the human-readable form.</div>
+    <div class="fix"><span class="label">Fix:</span> Standardise on "<i>IMG Global Infotech</i>" (with spaces) across every schema block.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Recommended drop-in schema</strong><span class="pill good">Good</span></header>
+    <details>
+      <summary>Click to see drop-in JSON-LD</summary>
+<pre>{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.imgglobalinfotech.com/#organization",
+      "name": "IMG Global Infotech Private Limited",
+      "url": "https://www.imgglobalinfotech.com/",
+      "logo": "https://d1y41eupgbwbb2.cloudfront.net/images/xl-logo.webp",
+      "address": { "@type": "PostalAddress", "addressCountry": "IN" },
+      "sameAs": [
+        "https://www.facebook.com/imgglobalinfotech",
+        "https://x.com/imgglobal",
+        "https://www.instagram.com/imgglobalinfotech/",
+        "https://www.linkedin.com/company/imgglobalinfotech/",
+        "https://www.youtube.com/@imgglobalinfotech"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.imgglobalinfotech.com/#website",
+      "url": "https://www.imgglobalinfotech.com/",
+      "name": "IMG Global Infotech",
+      "publisher": { "@id": "https://www.imgglobalinfotech.com/#organization" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.imgglobalinfotech.com/stock-trading-app-development#webpage",
+      "url": "https://www.imgglobalinfotech.com/stock-trading-app-development",
+      "name": "Stock Trading App Development Company",
+      "isPartOf": { "@id": "https://www.imgglobalinfotech.com/#website" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Stock Trading App Development",
+      "provider": { "@id": "https://www.imgglobalinfotech.com/#organization" },
+      "areaServed": ["IN","US","AE","GB","SG","AU"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Stock Trading App Development",
+        "itemListElement": [
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Discount Broker App Development"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Full-Service Broker App Development"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Robo-Advisor &amp; Wealth-Tech App Development"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Copy &amp; Social Trading App Development"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Algorithmic &amp; Quant Trading Platform Development"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Options &amp; F&amp;O Trading App Development"}}
+        ]
+      }
+    }
+  ]
+}</pre>
+    </details>
+  </div>
+</section>
+
+<!-- ============== HEADINGS ============== -->
+<section class="card" id="headings">
+  <h2>🏗️ Heading hierarchy</h2>
+  <table>
+    <thead><tr><th>Tag</th><th>Text</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td>H1</td><td>Stock Trading App Development Company</td><td><span class="pill good">Single H1, OK</span></td></tr>
+      <tr><td>H2</td><td>Trading App Development Services</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Key Advantages of Trading App Development</td><td><span class="pill medium">"Advantages" is marketing-speak; OK</span></td></tr>
+      <tr><td>H3 ×4</td><td>User-Friendly Interface / Real-Time Insights / Quick Execution / Scalability</td><td><span class="pill medium">Generic — no trading-tech specifics</span></td></tr>
+      <tr><td>H2</td><td>Transformation Impact on Trading Industry <b>As Per Your Business</b></td><td><span class="pill critical">Broken syntax</span></td></tr>
+      <tr><td>H2</td><td>Extensive Trading App Development for <b>Flawless</b> Market Access</td><td><span class="pill high">Overpromise on YMYL Finance</span></td></tr>
+      <tr><td>H2</td><td>Case Studies Inspiring Innovation</td><td><span class="pill critical">All 11 case studies are off-topic</span></td></tr>
+      <tr><td>H3 ×11</td><td>Blinkit / Astrotalk / Zillow / Uber / Tinder / TikTok / MoneyLion / TaskRabbit / UberEats / Netflix / Practo</td><td><span class="pill critical">Zero trading case studies</span></td></tr>
+      <tr><td>H2</td><td>Why Choose IMG Global Infotech ...</td><td><span class="pill medium">Generic</span></td></tr>
+      <tr><td>H3 ×4</td><td>Cost-Effective Solution / Complete Customization Assistance / Dashboard Allocation Facility / 24/7 Customer Support</td><td><span class="pill high">Generic + awkward wording ("Allocation Facility")</span></td></tr>
+      <tr><td>H2</td><td>Development Process</td><td><span class="pill medium">Too generic; should be "Trading App Development Process"</span></td></tr>
+      <tr><td>H3 ×5 (process stages)</td><td>Discovery / UI/UX / Development / QA / Launch</td><td><span class="pill good">OK</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Semantic HTML notes</h3>
+  <ul class="tight">
+    <li>H1 is a proper block element — better than pet-care / online-exam.</li>
+    <li>Hero subtitle is in a <code>&lt;div&gt;</code>, not <code>&lt;p&gt;</code>.</li>
+    <li>Tile descriptions also in <code>&lt;div&gt;</code> — semantic weakness.</li>
+    <li>CTAs use <code>&lt;label for="leadPopup"&gt;</code> instead of <code>&lt;a&gt;</code> / <code>&lt;button&gt;</code>.</li>
+    <li>Case-study "View Case Study" buttons are real <code>&lt;a&gt;</code> tags ✅ (one bright spot).</li>
+    <li>No <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code> landmarks.</li>
+  </ul>
+</section>
+
+<!-- ============== CONTENT ============== -->
+<section class="card" id="content">
+  <h2>✍️ Content quality (Helpful Content System scoring)</h2>
+  <div class="grid grid-2">
+    <div>
+      <h3>Strengths</h3>
+      <ul class="tight">
+        <li>Schema layer includes proper Organization + WebSite + WebPage + Service (better than online-exam).</li>
+        <li>H1 is a real block element with matching visible text (no "Best" outside).</li>
+        <li>Case-study CTAs use real <code>&lt;a&gt;</code> tags.</li>
+        <li>OG image on CDN, correct format, alt text present.</li>
+        <li>URL slug is clean, short, descriptive.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Weaknesses</h3>
+      <ul class="tight">
+        <li>11 off-topic case studies on a YMYL Finance page.</li>
+        <li>Zero SEBI / broker / FIX / market-data content.</li>
+        <li>Three different head-titles for one URL.</li>
+        <li>Broken-syntax + overpromise H2s.</li>
+        <li>Generic "Why Choose Us" cards.</li>
+        <li>Self-serving Product schema with fake aggregateRating.</li>
+        <li>WebPage schema URL has invalid leading space.</li>
+        <li>Twitter sameAs URL wrong username + legacy domain.</li>
+        <li>Brand-string inconsistency between schema blocks.</li>
+        <li>No author / compliance reviewer byline.</li>
+        <li>No published / updated date visible.</li>
+        <li>No tech-stack or named-broker integrations.</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:14px">Estimated Helpful Content System score (informal): <b>2 / 10</b>. For top-tier YMYL Finance, anything below 6/10 is suppressed.</p>
+</section>
+
+<!-- ============== IMAGES ============== -->
+<section class="card" id="images">
+  <h2>🖼️ Images</h2>
+  <ul class="tight">
+    <li><b>Format:</b> All images <code>.webp</code> with one OG <code>.jpg</code>. ✅ good.</li>
+    <li><b>Dimensions set:</b> Hero has <code>width="683" height="544"</code> with <code>aspect-[683/544]</code>. ✅ good for CLS.</li>
+    <li><b>LCP image:</b> Hero uses <code>loading="eager" fetchpriority="high"</code>. ✅ good.</li>
+    <li><b>CDN:</b> All on <code>d1y41eupgbwbb2.cloudfront.net</code>. ✅ good.</li>
+    <li><b>Alt text:</b> Hero alt = "Stock Trading App Development Company" — generic, duplicates the H1. Should describe the visual.</li>
+    <li><b>Image filename:</b> <code>TradingAppHeroImage.webp</code> — uses PascalCase. Lowercase-hyphen (<code>trading-app-hero-image.webp</code>) is preferred for image-search SEO.</li>
+    <li><b>Decorative app-store badges (if any):</b> alt = "PlayStore" / "AppStore" — should use <code>alt=""</code> with <code>aria-label</code>.</li>
+  </ul>
+</section>
+
+<!-- ============== INTERNAL LINKING ============== -->
+<section class="card" id="internal">
+  <h2>🔗 Internal linking</h2>
+  <p>Body-content internal linking is sparse and mis-targeted:</p>
+  <ul class="tight">
+    <li>11 case-study links go to <code>/case-study/{brand}-like-app</code> — competitor-brand-clone pattern, off-topic for a YMYL trading buyer.</li>
+    <li>No body link to other fintech sister pages.</li>
+    <li>Header / footer nav does the heavy lifting.</li>
+  </ul>
+  <h3>What's missing</h3>
+  <ul class="tight">
+    <li>No body link to <code>/fintech-software-development</code> (your fintech hub).</li>
+    <li>No body link to <code>/wealthtech-app-development-company</code>.</li>
+    <li>No body link to <code>/investment-app-development</code>.</li>
+    <li>No body link to <code>/loan-lending-app-development-company</code>.</li>
+    <li>No body link to <code>/insurance-app-development-company</code>.</li>
+    <li>No body link to <code>/digital-gold-app-development-company</code>.</li>
+    <li>No body link to <code>/cryptocurrency-app-development</code> (one of your serviceType values mentions crypto!).</li>
+    <li>No links to blog content on SEBI / Kite Connect / FIX protocol / algo trading.</li>
+  </ul>
+  <h3>Anchor-text problems</h3>
+  <ul class="tight">
+    <li>All case-study anchors use brand-clone wording ("<i>X-like-app</i>") — algorithmic-quality demotion risk.</li>
+    <li>No descriptive anchors like "<i>SEBI brokers regulations</i>" or "<i>Zerodha Kite Connect integration</i>" pointing to deep articles.</li>
+  </ul>
+</section>
+
+<!-- ============== URL ============== -->
+<section class="card" id="url">
+  <h2>🌐 URL — user-friendly &amp; SEO-friendly?</h2>
+  <p><code>https://www.imgglobalinfotech.com/stock-trading-app-development</code></p>
+  <table>
+    <thead><tr><th>Check</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>HTTPS</td><td>✅ Yes</td></tr>
+      <tr><td>Length (full URL)</td><td>✅ 61 chars</td></tr>
+      <tr><td>Slug length</td><td>✅ 27 chars — clean</td></tr>
+      <tr><td>Hyphen separators</td><td>✅ Yes</td></tr>
+      <tr><td>Lowercase only</td><td>✅ Yes</td></tr>
+      <tr><td>Descriptive / readable</td><td>✅ Yes — buyer instantly knows the topic</td></tr>
+      <tr><td>No query strings / UUIDs</td><td>✅ Clean</td></tr>
+      <tr><td>No file extension</td><td>✅ Clean</td></tr>
+      <tr><td>Matches title primary keyword</td><td>✅ Partial (slug missing "company")</td></tr>
+      <tr><td>Canonical = URL</td><td>✅ Self-referencing</td></tr>
+      <tr><td>www consistent</td><td>✅ Yes (verify 301 from apex)</td></tr>
+    </tbody>
+  </table>
+  <p class="verdict"><span class="tick">●</span> <b>Verdict:</b> URL is both user- and SEO-friendly. <b>Do NOT change it.</b> Fix everything else.</p>
+</section>
+
+<!-- ============== COMPETITOR ============== -->
+<section class="card" id="competitor">
+  <h2>📊 Why competitors rank — quick SERP gap</h2>
+  <p>Top results for "<i>stock trading app development company</i>" / "<i>trading platform development</i>" are dominated by:</p>
+  <table>
+    <thead><tr><th>Competitor</th><th>What they do that you don't</th></tr></thead>
+    <tbody>
+      <tr><td>Appinventiv</td><td>Named fintech clients, SEBI dedicated posts, original cost research, deep "trade execution architecture" content.</td></tr>
+      <tr><td>SoluLab</td><td>Named NSE/BSE broker clients, FIX protocol depth, real algo-trading whitepaper, gated PDF cost guide.</td></tr>
+      <tr><td>Mindinventory</td><td>Stock app cost calculator, deep SEBI + FINRA posts, named integration partners (Kite Connect, SmartAPI).</td></tr>
+      <tr><td>Hyperlink Infosystem</td><td>Heavy backlink profile, named Indian broker case studies, real product screenshots.</td></tr>
+      <tr><td>Idea Usher</td><td>Trading-domain glossary, regulatory deep-dives, named broker integration showcases.</td></tr>
+    </tbody>
+  </table>
+  <p>Common pattern: <b>named broker clients, named regulator content, named API integrations, downloadable assets, fresh statistics with sources</b>. Your page has zero of these.</p>
+</section>
+
+<!-- ============== PLAN ============== -->
+<section class="card" id="plan">
+  <h2>🛠️ 90-day prioritized action plan</h2>
+
+  <h3>Week 1 — Stop-the-bleeding fixes</h3>
+  <ol>
+    <li><b>Delete the off-topic case-study section</b> (Blinkit/Tinder/Netflix/etc.). Single highest-leverage change.</li>
+    <li>Fix the WebPage schema URL leading space (line 33 of blade).</li>
+    <li>Standardise Twitter URL in sameAs to <code>https://x.com/imgglobal</code> + add Instagram + YouTube.</li>
+    <li>Standardise brand string in all schemas to "IMG Global Infotech".</li>
+    <li>Delete the Product schema block.</li>
+    <li>Align title / og:title / twitter:title to one phrase.</li>
+    <li>Rewrite meta description with broker-API / SEBI keywords (~158 chars).</li>
+    <li>Remove <code>meta geo.region "DE"</code>.</li>
+    <li>Strip legacy meta tags at the layout level.</li>
+    <li>Rewrite the two broken / overpromise H2s.</li>
+    <li>Rename "Dashboard Allocation Facility" → "Role-Based Admin Dashboards".</li>
+    <li>Make footer copyright year dynamic.</li>
+  </ol>
+
+  <h3>Weeks 2-4 — E-E-A-T &amp; trust</h3>
+  <ol>
+    <li>Add author byline + a SEBI-Registered Investment Advisor / ex-broker compliance officer as named reviewer (with photo + LinkedIn).</li>
+    <li>Add visible Published / Updated date with real file mtime.</li>
+    <li>Replace deleted case-study block with 3-5 real or labeled-concept trading projects with named broker APIs.</li>
+    <li>Add Clutch / GoodFirms / NASSCOM / IAMAI badges with verifiable links.</li>
+    <li>Add a Trust block with PCI-DSS, ISO 27001, SOC 2 Type II, GDPR, India DPDP Act 2023.</li>
+  </ol>
+
+  <h3>Weeks 5-8 — Topical depth (the big lift)</h3>
+  <ol>
+    <li><b>Add the SEBI &amp; Global Compliance H2 section</b> (800-1200 words). Single biggest lever.</li>
+    <li><b>Add the Broker &amp; Market-Data Integrations H2 section</b> with named providers (Kite Connect, SmartAPI, Breeze, Upstox, IIFL, Fyers, Interactive Brokers, Alpaca, Polygon.io).</li>
+    <li><b>Add the Trading-Grade Tech Stack H2 section</b> (FIX 4.4/5.0, Kafka/Redis/TimescaleDB, websockets, low-latency engines).</li>
+    <li>Promote Cost &amp; Timeline from FAQ to dedicated H2 sections + interactive calculator.</li>
+    <li>Add Types of Trading Apps comparison table.</li>
+    <li>Add Risk Management &amp; Compliance Engine block.</li>
+    <li>Add Fraud Prevention &amp; Security block.</li>
+    <li>Add Order Types &amp; Routing matrix.</li>
+    <li>Add Algorithmic / Quant Trading block.</li>
+    <li>Replace generic "Why Choose Us" cards with trading-specific differentiators.</li>
+    <li>Add jump-link Table of Contents.</li>
+  </ol>
+
+  <h3>Weeks 9-12 — Off-page link magnets</h3>
+  <ol>
+    <li>Publish "<i>SEBI Trading App Compliance Checklist 2026</i>" gated PDF.</li>
+    <li>Build "<i>Stock Trading App Cost Calculator</i>" widget on this URL.</li>
+    <li>Pitch original survey ("<i>State of India's Trading-Tech Stack 2026</i>") to Moneycontrol, Mint, Economic Times, Bloomberg Quint, Inc42, YourStory, e27, FinTech Magazine.</li>
+    <li>Internal-link campaign: from <code>/fintech-software-development</code>, <code>/wealthtech-app-development-company</code>, <code>/investment-app-development</code>, <code>/loan-lending-app-development-company</code>, <code>/cryptocurrency-app-development</code> with descriptive anchors back here.</li>
+    <li>Submit to GSC after each major batch; bump <code>&lt;lastmod&gt;</code>.</li>
+    <li>Pursue listings on Clutch / GoodFirms / DesignRush / ITFirms in "FinTech App Development" / "Trading Platform" categories.</li>
+  </ol>
+
+  <h3>Expected outcome timeline</h3>
+  <ul class="tight">
+    <li><b>0-30 days:</b> Page exits algorithmic suppression; impressions in GSC begin for long-tail compliance / broker-API queries.</li>
+    <li><b>30-60 days:</b> Page 4-6 for "stock trading app development company"; page 2-3 for long-tails ("SEBI compliant trading app development", "Kite Connect app development").</li>
+    <li><b>60-120 days:</b> Page 2 candidate for primary keyword; page 1 for clearer long-tails ("trading app development India", "discount broker app development").</li>
+    <li><b>120-180 days:</b> Page 1 for primary keyword realistic <b>only with</b> consistent off-page momentum + named broker case studies live.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>🧾 One-line summary</h2>
+  <p>The URL slug is excellent, but the page is suppressed by the worst-fit content / E-E-A-T combination on the site: <b>top-tier YMYL Finance with no SEBI / broker / FIX / regulator depth, 11 off-topic case studies, a fake-rating Product schema, an invalid WebPage URL (leading space), inconsistent Twitter / brand strings, three different head-titles, and broken-syntax H2s</b>. Fix the bleeding in Week 1, inject named expertise in Weeks 2-4, then add SEBI / broker-API / tech-stack depth in Weeks 5-8 — that's the path off the bench.</p>
+</section>
+
+<div class="footer">SEO Audit · /stock-trading-app-development · prepared for IMG Global Infotech · 06 Jun 2026</div>
+
+</div>
+</body>
+</html>
