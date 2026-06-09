@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — /pet-care-app-development-company | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0b1220; --panel:#111a2e; --panel2:#15203a; --line:#1f2c4a;
+    --text:#e6edf7; --muted:#9aa7c2; --accent:#00BBF5; --accent2:#2D86FF;
+    --critical:#ff4d61; --high:#ff8a3d; --medium:#ffc83d; --low:#3dd1ff; --good:#00efa4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 24px}
+  header.hero{background:linear-gradient(135deg,#053a4d,#0b3a64);border:1px solid var(--line);border-radius:18px;padding:32px;margin-bottom:24px;position:relative;overflow:hidden}
+  header.hero:before{content:"";position:absolute;inset:auto -60px -60px auto;width:280px;height:280px;background:radial-gradient(closest-side,rgba(0,187,245,.28),transparent);filter:blur(20px)}
+  header h1{margin:0 0 6px;font-size:28px;letter-spacing:-.01em}
+  header .meta{color:var(--muted);font-size:14px}
+  header .url{display:inline-block;margin-top:10px;background:#0a1428;border:1px solid var(--line);padding:8px 12px;border-radius:10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#cfe9ff;word-break:break-all}
+  .grid{display:grid;gap:18px}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:880px){.grid-3,.grid-2{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:18px}
+  .card h2{margin:0 0 14px;font-size:20px;letter-spacing:-.01em}
+  .card h3{margin:14px 0 8px;font-size:16px}
+  .scorebar{display:flex;align-items:center;gap:12px;margin:6px 0}
+  .scorebar .label{width:200px;color:var(--muted);font-size:13px}
+  .scorebar .bar{flex:1;height:8px;background:#0a1428;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .scorebar .fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .scorebar .val{width:48px;text-align:right;font-variant-numeric:tabular-nums;font-size:13px}
+  .pill{display:inline-block;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+  .pill.critical{background:rgba(255,77,97,.12);color:var(--critical);border:1px solid rgba(255,77,97,.35)}
+  .pill.high{background:rgba(255,138,61,.12);color:var(--high);border:1px solid rgba(255,138,61,.35)}
+  .pill.medium{background:rgba(255,200,61,.12);color:var(--medium);border:1px solid rgba(255,200,61,.35)}
+  .pill.low{background:rgba(61,209,255,.12);color:var(--low);border:1px solid rgba(61,209,255,.35)}
+  .pill.good{background:rgba(0,239,164,.12);color:var(--good);border:1px solid rgba(0,239,164,.35)}
+  .issue{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:var(--panel2)}
+  .issue header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;background:transparent;padding:0}
+  .issue header strong{font-size:15px}
+  .issue .why,.issue .fix{margin:8px 0;padding:10px 12px;border-radius:8px;font-size:14px}
+  .issue .why{background:rgba(255,77,97,.07);border-left:3px solid var(--critical)}
+  .issue .fix{background:rgba(0,239,164,.07);border-left:3px solid var(--good)}
+  .issue .label{display:inline-block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-right:6px}
+  code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+  code{background:#0a1428;padding:2px 6px;border-radius:5px;color:#cfe9ff}
+  pre{background:#0a1428;border:1px solid var(--line);border-radius:10px;padding:12px;overflow:auto}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{color:var(--muted);font-weight:600;background:#0a1428}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}
+  .toc a{font-size:12px;color:#cfe9ff;background:#0a1428;border:1px solid var(--line);padding:6px 10px;border-radius:99px;text-decoration:none}
+  .toc a:hover{border-color:var(--accent)}
+  details{background:#0a1428;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0}
+  summary{cursor:pointer;font-weight:600}
+  .small{font-size:12px;color:var(--muted)}
+  ul.tight li{margin:4px 0}
+  .footer{margin-top:30px;color:var(--muted);font-size:12px;text-align:center}
+  .donut{--p:0;width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--accent) calc(var(--p)*1%),#1f2c4a 0);display:flex;align-items:center;justify-content:center;position:relative}
+  .donut:after{content:"";position:absolute;inset:14px;background:var(--panel);border-radius:50%}
+  .donut span{position:relative;z-index:1;font-size:24px;font-weight:700}
+  .summarygrid{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:center}
+  @media (max-width:680px){.summarygrid{grid-template-columns:1fr}}
+  .num{font-variant-numeric:tabular-nums}
+  .verdict{display:flex;align-items:center;gap:8px;margin:6px 0}
+  .tick{color:var(--good)}
+  .cross{color:var(--critical)}
+  .warn{color:var(--high)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="pill critical" style="margin-bottom:10px">SEO Audit · Pet Care App · 10+ Years Live</div>
+  <h1>Pet Care App Development Company — SEO Audit &amp; Ranking Diagnosis</h1>
+  <div class="meta">IMG Global Infotech · Generated 06 Jun 2026 · Analyst-grade report · Page age ≈ 10 years (published 2015-12-14)</div>
+  <div class="url">https://www.imgglobalinfotech.com/pet-care-app-development-company</div>
+</header>
+
+<section class="card">
+  <div class="summarygrid">
+    <div class="donut" style="--p:32"><span class="num">32</span></div>
+    <div>
+      <h2 style="margin-top:0">Overall Score — 32 / 100</h2>
+      <p style="margin:6px 0 12px;color:var(--muted)">
+        This URL is a textbook example of "<i>technically indexable but topically broken</i>". The page has been live since 2015 — 10+ years — and still ranks for nothing. The reasons aren't subtle: <b>H1 structurally broken</b>, <b>emojis in title</b>, <b>11 case studies that are 100% off-topic</b> (Uber, Tinder, Netflix, Practo — none are pet care apps), <b>brand-piggyback content</b> ("Like Rover"), a <b>typo in an H2</b> ("Pert"), <b>copy-paste leftover icons</b>, and a <b>self-serving fake-review schema</b>. Each of these by itself can suppress a page. Combined, they tell Google's classifier that this URL is templated, low-effort, off-topic content and not a serious pet-care resource.
+      </p>
+      <div class="scorebar"><div class="label">On-Page SEO</div><div class="bar"><div class="fill" style="width:35%"></div></div><div class="val">35</div></div>
+      <div class="scorebar"><div class="label">Content Quality / E-E-A-T</div><div class="bar"><div class="fill" style="width:20%"></div></div><div class="val">20</div></div>
+      <div class="scorebar"><div class="label">Topical Relevance to "pet care"</div><div class="bar"><div class="fill" style="width:18%"></div></div><div class="val">18</div></div>
+      <div class="scorebar"><div class="label">Technical / Meta</div><div class="bar"><div class="fill" style="width:42%"></div></div><div class="val">42</div></div>
+      <div class="scorebar"><div class="label">Schema</div><div class="bar"><div class="fill" style="width:38%"></div></div><div class="val">38</div></div>
+      <div class="scorebar"><div class="label">Images / Performance</div><div class="bar"><div class="fill" style="width:65%"></div></div><div class="val">65</div></div>
+      <div class="scorebar"><div class="label">Internal linking / IA</div><div class="bar"><div class="fill" style="width:28%"></div></div><div class="val">28</div></div>
+      <div class="scorebar"><div class="label">URL friendliness</div><div class="bar"><div class="fill" style="width:88%"></div></div><div class="val">88</div></div>
+    </div>
+  </div>
+</section>
+
+<nav class="toc">
+  <a href="#why">Why this page never ranked</a>
+  <a href="#offtopic">Wrong / off-topic content</a>
+  <a href="#missing">Missing sections</a>
+  <a href="#meta">Meta &amp; title</a>
+  <a href="#schema">Schema</a>
+  <a href="#headings">Headings</a>
+  <a href="#content">Content quality</a>
+  <a href="#images">Images</a>
+  <a href="#internal">Internal linking</a>
+  <a href="#url">URL friendliness</a>
+  <a href="#competitor">Competitor gap</a>
+  <a href="#plan">Action plan</a>
+</nav>
+
+<!-- ============== WHY ============== -->
+<section class="card" id="why">
+  <h2>🐾 Why this page has never ranked — root causes (WHY + FIX)</h2>
+
+  <div class="issue">
+    <header><strong>1. H1 is structurally broken — "Best" is outside the &lt;h1&gt;</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> The blade template builds the hero headline as:
+      <pre>&lt;div class="..."&gt;Best &lt;h1 class="inline"&gt;Pet Care App Development Company&lt;/h1&gt;&lt;/div&gt;</pre>
+      Visually it reads "<i>Best Pet Care App Development Company</i>" — but the actual H1 element only contains "<i>Pet Care App Development Company</i>". The word "Best" lives in a parent <code>&lt;div&gt;</code> and is invisible to Google's H1 extractor. This means the visible promise and the semantic signal don't match — a Quality Rater red flag and a classic templated-site fingerprint. It also makes the H1 indistinguishable from the title and competitive pages.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Move "Best" inside the H1. Better: rewrite as a single H1 with a real modifier. Recommended:
+      <pre>&lt;h1&gt;Pet Care App Development Company for Vets, Pet-Service Brands &amp; Marketplaces&lt;/h1&gt;</pre>
+    </div>
+  </div>
+
+  <div class="issue">
+    <header><strong>2. 11 case studies — none of them are pet care apps</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> The "<i>Case Studies Inspiring Innovation</i>" section lists eleven projects: <b>Blinkit (grocery), Astrotalk (astrology), Zillow (real estate), Uber (ride-share), Tinder (dating), TikTok (social), MoneyLion (banking), TaskRabbit (gigs), UberEats (food), Netflix (OTT), Practo (healthcare)</b>. <b>Zero</b> are pet care apps. For Google's topical-relevance model this is catastrophic — the case-study block is normally a strong topical signal, but here it tells the classifier "this page is part of a generic on-demand cluster, not the pet care niche". The exact same case-study block likely appears on every "X App Development" page on the site, which is a clear template-shell pattern that the Helpful Content System penalises.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Replace with 3-5 <b>real or branded-template</b> pet-care projects: a vet on-demand app, a dog-walking marketplace, a pet adoption platform, a pet food D2C app. If real IMG projects don't exist, build prototype "demo concepts" with screenshots, scope, and tech stack — but keep them <b>pet-specific</b>. Delete every off-topic case study from this URL.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>3. Title contains emojis 🐾 🚀</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> Current title: <code>🐾 Pet Care App Development Company | Custom Vet &amp; Pet Apps 🚀</code>. Three problems:
+      <ul class="tight">
+        <li>Google routinely <b>strips emojis</b> from SERP titles, replacing them with the brand fragment of its choice — you lose control of SERP snippet.</li>
+        <li>For a <b>B2B service buyer</b> (vet clinic chains, pet-D2C founders, marketplace startups), emoji titles read as low-trust / consumer-spammy.</li>
+        <li>Emojis count as 2+ chars in pixel-width — pushes the title over the 580-pixel SERP cutoff and gets truncated.</li>
+        <li>The live render shows <code>Custom Vet <b>&amp;amp;</b> Pet Apps</code> — the ampersand is <b>double-encoded</b>, so even the visible-in-source title may display the literal "<i>&amp;amp;</i>" string in some clients.</li>
+      </ul>
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Remove both emojis and fix the entity encoding. Use a single, clean 55-60 char title:
+      <pre>Pet Care App Development Company — Vet, Sitting &amp; Pet Adoption</pre>
+    </div>
+  </div>
+
+  <div class="issue">
+    <header><strong>4. Brand piggyback — "Like Rover" in H2 + tile + image alt</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> H2 of section 2 reads "<i>Create a Pet Care App Like Rover</i>"; one service tile reads "<i>an innovative pet sitter app like PetBacker, or Rover</i>"; the image alt is "<i>Create a Pet Care App Like Rover — Simplify Your Pet Care</i>". Rover (Rover Group) is a US-listed company with active legal counsel; PetBacker similarly. Three risks:
+      <ul class="tight">
+        <li>Trademark / cease-and-desist exposure.</li>
+        <li>Google's algorithm increasingly demotes pages that piggyback on competitor brand SERPs ("clone app" pattern).</li>
+        <li>Builds zero topical authority for your own service — every "Like Rover" mention shifts entity association to Rover, not IMG.</li>
+      </ul>
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Rewrite to outcome-focused phrasing: "<i>Launch a Pet Sitting Marketplace That Connects Owners and Verified Sitters</i>". Use Rover only inside a clearly-labeled "Apps inspired by leading pet platforms" sub-block lower on the page, if at all.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>5. Self-serving aggregateRating 4.7/140 in Product schema</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> The page injects <code>Product</code> schema with <code>aggregateRating 4.7 / 140</code> but shows no review widget. Google's "<i>self-serving reviews</i>" guideline forbids this and it's a common cause of <b>structured-data manual actions</b>. Also Service schema already describes the offering, so Product is redundant + contradictory.</div>
+    <div class="fix"><span class="label">Fix:</span> Delete the Product schema. Keep Organization, WebPage, Service, BreadcrumbList, FAQPage. If you want stars in SERP, add a real visible review widget with per-review markup first.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>6. Typo "Pert Care" in an H2</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> H2 of the tech section reads "<i>Innovative Technologies Powered <b>Pert</b> Care App Development Solutions</i>". A typo of the primary keyword in an H2 is one of the strongest "low effort" signals Google's HCS can detect, and it confuses the topical keyword index for "Pet Care".</div>
+    <div class="fix"><span class="label">Fix:</span> Change "Pert" to "Pet" (line 1447 of <code>pet-care-app-development-company.blade.php</code>).</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>7. Page is 10+ years old (since 2015) but topically frozen</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> WebPage schema declares <code>datePublished: "2015-12-14"</code> and <code>dateModified: "2025-02-03"</code>. That's 10 years live, with a single quick edit. For 10 years the page hasn't accumulated rankings — that's a strong signal that Google has classified the URL as low-quality and is unlikely to re-evaluate without a <b>substantive</b> content overhaul (not a 1-line edit followed by re-submission). Google's HCS is "site-wide and persistent" — a frozen, low-effort URL can drag rankings on the rest of the site.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Treat this as a full content rewrite, not a tweak. Then update <code>dateModified</code> from the file's real <code>mtime</code>, and re-submit to GSC. Plan two quarterly refreshes per year to maintain freshness signal.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>8. Unsubstantiated claim — "Trusted by 1200+ Happy Clients, Including Fortune 500 Companies"</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> H2 in the brands section makes a Fortune-500 claim that the rest of the page doesn't back up. No named client. No logo strip. For a pet-care service page, mentioning Fortune 500 is also implausibility-flagged — Fortune 500 companies don't typically buy pet care apps. Mismatch between claim and content is one of the easiest Quality Rater "low trust" tells.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Either name 6-10 real clients with permission and logos, or drop the claim. Replace with a smaller verifiable boast: "<i>40+ pet-tech projects shipped since 2018, including vets in 3 countries</i>" (with proof).</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>9. Copy-paste leftover icon — Pet Sitter tile uses "petTrainingDevelopment"</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> The Pet Sitter App tile references <code>x-icon name="petTrainingDevelopment"</code>. The icon component name describes Training, not Sitter. Plus the tile description ends with "<i>like PetBacker, or Rover</i>" — comma-space-comma error and brand piggyback in the same line. These small leakages are exactly what Quality Raters notice as "templated, not hand-crafted".
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Add a real <code>petSitter</code> icon to the component library, rename the reference, and rewrite the tile.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>10. Title / og:title / twitter:title / hero / H1 — all different</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Five different primary phrases compete for one URL:
+      <table style="margin-top:8px">
+        <tr><th>Surface</th><th>Phrase</th></tr>
+        <tr><td>&lt;title&gt;</td><td>🐾 Pet Care App Development Company | Custom Vet &amp; Pet Apps 🚀</td></tr>
+        <tr><td>og:title</td><td><b>Top</b> Pet Care App Development Company</td></tr>
+        <tr><td>twitter:title</td><td><b>Best</b> Pet Care App Development Company</td></tr>
+        <tr><td>Hero visible text</td><td><b>Best</b> Pet Care App Development Company</td></tr>
+        <tr><td>H1 (semantic)</td><td>Pet Care App Development Company</td></tr>
+      </table>
+      Same pattern across the site — Google has no consistent topical anchor to grab.
+    </div>
+    <div class="fix"><span class="label">Fix:</span> Pick one primary phrase, use it on all four surfaces AND H1. Recommended primary: "<i>Pet Care App Development Company</i>" (matches URL slug exactly).</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>11. Geo signal points to Germany (DE)</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> <code>&lt;meta geo.region "DE"&gt;</code> + <code>og:locale "en_US"</code> + <code>og:locale:alternate "en_AE"</code> + no <code>hreflang</code> = conflicting geo signals. Page ends up tagged correctly for no specific market.</div>
+    <div class="fix"><span class="label">Fix:</span> Remove <code>geo.region</code> (legacy tag, mostly ignored by Google but read by some scrapers and AI systems). If you target multi-region, implement proper <code>hreflang</code>; otherwise drop og:locale:alternate.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>12. Same legacy meta-tag pollution as sister pages</strong><span class="pill low">Low</span></header>
+    <div class="why"><span class="label">Why:</span> revisit-after, distribution, coverage, rating, language, copyright, rights, reply-to, web-author — all present, all useless in 2026. No SEO benefit, adds page weight.</div>
+    <div class="fix"><span class="label">Fix:</span> Strip them at the layout level so the same change applies to every page.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>13. "Other On-Demand…" off-topic cross-linking</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Final content block lists 8 unrelated apps (Healthcare, Taxi, Food, Salon, Laundry, Car Wash, Doctor on Demand, Grocery). For a pet-care page this is doubly bad — it dilutes the niche signal AND ships internal link equity outward to unrelated topics.</div>
+    <div class="fix"><span class="label">Fix:</span> Replace with related "on-demand pet" cross-links: pet food delivery, pet adoption, pet grooming, dog walking, vet consultation, pet boarding, pet insurance, pet wearables. Build these sub-pages if they don't exist — they're easy long-tail wins.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>14. Generic 4-card "Why Choose Us" — no pet-care specifics</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> "<i>Fusion of Innovation and Expertise</i>", "<i>AI-Powered Features</i>", "<i>Post Launch Support</i>", "<i>Seamless Integration</i>" — these claims could be on any agency's page about anything. For a pet-care vertical they say nothing. Google rewards specificity.</div>
+    <div class="fix"><span class="label">Fix:</span> Replace with pet-tech-specific differentiators: "<i>Shipped 12 vet apps with HL7 lab-result integration</i>", "<i>Pet-recognition CV models (breed, behavior, posture)</i>", "<i>GPS tracker SDK integrations: Fi, Tractive, Whistle</i>", "<i>Wearable health data via FitBark, PetPace</i>".</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>15. No real domain depth — vet workflow, telemedicine for pets, pet insurance, microchip lookup</strong><span class="pill high">High</span></header>
+    <div class="why"><span class="label">Why:</span> Tiles list service names but no depth. The pages that rank for "<i>pet care app development</i>" cover: vet practice management (SOAP-style notes for pets, vaccine schedules, drug-interaction libraries), pet telemedicine, pet insurance claim flow, AVID/HomeAgain microchip APIs, RFID/BLE pet trackers, breed-recognition CV models, animal welfare compliance (USDA APHIS in the US, AWBI in India). Your page mentions none.</div>
+    <div class="fix"><span class="label">Fix:</span> Add three substantive blocks: "<i>Vet Workflow &amp; EMR for Pets</i>", "<i>Pet Wearables &amp; Tracker Integrations</i>", "<i>Pet Insurance Claim Automation</i>". 300-500 words each.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>16. Too much "Purr-fect" / "Paw-fect" punning, too little substance</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> Section H2s read "<i>Purr-fect Digital Experience</i>" and "<i>Paw-fect Features</i>". One pun is charming; two in close succession reads as marketing fluff. The actual feature tiles are also generic ("track your pet wherever it goes", "expand your pet food delivery business"). The ratio of fluff to facts is too high for HCS scoring.</div>
+    <div class="fix"><span class="label">Fix:</span> Allow one pun max. Make each tile carry one specific fact, integration, or metric (e.g., "<i>Real-time GPS via BLE + cellular fallback — compatible with Fi, Tractive, Pawscout</i>").</div>
+  </div>
+</section>
+
+<!-- ============== OFF-TOPIC / WRONG ============== -->
+<section class="card" id="offtopic">
+  <h2>🚫 Content that's wrong, off-topic, or doesn't belong here</h2>
+  <table>
+    <thead><tr><th style="width:30%">Block</th><th>Problem</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>"Case Studies Inspiring Innovation"</b> — 11 case studies</td>
+        <td>Blinkit, Astrotalk, Zillow, Uber, Tinder, TikTok, MoneyLion, TaskRabbit, UberEats, Netflix, Practo — none are pet care apps. This is the single biggest topical relevance failure on the page.</td>
+        <td>Delete entirely. Replace with 3-5 pet-care projects (real or labeled "concept / demo"). If you have no pet-care projects, do not pretend — show a "Recent pet-tech experiments" gallery instead.</td>
+      </tr>
+      <tr>
+        <td>H2 "<i>Create a Pet Care App Like Rover</i>"</td>
+        <td>Brand piggyback in H2.</td>
+        <td>Rename: "<i>Build a Pet Sitting Marketplace That Connects Owners with Verified Sitters</i>".</td>
+      </tr>
+      <tr>
+        <td>"Pet Sitter App Development" tile</td>
+        <td>Mentions "<i>like PetBacker, or Rover</i>" + uses wrong icon (<code>petTrainingDevelopment</code>) + comma-space-comma typo.</td>
+        <td>Rewrite without competitor names; assign a correct icon; fix punctuation.</td>
+      </tr>
+      <tr>
+        <td>H2 "<i>Innovative Technologies Powered <b>Pert</b> Care App Development Solutions</i>"</td>
+        <td>Misspelled keyword in an H2.</td>
+        <td>Fix to "Pet Care App Development".</td>
+      </tr>
+      <tr>
+        <td>H2 "<i>Trusted by 1200+ Happy Clients, Including Fortune 500 Companies</i>"</td>
+        <td>Unsubstantiated, implausible (Fortune 500 don't buy pet care apps).</td>
+        <td>Replace with a verifiable, pet-relevant claim with logos and links.</td>
+      </tr>
+      <tr>
+        <td>Title with emojis 🐾 🚀</td>
+        <td>Strips in SERP, lowers B2B trust, distorts character count.</td>
+        <td>Remove emojis from the title tag.</td>
+      </tr>
+      <tr>
+        <td>Title double-entity-encoding (<code>&amp;amp;</code> instead of <code>&amp;</code>)</td>
+        <td>Title source contains <code>&amp;amp;</code> which renders as the literal text "<i>&amp;amp;</i>" in some clients.</td>
+        <td>Fix in blade — use <code>&amp;</code> in <code>&lt;title&gt;</code> (it's allowed inside title element) or use a non-entity character.</td>
+      </tr>
+      <tr>
+        <td>H1 split — "Best" outside the &lt;h1&gt;</td>
+        <td>Visible promise and semantic signal differ; classic templated-site fingerprint.</td>
+        <td>Move "Best" inside the H1 or rewrite as a clean single-tag H1.</td>
+      </tr>
+      <tr>
+        <td>"Other On-Demand App Development Services" — 8 unrelated apps</td>
+        <td>Off-topic cross-linking; dilutes pet-care niche signal.</td>
+        <td>Replace with pet-tech sub-pages.</td>
+      </tr>
+      <tr>
+        <td>Hero alt: "Pet Care App Development Company"</td>
+        <td>Same as title — generic, doesn't describe the image.</td>
+        <td>Rewrite alt to describe the visual: "Pet owner using a mobile app to book a vet appointment for a golden retriever".</td>
+      </tr>
+      <tr>
+        <td>"Paw-fect" / "Purr-fect" section titles</td>
+        <td>Two consecutive section titles use puns — reads as fluff.</td>
+        <td>Use one pun max; replace the second with a factual headline.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== MISSING ============== -->
+<section class="card" id="missing">
+  <h2>➕ Sections this page needs but doesn't have</h2>
+  <p>Ranked by likely ranking impact for pet-care app SERPs.</p>
+  <table>
+    <thead><tr><th>Section</th><th>Why it matters</th><th>Where to place</th></tr></thead>
+    <tbody>
+      <tr><td><b>1. Real pet-care case studies (3-5)</b> with client name, problem, solution, screenshots, tech stack, metric, testimonial with reviewer photo + LinkedIn</td><td>Single biggest topical-relevance lever. Replace the off-topic case-study block.</td><td>Replace existing "Case Studies Inspiring Innovation"</td></tr>
+      <tr><td><b>2. Author + Veterinary advisor byline</b> with named expert (ideally a real or contracted vet consultant)</td><td>E-E-A-T lift. Pet health is borderline-YMYL — having a vet credential signal helps.</td><td>Below H1</td></tr>
+      <tr><td><b>3. Vet practice management depth block</b> — SOAP notes for pets, vaccine schedules, drug-interaction libraries, multi-species charts, lab integration (Antech, IDEXX)</td><td>Captures vet-software buyer intent and high-converting B2B traffic.</td><td>After services tiles</td></tr>
+      <tr><td><b>4. Pet wearables &amp; tracker integration matrix</b> — Fi, Tractive, Whistle, FitBark, PetPace, Pawscout, BLE/GPS/cellular protocols</td><td>Captures buyer-intent searches; trust signal.</td><td>Tech section</td></tr>
+      <tr><td><b>5. Pet telemedicine &amp; chat-with-vet block</b> — WebRTC, secure messaging, prescription pad, e-Rx for pets where applicable</td><td>Growing query cluster; competitors own it.</td><td>After services</td></tr>
+      <tr><td><b>6. Pet insurance claim automation block</b> — claim photo OCR, breed-specific underwriting, integrations with Trupanion, Petplan, Bajaj Allianz Pet etc.</td><td>High-value vertical with low SEO competition.</td><td>After telemedicine</td></tr>
+      <tr><td><b>7. Detailed cost breakdown table</b> (Basic / Mid / Enterprise × feature × $ range × hours) — promote from FAQ</td><td>"Cost of pet care app" is a top-volume query.</td><td>Before "Why Choose"</td></tr>
+      <tr><td><b>8. Timeline / roadmap with milestones</b></td><td>Top long-tail.</td><td>Next to cost</td></tr>
+      <tr><td><b>9. Tech stack with named SDKs</b> — React Native, Flutter, Twilio Video, Stream.io, AWS Pinpoint, Apple/Google MDM, Mapbox, Google Places, ML Kit for breed recognition, Firebase Cloud Messaging</td><td>Captures CTO-intent.</td><td>Before "Why Choose"</td></tr>
+      <tr><td><b>10. Types of pet care apps comparison table</b> (sitting marketplace vs vet practice vs adoption vs food D2C vs training vs insurance)</td><td>Research-intent traffic + internal linking.</td><td>After services</td></tr>
+      <tr><td><b>11. Pet animal welfare &amp; regulatory block</b> — USDA APHIS (US), AWBI (India), AAFCO labels for food D2C, DEFRA pet travel (UK)</td><td>Trust + regulatory queries.</td><td>Mid-page</td></tr>
+      <tr><td><b>12. Pet-care app market data &amp; trends 2026</b> (with sourced statistics — Grand View Research, Statista)</td><td>Freshness + topical depth.</td><td>Near top</td></tr>
+      <tr><td>13. Engagement models (Fixed / T&amp;M / Dedicated Team) with rate cards</td><td>Procurement-buyer intent.</td><td>Before CTA2</td></tr>
+      <tr><td>14. Awards &amp; recognitions (Clutch, GoodFirms, NASSCOM) for pet-tech specifically</td><td>Trust signal.</td><td>Above footer</td></tr>
+      <tr><td>15. Downloadable assets — "<i>2026 Pet App Compliance &amp; Tech Stack Guide</i>" PDF + "<i>Pet App Cost Calculator</i>" widget</td><td>Link magnets — single biggest off-page lever.</td><td>Side CTA + dedicated block</td></tr>
+      <tr><td>16. Visible Published / Updated date</td><td>Freshness signal — 10-year-old page badly needs this.</td><td>Below H1</td></tr>
+      <tr><td>17. Jump-link Table of Contents</td><td>Drives Google "Jump To" sitelinks.</td><td>After hero</td></tr>
+      <tr><td>18. Video testimonial (real client, embedded YouTube)</td><td>Credibility + video SERP.</td><td>Inside case studies</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== META ============== -->
+<section class="card" id="meta">
+  <h2>🏷️ Meta / Title layer — full audit</h2>
+  <table>
+    <thead><tr><th>Tag</th><th>Current</th><th>Verdict</th><th>Recommended</th></tr></thead>
+    <tbody>
+      <tr><td>&lt;title&gt;</td><td>🐾 Pet Care App Development Company | Custom Vet &amp;amp; Pet Apps 🚀</td><td><span class="pill critical">Emojis + double-encoded &amp;</span></td><td>Pet Care App Development Company — Vet, Sitting &amp; Adoption Apps (58 chars)</td></tr>
+      <tr><td>meta description</td><td>175 chars, OK CTA — but contains <code>&amp;amp;</code> double-encoding</td><td><span class="pill medium">Length OK, fix entities</span></td><td>Build feature-rich pet care apps for vets, sitters, marketplaces &amp; D2C brands. 11+ years, 100+ developers, AI breed detection &amp; tracker SDK ready. Free quote.</td></tr>
+      <tr><td>H1 (semantic)</td><td>Pet Care App Development Company</td><td><span class="pill critical">"Best" lives outside the H1</span></td><td>Move "Best" inside, OR rewrite single H1 with a real modifier</td></tr>
+      <tr><td>og:title</td><td>Top Pet Care App Development Company</td><td><span class="pill high">Inconsistent</span></td><td>Match the cleaned title</td></tr>
+      <tr><td>twitter:title</td><td>Best Pet Care App Development Company</td><td><span class="pill high">Inconsistent</span></td><td>Match the cleaned title</td></tr>
+      <tr><td>canonical</td><td>https://www.imgglobalinfotech.com/pet-care-app-development-company</td><td><span class="pill good">Self-referencing</span></td><td>Keep</td></tr>
+      <tr><td>og:image / twitter:image</td><td>Cloudfront CDN webp — pet-care-app-development-og.webp</td><td><span class="pill good">Good (CDN-served, correct format)</span></td><td>Keep</td></tr>
+      <tr><td>robots</td><td>MAX-IMAGE-PREVIEW:LARGE, INDEX, FOLLOW</td><td><span class="pill good">Good</span></td><td>Keep</td></tr>
+      <tr><td>geo.region</td><td>DE</td><td><span class="pill critical">Germany — wrong</span></td><td>Remove or set to IN</td></tr>
+      <tr><td>og:locale:alternate</td><td>en_AE</td><td><span class="pill medium">Misleading without hreflang</span></td><td>Implement hreflang or drop</td></tr>
+      <tr><td>Legacy tags (revisit-after, distribution, coverage, rating, language, copyright, rights, reply-to, web-author)</td><td>All present</td><td><span class="pill low">Useless bloat</span></td><td>Remove at layout level</td></tr>
+      <tr><td>Author byline visible</td><td>Not on page</td><td><span class="pill high">Missing</span></td><td>Add named author + named vet advisor (with photo + LinkedIn)</td></tr>
+      <tr><td>Publication / Updated date visible</td><td>Not on page</td><td><span class="pill high">Missing — page is 10 years old</span></td><td>Add visible "Published / Updated" with <code>datetime</code></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== SCHEMA ============== -->
+<section class="card" id="schema">
+  <h2>🧩 Schema markup — full audit</h2>
+  <p>Schema blocks present: <b>Product, Organization, WebSite, WebPage (in @graph), Service, FAQ (via include), Breadcrumb (via include)</b>.</p>
+
+  <div class="issue">
+    <header><strong>Product schema — fake-looking aggregateRating</strong><span class="pill critical">Critical</span></header>
+    <div class="why"><span class="label">Why:</span> <code>aggregateRating 4.7 / 140</code> with no visible reviews on the page = self-serving reviews pattern. Service schema already covers the offering.</div>
+    <div class="fix"><span class="label">Fix:</span> Delete the Product schema block entirely.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Organization schema — sameAs empty</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> <code>"sameAs": []</code> in the top-level Organization (inside @graph) — wasted entity-confidence signal. Service schema has it correctly, but the @graph-level Organization is the canonical one.</div>
+    <div class="fix"><span class="label">Fix:</span> Populate Organization sameAs with Facebook, X, IG, LinkedIn, YouTube, Clutch, GoodFirms, Crunchbase URLs.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>WebPage name doesn't match the &lt;title&gt;</strong><span class="pill medium">Medium</span></header>
+    <div class="why"><span class="label">Why:</span> WebPage schema <code>name = "Pet Care App Development Company"</code>; <code>&lt;title&gt;</code> = "🐾 Pet Care App Development Company | Custom Vet &amp; Pet Apps 🚀". Mismatch reduces entity-resolution confidence.</div>
+    <div class="fix"><span class="label">Fix:</span> Once you clean the title, mirror the same text into the WebPage <code>name</code>.</div>
+  </div>
+
+  <div class="issue">
+    <header><strong>Recommended Service schema rewrite</strong><span class="pill good">Good</span></header>
+    <details>
+      <summary>Click to see drop-in JSON-LD</summary>
+<pre>{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Pet Care App Development",
+  "provider": {
+    "@type": "Organization",
+    "name": "IMG Global Infotech Private Limited",
+    "url": "https://www.imgglobalinfotech.com",
+    "logo": "https://d1y41eupgbwbb2.cloudfront.net/images/xl-logo.webp",
+    "sameAs": [
+      "https://www.facebook.com/imgglobalinfotech",
+      "https://x.com/imgglobal",
+      "https://www.instagram.com/imgglobalinfotech/",
+      "https://www.linkedin.com/company/imgglobalinfotech/",
+      "https://www.youtube.com/@imgglobalinfotech"
+    ]
+  },
+  "areaServed": ["IN","US","AE","GB","CA","AU"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Pet Care App Development",
+    "itemListElement": [
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"On-Demand Veterinary App Development"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Pet Sitting Marketplace Development"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Pet Food D2C App Development"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Pet Adoption App Development"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Pet Tracking &amp; Wearable Integration"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Pet Insurance Claim Automation"}}
+    ]
+  }
+}</pre>
+    </details>
+  </div>
+
+  <div class="issue">
+    <header><strong>Missing schema types to add</strong><span class="pill medium">Medium</span></header>
+    <ul class="tight">
+      <li><b>Review</b> per visible testimonial (only when real reviewers exist on page).</li>
+      <li><b>VideoObject</b> if you embed a video testimonial.</li>
+      <li><b>HowTo</b> — <b>do NOT add</b> (deprecated).</li>
+      <li><b>FAQPage</b> is already included — keep, but Google restricts FAQ rich results to gov/health sites; expect schema to help semantic understanding but not SERP stars.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============== HEADINGS ============== -->
+<section class="card" id="headings">
+  <h2>🏗️ Heading hierarchy</h2>
+  <table>
+    <thead><tr><th>Tag</th><th>Text</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td>H1 (inline inside div)</td><td>"<i>Pet Care App Development Company</i>" — but visible hero says "<i>Best Pet Care App Development Company</i>"</td><td><span class="pill critical">"Best" outside H1 — semantic break</span></td></tr>
+      <tr><td>H2</td><td>Create a Pet Care App Like Rover — Simplify Your Pet Care</td><td><span class="pill high">Brand piggyback</span></td></tr>
+      <tr><td>H2</td><td>Trusted by 1200+ Happy Clients, Including Fortune 500 Companies</td><td><span class="pill high">Unsubstantiated Fortune 500 claim</span></td></tr>
+      <tr><td>H2</td><td>How Our Pet Care App Solutions Bring Change</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Unlock the potential of Pet Care Apps with Us</td><td><span class="pill medium">CTA-style; OK</span></td></tr>
+      <tr><td>H2</td><td>Pet Care App Development Services — Creating Purr-fect Digital Experience</td><td><span class="pill medium">Pun OK once</span></td></tr>
+      <tr><td>H2</td><td>"Paw-fect" Features Our Pet Care App Solutions Offers</td><td><span class="pill medium">Second pun in close succession; grammar slip "Solutions Offers"</span></td></tr>
+      <tr><td>H3</td><td>Pet Owner / Service Provider / Admin Panel (tab labels)</td><td><span class="pill medium">Tab labels shouldn't be H3</span></td></tr>
+      <tr><td>H2</td><td>Case Studies Inspiring Innovation</td><td><span class="pill critical">Case studies are all off-topic</span></td></tr>
+      <tr><td>H3 ×11</td><td>Blinkit / Astrotalk / Zillow / Uber / Tinder / TikTok / MoneyLion / TaskRabbit / UberEats / Netflix / Practo</td><td><span class="pill critical">Zero pet-care case studies</span></td></tr>
+      <tr><td>H2</td><td>Our Expertise in Pet Care Business Models</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H3 ×4</td><td>Pet Sitting &amp; Care / Pet Food Delivery / Pet Healthcare &amp; Veterinary / Pet Training &amp; Grooming</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Innovative Technologies Powered <b>Pert</b> Care App Development Solutions</td><td><span class="pill critical">Typo "Pert"</span></td></tr>
+      <tr><td>H3 ×5</td><td>AI &amp; ML / NLP / Chatbots / IoT / Business Intelligence</td><td><span class="pill medium">No pet-specific tech named (CV breed-rec, GPS tracker SDKs)</span></td></tr>
+      <tr><td>H2</td><td>Your Next Pet Care Mobile App Could Look Like This</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Pet Care Mobile App Development: The Process We Follow</td><td><span class="pill good">Good</span></td></tr>
+      <tr><td>H2</td><td>Why Choose IMG Global Infotech As Your On-Demand Pet Care App Development Company?</td><td><span class="pill medium">"On-Demand" qualifier unnecessary</span></td></tr>
+      <tr><td>H3 ×4 (Why Choose)</td><td>Generic claims — Innovation, AI, Support, Integration</td><td><span class="pill medium">Not pet-specific</span></td></tr>
+      <tr><td>H2</td><td>Other On-Demand App Development Services Offered by Us</td><td><span class="pill high">Off-topic outbound section</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Semantic HTML problems</h3>
+  <ul class="tight">
+    <li>H1 nested inside a <code>&lt;div&gt;</code> with sibling text — semantic break.</li>
+    <li>Hero subtitle in <code>&lt;div&gt;</code>, not <code>&lt;p&gt;</code> — except in "buildAppLike" section which correctly uses <code>&lt;p&gt;</code>. Inconsistent.</li>
+    <li>Tab labels use H3 inside <code>&lt;label&gt;</code> — heading inside interactive control.</li>
+    <li>CTA buttons use <code>&lt;label for="leadPopup"&gt;</code> not <code>&lt;a&gt;</code> / <code>&lt;button&gt;</code>.</li>
+    <li>No <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code> landmarks.</li>
+  </ul>
+</section>
+
+<!-- ============== CONTENT ============== -->
+<section class="card" id="content">
+  <h2>✍️ Content quality (Helpful Content System scoring)</h2>
+  <div class="grid grid-2">
+    <div>
+      <h3>Strengths</h3>
+      <ul class="tight">
+        <li>Page does cover the main pet-care app verticals (vet, sitter, food, tracker, training, adoption).</li>
+        <li>Process section is structured and lists clear lifecycle stages.</li>
+        <li>Schema includes WebPage with dateModified.</li>
+        <li>OG image uses CDN correctly (unlike sister loan-lending page).</li>
+        <li>One section uses a proper <code>&lt;p&gt;</code> tag (rare on this site).</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Weaknesses</h3>
+      <ul class="tight">
+        <li>Case studies are 100% off-topic — the single biggest HCS hit.</li>
+        <li>Title carries emojis + double-encoded entities.</li>
+        <li>H1 split across a div boundary.</li>
+        <li>Typo "Pert" in an H2.</li>
+        <li>Brand piggyback ("Like Rover", "PetBacker, or Rover").</li>
+        <li>Page is 10 years old with no substantive content updates.</li>
+        <li>No author / vet advisor byline.</li>
+        <li>No real depth on vet EMR, telemedicine, wearables, insurance.</li>
+        <li>Generic marketing puns over factual specifics.</li>
+        <li>Unsubstantiated Fortune 500 claim.</li>
+        <li>Copy-paste icon bug confirms templated build.</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:14px">Estimated Helpful Content System score (informal): <b>2 / 10</b>. The 10-year topical staleness is uncommon and uniquely punishing.</p>
+</section>
+
+<!-- ============== IMAGES ============== -->
+<section class="card" id="images">
+  <h2>🖼️ Images</h2>
+  <ul class="tight">
+    <li><b>Format:</b> All images <code>.webp</code> — ✅ good.</li>
+    <li><b>Dimensions set:</b> <code>width</code> &amp; <code>height</code> present — ✅ good for CLS.</li>
+    <li><b>LCP image:</b> Hero uses <code>loading="eager" fetchpriority="high"</code> — ✅ good.</li>
+    <li><b>CDN:</b> All images on <code>d1y41eupgbwbb2.cloudfront.net</code> — ✅ good (consistent, unlike the loan-lending page).</li>
+    <li><b>Alt text quality:</b> ⚠️ Most alts duplicate the <code>title=""</code> attribute and the visible section heading. Generic.</li>
+    <li><b>Wrong icon names:</b> Pet Sitter tile uses <code>petTrainingDevelopment</code> — semantic mismatch and copy-paste fingerprint.</li>
+    <li><b>Image filenames:</b> camelCase (<code>petCareHeroImage.webp</code>) — lowercase-hyphen preferred for image-search SEO.</li>
+    <li><b>Decorative app-store badges:</b> alt="PlayStore"/"AppStore" — should use <code>alt=""</code> + aria-label.</li>
+  </ul>
+</section>
+
+<!-- ============== INTERNAL LINKING ============== -->
+<section class="card" id="internal">
+  <h2>🔗 Internal linking</h2>
+  <p>Body-content internal linking on this URL is weak:</p>
+  <ul class="tight">
+    <li>Off-topic outbound block ("Other On-Demand…") sends pet-care intent traffic to laundry, taxi, salon, car-wash, grocery pages.</li>
+    <li>No body-text links to related pet-tech sub-pages.</li>
+    <li>No semantic anchors to your own blog content on pet apps.</li>
+    <li>Header nav lists everything but doesn't lift this URL specifically.</li>
+  </ul>
+  <h3>What's missing</h3>
+  <ul class="tight">
+    <li>Linkable sub-pages don't exist yet for pet-care verticals — build them:
+      <ul class="tight">
+        <li><code>/veterinary-app-development</code></li>
+        <li><code>/pet-sitting-marketplace-development</code></li>
+        <li><code>/pet-food-delivery-app-development</code></li>
+        <li><code>/pet-adoption-app-development</code></li>
+        <li><code>/pet-grooming-app-development</code></li>
+        <li><code>/pet-tracker-app-development</code></li>
+        <li><code>/pet-insurance-app-development</code></li>
+      </ul>
+    </li>
+    <li>Cross-link from this hub URL to each of the above using descriptive anchors.</li>
+    <li>Add reverse links from each sub-page back to this URL with anchor "<i>pet care app development company</i>" — strengthen the hub.</li>
+    <li>Link to blog posts on pet-tech trends, vet EMR comparisons, tracker reviews.</li>
+  </ul>
+</section>
+
+<!-- ============== URL ============== -->
+<section class="card" id="url">
+  <h2>🌐 URL — user-friendly &amp; SEO-friendly?</h2>
+  <p><code>https://www.imgglobalinfotech.com/pet-care-app-development-company</code></p>
+  <table>
+    <thead><tr><th>Check</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>HTTPS</td><td>✅ Yes</td></tr>
+      <tr><td>Length (full URL)</td><td>✅ 65 chars — within best practice</td></tr>
+      <tr><td>Slug length</td><td>✅ 35 chars — clean</td></tr>
+      <tr><td>Hyphen separators</td><td>✅ Yes</td></tr>
+      <tr><td>Lowercase only</td><td>✅ Yes</td></tr>
+      <tr><td>Descriptive / readable</td><td>✅ Yes — buyer instantly knows the topic</td></tr>
+      <tr><td>No query strings / UUIDs</td><td>✅ Clean</td></tr>
+      <tr><td>No file extension</td><td>✅ Clean</td></tr>
+      <tr><td>Matches title primary keyword</td><td>✅ Exact match</td></tr>
+      <tr><td>Canonical = URL</td><td>✅ Self-referencing</td></tr>
+      <tr><td>www consistent</td><td>✅ Yes (verify 301 from apex)</td></tr>
+    </tbody>
+  </table>
+  <p class="verdict"><span class="tick">●</span> <b>Verdict:</b> URL is both user-friendly and SEO-friendly. <b>Do NOT change it.</b> Fix everything else.</p>
+</section>
+
+<!-- ============== COMPETITOR ============== -->
+<section class="card" id="competitor">
+  <h2>📊 Why competitors rank — quick SERP gap</h2>
+  <p>Top results for "<i>pet care app development company</i>" / "<i>pet app development</i>" are dominated by:</p>
+  <table>
+    <thead><tr><th>Competitor</th><th>What they do that you don't</th></tr></thead>
+    <tbody>
+      <tr><td>Mindbowser</td><td>Real pet-tech case studies, named CTO, deep blog on vet EMR &amp; pet wearables, IoT integration depth.</td></tr>
+      <tr><td>Mindinventory</td><td>Pet-tracker integration showcase (Whistle, Fi), named clients, downloadable pet-tech trends report.</td></tr>
+      <tr><td>Hyperlink Infosystem</td><td>Pet-care vertical landing with named projects, deep "Apps like Rover" comparison page kept separate from the service page, strong backlink profile.</td></tr>
+      <tr><td>Topflight Apps</td><td>Founder bio, named pet-tech clients, original content on pet-app cost.</td></tr>
+      <tr><td>Octal IT Solution</td><td>Named pet-tech clients, dedicated vet app product page, downloadable cost guide.</td></tr>
+    </tbody>
+  </table>
+  <p>Common pattern: <b>named pet-tech clients, named experts, real wearable/tracker integrations, downloadable assets, fresh statistics with sources</b>. Your page has zero of these in pet form.</p>
+</section>
+
+<!-- ============== PLAN ============== -->
+<section class="card" id="plan">
+  <h2>🛠️ 90-day prioritized action plan</h2>
+
+  <h3>Week 1 — Stop-the-bleeding fixes</h3>
+  <ol>
+    <li><b>Delete the off-topic case-study section</b> (Blinkit/Uber/Netflix/etc.). This single change is the highest-leverage fix.</li>
+    <li>Fix typo "Pert" → "Pet" in the tech-section H2 (line 1447).</li>
+    <li>Move "Best" inside the H1 or rewrite as a clean single-tag H1.</li>
+    <li>Remove emojis from <code>&lt;title&gt;</code>; fix <code>&amp;amp;</code> double-entity bug.</li>
+    <li>Delete the Product schema block (lines ~5-23).</li>
+    <li>Remove <code>meta geo.region "DE"</code> (or set to <code>IN</code>).</li>
+    <li>Rewrite H2 "<i>Create a Pet Care App Like Rover</i>" → outcome-focused.</li>
+    <li>Rewrite Pet Sitter tile (remove "like PetBacker, or Rover"; fix icon).</li>
+    <li>Drop or substantiate the "Fortune 500" claim.</li>
+    <li>Align title / og:title / twitter:title to one phrase.</li>
+    <li>Strip legacy meta tags at the layout level.</li>
+  </ol>
+
+  <h3>Weeks 2-4 — E-E-A-T &amp; trust</h3>
+  <ol>
+    <li>Add author byline + a veterinary advisor (named consultant) with photo + LinkedIn.</li>
+    <li>Add visible Published / Updated date with <code>datetime</code> attribute (use real file mtime).</li>
+    <li>Replace deleted case-study block with 3-5 real or labeled-concept pet-care projects.</li>
+    <li>Add Clutch / GoodFirms / NASSCOM badges.</li>
+    <li>Populate Organization <code>sameAs</code> with all social + listing URLs.</li>
+  </ol>
+
+  <h3>Weeks 5-8 — Topical depth (the big lift)</h3>
+  <ol>
+    <li>Add Vet practice management depth block (SOAP for pets, vaccine schedules, drug interactions, Antech/IDEXX integration).</li>
+    <li>Add Pet wearables &amp; tracker integration matrix (Fi, Tractive, Whistle, FitBark, PetPace, Pawscout) with BLE/GPS/cellular protocol details.</li>
+    <li>Add Pet telemedicine block (WebRTC, secure messaging, e-Rx where allowed).</li>
+    <li>Add Pet insurance claim automation block.</li>
+    <li>Promote cost / timeline from FAQ to dedicated H2 sections with tables + calculator.</li>
+    <li>Add Tech stack section with named SDKs.</li>
+    <li>Add Types of pet care apps comparison table.</li>
+    <li>Add Animal welfare &amp; regulatory block (USDA APHIS, AWBI, AAFCO, DEFRA).</li>
+    <li>Replace "Other On-Demand" off-topic block with related pet-tech sub-pages (build the sub-pages first).</li>
+    <li>Add jump-link TOC.</li>
+  </ol>
+
+  <h3>Weeks 9-12 — Off-page link magnets</h3>
+  <ol>
+    <li>Publish "<i>2026 Pet App Compliance &amp; Tech Stack Guide</i>" gated PDF.</li>
+    <li>Build "<i>Pet App Cost Calculator</i>" widget on the page.</li>
+    <li>Pitch original survey ("State of Pet-Tech Development 2026") to PetBusinessWorld, AAHA Trends, Pet Industry News, Today's Veterinary Business.</li>
+    <li>Internal-link campaign: each new pet-tech sub-page links back here with descriptive anchors.</li>
+    <li>Submit to GSC after each major batch; bump <code>&lt;lastmod&gt;</code> in sitemap.</li>
+    <li>Pursue listings on Clutch / GoodFirms / DesignRush / ITFirms specifically under "Pet App Development" categories.</li>
+  </ol>
+
+  <h3>Expected outcome timeline</h3>
+  <ul class="tight">
+    <li><b>0-30 days:</b> Page exits algorithmic suppression; long-tail impressions begin in GSC for queries like "veterinary app development", "pet sitting marketplace development".</li>
+    <li><b>30-60 days:</b> Page 4-6 for primary keyword if the rewrite is thorough; page 2-3 for long-tails.</li>
+    <li><b>60-120 days:</b> Page 2 candidate for the primary keyword; page 1 for less competitive long-tails.</li>
+    <li><b>120-180 days:</b> Page 1 candidate for "pet care app development company" <b>only with</b> off-page momentum (backlinks, listings).</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>🧾 One-line summary</h2>
+  <p>The URL is technically sound and the slug is fine, but the page is suppressed because it's a templated shell from 2015: <b>broken H1, emoji-laden title, brand-piggyback content, a typo'd H2, 11 off-topic case studies (Uber/Netflix/Tinder on a pet-care page), unsubstantiated Fortune-500 claim, and self-serving review schema</b>. None of these need new infrastructure — they need a focused rewrite that makes the page actually about pet-tech, plus an E-E-A-T injection and off-page link magnets.</p>
+</section>
+
+<div class="footer">SEO Audit · /pet-care-app-development-company · prepared for IMG Global Infotech · 06 Jun 2026</div>
+
+</div>
+</body>
+</html>
