@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — Astrology App Development | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2230; --border:#2d333b;
+    --text:#e6edf3; --muted:#9aa7b4; --accent:#3b82f6;
+    --crit:#ef4444; --high:#f59e0b; --med:#eab308; --good:#22c55e; --info:#38bdf8; --chipbg:#21262d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter','Segoe UI','Nirmala UI',system-ui,-apple-system,'Noto Sans Devanagari',sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:32px 20px 80px}
+  .hero{background:linear-gradient(135deg,#b45309 0%,#7c3aed 100%);border-radius:18px;padding:38px 34px;
+    margin-bottom:30px;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;
+    background:radial-gradient(circle,rgba(255,255,255,.14),transparent 70%);border-radius:50%}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.18);padding:5px 14px;border-radius:30px;
+    font-size:12.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-size:27px;line-height:1.3;font-weight:800;margin-bottom:10px;color:#fff}
+  .hero .url{font-family:ui-monospace,Consolas,monospace;font-size:13px;color:#fef3c7;word-break:break-all;
+    background:rgba(0,0,0,.22);padding:8px 12px;border-radius:8px;display:inline-block}
+  .hero .meta{margin-top:16px;font-size:13.5px;color:#fef9c3;display:flex;gap:22px;flex-wrap:wrap}
+  .hero .meta b{color:#fff}
+  .verdict{background:var(--panel);border:1px solid var(--border);border-left:5px solid var(--good);
+    border-radius:12px;padding:22px 26px;margin-bottom:30px;font-size:17px}
+  .verdict b{color:#fff}.verdict .gd{color:#86efac;font-weight:700}.verdict .cr{color:#fca5a5;font-weight:700}
+  h2.section{font-size:21px;font-weight:800;margin:42px 0 18px;padding-bottom:10px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:10px}
+  h3{font-size:17px;font-weight:700;margin:24px 0 10px;color:#fff}
+  p{margin-bottom:12px}.muted{color:var(--muted)}
+  .scores{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:26px 28px;margin-bottom:14px}
+  .scorerow{display:grid;grid-template-columns:170px 1fr 52px;align-items:center;gap:14px;margin:13px 0}
+  .scorerow .lbl{font-size:14px;font-weight:600;color:var(--muted)}
+  .bar{height:13px;background:#0b0f15;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+  .bar span{display:block;height:100%;border-radius:8px}
+  .scorerow .val{font-size:14px;font-weight:700;text-align:right}
+  .b-good span{background:linear-gradient(90deg,#16a34a,#22c55e)}
+  .b-med span{background:linear-gradient(90deg,#ca8a04,#eab308)}
+  .b-high span{background:linear-gradient(90deg,#d97706,#f59e0b)}
+  .b-crit span{background:linear-gradient(90deg,#dc2626,#ef4444)}
+  .cause{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin-bottom:16px;position:relative}
+  .cause.c1{border-left:5px solid var(--crit)}.cause.c2{border-left:5px solid var(--high)}.cause.c3{border-left:5px solid var(--high)}
+  .cause .num{position:absolute;top:18px;right:22px;font-size:42px;font-weight:900;color:rgba(255,255,255,.06)}
+  .cause h3{margin-top:0}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;background:var(--panel);border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+  th{background:var(--panel2);text-align:left;padding:11px 14px;font-weight:700;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+  td{padding:11px 14px;border-top:1px solid var(--border);vertical-align:top}
+  tr:hover td{background:rgba(255,255,255,.02)}
+  code{font-family:ui-monospace,Consolas,monospace;background:var(--chipbg);padding:2px 7px;border-radius:5px;font-size:13px;color:#7dd3fc}
+  .x{color:var(--crit);font-weight:700}.ok{color:var(--good);font-weight:700}.warn{color:var(--high);font-weight:700}
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px;text-transform:uppercase;letter-spacing:.4px;margin-right:6px}
+  .badge.crit{background:rgba(239,68,68,.16);color:#fca5a5;border:1px solid rgba(239,68,68,.35)}
+  .badge.high{background:rgba(245,158,11,.16);color:#fcd34d;border:1px solid rgba(245,158,11,.35)}
+  .badge.med{background:rgba(234,179,8,.14);color:#fde047;border:1px solid rgba(234,179,8,.3)}
+  .badge.ok{background:rgba(34,197,94,.14);color:#86efac;border:1px solid rgba(34,197,94,.3)}
+  .bucket{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:14px}
+  .bucket h3{margin-top:0}
+  .bucket ul{list-style:none;margin:6px 0 0}
+  .bucket li{padding:5px 0 5px 26px;position:relative;font-size:14.5px}
+  .bucket li.y::before{content:"✓";position:absolute;left:0;color:var(--good);font-weight:800}
+  .bucket li.n::before{content:"✕";position:absolute;left:0;color:var(--crit);font-weight:800}
+  .bucket li.w::before{content:"!";position:absolute;left:2px;color:var(--high);font-weight:800}
+  pre{background:#0b0f15;border:1px solid var(--border);border-radius:10px;padding:18px;overflow-x:auto;margin:14px 0;font-size:13px;line-height:1.55}
+  pre code{background:none;padding:0;color:#a5d6ff}
+  .step{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin:10px 0;border-left:4px solid var(--border)}
+  .step.crit{border-left-color:var(--crit)}.step.high{border-left-color:var(--high)}.step.med{border-left-color:var(--med)}
+  .step h4{font-size:15.5px;margin-bottom:6px;color:#fff}
+  .step .know{margin-top:8px;font-size:13px;color:var(--info);background:rgba(56,189,248,.07);padding:7px 11px;border-radius:7px}
+  .step ul{margin:6px 0 0 18px}.step li{margin:4px 0;font-size:14.5px}
+  .callout{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.3);border-radius:10px;padding:16px 20px;margin:16px 0}
+  .callout.warn{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.32)}
+  .callout.good{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.32)}
+  .footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
+  .footer a{color:var(--accent)} a{color:#7dd3fc}
+  @media(max-width:640px){.scorerow{grid-template-columns:120px 1fr 44px}.hero h1{font-size:21px}.wrap{padding:18px 13px 60px}}
+  @media print{body{background:#fff;color:#111}.hero{background:#7c3aed!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .scores,.cause,.bucket,.step,table,pre{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <span class="tag">SEO · AEO · GEO · SXO · AIO — Full Audit</span>
+    <h1>Astrology App Development — पूरी SEO Diagnosis Report</h1>
+    <span class="url">https://www.imgglobalinfotech.com/astrology-app-development</span>
+    <div class="meta">
+      <span><b>Date:</b> 13 June 2026</span>
+      <span><b>Status:</b> Indexed पर दबा हुआ</span>
+      <span><b>HTTP:</b> 200 OK</span>
+      <span><b>HTML size:</b> 688 KB (सबसे हल्का)</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <b>🎯 यह आपकी सबसे आसान जीत है।</b> Reason: <span class="gd">competition peer-level है</span> (JPLoft, Suffescom, Dev Technosys, Techugo — Clutch/Appinventiv जैसे giants नहीं), इसलिए <b>authority gap यहाँ बहुत कम मायने रखता है</b>। On-page भी मज़बूत है (Title में "Company", exact-match H1, 5,232 words deep, astrology depth ज़बरदस्त)। और <span class="gd">कोई sibling service-page cannibalization नहीं</span> (सिर्फ 1 astrology service page)।
+    <br><br>असली blocker सिर्फ 2: <span class="cr">(1) पुराना <code>.php</code> + एक खतरनाक blog slug-collision</span> <code>/blog/astrology-app-development</code>, और <b>(2) Title में "India" + basic site-wide fixes</b>। ये fix होते ही ये page सबसे जल्दी rank करेगा।
+  </div>
+
+  <!-- SCORE -->
+  <h2 class="section">📊 Score Card</h2>
+  <div class="scores">
+    <div class="scorerow"><span class="lbl">On-Page SEO</span><span class="bar b-good"><span style="width:85%"></span></span><span class="val" style="color:var(--good)">85</span></div>
+    <div class="scorerow"><span class="lbl">Content Quality</span><span class="bar b-good"><span style="width:83%"></span></span><span class="val" style="color:var(--good)">83</span></div>
+    <div class="scorerow"><span class="lbl">Technical SEO</span><span class="bar b-high"><span style="width:58%"></span></span><span class="val" style="color:var(--high)">58</span></div>
+    <div class="scorerow"><span class="lbl">Schema / Markup</span><span class="bar b-med"><span style="width:63%"></span></span><span class="val" style="color:var(--med)">63</span></div>
+    <div class="scorerow"><span class="lbl">Performance (CWV)</span><span class="bar b-crit"><span style="width:52%"></span></span><span class="val" style="color:var(--crit)">~52</span></div>
+    <div class="scorerow"><span class="lbl">AI / GEO Readiness</span><span class="bar b-high"><span style="width:52%"></span></span><span class="val" style="color:var(--high)">52</span></div>
+    <div class="scorerow"><span class="lbl">Competition Difficulty</span><span class="bar b-good"><span style="width:35%"></span></span><span class="val" style="color:var(--good)">कम</span></div>
+  </div>
+  <p class="muted">ध्यान दें: यहाँ आखिरी row "Off-Page Authority" नहीं, बल्कि <b>Competition Difficulty</b> है — और वो <b>कम</b> है (आपके पक्ष में)। इसीलिए ये page सबसे जल्दी move करेगा।</p>
+
+  <!-- ROOT CAUSES -->
+  <h2 class="section">🔴 असली कारण</h2>
+
+  <div class="cause c1">
+    <span class="num">1</span>
+    <h3><span class="badge crit">Critical</span> पुराना .php + खतरनाक blog slug-collision</h3>
+    <p><code>site:imgglobalinfotech.com astrology app development</code> Google पर — clean target <b class="x">नहीं दिखा</b>, ये दिखे:</p>
+    <table>
+      <tr><th>Google जो दिखा रहा है</th><th>Note</th></tr>
+      <tr><td><code>/astrology-app-development.php</code> — "Astrology App Development Company"</td><td class="x">पुराना .php, इसी keyword पर बैठा है</td></tr>
+      <tr><td><code>/blog/astrology-app-development</code> — "Astrology App Development: Cost, Features"</td><td class="x">⚠️ बिल्कुल SAME slug, सिर्फ /blog/ नीचे — direct collision</td></tr>
+      <tr><td><code>/blog/astrology-app-development-companies-in-india</code></td><td class="warn">commercial query खा रहा</td></tr>
+      <tr><td><code>/blog/top-companies-to-build-astrology-app-like-astrotalk</code></td><td>listicle</td></tr>
+      <tr><td><code>/blog/top-trends-...</code> · <code>/blog/complete-guide-...</code></td><td>info posts</td></tr>
+      <tr><td><b>/astrology-app-development</b> <span class="badge crit">यह money page</span></td><td class="x">❌ नहीं दिखा</td></tr>
+    </table>
+    <div class="callout warn"><b>सबसे खतरनाक:</b> <code>/blog/astrology-app-development</code> और आपका money page <code>/astrology-app-development</code> — दोनों का slug बिल्कुल एक जैसा है। Google दोनों को एक ही चीज़ समझकर confuse होता है, और अक्सर blog version को (जो commercial नहीं है) रख देता है। यह तुरंत ठीक करना है।</div>
+  </div>
+
+  <div class="cause c2">
+    <span class="num">2</span>
+    <h3><span class="badge high">High</span> Title में "India" गायब (छोटी पर असरदार galti)</h3>
+    <table>
+      <tr><th>Element</th><th>Value</th><th>Note</th></tr>
+      <tr><td>Title (55 ch)</td><td>"Astrology App Development Company - IMG Global Infotech"</td><td class="ok">अच्छा — पर "India" नहीं</td></tr>
+      <tr><td>H1</td><td>"Astrology App Development Company"</td><td class="ok">exact match ✓</td></tr>
+      <tr><td>Meta desc (161)</td><td>"...astrology app development company <b>in India</b>..."</td><td class="ok">India है ✓</td></tr>
+      <tr><td>"India" body mentions</td><td>6</td><td class="warn">थोड़ा और बढ़ाएँ</td></tr>
+    </table>
+    <p>Title पहले से ठीक है (तीनों पुराने pages से बेहतर) — बस "in India" जोड़ दें ताकि "astrology app development company in india" query पर सीधा match बने। बाकी pages की तरह यहाँ intent confusion नहीं है।</p>
+  </div>
+
+  <div class="cause c3">
+    <span class="num">3</span>
+    <h3><span class="badge high">High</span> Site-wide common issues (बाकी pages जैसे ही)</h3>
+    <table>
+      <tr><th>Issue</th><th>Value</th><th>Verdict</th></tr>
+      <tr><td>HTML size</td><td>688 KB (सबसे हल्का फिर भी भारी)</td><td class="warn">घटाएँ</td></tr>
+      <tr><td>Images / inline scripts</td><td>137 images · 25 scripts (कोई defer नहीं)</td><td class="x">Render block</td></tr>
+      <tr><td>Cache-Control</td><td><code>no-cache, private</code></td><td class="warn">cache नहीं</td></tr>
+      <tr><td>llms.txt</td><td>404 (site-wide)</td><td class="x">GEO miss</td></tr>
+      <tr><td>Schema</td><td>Product+self-serving rating 4.7/138 · 2× LocalBusiness · कोई Breadcrumb नहीं</td><td class="warn">fix करें</td></tr>
+    </table>
+  </div>
+
+  <!-- GOOD -->
+  <h2 class="section">✅ जो इस page में बहुत अच्छा है</h2>
+  <div class="bucket">
+    <ul>
+      <li class="y"><b>Niche depth ज़बरदस्त</b> (5,232 words): astrology(91), app development(119), astrology app(66), horoscope(21), kundli(4)</li>
+      <li class="y"><b>Title + H1 साफ़ और consistent</b> — "Astrology App Development Company" (कोई intent confusion नहीं, ecommerce page जैसी समस्या नहीं)</li>
+      <li class="y"><b>सिर्फ 1 service page</b> — कोई sibling cannibalization नहीं (ecommerce में 13 थे!)</li>
+      <li class="y"><b>Competitor-benchmarking</b> — "App Like Astrotalk", AI-powered angle, market-size data ($4B→$30B) — strong commercial + AEO signal</li>
+      <li class="y"><b>"High-Demand Indian Cities" section</b> — geo relevance</li>
+      <li class="y">137 images सब alt+lazy · canonical self-ref · index,follow · sitemap में मौजूद</li>
+    </ul>
+  </div>
+
+  <!-- BUCKETS -->
+  <h2 class="section">🧩 हर bucket: SEO / AEO / GEO / SXO / AIO</h2>
+  <div class="bucket">
+    <h3>🟢 SEO — सबसे healthy स्थिति</h3>
+    <ul>
+      <li class="y">On-page strong, intent clear, low competition</li>
+      <li class="n">पुराना .php + blog slug-collision (कारण #1) — यही असली blocker</li>
+      <li class="w">Title में "India" add करें (कारण #2)</li>
+    </ul>
+  </div>
+  <div class="bucket">
+    <h3>🟢 AEO</h3>
+    <ul>
+      <li class="y">FAQPage + cost + market-size + "what insights" sections → answer-engine friendly</li>
+      <li class="w">हर FAQ के नीचे direct 40–60 word concise answer add करें</li>
+    </ul>
+  </div>
+  <div class="bucket">
+    <h3>🟠 GEO (ChatGPT/Gemini/Perplexity)</h3>
+    <ul>
+      <li class="n"><code>llms.txt</code> 404 (site-wide)</li>
+      <li class="y">Niche + clear topic → fix होते ही "best astrology app development company" type AI answers में अच्छा मौका</li>
+    </ul>
+  </div>
+  <div class="bucket">
+    <h3>🟠 SXO / OXS</h3>
+    <ul>
+      <li class="n">Performance (688KB, 137 images)</li>
+      <li class="w">BreadcrumbList गायब</li>
+    </ul>
+  </div>
+  <div class="bucket">
+    <h3>🟠 AIO (AI Overviews)</h3>
+    <ul>
+      <li class="y">Cost/market data + structured content — AI Overview citation का अच्छा base</li>
+      <li class="w">Entity authority + llms.txt चाहिए</li>
+    </ul>
+  </div>
+
+  <!-- SCHEMA -->
+  <h2 class="section">🟡 Schema (6 JSON-LD blocks)</h2>
+  <table>
+    <tr><th>#</th><th>Issue</th><th>Severity</th></tr>
+    <tr><td>1</td><td><b>Product + AggregateRating "4.7 / 138"</b> — फिर वही self-serving rating + <code>Product</code> गलत type</td><td><span class="badge crit">Critical</span></td></tr>
+    <tr><td>2</td><td><b>2× LocalBusiness</b> + अलग Organization → duplicate entity</td><td><span class="badge high">High</span></td></tr>
+    <tr><td>3</td><td><b>BreadcrumbList गायब</b></td><td><span class="badge med">Medium</span></td></tr>
+    <tr><td>4</td><td>Service, Organization, WebSite, WebPage, FAQPage — ठीक</td><td><span class="badge ok">OK</span></td></tr>
+  </table>
+  <pre><code>{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Astrology App Development",
+  "provider": { "@type": "Organization", "name": "IMG Global Infotech",
+    "@id": "https://www.imgglobalinfotech.com/#organization" },
+  "areaServed": { "@type": "Country", "name": "India" },
+  "description": "Custom AI-powered astrology &amp; horoscope app development — kundli, daily horoscope, live consultation, payments."
+}</code></pre>
+
+  <!-- ACTION PLAN -->
+  <h2 class="section">🚀 Action Plan</h2>
+
+  <h3>🔴 CRITICAL — इसी हफ़्ते (आसान + तेज़ असर)</h3>
+  <div class="step crit">
+    <h4>1. Blog slug-collision हटाएँ (सबसे ज़रूरी)</h4>
+    <ul>
+      <li><code>/blog/astrology-app-development</code> का slug बदलें → जैसे <code>/blog/astrology-app-development-cost-guide</code> (उसका title already "Cost, Features" है)</li>
+      <li>उस blog post से commercial intent वाला internal link <b>money page</b> <code>/astrology-app-development</code> की तरफ डालें</li>
+      <li><code>astrology-app-development.php</code> → clean URL पर 301 confirm करें; GSC में money page को "Request Indexing"</li>
+    </ul>
+    <div class="know">कैसे पता चलेगा? → GSC के site: results में money page दिखना शुरू + blog वाला नीचे चला जाएगा।</div>
+  </div>
+  <div class="step crit">
+    <h4>2. Title में "India" जोड़ें</h4>
+    <ul>
+      <li>नया → <code>Astrology App Development Company in India | IMG Global Infotech</code></li>
+      <li>OG/Twitter title align करें; body में "India" 6 से बढ़ाकर 10–12 करें (natural)</li>
+    </ul>
+  </div>
+  <div class="step crit">
+    <h4>3. llms.txt बनाएँ (site-wide 404 fix)</h4>
+  </div>
+
+  <h3>🟠 HIGH — 1–2 हफ़्ते</h3>
+  <div class="step high"><h4>4. Performance — 137 images defer/trim, 25 scripts combine+defer, HTML 688KB→&lt;150KB, Cache-Control fix</h4></div>
+  <div class="step high"><h4>5. Schema — Product→Service, LocalBusiness merge, BreadcrumbList add</h4></div>
+  <div class="step high"><h4>6. हल्का backlink push (यहाँ थोड़ा भी काफ़ी)</h4>
+    <ul><li>2–3 अच्छे guest posts/listicle mentions ("astrology app development company") — peer-level competition में यही फ़र्क़ डालेगा</li></ul></div>
+
+  <h3>🟡 MEDIUM</h3>
+  <div class="step med"><h4>7. 32 astrology blog posts को इस money page से internal-link करें (topical cluster) + AEO answer-first + Sitemap real lastmod</h4></div>
+
+  <!-- EXPECTATION -->
+  <h2 class="section">⏱️ Realistic Expectation — सबसे आशाजनक</h2>
+  <div class="callout good">
+    <p><b>पाँचों pages में recovery यहाँ सबसे तेज़।</b> Low competition + strong page + सिर्फ blog/.php fix।</p>
+    <p>• Slug-collision + .php + title fix → <b>2–5 हफ़्ते</b> में "astrology app development", "astrology app development company", "ai astrology app development" पर top-10–20 की तरफ movement।</p>
+    <p>• थोड़े backlinks के साथ <b>3–6 महीने</b> में page-1 realistic — head term के लिए भी (क्योंकि competitors peer-level हैं, giants नहीं)।</p>
+  </div>
+
+  <h2 class="section">📊 पाँचों pages की तुलना</h2>
+  <table>
+    <tr><th>Page</th><th>On-Page</th><th>Competition</th><th>Growth मौका</th></tr>
+    <tr><td>/mobile-app-development-company-in-india</td><td>88</td><td class="x">बहुत ज़्यादा (giants)</td><td>धीमा</td></tr>
+    <tr><td>/ecommerce-development</td><td>72</td><td class="warn">ज़्यादा + intent confusion</td><td>मध्यम</td></tr>
+    <tr><td>/ecommerce-website-development-company</td><td>85</td><td class="warn">ज़्यादा</td><td>तेज़</td></tr>
+    <tr><td>/ai-development-company</td><td>80</td><td class="warn">मध्यम (नया niche)</td><td>तेज़</td></tr>
+    <tr><td><b>/astrology-app-development</b></td><td><b>85</b></td><td class="ok"><b>कम (peer-level)</b></td><td class="ok"><b>🟢 सबसे तेज़ + सबसे आसान</b></td></tr>
+  </table>
+  <p class="muted"><b>निष्कर्ष:</b> ranking की प्राथमिकता <b>astrology → ai-development → ecommerce-website</b> क्रम में रखें (आसान-से-कठिन)। पाँचों में जड़ें common हैं — पुराने .php duplicates + blog cannibalization + (site-wide) llms.txt 404, no-cache, fake sitemap priority, duplicate LocalBusiness + self-serving Product schema, heavy HTML। इसलिए <b>एक site-wide fix batch</b> पाँचों को एक साथ फ़ायदा देगा।</p>
+
+  <div class="footer">
+    <p>Report generated 13 June 2026 · Live data: HTML, headers, robots.txt, sitemap (1 astrology service + 32 blog URLs), schema (6 JSON-LD), Google SERP.</p>
+    <p>Sources: <a href="https://www.jploft.com/astrology-app-development">JPLoft</a> ·
+      <a href="https://www.suffescom.com/services/astrology-app-development">Suffescom</a> ·
+      <a href="https://www.imgglobalinfotech.com/astrology-app-development.php">IMG .php (old, ranking for this keyword)</a></p>
+    <p style="margin-top:14px;color:#6b7684">Built by agricidaniel — AI Marketing Hub ·
+      <a href="https://www.skool.com/ai-marketing-hub">Free</a> ·
+      <a href="https://www.skool.com/ai-marketing-hub-pro">Pro</a></p>
+  </div>
+
+</div>
+</body>
+</html>

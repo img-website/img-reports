@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — Ecommerce Development | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2230; --border:#2d333b;
+    --text:#e6edf3; --muted:#9aa7b4; --accent:#3b82f6; --accent2:#8b5cf6;
+    --crit:#ef4444; --high:#f59e0b; --med:#eab308; --good:#22c55e; --info:#38bdf8;
+    --chipbg:#21262d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter','Segoe UI','Nirmala UI',system-ui,-apple-system,'Noto Sans Devanagari',sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.7; font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:32px 20px 80px}
+  .hero{
+    background:linear-gradient(135deg,#0f766e 0%,#7c2d12 100%);
+    border-radius:18px;padding:38px 34px;margin-bottom:30px;position:relative;overflow:hidden;
+    box-shadow:0 12px 40px rgba(0,0,0,.4);
+  }
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;
+    background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);border-radius:50%}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.18);padding:5px 14px;border-radius:30px;
+    font-size:12.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-size:27px;line-height:1.3;font-weight:800;margin-bottom:10px;color:#fff}
+  .hero .url{font-family:ui-monospace,'SF Mono',Consolas,monospace;font-size:13.5px;color:#d1fae5;
+    word-break:break-all;background:rgba(0,0,0,.22);padding:8px 12px;border-radius:8px;display:inline-block}
+  .hero .meta{margin-top:16px;font-size:13.5px;color:#ecfdf5;display:flex;gap:22px;flex-wrap:wrap}
+  .hero .meta b{color:#fff}
+  .verdict{
+    background:var(--panel);border:1px solid var(--border);border-left:5px solid var(--crit);
+    border-radius:12px;padding:22px 26px;margin-bottom:30px;font-size:17px;
+  }
+  .verdict b{color:#fff}.verdict .hi{color:var(--high);font-weight:700}.verdict .cr{color:#fca5a5;font-weight:700}
+  h2.section{font-size:21px;font-weight:800;margin:42px 0 18px;padding-bottom:10px;
+    border-bottom:2px solid var(--border);display:flex;align-items:center;gap:10px}
+  h3{font-size:17px;font-weight:700;margin:24px 0 10px;color:#fff}
+  p{margin-bottom:12px;color:var(--text)} .muted{color:var(--muted)}
+  .scores{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:26px 28px;margin-bottom:14px}
+  .scorerow{display:grid;grid-template-columns:170px 1fr 52px;align-items:center;gap:14px;margin:13px 0}
+  .scorerow .lbl{font-size:14px;font-weight:600;color:var(--muted)}
+  .bar{height:13px;background:#0b0f15;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+  .bar span{display:block;height:100%;border-radius:8px}
+  .scorerow .val{font-size:14px;font-weight:700;text-align:right}
+  .b-good span{background:linear-gradient(90deg,#16a34a,#22c55e)}
+  .b-med span{background:linear-gradient(90deg,#ca8a04,#eab308)}
+  .b-high span{background:linear-gradient(90deg,#d97706,#f59e0b)}
+  .b-crit span{background:linear-gradient(90deg,#dc2626,#ef4444)}
+  .cause{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin-bottom:16px;position:relative}
+  .cause.c1,.cause.c2{border-left:5px solid var(--crit)} .cause.c3{border-left:5px solid var(--high)}
+  .cause .num{position:absolute;top:18px;right:22px;font-size:42px;font-weight:900;color:rgba(255,255,255,.06)}
+  .cause h3{margin-top:0}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;background:var(--panel);
+    border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+  th{background:var(--panel2);text-align:left;padding:11px 14px;font-weight:700;font-size:13px;
+    color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+  td{padding:11px 14px;border-top:1px solid var(--border);vertical-align:top}
+  tr:hover td{background:rgba(255,255,255,.02)}
+  code{font-family:ui-monospace,Consolas,monospace;background:var(--chipbg);padding:2px 7px;border-radius:5px;font-size:13px;color:#7dd3fc}
+  .x{color:var(--crit);font-weight:700}.ok{color:var(--good);font-weight:700}.warn{color:var(--high);font-weight:700}
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px;
+    text-transform:uppercase;letter-spacing:.4px;margin-right:6px}
+  .badge.crit{background:rgba(239,68,68,.16);color:#fca5a5;border:1px solid rgba(239,68,68,.35)}
+  .badge.high{background:rgba(245,158,11,.16);color:#fcd34d;border:1px solid rgba(245,158,11,.35)}
+  .badge.med{background:rgba(234,179,8,.14);color:#fde047;border:1px solid rgba(234,179,8,.3)}
+  .badge.ok{background:rgba(34,197,94,.14);color:#86efac;border:1px solid rgba(34,197,94,.3)}
+  .badge.info{background:rgba(56,189,248,.14);color:#7dd3fc;border:1px solid rgba(56,189,248,.3)}
+  .bucket{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:14px}
+  .bucket h3{margin-top:0;display:flex;align-items:center;gap:8px}
+  .bucket ul{list-style:none;margin:6px 0 0}
+  .bucket li{padding:5px 0 5px 26px;position:relative;font-size:14.5px}
+  .bucket li.y::before{content:"✓";position:absolute;left:0;color:var(--good);font-weight:800}
+  .bucket li.n::before{content:"✕";position:absolute;left:0;color:var(--crit);font-weight:800}
+  .bucket li.w::before{content:"!";position:absolute;left:2px;color:var(--high);font-weight:800}
+  pre{background:#0b0f15;border:1px solid var(--border);border-radius:10px;padding:18px;overflow-x:auto;
+    margin:14px 0;font-size:13px;line-height:1.55}
+  pre code{background:none;padding:0;color:#a5d6ff}
+  .step{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin:10px 0;border-left:4px solid var(--border)}
+  .step.crit{border-left-color:var(--crit)}.step.high{border-left-color:var(--high)}.step.med{border-left-color:var(--med)}
+  .step h4{font-size:15.5px;margin-bottom:6px;color:#fff;display:flex;align-items:center;gap:8px}
+  .step .know{margin-top:8px;font-size:13px;color:var(--info);background:rgba(56,189,248,.07);padding:7px 11px;border-radius:7px}
+  .step ul{margin:6px 0 0 18px} .step li{margin:4px 0;font-size:14.5px}
+  .callout{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.3);border-radius:10px;padding:16px 20px;margin:16px 0}
+  .callout.warn{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.32)}
+  .footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
+  .footer a{color:var(--accent)} a{color:#7dd3fc}
+  @media(max-width:640px){.scorerow{grid-template-columns:120px 1fr 44px}.hero h1{font-size:21px}.wrap{padding:18px 13px 60px}}
+  @media print{body{background:#fff;color:#111}.hero{background:#0f766e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .scores,.cause,.bucket,.step,table,pre{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <span class="tag">SEO · AEO · GEO · SXO · AIO — Full Audit</span>
+    <h1>Ecommerce Development — पूरी SEO Diagnosis Report</h1>
+    <span class="url">https://www.imgglobalinfotech.com/ecommerce-development</span>
+    <div class="meta">
+      <span><b>Date:</b> 13 June 2026</span>
+      <span><b>Status:</b> Indexed, पर rank नहीं</span>
+      <span><b>HTTP:</b> 200 OK</span>
+      <span><b>HTML size:</b> 866 KB</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <b>सीधी बात:</b> इस page पर समस्या <b>app वाले page से भी ज़्यादा गंभीर</b> है। on-page की technical setup ठीक है, पर 4 बड़ी galtiyाँ rank रोक रही हैं:
+    <span class="cr">(1) भयानक Cannibalization</span> — sitemap में <b>92 ecommerce URLs</b>, 10+ नया service pages एक ही keyword पर,
+    <span class="cr">(2) Intent Confusion</span> — Title/H1/URL/OG सब <b>अलग-अलग keyword</b> target कर रहे (web vs app),
+    <b>(3) Authority gap</b> — competitive keyword,
+    <b>(4) Performance</b> — 866KB HTML + 163 images. नीचे evidence + fix है।
+  </div>
+
+  <!-- SCORE CARD -->
+  <h2 class="section">📊 Score Card</h2>
+  <div class="scores">
+    <div class="scorerow"><span class="lbl">On-Page SEO</span><span class="bar b-med"><span style="width:72%"></span></span><span class="val" style="color:var(--med)">72</span></div>
+    <div class="scorerow"><span class="lbl">Content Quality</span><span class="bar b-good"><span style="width:75%"></span></span><span class="val" style="color:var(--good)">75</span></div>
+    <div class="scorerow"><span class="lbl">Technical SEO</span><span class="bar b-high"><span style="width:58%"></span></span><span class="val" style="color:var(--high)">58</span></div>
+    <div class="scorerow"><span class="lbl">Schema / Markup</span><span class="bar b-med"><span style="width:62%"></span></span><span class="val" style="color:var(--med)">62</span></div>
+    <div class="scorerow"><span class="lbl">Performance (CWV)</span><span class="bar b-crit"><span style="width:48%"></span></span><span class="val" style="color:var(--crit)">~48</span></div>
+    <div class="scorerow"><span class="lbl">AI / GEO Readiness</span><span class="bar b-high"><span style="width:50%"></span></span><span class="val" style="color:var(--high)">50</span></div>
+    <div class="scorerow"><span class="lbl">Off-Page Authority</span><span class="bar b-crit"><span style="width:25%"></span></span><span class="val" style="color:var(--crit)">25</span></div>
+  </div>
+  <p class="muted">Technical setup ठीक है पर <b>cannibalization + intent confusion</b> इस page को सबसे ज़्यादा नुकसान पहुँचा रहे हैं।</p>
+
+  <!-- ROOT CAUSES -->
+  <h2 class="section">🔴 असली कारण (Root Cause)</h2>
+
+  <div class="cause c1">
+    <span class="num">1</span>
+    <h3><span class="badge crit">Critical</span> भयानक Cannibalization — 92 ecommerce URLs, 10+ service pages आपस में लड़ रहे</h3>
+    <p>Sitemap में <b class="x">92 ecommerce-related URLs</b> हैं। इनमें से ये <b>money/service pages</b> सीधे "ecommerce development" intent पर compete करते हैं:</p>
+    <table>
+      <tr><th>Page</th><th>किस पर लड़ रहा है</th></tr>
+      <tr><td><b>/ecommerce-development</b> <span class="badge crit">आपका target</span></td><td>ecommerce development (web?/app?)</td></tr>
+      <tr><td><code>/ecommerce-website-development-company</code> <span class="badge crit">सीधा clash</span></td><td>ecommerce development company</td></tr>
+      <tr><td><code>/shopify-ecommerce-development</code></td><td>shopify ecommerce</td></tr>
+      <tr><td><code>/woocommerce-website-development</code></td><td>woocommerce ecommerce</td></tr>
+      <tr><td><code>/b2b-ecommerce-development</code> · <code>/b2c-ecommerce-development</code> · <code>/d2c-ecommerce-development</code></td><td>B2B/B2C/D2C ecommerce</td></tr>
+      <tr><td><code>/fashion-ecommerce-development</code> · <code>/furniture-...</code> · <code>/gift-...</code> · <code>/jewellery-...</code> · <code>/market-place-...</code></td><td>niche ecommerce</td></tr>
+      <tr><td><code>/ecommerce-development-company-in-delhi</code> · <code>/...-in-jaipur</code></td><td>city ecommerce company</td></tr>
+      <tr><td>+ ~6 blog listicles (top-10 ecommerce companies, choose-right-company...)</td><td>ecommerce companies in india</td></tr>
+    </table>
+    <p><b>Google पर <code>site:</code> search में आपका clean target दिखा ही नहीं</b> — पुराना <code>ecommerce-development.php</code> दिखा। मतलब authority + relevance signals <b>दर्जनों pages में बँट गए</b> — Google decide ही नहीं कर पा रहा किसे rank करे। यह सबसे बड़ी galti है।</p>
+  </div>
+
+  <div class="cause c2">
+    <span class="num">2</span>
+    <h3><span class="badge crit">Critical</span> Intent Confusion — Title / H1 / URL / OG सब अलग keyword पर</h3>
+    <p>इस page की पहचान ही clear नहीं — हर जगह अलग keyword है। Google को समझ नहीं आता page है किस बारे में:</p>
+    <table>
+      <tr><th>Element</th><th>Value</th><th>Implied keyword</th></tr>
+      <tr><td>URL</td><td><code>/ecommerce-development</code></td><td>ecommerce <b>web</b> dev</td></tr>
+      <tr><td>Title (49 ch)</td><td>"Custom Ecommerce <b>Application</b> Development Services"</td><td>ecommerce <b>app</b></td></tr>
+      <tr><td>H1</td><td>"Best eCommerce <b>Application</b> Development Company"</td><td>ecommerce <b>app</b> company</td></tr>
+      <tr><td>OG title</td><td>"Ecommerce Development Company <b>In India</b>"</td><td>company in india</td></tr>
+      <tr><td>Twitter</td><td>"Ecommerce <b>App</b> Development Services"</td><td>app services</td></tr>
+      <tr><td>Content</td><td>"App Like Lazada/Shopee/Vinted", "mCommerce"</td><td>heavily <b>app</b>-focused</td></tr>
+    </table>
+    <p class="x">⚠️ साथ ही: Title में "India" और "Company" शब्द नहीं हैं (जबकि competitors इन्हीं से rank करते हैं), और body में <b>Magento (0) + WooCommerce (0)</b> mention ही नहीं — जबकि ये ecommerce-web के सबसे बड़े platform keywords हैं। एक तरफ page app-focused है, दूसरी तरफ URL web-development कहता है। Google दोनों में से किसी पर भी rank नहीं करा पाता।</p>
+  </div>
+
+  <div class="cause c3">
+    <span class="num">3</span>
+    <h3><span class="badge high">High</span> Authority Gap + Performance</h3>
+    <table>
+      <tr><th>Factor</th><th>Value</th><th>Verdict</th></tr>
+      <tr><td>SERP competitors</td><td>Webandcrafts, Carmatec, Pixlogix, Sphinx, Clutch lists</td><td class="warn">DR 50–80, हज़ारों backlinks</td></tr>
+      <tr><td>Raw HTML size</td><td>866 KB</td><td class="x">बहुत ज़्यादा</td></tr>
+      <tr><td>Images on page</td><td>163</td><td class="x">Extreme</td></tr>
+      <tr><td>Inline scripts</td><td>25, कोई <code>async/defer</code> नहीं</td><td class="x">Render block</td></tr>
+      <tr><td>DOM elements</td><td>4,296</td><td class="warn">भारी</td></tr>
+      <tr><td>Cache-Control</td><td><code>no-cache, private</code></td><td class="warn">HTML cache नहीं</td></tr>
+      <tr><td>Compression</td><td>866KB → 79KB (gzip)</td><td class="ok">ठीक</td></tr>
+    </table>
+  </div>
+
+  <!-- BUCKET ANALYSIS -->
+  <h2 class="section">🧩 हर bucket: SEO / AEO / GEO / SXO / AIO</h2>
+
+  <div class="bucket">
+    <h3>🟠 SEO (Traditional) — <span class="badge med">Mixed</span></h3>
+    <ul>
+      <li class="y">Meta description (158 ch), canonical self-referencing, robots index/follow, sitemap में मौजूद</li>
+      <li class="y">163 images सब में alt + lazy-load · H1 exactly 1 · H2:23 · H3:74 · 6,376 words</li>
+      <li class="n"><b>Title में keyword mismatch</b> — "India"/"Company" गायब, OG से inconsistent</li>
+      <li class="n"><b>Intent confusion</b> (कारण #2) — web vs app vs company</li>
+      <li class="n"><b>Cannibalization</b> (कारण #1) — 10+ sibling money pages</li>
+      <li class="w">Content gap — Magento/WooCommerce जैसे platform keywords body में नहीं</li>
+    </ul>
+  </div>
+
+  <div class="bucket">
+    <h3>🟠 AEO (Answer Engine Optimization)</h3>
+    <ul>
+      <li class="y">FAQPage schema है — AI/voice answers के लिए अच्छा</li>
+      <li class="n">Commercial page पर FAQ rich-result नहीं (Aug 2023 से gov/health only)</li>
+      <li class="n">हर question के नीचे direct 40–60 word concise answer नहीं</li>
+    </ul>
+  </div>
+
+  <div class="bucket">
+    <h3>🟠 GEO (ChatGPT / Gemini / Perplexity)</h3>
+    <ul>
+      <li class="n"><code>llms.txt</code> 404 (robots.txt allow करता है पर file गायब — पूरी site पर लागू)</li>
+      <li class="n">Page का topic खुद clear नहीं → AI engines confidently cite नहीं कर पाते</li>
+    </ul>
+  </div>
+
+  <div class="bucket">
+    <h3>🟠 SXO / OXS (Search Experience)</h3>
+    <ul>
+      <li class="n">Performance drag (866KB, 163 images)</li>
+      <li class="w">BreadcrumbList schema गायब</li>
+      <li class="w">163 images + 74 H3 = बहुत लंबा scroll</li>
+    </ul>
+  </div>
+
+  <div class="bucket">
+    <h3>🟠 AIO (AI Overviews)</h3>
+    <ul>
+      <li class="n">Entity authority कमज़ोर + topic-ambiguity → AI Overview citation मुश्किल</li>
+      <li class="y">Structured data मौजूद है (base ठीक है)</li>
+    </ul>
+  </div>
+
+  <!-- SCHEMA -->
+  <h2 class="section">🟡 Schema की galtiyाँ (6 JSON-LD blocks)</h2>
+  <table>
+    <tr><th>#</th><th>Issue</th><th>Severity</th></tr>
+    <tr><td>1</td><td><b>Product + AggregateRating "4.7 / 142"</b> — self-serving review, service के लिए <code>Product</code> type गलत। Google star नहीं दिखाएगा + spam-risk</td><td><span class="badge crit">Critical</span></td></tr>
+    <tr><td>2</td><td><b>2× LocalBusiness</b> + अलग Organization → duplicate entity</td><td><span class="badge high">High</span></td></tr>
+    <tr><td>3</td><td><b>BreadcrumbList गायब</b></td><td><span class="badge med">Medium</span></td></tr>
+    <tr><td>4</td><td>Service, Organization, WebSite, WebPage, FAQPage — ठीक</td><td><span class="badge ok">OK</span></td></tr>
+  </table>
+  <p>Product → Service में बदलें:</p>
+  <pre><code>{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Ecommerce Development",
+  "provider": {
+    "@type": "Organization",
+    "name": "IMG Global Infotech",
+    "@id": "https://www.imgglobalinfotech.com/#organization"
+  },
+  "areaServed": { "@type": "Country", "name": "India" },
+  "description": "Custom ecommerce website &amp; app development services — Shopify, Magento, WooCommerce, headless commerce."
+}</code></pre>
+  <div class="callout warn">AggregateRating सिर्फ verifiable on-page genuine reviews पर रखें — वरना manual-action risk।</div>
+
+  <!-- ACTION PLAN -->
+  <h2 class="section">🚀 Action Plan</h2>
+
+  <h3>🔴 CRITICAL — इसी हफ़्ते</h3>
+
+  <div class="step crit">
+    <h4>1. Page की एक पहचान तय करें (Intent fix)</h4>
+    <ul>
+      <li>तय करें यह page <b>"Ecommerce Development Company in India"</b> (web + app दोनों का umbrella) है</li>
+      <li>Title बदलें → <code>Ecommerce Development Company in India | IMG Global Infotech</code> (India + Company दोनों डालें)</li>
+      <li>H1 = "Ecommerce Development Company in India", और OG/Twitter/Title सब <b>एक जैसे</b> करें</li>
+      <li>Body में Shopify, Magento, WooCommerce, headless, web + app — सब cover करें (अभी सिर्फ app-focused)</li>
+    </ul>
+    <div class="know">कैसे पता चलेगा? → GSC में page एक ही clear keyword-cluster पर impressions दिखाने लगेगा।</div>
+  </div>
+
+  <div class="step crit">
+    <h4>2. Cannibalization consolidate करें (umbrella + spokes)</h4>
+    <ul>
+      <li><code>/ecommerce-development</code> = <b>main umbrella (hub)</b></li>
+      <li><code>/ecommerce-website-development-company</code> लगभग duplicate है → या तो इसे hub पर <b>301</b> कर दें, या साफ़ "ecommerce <b>website</b>" intent दें</li>
+      <li>B2B/B2C/D2C/Shopify/WooCommerce/niche pages = <b>spokes</b> — हर एक का अलग unique keyword, और सब <b>hub को internal link</b> करें; hub उन्हें link करे</li>
+      <li>Blog listicles को informational रखें, commercial intent सिर्फ hub पर</li>
+    </ul>
+  </div>
+
+  <div class="step crit">
+    <h4>3. GSC + llms.txt</h4>
+    <ul>
+      <li>GSC → URL Inspection (पुराना .php अभी index में) → "Request Indexing"; Performance में position 8–30 keywords पहले target करें</li>
+      <li><code>/llms.txt</code> बनाएँ (robots allow करता है पर 404 है)</li>
+    </ul>
+  </div>
+
+  <h3>🟠 HIGH — 1–2 हफ़्ते</h3>
+  <div class="step high">
+    <h4>4. Performance</h4>
+    <ul>
+      <li>163 images → above-the-fold ही रखें, बाकी defer/remove</li>
+      <li>25 inline scripts combine + <code>defer</code></li>
+      <li>HTML 866KB → &lt;150KB; inline CSS/Tailwind external + minify; <code>Cache-Control</code> ठीक करें</li>
+    </ul>
+  </div>
+  <div class="step high">
+    <h4>5. Schema fix</h4>
+    <ul><li>Product→Service, LocalBusiness merge, BreadcrumbList add</li></ul>
+  </div>
+  <div class="step high">
+    <h4>6. Backlinks / Authority</h4>
+    <ul><li>Clutch, GoodFirms, DesignRush profiles + reviews; digital-PR/guest posts "ecommerce development india" पर</li></ul>
+  </div>
+
+  <h3>🟡 MEDIUM — 1 महीने में</h3>
+  <div class="step med">
+    <h4>7. Content depth + platform keywords</h4>
+    <ul><li>Magento, WooCommerce, BigCommerce, headless, migration, payment-gateway — sections add करें (अभी missing)</li></ul>
+  </div>
+  <div class="step med">
+    <h4>8. AEO format + 9. Sitemap quality</h4>
+    <ul>
+      <li>FAQ/H2 के नीचे direct concise answer</li>
+      <li>Sitemap में सब URLs पर <code>priority 1.0</code>+<code>daily</code>+आज की <code>lastmod</code> = spammy; real values डालें</li>
+    </ul>
+  </div>
+
+  <!-- EXPECTATION -->
+  <h2 class="section">⏱️ Realistic Expectation</h2>
+  <div class="callout">
+    <p>इस page की <b>#1 galti intent confusion + cannibalization</b> है — ये दोनों fix होते ही movement सबसे तेज़ इसी page पर आएगा (app वाले page से जल्दी), क्योंकि competition थोड़ी कम है।</p>
+    <p>• Intent + cannibalization fix → <b>4–8 हफ़्ते</b> में long-tail ("custom ecommerce app development", "b2b ecommerce development company") पर ranking।</p>
+    <p>• Head term "ecommerce development company india" #1–10 → <b>5–9 महीने</b> authority build के साथ।</p>
+  </div>
+
+  <h2 class="section">📌 अगला कदम (मैं कर सकता हूँ)</h2>
+  <table>
+    <tr><th>#</th><th>Deliverable</th><th>ज़रूरत</th></tr>
+    <tr><td>1</td><td><b>Hub-and-Spoke map</b> — सारे 10+ ecommerce service pages का keyword + redirect + internal-link plan</td><td>कुछ नहीं</td></tr>
+    <tr><td>2</td><td><b>नया optimized Title/H1/Meta + content outline</b> इस page के लिए</td><td>कुछ नहीं</td></tr>
+    <tr><td>3</td><td>असली Backlink report (DA/referring domains)</td><td>free Moz API / DataForSEO</td></tr>
+    <tr><td>4</td><td>असली Core Web Vitals (LCP/INP/CLS)</td><td>free Google PageSpeed API</td></tr>
+  </table>
+
+  <div class="footer">
+    <p>Report generated 13 June 2026 · Live data: HTML, headers, robots.txt, sitemap (92 ecommerce URLs), schema (6 JSON-LD), Google SERP, redirects.</p>
+    <p>Sources: <a href="https://webandcrafts.com/services/e-commerce">Webandcrafts</a> ·
+      <a href="https://www.clickpost.ai/blog/ecommerce-development-india">ClickPost – Top ecommerce companies India</a> ·
+      <a href="https://www.imgglobalinfotech.com/ecommerce-development.php">IMG .php (old, indexed)</a></p>
+    <p style="margin-top:14px;color:#6b7684">Built by agricidaniel — AI Marketing Hub ·
+      <a href="https://www.skool.com/ai-marketing-hub">Free</a> ·
+      <a href="https://www.skool.com/ai-marketing-hub-pro">Pro</a></p>
+  </div>
+
+</div>
+</body>
+</html>

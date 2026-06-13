@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — Grocery App Development | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2230; --border:#2d333b;
+    --text:#e6edf3; --muted:#9aa7b4; --accent:#3b82f6;
+    --crit:#ef4444; --high:#f59e0b; --med:#eab308; --good:#22c55e; --info:#38bdf8; --chipbg:#21262d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter','Segoe UI','Nirmala UI',system-ui,-apple-system,'Noto Sans Devanagari',sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:32px 20px 80px}
+  .hero{background:linear-gradient(135deg,#15803d 0%,#0f766e 100%);border-radius:18px;padding:38px 34px;
+    margin-bottom:30px;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;
+    background:radial-gradient(circle,rgba(255,255,255,.14),transparent 70%);border-radius:50%}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.18);padding:5px 14px;border-radius:30px;
+    font-size:12.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-size:27px;line-height:1.3;font-weight:800;margin-bottom:10px;color:#fff}
+  .hero .url{font-family:ui-monospace,Consolas,monospace;font-size:13px;color:#dcfce7;word-break:break-all;
+    background:rgba(0,0,0,.22);padding:8px 12px;border-radius:8px;display:inline-block}
+  .hero .meta{margin-top:16px;font-size:13.5px;color:#dcfce7;display:flex;gap:22px;flex-wrap:wrap}
+  .hero .meta b{color:#fff}
+  .verdict{background:var(--panel);border:1px solid var(--border);border-left:5px solid var(--crit);
+    border-radius:12px;padding:22px 26px;margin-bottom:30px;font-size:17px}
+  .verdict b{color:#fff}.verdict .gd{color:#86efac;font-weight:700}.verdict .cr{color:#fca5a5;font-weight:700}
+  h2.section{font-size:21px;font-weight:800;margin:42px 0 18px;padding-bottom:10px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:10px}
+  h3{font-size:17px;font-weight:700;margin:24px 0 10px;color:#fff}
+  p{margin-bottom:12px}.muted{color:var(--muted)}
+  .scores{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:26px 28px;margin-bottom:14px}
+  .scorerow{display:grid;grid-template-columns:170px 1fr 52px;align-items:center;gap:14px;margin:13px 0}
+  .scorerow .lbl{font-size:14px;font-weight:600;color:var(--muted)}
+  .bar{height:13px;background:#0b0f15;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+  .bar span{display:block;height:100%;border-radius:8px}
+  .scorerow .val{font-size:14px;font-weight:700;text-align:right}
+  .b-good span{background:linear-gradient(90deg,#16a34a,#22c55e)}
+  .b-med span{background:linear-gradient(90deg,#ca8a04,#eab308)}
+  .b-high span{background:linear-gradient(90deg,#d97706,#f59e0b)}
+  .b-crit span{background:linear-gradient(90deg,#dc2626,#ef4444)}
+  .cause{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin-bottom:16px;position:relative}
+  .cause.c1{border-left:5px solid var(--crit)}.cause.c2{border-left:5px solid var(--crit)}.cause.c3{border-left:5px solid var(--high)}
+  .cause .num{position:absolute;top:18px;right:22px;font-size:42px;font-weight:900;color:rgba(255,255,255,.06)}
+  .cause h3{margin-top:0}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;background:var(--panel);border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+  th{background:var(--panel2);text-align:left;padding:11px 14px;font-weight:700;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+  td{padding:11px 14px;border-top:1px solid var(--border);vertical-align:top}
+  tr:hover td{background:rgba(255,255,255,.02)}
+  code{font-family:ui-monospace,Consolas,monospace;background:var(--chipbg);padding:2px 7px;border-radius:5px;font-size:13px;color:#7dd3fc}
+  .x{color:var(--crit);font-weight:700}.ok{color:var(--good);font-weight:700}.warn{color:var(--high);font-weight:700}
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px;text-transform:uppercase;letter-spacing:.4px;margin-right:6px}
+  .badge.crit{background:rgba(239,68,68,.16);color:#fca5a5;border:1px solid rgba(239,68,68,.35)}
+  .badge.high{background:rgba(245,158,11,.16);color:#fcd34d;border:1px solid rgba(245,158,11,.35)}
+  .badge.med{background:rgba(234,179,8,.14);color:#fde047;border:1px solid rgba(234,179,8,.3)}
+  .badge.ok{background:rgba(34,197,94,.14);color:#86efac;border:1px solid rgba(34,197,94,.3)}
+  .bucket{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:14px}
+  .bucket h3{margin-top:0}
+  .bucket ul{list-style:none;margin:6px 0 0}
+  .bucket li{padding:5px 0 5px 26px;position:relative;font-size:14.5px}
+  .bucket li.y::before{content:"✓";position:absolute;left:0;color:var(--good);font-weight:800}
+  .bucket li.n::before{content:"✕";position:absolute;left:0;color:var(--crit);font-weight:800}
+  .bucket li.w::before{content:"!";position:absolute;left:2px;color:var(--high);font-weight:800}
+  pre{background:#0b0f15;border:1px solid var(--border);border-radius:10px;padding:18px;overflow-x:auto;margin:14px 0;font-size:13px;line-height:1.55}
+  pre code{background:none;padding:0;color:#a5d6ff}
+  .step{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin:10px 0;border-left:4px solid var(--border)}
+  .step.crit{border-left-color:var(--crit)}.step.high{border-left-color:var(--high)}.step.med{border-left-color:var(--med)}
+  .step h4{font-size:15.5px;margin-bottom:6px;color:#fff}
+  .step .know{margin-top:8px;font-size:13px;color:var(--info);background:rgba(56,189,248,.07);padding:7px 11px;border-radius:7px}
+  .step ul{margin:6px 0 0 18px}.step li{margin:4px 0;font-size:14.5px}
+  .callout{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.3);border-radius:10px;padding:16px 20px;margin:16px 0}
+  .callout.warn{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.32)}
+  .callout.crit{background:rgba(239,68,68,.09);border-color:rgba(239,68,68,.34)}
+  .callout.good{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.32)}
+  .footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
+  .footer a{color:var(--accent)} a{color:#7dd3fc}
+  @media(max-width:640px){.scorerow{grid-template-columns:120px 1fr 44px}.hero h1{font-size:21px}.wrap{padding:18px 13px 60px}}
+  @media print{body{background:#fff;color:#111}.hero{background:#15803d!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .scores,.cause,.bucket,.step,table,pre{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <span class="tag">SEO · AEO · GEO · SXO · AIO — Full Audit</span>
+    <h1>Grocery App Development — पूरी SEO Diagnosis Report</h1>
+    <span class="url">https://www.imgglobalinfotech.com/grocery-app-development</span>
+    <div class="meta">
+      <span><b>Date:</b> 13 June 2026</span>
+      <span><b>Status:</b> Indexed पर money-page दबा हुआ</span>
+      <span><b>HTTP:</b> 200 OK</span>
+      <span><b>HTML size:</b> 699 KB</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <b>⚠️ सबसे गंभीर चेतावनी यहीं मिली।</b> इस page के schema में एक <span class="cr">नकली Review है जिसका author "Clutch.co" बताया गया है</span> (rating 4.9) + $10,000 का fixed Offer — यानी एक third-party को आपकी site पर review-author के रूप में misrepresent किया गया है। यह <b>misleading structured data</b> है और Google से <b>manual penalty</b> का सीधा risk। इसे तुरंत हटाएँ।
+    <br><br>बाकी हाल वही: on-page अच्छा (Title excellent), competition winnable (mid-tier), पर rank नहीं — क्योंकि पुराना <code>.php</code> + blog आपकी money page को दबा रहे हैं।
+  </div>
+
+  <!-- SCORE -->
+  <h2 class="section">📊 Score Card</h2>
+  <div class="scores">
+    <div class="scorerow"><span class="lbl">On-Page SEO</span><span class="bar b-good"><span style="width:83%"></span></span><span class="val" style="color:var(--good)">83</span></div>
+    <div class="scorerow"><span class="lbl">Content Quality</span><span class="bar b-good"><span style="width:78%"></span></span><span class="val" style="color:var(--good)">78</span></div>
+    <div class="scorerow"><span class="lbl">Technical SEO</span><span class="bar b-high"><span style="width:58%"></span></span><span class="val" style="color:var(--high)">58</span></div>
+    <div class="scorerow"><span class="lbl">Schema / Markup</span><span class="bar b-crit"><span style="width:48%"></span></span><span class="val" style="color:var(--crit)">48 ⚠️</span></div>
+    <div class="scorerow"><span class="lbl">Performance (CWV)</span><span class="bar b-crit"><span style="width:52%"></span></span><span class="val" style="color:var(--crit)">~52</span></div>
+    <div class="scorerow"><span class="lbl">AI / GEO Readiness</span><span class="bar b-high"><span style="width:52%"></span></span><span class="val" style="color:var(--high)">52</span></div>
+    <div class="scorerow"><span class="lbl">Competition Difficulty</span><span class="bar b-high"><span style="width:48%"></span></span><span class="val" style="color:var(--high)">मध्यम</span></div>
+  </div>
+  <p class="muted">Schema score सबसे कम (48) — fake "Clutch.co" review की वजह से। बाकी सब बाकी pages जैसा। Competition mid-tier (giants नहीं) — winnable।</p>
+
+  <!-- ROOT CAUSES -->
+  <h2 class="section">🔴 असली कारण</h2>
+
+  <div class="cause c1">
+    <span class="num">1</span>
+    <h3><span class="badge crit">Critical</span> Schema में fake "Clutch.co" Review — manual-penalty risk</h3>
+    <p>आपके Product schema (Block 4) में ये मिला:</p>
+    <table>
+      <tr><th>Field</th><th>Value</th><th>समस्या</th></tr>
+      <tr><td>@type</td><td>Product + Offer + Review + Rating</td><td class="x">service के लिए गलत type</td></tr>
+      <tr><td>Review author</td><td><code>{"@type":"Organization","name":"Clutch.co"}</code></td><td class="x">⚠️ Clutch.co को review-author बताना = misrepresentation</td></tr>
+      <tr><td>ratingValue</td><td>4.9</td><td class="x">self-serving, बाकी pages से inconsistent</td></tr>
+      <tr><td>Offer price</td><td>$10,000 USD (fixed)</td><td class="warn">service की fixed price markup misleading</td></tr>
+    </table>
+    <div class="callout crit"><b>क्यों खतरनाक:</b> Google की structured-data policy साफ़ कहती है — review markup genuine, first-party पर on-page collected होना चाहिए; किसी third-party (Clutch) को review author दिखाना <b>misleading markup</b> है। इससे star तो नहीं मिलेंगे, और <b>"Spammy structured markup" manual action</b> लग सकता है जो पूरी site को नुकसान दे। तुरंत हटाएँ।</div>
+  </div>
+
+  <div class="cause c2">
+    <span class="num">2</span>
+    <h3><span class="badge crit">Critical</span> पुराना .php + blog money page को दबा रहे</h3>
+    <p><code>site:imgglobalinfotech.com grocery app development</code> — money page गायब, ये दिखे:</p>
+    <table>
+      <tr><th>Rank</th><th>Google जो दिखा रहा है</th><th>Note</th></tr>
+      <tr><td>1</td><td><code>/grocery-app-development.php</code> — "...Apps like Instacart"</td><td class="x">पुराना .php</td></tr>
+      <tr><td>2,4,5</td><td><code>/blog/top-10-grocery-delivery-...-companies-in-india</code> · <code>/blog/grocery-delivery-app-development</code></td><td class="warn">blog commercial query खा रहा</td></tr>
+      <tr><td>3,6</td><td><code>/blog/...like-dealshare</code> · <code>/blog/...like-instashop</code></td><td>clone guides</td></tr>
+      <tr><td>—</td><td><b>/grocery-app-development</b> <span class="badge crit">money page</span></td><td class="x">❌ नहीं दिखा</td></tr>
+    </table>
+    <p>14 grocery blog posts + पुराना .php मिलकर money page को दबा रहे हैं। Service-page cannibalization नहीं (सिर्फ 1 grocery service page) — सिर्फ blog + .php।</p>
+  </div>
+
+  <div class="cause c3">
+    <span class="num">3</span>
+    <h3><span class="badge high">High</span> URL/keyword divergence + content gap + site-wide issues</h3>
+    <table>
+      <tr><th>Issue</th><th>Detail</th><th>Verdict</th></tr>
+      <tr><td>URL vs Title</td><td>URL = <code>grocery-app-development</code>, पर Title/H1/content = "grocery <b>delivery</b> app development"</td><td class="warn">हल्का mismatch</td></tr>
+      <tr><td>Quick-commerce gap</td><td>Blinkit(3); पर Zepto(0), Instacart(0), BigBasket(0)</td><td class="warn">hot India keywords missing</td></tr>
+      <tr><td>Content depth</td><td>4,961 words (batch में सबसे कम)</td><td class="warn">थोड़ा बढ़ाएँ</td></tr>
+      <tr><td>"India" mentions</td><td>4</td><td class="warn">geo कमज़ोर</td></tr>
+      <tr><td>HTML/images/scripts</td><td>699 KB · 141 images · 25 inline (no defer)</td><td class="x">भारी</td></tr>
+      <tr><td>Cache / llms.txt / dup-LocalBusiness / no-Breadcrumb</td><td>site-wide</td><td class="warn">fix</td></tr>
+    </table>
+  </div>
+
+  <!-- GOOD -->
+  <h2 class="section">✅ जो अच्छा है</h2>
+  <div class="bucket">
+    <ul>
+      <li class="y"><b>Title excellent (62 ch):</b> "Grocery Delivery App Development Company | IMG Global Infotech"</li>
+      <li class="y"><b>Clone-app angle:</b> Instacart/Dealshare/InstaShop जैसी guides + AI-driven + quick-commerce (Blinkit) — winnable long-tails</li>
+      <li class="y"><b>Competition mid-tier</b> (ExcellentWebWorld, Dinarys, Octal, RV Tech) — कोई Appinventiv-level giant नहीं</li>
+      <li class="y">Market data ($940B→$1.38T) + business models + features — strong commercial/AEO</li>
+      <li class="y">141 images सब alt+lazy · canonical self-ref · index,follow · sitemap में मौजूद</li>
+    </ul>
+  </div>
+
+  <!-- BUCKETS -->
+  <h2 class="section">🧩 हर bucket: SEO / AEO / GEO / SXO / AIO</h2>
+  <div class="bucket"><h3>🟠 SEO</h3>
+    <ul>
+      <li class="y">On-page + clone angle मज़बूत, competition winnable</li>
+      <li class="n">.php + blog cannibalization (कारण #2)</li>
+      <li class="w">URL/title divergence + quick-commerce keyword gap</li>
+    </ul></div>
+  <div class="bucket"><h3>🟢 AEO</h3>
+    <ul><li class="y">FAQ + cost + market data + business models → answer-engine friendly</li><li class="w">FAQ के नीचे direct concise answer add करें</li></ul></div>
+  <div class="bucket"><h3>🟠 GEO</h3>
+    <ul><li class="n"><code>llms.txt</code> 404 (site-wide)</li><li class="n">fake Clutch review → AI trust signal को भी नुकसान</li></ul></div>
+  <div class="bucket"><h3>🟠 SXO / OXS</h3>
+    <ul><li class="n">Performance (699KB, 141 images)</li><li class="w">BreadcrumbList गायब</li></ul></div>
+  <div class="bucket"><h3>🟠 AIO</h3>
+    <ul><li class="y">Clone-comparisons + market data — AI Overview citation का base</li><li class="n">पर blog/money confusion + weak entity authority</li></ul></div>
+
+  <!-- SCHEMA -->
+  <h2 class="section">🟡 Schema (6 JSON-LD blocks) — सबसे ज़्यादा problematic</h2>
+  <table>
+    <tr><th>#</th><th>Issue</th><th>Severity</th></tr>
+    <tr><td>1</td><td><b>Product + Offer($10k) + Review(author "Clutch.co") + Rating 4.9</b> — misleading/self-serving markup, manual-action risk</td><td><span class="badge crit">Critical</span></td></tr>
+    <tr><td>2</td><td><b>2× LocalBusiness</b> + अलग Organization → duplicate entity</td><td><span class="badge high">High</span></td></tr>
+    <tr><td>3</td><td><b>BreadcrumbList गायब</b></td><td><span class="badge med">Medium</span></td></tr>
+    <tr><td>4</td><td>Organization, WebSite, WebPage, Service — ठीक</td><td><span class="badge ok">OK</span></td></tr>
+  </table>
+  <p>पूरे Product/Offer/Review block को इस साफ़ Service block से बदलें:</p>
+  <pre><code>{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Grocery Delivery App Development",
+  "provider": { "@type": "Organization", "name": "IMG Global Infotech",
+    "@id": "https://www.imgglobalinfotech.com/#organization" },
+  "areaServed": { "@type": "Country", "name": "India" },
+  "description": "Custom grocery &amp; quick-commerce delivery app development — apps like Blinkit, Zepto, Instacart &amp; BigBasket."
+}</code></pre>
+  <div class="callout crit"><b>तुरंत:</b> "Clutch.co"-authored fake Review वाला block पूरी site से हटाएँ (हर service page पर है)। यह सबसे बड़ा site-wide जोखिम है।</div>
+
+  <!-- ACTION PLAN -->
+  <h2 class="section">🚀 Action Plan</h2>
+
+  <h3>🔴 CRITICAL — आज ही</h3>
+  <div class="step crit">
+    <h4>1. Fake "Clutch.co" Review schema हटाएँ (site-wide)</h4>
+    <ul>
+      <li>Product+Offer+Review block हर service page से हटाएँ → साफ़ <code>Service</code> schema (ऊपर code)</li>
+      <li>अगर review दिखाना है तो असली Clutch widget embed करें (अपनी markup में Clutch को author बताना policy-violation है)</li>
+    </ul>
+    <div class="know">कैसे पता चलेगा? → Google Rich Results Test में "Review/Product" warning हटेगी; GSC Manual Actions clean रहेगा।</div>
+  </div>
+  <div class="step crit">
+    <h4>2. Blog/.php cannibalization fix</h4>
+    <ul>
+      <li><code>grocery-app-development.php</code> → clean URL 301 confirm; money page "Request Indexing"</li>
+      <li>14 grocery blog posts से commercial anchor money page की तरफ link; blog informational रखें</li>
+    </ul>
+  </div>
+  <div class="step crit"><h4>3. llms.txt बनाएँ (site-wide 404)</h4></div>
+
+  <h3>🟠 HIGH — 1–2 हफ़्ते</h3>
+  <div class="step high"><h4>4. Quick-commerce keywords add करें</h4>
+    <ul><li>Zepto, Instacart, BigBasket, Swiggy Instamart जैसी sections/clone-angles जोड़ें (अभी सिर्फ Blinkit) — India में सबसे hot grocery sub-niche</li></ul></div>
+  <div class="step high"><h4>5. Performance — 141 images defer/trim, 25 scripts combine+defer, HTML→&lt;150KB, Cache-Control fix</h4></div>
+  <div class="step high"><h4>6. Schema — LocalBusiness merge + BreadcrumbList add</h4></div>
+  <div class="step high"><h4>7. Backlinks — Clutch/GoodFirms (असली) + clone-app guest posts</h4></div>
+
+  <h3>🟡 MEDIUM</h3>
+  <div class="step med"><h4>8. Title में "India" विचारें; body "India" 4→8; content 4,961→6,000+; AEO answer-first; Sitemap real lastmod</h4></div>
+
+  <!-- EXPECTATION -->
+  <h2 class="section">⏱️ Realistic Expectation</h2>
+  <div class="callout good">
+    <p>Competition mid-tier (winnable) + on-page strong → blog/.php fix और fake-schema हटाने के बाद अच्छी recovery।</p>
+    <p>• Schema + blog-link + .php fix → <b>3–6 हफ़्ते</b> में "grocery app like blinkit/zepto/instacart", "grocery delivery app development" पर ranking।</p>
+    <p>• Head term page-1 → <b>4–7 महीने</b> quick-commerce cluster + हल्के backlinks के साथ।</p>
+  </div>
+
+  <h2 class="section">📊 सातों pages की तुलना</h2>
+  <table>
+    <tr><th>Page</th><th>On-Page</th><th>Competition</th><th>Priority</th></tr>
+    <tr><td><b>astrology-app-development</b></td><td>85</td><td class="ok">कम (peer-level)</td><td class="ok"><b>#1 सबसे आसान</b></td></tr>
+    <tr><td><b>grocery-app-development</b></td><td><b>83</b></td><td class="warn">मध्यम (mid-tier)</td><td class="ok">#2 (schema fix ज़रूरी)</td></tr>
+    <tr><td>ai-development-company</td><td>80</td><td class="warn">मध्यम (नया niche)</td><td>#3</td></tr>
+    <tr><td>food-delivery-app-development</td><td>85</td><td class="warn">मध्यम-ऊँची</td><td>#4</td></tr>
+    <tr><td>ecommerce-website-development-company</td><td>85</td><td class="warn">ज़्यादा</td><td>#5</td></tr>
+    <tr><td>ecommerce-development</td><td>72</td><td class="warn">ज़्यादा + intent confusion</td><td>#6</td></tr>
+    <tr><td>mobile-app-development-company-in-india</td><td>88</td><td class="x">बहुत ज़्यादा (giants)</td><td>#7 धीमा</td></tr>
+  </table>
+  <p class="muted"><b>सात reports के बाद:</b> हर page में वही 7 जड़ें — पुराने .php + blog cannibalization + self-serving/fabricated/अब misleading "Clutch.co" review schema + 2× LocalBusiness + कोई BreadcrumbList + llms.txt 404 + heavy HTML + no-cache + fake sitemap। <b>fake Clutch-review schema सबसे urgent site-wide जोखिम है — इसे सबसे पहले हटाएँ।</b></p>
+
+  <div class="footer">
+    <p>Report generated 13 June 2026 · Live data: HTML, headers, robots.txt, sitemap (1 grocery service + 14 blog URLs), schema (6 JSON-LD), Google SERP.</p>
+    <p>Sources: <a href="https://www.excellentwebworld.com/grocery-app-development-company/">ExcellentWebWorld</a> ·
+      <a href="https://dinarys.com/grocery-delivery-app-development-company">Dinarys</a> ·
+      <a href="https://www.imgglobalinfotech.com/grocery-app-development.php">IMG .php (old, ranking for this keyword)</a></p>
+    <p style="margin-top:14px;color:#6b7684">Built by agricidaniel — AI Marketing Hub ·
+      <a href="https://www.skool.com/ai-marketing-hub">Free</a> ·
+      <a href="https://www.skool.com/ai-marketing-hub-pro">Pro</a></p>
+  </div>
+
+</div>
+</body>
+</html>

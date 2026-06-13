@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — Instant Delivery / Quick Commerce App Development | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2230; --border:#2d333b;
+    --text:#e6edf3; --muted:#9aa7b4; --accent:#3b82f6;
+    --crit:#ef4444; --high:#f59e0b; --med:#eab308; --good:#22c55e; --info:#38bdf8; --chipbg:#21262d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter','Segoe UI','Nirmala UI',system-ui,-apple-system,'Noto Sans Devanagari',sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:32px 20px 80px}
+  .hero{background:linear-gradient(135deg,#4d7c0f 0%,#ca8a04 100%);border-radius:18px;padding:38px 34px;
+    margin-bottom:30px;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;
+    background:radial-gradient(circle,rgba(255,255,255,.14),transparent 70%);border-radius:50%}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.18);padding:5px 14px;border-radius:30px;
+    font-size:12.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-size:26px;line-height:1.3;font-weight:800;margin-bottom:10px;color:#fff}
+  .hero .url{font-family:ui-monospace,Consolas,monospace;font-size:13px;color:#ecfccb;word-break:break-all;
+    background:rgba(0,0,0,.22);padding:8px 12px;border-radius:8px;display:inline-block}
+  .hero .meta{margin-top:16px;font-size:13.5px;color:#ecfccb;display:flex;gap:22px;flex-wrap:wrap}
+  .hero .meta b{color:#fff}
+  .verdict{background:var(--panel);border:1px solid var(--border);border-left:5px solid var(--good);
+    border-radius:12px;padding:22px 26px;margin-bottom:30px;font-size:17px}
+  .verdict b{color:#fff}.verdict .gd{color:#86efac;font-weight:700}.verdict .cr{color:#fca5a5;font-weight:700}
+  h2.section{font-size:21px;font-weight:800;margin:42px 0 18px;padding-bottom:10px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:10px}
+  h3{font-size:17px;font-weight:700;margin:24px 0 10px;color:#fff}
+  p{margin-bottom:12px}.muted{color:var(--muted)}
+  .scores{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:26px 28px;margin-bottom:14px}
+  .scorerow{display:grid;grid-template-columns:170px 1fr 52px;align-items:center;gap:14px;margin:13px 0}
+  .scorerow .lbl{font-size:14px;font-weight:600;color:var(--muted)}
+  .bar{height:13px;background:#0b0f15;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+  .bar span{display:block;height:100%;border-radius:8px}
+  .scorerow .val{font-size:14px;font-weight:700;text-align:right}
+  .b-good span{background:linear-gradient(90deg,#16a34a,#22c55e)}
+  .b-med span{background:linear-gradient(90deg,#ca8a04,#eab308)}
+  .b-high span{background:linear-gradient(90deg,#d97706,#f59e0b)}
+  .b-crit span{background:linear-gradient(90deg,#dc2626,#ef4444)}
+  .cause{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin-bottom:16px;position:relative}
+  .cause.c1{border-left:5px solid var(--crit)}.cause.c2{border-left:5px solid var(--high)}.cause.c3{border-left:5px solid var(--high)}
+  .cause .num{position:absolute;top:18px;right:22px;font-size:42px;font-weight:900;color:rgba(255,255,255,.06)}
+  .cause h3{margin-top:0}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;background:var(--panel);border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+  th{background:var(--panel2);text-align:left;padding:11px 14px;font-weight:700;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+  td{padding:11px 14px;border-top:1px solid var(--border);vertical-align:top}
+  tr:hover td{background:rgba(255,255,255,.02)}
+  code{font-family:ui-monospace,Consolas,monospace;background:var(--chipbg);padding:2px 7px;border-radius:5px;font-size:13px;color:#7dd3fc}
+  .x{color:var(--crit);font-weight:700}.ok{color:var(--good);font-weight:700}.warn{color:var(--high);font-weight:700}
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px;text-transform:uppercase;letter-spacing:.4px;margin-right:6px}
+  .badge.crit{background:rgba(239,68,68,.16);color:#fca5a5;border:1px solid rgba(239,68,68,.35)}
+  .badge.high{background:rgba(245,158,11,.16);color:#fcd34d;border:1px solid rgba(245,158,11,.35)}
+  .badge.med{background:rgba(234,179,8,.14);color:#fde047;border:1px solid rgba(234,179,8,.3)}
+  .badge.ok{background:rgba(34,197,94,.14);color:#86efac;border:1px solid rgba(34,197,94,.3)}
+  .bucket{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:14px}
+  .bucket h3{margin-top:0}
+  .bucket ul{list-style:none;margin:6px 0 0}
+  .bucket li{padding:5px 0 5px 26px;position:relative;font-size:14.5px}
+  .bucket li.y::before{content:"✓";position:absolute;left:0;color:var(--good);font-weight:800}
+  .bucket li.n::before{content:"✕";position:absolute;left:0;color:var(--crit);font-weight:800}
+  .bucket li.w::before{content:"!";position:absolute;left:2px;color:var(--high);font-weight:800}
+  pre{background:#0b0f15;border:1px solid var(--border);border-radius:10px;padding:18px;overflow-x:auto;margin:14px 0;font-size:13px;line-height:1.55}
+  pre code{background:none;padding:0;color:#a5d6ff}
+  .step{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin:10px 0;border-left:4px solid var(--border)}
+  .step.crit{border-left-color:var(--crit)}.step.high{border-left-color:var(--high)}.step.med{border-left-color:var(--med)}
+  .step h4{font-size:15.5px;margin-bottom:6px;color:#fff}
+  .step .know{margin-top:8px;font-size:13px;color:var(--info);background:rgba(56,189,248,.07);padding:7px 11px;border-radius:7px}
+  .step ul{margin:6px 0 0 18px}.step li{margin:4px 0;font-size:14.5px}
+  .callout{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.3);border-radius:10px;padding:16px 20px;margin:16px 0}
+  .callout.warn{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.32)}
+  .callout.good{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.32)}
+  .footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
+  .footer a{color:var(--accent)} a{color:#7dd3fc}
+  @media(max-width:640px){.scorerow{grid-template-columns:120px 1fr 44px}.hero h1{font-size:20px}.wrap{padding:18px 13px 60px}}
+  @media print{body{background:#fff;color:#111}.hero{background:#4d7c0f!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .scores,.cause,.bucket,.step,table,pre{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <span class="tag">SEO · AEO · GEO · SXO · AIO — Full Audit</span>
+    <h1>Instant Delivery / Quick Commerce App Development — पूरी SEO Diagnosis Report</h1>
+    <span class="url">https://www.imgglobalinfotech.com/instant-delivery-app-development-company</span>
+    <div class="meta">
+      <span><b>Date:</b> 13 June 2026</span>
+      <span><b>Status:</b> Indexed पर money-page दबा हुआ</span>
+      <span><b>HTTP:</b> 200 OK</span>
+      <span><b>HTML size:</b> 690 KB</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <b>🎯 Emerging niche = अच्छा मौका।</b> Q-commerce अभी नया है, competition <span class="gd">mid-tier (Mobisoft, Comfygen, Sapphire, iCoderz) — कोई giant नहीं</span>, और content का Blinkit/Zepto/Instamart angle मज़बूत है। पर 3 चीज़ें rank रोक रही हैं:
+    <span class="cr">(1) पुराना .php + blog cannibalization</span>,
+    <b>(2) Keyword inconsistency</b> — Title "Quick Commerce", H1 "Instant Delivery", Twitter "Same Day Delivery" (primary term तय नहीं),
+    <b>(3) /grocery-app-development के साथ overlap</b> (दोनों Blinkit/Zepto target करते हैं) + site-wide issues।
+  </div>
+
+  <!-- SCORE -->
+  <h2 class="section">📊 Score Card</h2>
+  <div class="scores">
+    <div class="scorerow"><span class="lbl">On-Page SEO</span><span class="bar b-good"><span style="width:80%"></span></span><span class="val" style="color:var(--good)">80</span></div>
+    <div class="scorerow"><span class="lbl">Content Quality</span><span class="bar b-good"><span style="width:78%"></span></span><span class="val" style="color:var(--good)">78</span></div>
+    <div class="scorerow"><span class="lbl">Technical SEO</span><span class="bar b-high"><span style="width:58%"></span></span><span class="val" style="color:var(--high)">58</span></div>
+    <div class="scorerow"><span class="lbl">Schema / Markup</span><span class="bar b-crit"><span style="width:55%"></span></span><span class="val" style="color:var(--crit)">55</span></div>
+    <div class="scorerow"><span class="lbl">Performance (CWV)</span><span class="bar b-crit"><span style="width:52%"></span></span><span class="val" style="color:var(--crit)">~52</span></div>
+    <div class="scorerow"><span class="lbl">AI / GEO Readiness</span><span class="bar b-high"><span style="width:52%"></span></span><span class="val" style="color:var(--high)">52</span></div>
+    <div class="scorerow"><span class="lbl">Competition Difficulty</span><span class="bar b-good"><span style="width:42%"></span></span><span class="val" style="color:var(--good)">कम-मध्यम</span></div>
+  </div>
+  <p class="muted">Emerging q-commerce niche में competition कम-मध्यम — keyword tidy करते ही यह जल्दी move करेगा।</p>
+
+  <!-- ROOT CAUSES -->
+  <h2 class="section">🔴 असली कारण</h2>
+
+  <div class="cause c1">
+    <span class="num">1</span>
+    <h3><span class="badge crit">Critical</span> पुराना .php + blog money page को दबा रहे</h3>
+    <p><code>site:imgglobalinfotech.com instant delivery quick commerce app</code> — money page का साफ़ URL नहीं दिखा, ये दिखे:</p>
+    <table>
+      <tr><th>Google जो दिखा रहा है</th><th>Note</th></tr>
+      <tr><td><code>/instant-delivery-app-development-company.php</code></td><td class="x">पुराना .php, इसी keyword पर</td></tr>
+      <tr><td><code>/case-study/blinkit-like-app</code></td><td>complementary (case study)</td></tr>
+      <tr><td><code>/blog/develop-instant-delivery-apps-like-zepto-blinkit-instamart</code></td><td class="warn">blog commercial query खा रहा</td></tr>
+      <tr><td><code>/grocery-app-development.php</code> · grocery blogs</td><td class="warn">⚠️ grocery page भी इसी q-commerce term पर रैंक हो रहा (cross-overlap)</td></tr>
+      <tr><td><b>/instant-delivery-app-development-company</b> <span class="badge crit">money page</span></td><td class="x">साफ़ URL नहीं दिखा</td></tr>
+    </table>
+    <p>पुराना .php + 7 q-commerce blog posts money page को दबा रहे हैं। Service-page cannibalization कम (सिर्फ target + एक case study)।</p>
+  </div>
+
+  <div class="cause c2">
+    <span class="num">2</span>
+    <h3><span class="badge high">High</span> Keyword inconsistency — हर जगह अलग term + grocery से overlap</h3>
+    <table>
+      <tr><th>Element</th><th>Keyword</th></tr>
+      <tr><td>URL + H1</td><td>"Instant Delivery"</td></tr>
+      <tr><td>Title + OG</td><td>"Quick Commerce"</td></tr>
+      <tr><td>Twitter</td><td>"Same Day Delivery"</td></tr>
+    </table>
+    <p>तीन अलग synonyms — Google को primary term का साफ़ संकेत नहीं मिलता। साथ ही यह page और <code>/grocery-app-development</code> दोनों <b>Blinkit/Zepto quick-commerce</b> target करते हैं → आपस में overlap।</p>
+    <div class="callout warn"><b>समाधान:</b> एक primary term तय करें (suggest: <b>"Quick Commerce App Development"</b> — search volume ज़्यादा), Title+H1+OG तीनों उसी पर align करें; और साफ़ बँटवारा करें — <b>instant-delivery/q-commerce = multi-category (grocery+food+pharmacy) umbrella</b>, <b>grocery page = सिर्फ grocery</b>। आपस में cross-link करें।</div>
+  </div>
+
+  <div class="cause c3">
+    <span class="num">3</span>
+    <h3><span class="badge high">High</span> Schema + Performance + site-wide common issues</h3>
+    <table>
+      <tr><th>Issue</th><th>Value</th><th>Verdict</th></tr>
+      <tr><td>Schema rating</td><td>Product + AggregateRating <b>4.7</b> (बाकी pages कहीं 4.9) — inconsistent, self-serving</td><td class="x">fix</td></tr>
+      <tr><td>HTML/images/scripts</td><td>690 KB · 153 images · 25 inline (no defer)</td><td class="x">भारी</td></tr>
+      <tr><td>Content depth</td><td>4,790 words (batch में सबसे कम)</td><td class="warn">बढ़ाएँ</td></tr>
+      <tr><td>"India" mentions</td><td>4</td><td class="warn">geo कमज़ोर</td></tr>
+      <tr><td>Cache / llms.txt / 2×LocalBusiness / no-Breadcrumb</td><td>site-wide</td><td class="warn">fix</td></tr>
+    </table>
+  </div>
+
+  <!-- GOOD -->
+  <h2 class="section">✅ जो अच्छा है</h2>
+  <div class="bucket">
+    <ul>
+      <li class="y"><b>Q-commerce angle ज़बरदस्त:</b> Blinkit(14), Zepto(9), Instamart, "10-minute delivery", "From Zero to Zepto" — बेहतरीन topical focus</li>
+      <li class="y"><b>Competition emerging/mid-tier</b> — कोई giant नहीं, niche अभी नया</li>
+      <li class="y"><b>Title length अच्छा (60 ch)</b> + "Company" present; market data ($162B by 2026, India 15x growth)</li>
+      <li class="y"><b>Blinkit case-study</b> page मौजूद — proof/authority asset</li>
+      <li class="y">153 images सब alt+lazy · canonical self-ref · index,follow · sitemap में मौजूद</li>
+    </ul>
+  </div>
+
+  <!-- BUCKETS -->
+  <h2 class="section">🧩 हर bucket: SEO / AEO / GEO / SXO / AIO</h2>
+  <div class="bucket"><h3>🟠 SEO</h3>
+    <ul><li class="y">Q-commerce focus + winnable competition</li><li class="n">.php + blog cannibalization (कारण #1)</li><li class="w">Title↔H1 keyword inconsistency + grocery overlap (कारण #2)</li></ul></div>
+  <div class="bucket"><h3>🟢 AEO</h3>
+    <ul><li class="y">FAQ + "what is quick commerce" + business models + market data → answer-engine friendly</li><li class="w">FAQ के नीचे direct concise answer add करें</li></ul></div>
+  <div class="bucket"><h3>🟠 GEO</h3>
+    <ul><li class="n"><code>llms.txt</code> 404 (site-wide)</li><li class="y">"ecommerce vs quick commerce", clone-guides — AI engines के लिए अच्छा explanatory content</li></ul></div>
+  <div class="bucket"><h3>🟠 SXO / OXS</h3>
+    <ul><li class="n">Performance (690KB, 153 images)</li><li class="w">BreadcrumbList गायब</li></ul></div>
+  <div class="bucket"><h3>🟠 AIO</h3>
+    <ul><li class="y">Q-commerce definitions + market data + clone-comparisons — AI Overview citation का अच्छा base</li><li class="n">keyword inconsistency + weak entity authority</li></ul></div>
+
+  <!-- SCHEMA -->
+  <h2 class="section">🟡 Schema (6 JSON-LD blocks)</h2>
+  <table>
+    <tr><th>#</th><th>Issue</th><th>Severity</th></tr>
+    <tr><td>1</td><td><b>Product + AggregateRating "4.7"</b> — self-serving + inconsistent (कहीं 4.9) + <code>Product</code> गलत type</td><td><span class="badge crit">Critical</span></td></tr>
+    <tr><td>2</td><td><b>2× LocalBusiness</b> + अलग Organization → duplicate entity</td><td><span class="badge high">High</span></td></tr>
+    <tr><td>3</td><td><b>BreadcrumbList गायब</b></td><td><span class="badge med">Medium</span></td></tr>
+    <tr><td>4</td><td>Organization, WebSite, WebPage, Service — ठीक</td><td><span class="badge ok">OK</span></td></tr>
+  </table>
+  <pre><code>{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Quick Commerce App Development",
+  "provider": { "@type": "Organization", "name": "IMG Global Infotech",
+    "@id": "https://www.imgglobalinfotech.com/#organization" },
+  "areaServed": { "@type": "Country", "name": "India" },
+  "description": "Custom instant delivery &amp; quick commerce app development — 10-minute delivery apps like Blinkit, Zepto &amp; Instamart."
+}</code></pre>
+
+  <!-- ACTION PLAN -->
+  <h2 class="section">🚀 Action Plan</h2>
+
+  <h3>🔴 CRITICAL — इसी हफ़्ते</h3>
+  <div class="step crit">
+    <h4>1. Primary keyword fix करें (Title↔H1 align)</h4>
+    <ul>
+      <li>एक primary term चुनें — suggest <b>"Quick Commerce App Development Company"</b> (volume ज़्यादा); Title + H1 + OG + Twitter चारों उसी पर align करें</li>
+      <li>secondary terms (instant delivery, same day delivery, 10-minute) को subheading/body में रखें</li>
+    </ul>
+    <div class="know">कैसे पता चलेगा? → GSC में एक ही clear keyword-cluster पर impressions।</div>
+  </div>
+  <div class="step crit">
+    <h4>2. Grocery page से बँटवारा + blog/.php fix</h4>
+    <ul>
+      <li>यह page = <b>multi-category q-commerce umbrella</b> (grocery + pharmacy + food + essentials); <code>/grocery-app-development</code> = सिर्फ grocery — दोनों में clear scope + cross-link</li>
+      <li><code>instant-delivery-app-development-company.php</code> → clean URL 301 confirm; money page "Request Indexing"</li>
+      <li>7 q-commerce blog posts से commercial anchor money page की तरफ link</li>
+    </ul>
+  </div>
+  <div class="step crit"><h4>3. Schema rating fix (site-wide) + llms.txt बनाएँ</h4></div>
+
+  <h3>🟠 HIGH — 1–2 हफ़्ते</h3>
+  <div class="step high"><h4>4. Performance — 153 images defer/trim, 25 scripts combine+defer, HTML→&lt;150KB, Cache-Control fix</h4></div>
+  <div class="step high"><h4>5. Schema — LocalBusiness merge + BreadcrumbList add</h4></div>
+  <div class="step high"><h4>6. Content + clone long-tails बढ़ाएँ</h4>
+    <ul><li>4,790→6,000+ words; "app like Blinkit / Zepto / Instamart / Gopuff / Getir / Gorillas" sections; dark-store model, rider app, 10-min logistics — content depth + long-tail दोनों</li></ul></div>
+
+  <h3>🟡 MEDIUM</h3>
+  <div class="step med"><h4>7. हल्के backlinks (Clutch/GoodFirms) + AEO answer-first + "India" 4→8 + Sitemap real lastmod</h4></div>
+
+  <!-- EXPECTATION -->
+  <h2 class="section">⏱️ Realistic Expectation — आशाजनक</h2>
+  <div class="callout good">
+    <p>Emerging niche + winnable competition → keyword tidy + blog/.php fix के बाद तेज़ recovery।</p>
+    <p>• Keyword + grocery-split + .php fix → <b>3–6 हफ़्ते</b> में "quick commerce app development", "app like blinkit/zepto", "10 minute delivery app" पर ranking।</p>
+    <p>• Head term page-1 → <b>3–6 महीने</b> (niche नया, giants नहीं — तुलनात्मक रूप से आसान)।</p>
+  </div>
+
+  <h2 class="section">📊 नौ pages की तुलना</h2>
+  <table>
+    <tr><th>Page</th><th>On-Page</th><th>Competition</th><th>Priority</th></tr>
+    <tr><td><b>astrology-app-development</b></td><td>85</td><td class="ok">कम (peer-level)</td><td class="ok"><b>#1</b></td></tr>
+    <tr><td>home-service-app-development</td><td>84</td><td class="ok">कम-मध्यम</td><td class="ok">#2</td></tr>
+    <tr><td><b>instant-delivery / quick-commerce</b></td><td><b>80</b></td><td class="ok">कम-मध्यम (emerging)</td><td class="ok">#3 (keyword fix ज़रूरी)</td></tr>
+    <tr><td>grocery-app-development</td><td>83</td><td class="warn">मध्यम (schema urgent)</td><td>#4</td></tr>
+    <tr><td>ai-development-company</td><td>80</td><td class="warn">मध्यम (नया niche)</td><td>#5</td></tr>
+    <tr><td>food-delivery-app-development</td><td>85</td><td class="warn">मध्यम-ऊँची</td><td>#6</td></tr>
+    <tr><td>ecommerce-website-development-company</td><td>85</td><td class="warn">ज़्यादा</td><td>#7</td></tr>
+    <tr><td>ecommerce-development</td><td>72</td><td class="warn">ज़्यादा + intent confusion</td><td>#8</td></tr>
+    <tr><td>mobile-app-development-company-in-india</td><td>88</td><td class="x">बहुत ज़्यादा (giants)</td><td>#9 धीमा</td></tr>
+  </table>
+  <p class="muted"><b>नौ reports के बाद pattern 100% confirm:</b> हर page वही 7 जड़ें — पुराने .php + blog/money cannibalization + self-serving/inconsistent (grocery पर fake "Clutch.co") rating schema + 2× LocalBusiness + no BreadcrumbList + llms.txt 404 + heavy HTML + no-cache + fake sitemap। नया कुछ नहीं निकल रहा — समस्या site-wide structural है।</p>
+
+  <div class="footer">
+    <p>Report generated 13 June 2026 · Live data: HTML, headers, robots.txt, sitemap (2 service + 7 blog URLs), schema (6 JSON-LD), Google SERP.</p>
+    <p>Sources: <a href="https://mobisoftinfotech.com/services/quick-commerce-app-solution">Mobisoft</a> ·
+      <a href="https://www.comfygen.com/quick-commerce-app-development">Comfygen</a> ·
+      <a href="https://www.imgglobalinfotech.com/instant-delivery-app-development-company.php">IMG .php (old, ranking for this keyword)</a></p>
+    <p style="margin-top:14px;color:#6b7684">Built by agricidaniel — AI Marketing Hub ·
+      <a href="https://www.skool.com/ai-marketing-hub">Free</a> ·
+      <a href="https://www.skool.com/ai-marketing-hub-pro">Pro</a></p>
+  </div>
+
+</div>
+</body>
+</html>

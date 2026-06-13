@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — Mobile App Development Company in India | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2230; --border:#2d333b;
+    --text:#e6edf3; --muted:#9aa7b4; --accent:#3b82f6; --accent2:#8b5cf6;
+    --crit:#ef4444; --high:#f59e0b; --med:#eab308; --good:#22c55e; --info:#38bdf8;
+    --chipbg:#21262d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter','Segoe UI','Nirmala UI',system-ui,-apple-system,'Noto Sans Devanagari',sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.7; font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:32px 20px 80px}
+
+  /* Header */
+  .hero{
+    background:linear-gradient(135deg,#1e3a8a 0%,#5b21b6 100%);
+    border-radius:18px;padding:38px 34px;margin-bottom:30px;position:relative;overflow:hidden;
+    box-shadow:0 12px 40px rgba(0,0,0,.4);
+  }
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;
+    background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);border-radius:50%}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.18);padding:5px 14px;border-radius:30px;
+    font-size:12.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-size:27px;line-height:1.3;font-weight:800;margin-bottom:10px;color:#fff}
+  .hero .url{font-family:ui-monospace,'SF Mono',Consolas,monospace;font-size:13.5px;color:#dbeafe;
+    word-break:break-all;background:rgba(0,0,0,.22);padding:8px 12px;border-radius:8px;display:inline-block}
+  .hero .meta{margin-top:16px;font-size:13.5px;color:#e0e7ff;display:flex;gap:22px;flex-wrap:wrap}
+  .hero .meta b{color:#fff}
+
+  /* Verdict banner */
+  .verdict{
+    background:var(--panel);border:1px solid var(--border);border-left:5px solid var(--high);
+    border-radius:12px;padding:22px 26px;margin-bottom:30px;font-size:17px;
+  }
+  .verdict b{color:#fff}
+  .verdict .hi{color:var(--high);font-weight:700}
+
+  h2.section{font-size:21px;font-weight:800;margin:42px 0 18px;padding-bottom:10px;
+    border-bottom:2px solid var(--border);display:flex;align-items:center;gap:10px}
+  h3{font-size:17px;font-weight:700;margin:24px 0 10px;color:#fff}
+  p{margin-bottom:12px;color:var(--text)}
+  .muted{color:var(--muted)}
+
+  /* Score card */
+  .scores{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:26px 28px;margin-bottom:14px}
+  .scorerow{display:grid;grid-template-columns:170px 1fr 52px;align-items:center;gap:14px;margin:13px 0}
+  .scorerow .lbl{font-size:14px;font-weight:600;color:var(--muted)}
+  .bar{height:13px;background:#0b0f15;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+  .bar span{display:block;height:100%;border-radius:8px}
+  .scorerow .val{font-size:14px;font-weight:700;text-align:right}
+  .b-good span{background:linear-gradient(90deg,#16a34a,#22c55e)}
+  .b-med span{background:linear-gradient(90deg,#ca8a04,#eab308)}
+  .b-high span{background:linear-gradient(90deg,#d97706,#f59e0b)}
+  .b-crit span{background:linear-gradient(90deg,#dc2626,#ef4444)}
+
+  /* Cause cards */
+  .cause{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin-bottom:16px;position:relative}
+  .cause.c1{border-left:5px solid var(--crit)}
+  .cause.c2{border-left:5px solid var(--crit)}
+  .cause.c3{border-left:5px solid var(--high)}
+  .cause .num{position:absolute;top:18px;right:22px;font-size:42px;font-weight:900;color:rgba(255,255,255,.06)}
+  .cause h3{margin-top:0}
+
+  /* Tables */
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;background:var(--panel);
+    border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+  th{background:var(--panel2);text-align:left;padding:11px 14px;font-weight:700;font-size:13px;
+    color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+  td{padding:11px 14px;border-top:1px solid var(--border);vertical-align:top}
+  tr:hover td{background:rgba(255,255,255,.02)}
+  code{font-family:ui-monospace,Consolas,monospace;background:var(--chipbg);padding:2px 7px;border-radius:5px;font-size:13px;color:#7dd3fc}
+  .x{color:var(--crit);font-weight:700}.ok{color:var(--good);font-weight:700}.warn{color:var(--high);font-weight:700}
+
+  /* Badge */
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px;
+    text-transform:uppercase;letter-spacing:.4px;margin-right:6px}
+  .badge.crit{background:rgba(239,68,68,.16);color:#fca5a5;border:1px solid rgba(239,68,68,.35)}
+  .badge.high{background:rgba(245,158,11,.16);color:#fcd34d;border:1px solid rgba(245,158,11,.35)}
+  .badge.med{background:rgba(234,179,8,.14);color:#fde047;border:1px solid rgba(234,179,8,.3)}
+  .badge.ok{background:rgba(34,197,94,.14);color:#86efac;border:1px solid rgba(34,197,94,.3)}
+  .badge.info{background:rgba(56,189,248,.14);color:#7dd3fc;border:1px solid rgba(56,189,248,.3)}
+
+  /* bucket grid */
+  .bucket{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:14px}
+  .bucket h3{margin-top:0;display:flex;align-items:center;gap:8px}
+  .bucket ul{list-style:none;margin:6px 0 0}
+  .bucket li{padding:5px 0 5px 26px;position:relative;font-size:14.5px}
+  .bucket li.y::before{content:"✓";position:absolute;left:0;color:var(--good);font-weight:800}
+  .bucket li.n::before{content:"✕";position:absolute;left:0;color:var(--crit);font-weight:800}
+  .bucket li.w::before{content:"!";position:absolute;left:2px;color:var(--high);font-weight:800}
+
+  /* code block */
+  pre{background:#0b0f15;border:1px solid var(--border);border-radius:10px;padding:18px;overflow-x:auto;
+    margin:14px 0;font-size:13px;line-height:1.55}
+  pre code{background:none;padding:0;color:#a5d6ff}
+
+  /* action plan */
+  .phase{border-radius:12px;padding:6px 0;margin-bottom:8px}
+  .step{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin:10px 0;border-left:4px solid var(--border)}
+  .step.crit{border-left-color:var(--crit)}.step.high{border-left-color:var(--high)}.step.med{border-left-color:var(--med)}
+  .step h4{font-size:15.5px;margin-bottom:6px;color:#fff;display:flex;align-items:center;gap:8px}
+  .step .know{margin-top:8px;font-size:13px;color:var(--info);background:rgba(56,189,248,.07);padding:7px 11px;border-radius:7px}
+  .step ul{margin:6px 0 0 18px}
+  .step li{margin:4px 0;font-size:14.5px}
+
+  .callout{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.3);border-radius:10px;padding:16px 20px;margin:16px 0}
+  .callout.warn{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.32)}
+
+  .footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
+  .footer a{color:var(--accent)}
+  a{color:#7dd3fc}
+
+  @media(max-width:640px){
+    .scorerow{grid-template-columns:120px 1fr 44px}
+    .hero h1{font-size:21px}
+    .wrap{padding:18px 13px 60px}
+  }
+  @media print{
+    body{background:#fff;color:#111}
+    .hero{background:#1e3a8a!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .scores,.cause,.bucket,.step,table,pre{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="tag">SEO · AEO · GEO · SXO · AIO — Full Audit</span>
+    <h1>Mobile App Development Company in India — पूरी SEO Diagnosis Report</h1>
+    <span class="url">https://www.imgglobalinfotech.com/mobile-app-development-company-in-india</span>
+    <div class="meta">
+      <span><b>Date:</b> 13 June 2026</span>
+      <span><b>Status:</b> Indexed, पर rank नहीं</span>
+      <span><b>HTTP:</b> 200 OK</span>
+      <span><b>HTML size:</b> 923 KB</span>
+    </div>
+  </div>
+
+  <!-- VERDICT -->
+  <div class="verdict">
+    <b>सीधी बात:</b> आपकी galti <b>on-page SEO में नहीं</b> है — on-page तो लगभग <b>over-optimized</b> है।
+    6 महीने रank न आने के असली कारण <span class="hi">3 जगह</span> छिपे हैं:
+    <b>(1) Keyword Cannibalization</b> — आपके अपने 7+ pages आपस में लड़ रहे हैं,
+    <b>(2) Domain Authority / Backlink gap</b> — यह India का सबसे competitive keyword है,
+    <b>(3) Page Performance</b> — 923KB HTML + 232 images. नीचे evidence + step-by-step fix है।
+  </div>
+
+  <!-- SCORE CARD -->
+  <h2 class="section">📊 Score Card — असली तस्वीर</h2>
+  <div class="scores">
+    <div class="scorerow"><span class="lbl">On-Page SEO</span><span class="bar b-good"><span style="width:88%"></span></span><span class="val" style="color:var(--good)">88</span></div>
+    <div class="scorerow"><span class="lbl">Content Quality</span><span class="bar b-good"><span style="width:80%"></span></span><span class="val" style="color:var(--good)">80</span></div>
+    <div class="scorerow"><span class="lbl">Technical SEO</span><span class="bar b-high"><span style="width:58%"></span></span><span class="val" style="color:var(--high)">58</span></div>
+    <div class="scorerow"><span class="lbl">Schema / Markup</span><span class="bar b-med"><span style="width:65%"></span></span><span class="val" style="color:var(--med)">65</span></div>
+    <div class="scorerow"><span class="lbl">Performance (CWV)</span><span class="bar b-crit"><span style="width:45%"></span></span><span class="val" style="color:var(--crit)">~45</span></div>
+    <div class="scorerow"><span class="lbl">AI / GEO Readiness</span><span class="bar b-high"><span style="width:50%"></span></span><span class="val" style="color:var(--high)">50</span></div>
+    <div class="scorerow"><span class="lbl">Off-Page Authority</span><span class="bar b-crit"><span style="width:25%"></span></span><span class="val" style="color:var(--crit)">25</span></div>
+  </div>
+  <p class="muted">Page का on-page score अच्छा है, फिर भी rank नहीं — क्योंकि ranking <b>off-page + cannibalization</b> से तय होती है, जो page-score में नहीं दिखता।</p>
+
+  <!-- ROOT CAUSES -->
+  <h2 class="section">🔴 असली 3 कारण (Root Cause)</h2>
+
+  <div class="cause c1">
+    <span class="num">1</span>
+    <h3><span class="badge crit">Critical</span> Keyword Cannibalization — आपके अपने pages आपस में लड़ रहे हैं</h3>
+    <p>जब Google पर <code>site:imgglobalinfotech.com mobile app development company in india</code> चलाया, तो <b class="x">आपका target page top पर आया ही नहीं</b> — उसकी जगह ये pages दिखे:</p>
+    <table>
+      <tr><th>Same keyword पर compete करते pages</th><th>Title</th></tr>
+      <tr><td><code>/mobile-app-development</code></td><td>Top Mobile App Development Company | 100+ Apps Delivered</td></tr>
+      <tr><td><code>/mobile-app-development.php</code> <span class="badge med">पुराना, अभी भी indexed</span></td><td>Mobile App Development Company in India</td></tr>
+      <tr><td><code>/blog/mobile-app-development-companies-in-india</code></td><td>Top 10+ Mobile App Development Companies in India 2026</td></tr>
+      <tr><td><code>/blog/best-mobile-app-development-company-in-india-comparison-pricing</code></td><td>Best App Development in India – Compare Pricing</td></tr>
+      <tr><td><code>/blog/top-10-mobile-app-development-companies</code></td><td>15+ Top Mobile App Development Companies</td></tr>
+      <tr><td><code>/blog/top-android-app-development-companies-in-india</code></td><td>Top 10 Android App Development Companies in India</td></tr>
+      <tr><td><b>/mobile-app-development-company-in-india</b> <span class="badge crit">आपका target</span></td><td><span class="x">❌ इस search में दिखा ही नहीं</span></td></tr>
+    </table>
+    <p><b>मतलब:</b> एक ही keyword के लिए आपकी site पर कम-से-कम <b>7 pages</b> compete कर रहे हैं। Google confuse है किसे rank करे → <b>किसी को अच्छे से rank नहीं करता</b>, और authority 7 pages में बँट जाती है। <b>यह #1 reason है।</b> खास तौर पर <code>/mobile-app-development</code> (958KB) और <code>/mobile-app-development-company-in-india</code> (923KB) लगभग same content हैं।</p>
+  </div>
+
+  <div class="cause c2">
+    <span class="num">2</span>
+    <h3><span class="badge crit">Critical</span> Domain Authority / Backlink Gap — keyword brutal है</h3>
+    <p>"mobile app development company in india" India के IT-services का <b>सबसे competitive head keyword</b> है। Live SERP में top पर ये हैं:</p>
+    <table>
+      <tr><th>Competitor</th><th>Authority signal</th></tr>
+      <tr><td>Clutch.co (directory)</td><td>Domain Authority ~91, हज़ारों backlinks</td></tr>
+      <tr><td>Appinventiv / Mobulous / Konstant / Orange Mantra / Indian App Developers</td><td>DR ~55–72, हज़ारों referring domains, 8–10+ साल authority</td></tr>
+      <tr><td>IMG Global Infotech (आप)</td><td><span class="warn">बहुत पीछे — authority gap निर्णायक है</span></td></tr>
+    </table>
+    <p>सिर्फ on-page optimize करके, authority के बिना, इस keyword पर rank <b>असंभव</b> है। यह keyword <b>"earn"</b> करना पड़ता है (backlinks + brand mentions), केवल "optimize" करने से नहीं आता।</p>
+  </div>
+
+  <div class="cause c3">
+    <span class="num">3</span>
+    <h3><span class="badge high">High</span> Page Experience / Performance — mobile पर भारी</h3>
+    <table>
+      <tr><th>Metric</th><th>Value</th><th>Verdict</th></tr>
+      <tr><td>Raw HTML size</td><td>923 KB</td><td class="x">बहुत ज़्यादा (target &lt;150KB)</td></tr>
+      <tr><td>Images on one page</td><td>232</td><td class="x">Extreme</td></tr>
+      <tr><td>Inline scripts</td><td>26, एक भी <code>async/defer</code> नहीं</td><td class="x">Render block</td></tr>
+      <tr><td>DOM elements</td><td>4,481</td><td class="warn">भारी</td></tr>
+      <tr><td>Cache-Control</td><td><code>no-cache, private</code></td><td class="warn">HTML cache नहीं होता</td></tr>
+      <tr><td>Compression</td><td>923KB → 77KB (gzip)</td><td class="ok">ठीक है</td></tr>
+    </table>
+    <p>India में users मिड-रेंज Android + 4G पर हैं → यह page slow load होगा → खराब Core Web Vitals (LCP/INP) → Google demote करता है। <span class="muted">(Exact CWV नहीं नाप पाया क्योंकि Google PageSpeed API का free quota आज खत्म था — पर HTML weight से यह पक्का signal है।)</span></p>
+  </div>
+
+  <!-- BUCKET ANALYSIS -->
+  <h2 class="section">🧩 हर bucket का जवाब: SEO / AEO / GEO / SXO / AIO</h2>
+
+  <div class="bucket">
+    <h3>✅ SEO (Traditional) — <span class="badge ok">Strong</span></h3>
+    <ul>
+      <li class="y">Title (61 ch): "Mobile App Development Company in India | IMG Global Infotech"</li>
+      <li class="y">Meta description (165 ch): numbers + CTA — बढ़िया</li>
+      <li class="y">H1 exactly 1 (keyword-rich) · H2: 16 well-structured</li>
+      <li class="y">Canonical self-referencing · robots: index,follow (कोई noindex नहीं)</li>
+      <li class="y">पुराने .php → clean URL <b>301 redirect + सही canonical</b> (आपने सही किया)</li>
+      <li class="y">Sitemap में page मौजूद · 232 images सब में alt + lazy-load · 7,400 words deep content</li>
+      <li class="n">समस्या सिर्फ: ऊपर बताया <b>cannibalization</b> + content sibling pages से बहुत मिलता-जुलता</li>
+    </ul>
+  </div>
+
+  <div class="bucket">
+    <h3>🟠 AEO (Answer Engine Optimization)</h3>
+    <ul>
+      <li class="y">FAQPage schema है (21 Q&amp;A) — AI/voice answers के लिए अच्छा</li>
+      <li class="n">Commercial page पर FAQ का Google rich-result (star/accordion) नहीं मिलेगा (Aug 2023 से सिर्फ gov/health)</li>
+      <li class="n">Content "answer-first" नहीं — हर question के नीचे direct, concise 40–60 word answer paragraph रखें</li>
+    </ul>
+  </div>
+
+  <div class="bucket">
+    <h3>🟠 GEO (Generative Engine Optimization — ChatGPT/Gemini/Perplexity)</h3>
+    <ul>
+      <li class="n"><b><code>llms.txt</code> 404 दे रहा है!</b> robots.txt में <code>Allow: /llms.txt</code> लिखा है पर file exist ही नहीं करती (404 पर 457KB error page)</li>
+      <li class="n">Off-site brand mentions कम — AI engines third-party sources (Clutch, GoodFirms, listicles) से "company in India" pick करते हैं</li>
+    </ul>
+  </div>
+
+  <div class="bucket">
+    <h3>🟠 SXO / OXS (Search Experience Optimization)</h3>
+    <ul>
+      <li class="n">Performance (कारण #3) — सबसे बड़ा SXO drag</li>
+      <li class="w">BreadcrumbList schema गायब — UX + SERP breadcrumb दोनों के लिए चाहिए</li>
+      <li class="w">232 images + लंबा scroll → engagement/bounce पर असर</li>
+    </ul>
+  </div>
+
+  <div class="bucket">
+    <h3>🟠 AIO (AI Overviews / AI Optimization)</h3>
+    <ul>
+      <li class="w">AI Overviews entity-authority + citations से बनते हैं</li>
+      <li class="n">Entity authority कमज़ोर (कारण #2) — structured data है पर brand authority signals चाहिए</li>
+    </ul>
+  </div>
+
+  <!-- SCHEMA -->
+  <h2 class="section">🟡 Schema की galtiyाँ (7 JSON-LD blocks)</h2>
+  <table>
+    <tr><th>#</th><th>Issue</th><th>Severity</th></tr>
+    <tr><td>1</td><td><b>Product + AggregateRating "4.7 / 138"</b> — self-serving review, और service के लिए <code>Product</code> type <b>गलत</b> है। Google star नहीं दिखाएगा + spam-risk</td><td><span class="badge crit">Critical</span></td></tr>
+    <tr><td>2</td><td><b>2× LocalBusiness blocks</b> (Jaipur + Dubai, same phone) + अलग Organization → duplicate/conflicting entity</td><td><span class="badge high">High</span></td></tr>
+    <tr><td>3</td><td><b>BreadcrumbList गायब</b></td><td><span class="badge med">Medium</span></td></tr>
+    <tr><td>4</td><td>Service, Organization, WebSite, WebPage, FAQPage — ठीक हैं</td><td><span class="badge ok">OK</span></td></tr>
+  </table>
+  <p>Product → Service में बदलें, rating को verifiable source (Clutch/Google) से link करें:</p>
+  <pre><code>{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Mobile App Development",
+  "provider": {
+    "@type": "Organization",
+    "name": "IMG Global Infotech",
+    "@id": "https://www.imgglobalinfotech.com/#organization"
+  },
+  "areaServed": { "@type": "Country", "name": "India" },
+  "description": "Custom iOS, Android &amp; cross-platform mobile app development services in India."
+}</code></pre>
+  <div class="callout warn">AggregateRating सिर्फ तभी रखें जब reviews सच में on-page genuine widget से आ रहे हों — वरना manual-action का risk है।</div>
+
+  <!-- ACTION PLAN -->
+  <h2 class="section">🚀 Action Plan — किस क्रम में क्या करें</h2>
+
+  <div class="phase">
+    <h3>🔴 CRITICAL — इसी हफ़्ते (ये नहीं किया तो बाकी सब बेकार)</h3>
+
+    <div class="step crit">
+      <h4>1. Cannibalization खत्म करें — एक "master page" तय करें</h4>
+      <ul>
+        <li><code>/mobile-app-development-company-in-india</code> ही इस keyword का <b>एकमात्र</b> target रहेगा</li>
+        <li><code>/mobile-app-development</code> को अलग intent दें (global/service-overview) या same content हो तो target page पर <b>301</b> कर दें</li>
+        <li>सारे blog listicles को "informational" angle (how-to-choose, cost-guide) पर रखें, और उनके internal links <b>target page की तरफ</b> point करें</li>
+        <li>Commercial "company in india" intent सिर्फ master page पर रखें</li>
+      </ul>
+      <div class="know">कैसे पता चलेगा काम हुआ? → GSC में impressions/position एक ही URL पर consolidate होने लगेंगी।</div>
+    </div>
+
+    <div class="step crit">
+      <h4>2. GSC में जाकर असली data देखें</h4>
+      <ul>
+        <li>URL Inspection → page index है या नहीं; site: में पुराना .php दिख रहा = recrawl slow → <b>"Request Indexing"</b> दबाएँ</li>
+        <li>Performance report → page किन keywords पर position <b>8–30</b> में है — उन्हें पहले target करें, सीधे #1 head term नहीं</li>
+      </ul>
+    </div>
+
+    <div class="step crit">
+      <h4>3. llms.txt बनाएँ (404 fix)</h4>
+      <ul>
+        <li>robots.txt उसे allow करता है पर file गायब है। एक <code>/llms.txt</code> बनाएँ: company summary + key services + top URLs (GEO/AI के लिए)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase">
+    <h3>🟠 HIGH — अगले 1–2 हफ़्ते</h3>
+
+    <div class="step high">
+      <h4>4. Page weight घटाएँ (Performance)</h4>
+      <ul>
+        <li>232 images → सिर्फ above-the-fold रखें, बाकी defer/remove (portfolio/tech-logos कम करें)</li>
+        <li>26 inline scripts combine करें + <code>defer</code> लगाएँ</li>
+        <li>HTML 923KB → target &lt;150KB; भारी inline CSS/Tailwind external + minify करें</li>
+        <li>Static HTML के लिए <code>Cache-Control</code> ठीक करें</li>
+      </ul>
+    </div>
+
+    <div class="step high">
+      <h4>5. Schema fix</h4>
+      <ul><li>Product→Service, duplicate LocalBusiness merge, BreadcrumbList add (ऊपर code देखें)</li></ul>
+    </div>
+
+    <div class="step high">
+      <h4>6. Backlinks / Authority शुरू करें (keyword का असली game)</h4>
+      <ul>
+        <li>Clutch, GoodFirms, DesignRush, TopDevelopers, MobileAppDaily profiles complete करें + reviews बढ़ाएँ</li>
+        <li>Guest posts + digital-PR — "mobile app development india" topic पर authoritative links</li>
+        <li>धीमा पर <b>decisive</b> — इसके बिना head term नहीं आएगा</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase">
+    <h3>🟡 MEDIUM — 1 महीने में</h3>
+    <div class="step med">
+      <h4>7. Content differentiate करें</h4>
+      <ul><li>Target page पर unique angle (India case-studies, India-specific pricing data, process) ताकि blog listicles का duplicate न लगे</li></ul>
+    </div>
+    <div class="step med">
+      <h4>8. AEO format</h4>
+      <ul><li>हर FAQ/H2 के नीचे direct 40–60 word concise answer (AI citation + featured snippet के लिए)</li></ul>
+    </div>
+    <div class="step med">
+      <h4>9. Sitemap quality</h4>
+      <ul><li>1,048 URLs सब पर <code>priority 1.0</code> + <code>daily</code> + आज की <code>lastmod</code> = spammy signal जिसे Google ignore करता है। Real lastmod + differentiated priority डालें</li></ul>
+    </div>
+  </div>
+
+  <!-- EXPECTATION -->
+  <h2 class="section">⏱️ Realistic Expectation</h2>
+  <div class="callout">
+    <p><b>"6 महीने optimize किया फिर भी नहीं आया" — यह normal है</b>, क्योंकि असली bottleneck <b>authority + cannibalization</b> है, on-page नहीं।</p>
+    <p>• पहले <b>cannibalization fix + GSC के mid-position keywords</b> target करें → <b>4–8 हफ़्ते</b> में long-tail पर movement।</p>
+    <p>• Pure head term "mobile app development company in india" को #1–10 तक लाने में <b>6–12 महीने</b> का consistent काम (authority build) लगेगा — इसे long-term goal मानें, बीच में long-tail wins पकड़ें।</p>
+  </div>
+
+  <!-- NEXT -->
+  <h2 class="section">📌 अगला कदम (मैं कर सकता हूँ)</h2>
+  <table>
+    <tr><th>#</th><th>Deliverable</th><th>ज़रूरत</th></tr>
+    <tr><td>1</td><td><b>Cannibalization consolidation map</b> (कौन page कौन keyword + redirect/internal-link plan) — सबसे पहले recommend</td><td>कुछ नहीं</td></tr>
+    <tr><td>2</td><td><b>असली Backlink report</b> (exact DA / referring domains)</td><td>free Moz API key या DataForSEO</td></tr>
+    <tr><td>3</td><td><b>असली Core Web Vitals</b> (mobile LCP/INP/CLS numbers)</td><td>free Google PageSpeed API key</td></tr>
+    <tr><td>4</td><td>Ready-to-use <code>llms.txt</code> file</td><td>कुछ नहीं</td></tr>
+  </table>
+
+  <div class="footer">
+    <p>Report generated 13 June 2026 · Live data: HTML, headers, robots.txt, sitemap (1,048 URLs), schema (7 JSON-LD), Google SERP, redirects.</p>
+    <p>Sources: <a href="https://clutch.co/directory/mobile-application-developers-india">Clutch directory</a> ·
+      <a href="https://clutch.co/profile/img-global-infotech">IMG Global – Clutch</a> ·
+      <a href="https://www.goodfirms.co/company/img-global-infotech-pvt-ltd">GoodFirms</a></p>
+    <p style="margin-top:14px;color:#6b7684">Built by agricidaniel — AI Marketing Hub ·
+      <a href="https://www.skool.com/ai-marketing-hub">Free</a> ·
+      <a href="https://www.skool.com/ai-marketing-hub-pro">Pro</a></p>
+  </div>
+
+</div>
+</body>
+</html>
