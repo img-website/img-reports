@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile App Development Company in India — Ranking Plan + Report Review | IMG</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2230; --border:#2d333b;
+    --text:#e6edf3; --muted:#9aa7b4; --accent:#3b82f6;
+    --crit:#ef4444; --high:#f59e0b; --med:#eab308; --good:#22c55e; --info:#38bdf8; --chipbg:#21262d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter','Segoe UI','Nirmala UI',system-ui,-apple-system,'Noto Sans Devanagari',sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:32px 20px 80px}
+  .hero{background:linear-gradient(135deg,#1e3a8a 0%,#5b21b6 100%);border-radius:18px;padding:38px 34px;
+    margin-bottom:26px;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;
+    background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);border-radius:50%}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.18);padding:5px 14px;border-radius:30px;
+    font-size:12.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-size:25px;line-height:1.3;font-weight:800;margin-bottom:10px;color:#fff}
+  .hero .url{font-family:ui-monospace,Consolas,monospace;font-size:13px;color:#dbeafe;word-break:break-all;
+    background:rgba(0,0,0,.22);padding:8px 12px;border-radius:8px;display:inline-block}
+  .hero .meta{margin-top:16px;font-size:13.5px;color:#e0e7ff;display:flex;gap:20px;flex-wrap:wrap}
+  .hero .meta b{color:#fff}
+  .verdict{background:var(--panel);border:1px solid var(--border);border-left:5px solid var(--high);
+    border-radius:12px;padding:20px 24px;margin-bottom:28px;font-size:16.5px}
+  .verdict b{color:#fff}.verdict .hi{color:var(--high);font-weight:700}.verdict .cr{color:#fca5a5;font-weight:700}.verdict .gd{color:#86efac;font-weight:700}
+  h2.section{font-size:21px;font-weight:800;margin:44px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--border)}
+  h3{font-size:17px;font-weight:700;margin:22px 0 10px;color:#fff}
+  h4{font-size:15px;font-weight:700;margin:14px 0 6px;color:#cbd5e1}
+  p{margin-bottom:12px}.muted{color:var(--muted)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px;background:var(--panel);border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+  th{background:var(--panel2);text-align:left;padding:10px 12px;font-weight:700;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+  td{padding:10px 12px;border-top:1px solid var(--border);vertical-align:top}
+  tr:hover td{background:rgba(255,255,255,.02)}
+  code{font-family:ui-monospace,Consolas,monospace;background:var(--chipbg);padding:2px 6px;border-radius:5px;font-size:12.5px;color:#7dd3fc}
+  .x{color:var(--crit);font-weight:700}.ok{color:var(--good);font-weight:700}.warn{color:var(--high);font-weight:700}
+  .badge{display:inline-block;font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:.3px;margin-right:5px}
+  .badge.crit{background:rgba(239,68,68,.16);color:#fca5a5;border:1px solid rgba(239,68,68,.35)}
+  .badge.high{background:rgba(245,158,11,.16);color:#fcd34d;border:1px solid rgba(245,158,11,.35)}
+  .badge.med{background:rgba(234,179,8,.14);color:#fde047;border:1px solid rgba(234,179,8,.3)}
+  .badge.ok{background:rgba(34,197,94,.14);color:#86efac;border:1px solid rgba(34,197,94,.3)}
+  .badge.info{background:rgba(56,189,248,.14);color:#7dd3fc;border:1px solid rgba(56,189,248,.3)}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:14px;position:relative}
+  .card.crit{border-left:5px solid var(--crit)}.card.high{border-left:5px solid var(--high)}.card.med{border-left:5px solid var(--med)}.card.good{border-left:5px solid var(--good)}
+  .card .num{position:absolute;top:14px;right:20px;font-size:38px;font-weight:900;color:rgba(255,255,255,.06)}
+  .card h3{margin-top:0}
+  .callout{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.3);border-radius:10px;padding:15px 18px;margin:14px 0}
+  .callout.warn{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.32)}
+  .callout.crit{background:rgba(239,68,68,.09);border-color:rgba(239,68,68,.34)}
+  .callout.good{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.32)}
+  pre{background:#0b0f15;border:1px solid var(--border);border-radius:10px;padding:16px;overflow-x:auto;margin:12px 0;font-size:12.5px;line-height:1.5}
+  pre code{background:none;padding:0;color:#a5d6ff}
+  ul.clean{list-style:none;margin:6px 0}
+  ul.clean li{padding:5px 0 5px 26px;position:relative;font-size:14.5px}
+  ul.clean li.y::before{content:"✓";position:absolute;left:0;color:var(--good);font-weight:800}
+  ul.clean li.n::before{content:"✕";position:absolute;left:0;color:var(--crit);font-weight:800}
+  ul.clean li.w::before{content:"!";position:absolute;left:2px;color:var(--high);font-weight:800}
+  .step{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin:10px 0;border-left:4px solid var(--border)}
+  .step.crit{border-left-color:var(--crit)}.step.high{border-left-color:var(--high)}.step.med{border-left-color:var(--med)}
+  .step h4{margin:0 0 6px;color:#fff;font-size:15px}
+  .step ul{margin:6px 0 0 18px}.step li{margin:4px 0;font-size:14px}
+  .know{margin-top:8px;font-size:12.5px;color:var(--info);background:rgba(56,189,248,.07);padding:7px 11px;border-radius:7px}
+  .footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
+  a{color:#7dd3fc}
+  .scorebig{display:inline-flex;align-items:baseline;gap:8px;background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:12px 18px;margin:6px 0}
+  .scorebig .n{font-size:30px;font-weight:900;color:var(--high)}
+  @media(max-width:680px){.hero h1{font-size:20px}.wrap{padding:18px 13px 60px}table{font-size:12px}}
+  @media print{body{background:#fff;color:#111}.hero{background:#1e3a8a!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.card,.step,table,pre,.callout{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <span class="tag">Ranking Plan · आपकी PDF का Review · Exact Content Fixes</span>
+    <h1>Mobile App Development Company in India — पूरा Ranking Solution</h1>
+    <span class="url">https://www.imgglobalinfotech.com/mobile-app-development-company-in-india</span>
+    <div class="meta">
+      <span><b>Target keyword:</b> mobile app development company in india</span>
+      <span><b>Date:</b> 15 June 2026</span>
+      <span><b>Verified live:</b> 39% page-overlap, SERP, local blade</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <b>सबसे ज़रूरी सच (साफ़-साफ़):</b> इस keyword पर rank न आने का <span class="cr">#1 कारण cannibalization नहीं है — Domain Authority / backlinks है।</span> यह India के IT-services का <b>सबसे brutal keyword</b> है (Clutch DA~91, Appinventiv/Mobulous DR~55–72)। Cannibalization + technical सब perfect कर दें तब भी, authority के बिना head term page-1 पर नहीं आएगा।
+    <br><br>आपकी PDF cannibalization पर <span class="gd">अच्छी है</span> (मेरी ही report से बनी है), पर <b>(a) सिर्फ cannibalization को कारण मानती है, (b) authority/technical/schema/performance को छोड़ देती है, (c) "4–6 हफ़्ते में rank" का over-promise करती है, (d) exact-match anchor का over-optimization risk है।</b> नीचे सब detail + exact content है।
+  </div>
+
+  <!-- ============ PART 1: MY EARLIER FINDINGS ============ -->
+  <h2 class="section">📋 भाग 1 — मेरी पिछली report की galtiyां (क्या थी · क्यों थी)</h2>
+  <p class="muted">हर finding को साफ़ explain कर रहा हूँ + जहाँ मैंने बाद में सही measurement से correction किया वो भी ईमानदारी से बता रहा हूँ।</p>
+
+  <div class="card crit"><span class="num">1</span>
+    <h3>Cannibalization — पर सही समझिए (मैंने इसे refine किया)</h3>
+    <p><b>मैंने क्या कहा था:</b> "आपके 7 pages एक ही keyword पर लड़ रहे हैं, content लगभग same है।"</p>
+    <p><b>असल सच (इस बार measure किया):</b> यह सही है पर nuance ज़रूरी —</p>
+    <ul class="clean">
+      <li class="n"><b>असली near-duplicate सिर्फ 1 है:</b> <code>/mobile-app-development</code> (global service page) — इसका content target page से <b>39% overlap</b> करता है (baseline सिर्फ ~21% होता है)। यानी ~18 अंक असली duplication। यही सबसे बड़ा duplicate है, blogs नहीं।</li>
+      <li class="n"><b>पुराना <code>/mobile-app-development.php</code></b> अभी भी Google index में है और इसका title ही "Mobile App Development Company in India" है — Google इसी को आपके keyword का owner मानता है।</li>
+      <li class="w"><b>Blog listicles</b> (companies-in-india, top-10, android, comparison-pricing) — ये informational format हैं, इसलिए duplication कम, पर topic-cluster confuse करते हैं।</li>
+    </ul>
+    <p><b>क्यों समस्या:</b> जब एक ही intent ("company in india") के लिए कई pages हों, Google authority बाँट देता है और decide नहीं कर पाता किसे rank करे → कोई भी ठीक से रैंक नहीं होता।</p>
+    <div class="callout"><b>सबूत (अभी live):</b> <code>site:...mobile app development company in india</code> चलाने पर top पर <code>.php</code> + delhi.php + blogs आए — <b>आपका clean target page दिखा ही नहीं।</b></div>
+  </div>
+
+  <div class="card crit"><span class="num">2</span>
+    <h3>Domain Authority / Backlink Gap — असली #1 bottleneck</h3>
+    <p><b>क्या:</b> इस head keyword पर top पर Clutch (DA~91), Appinventiv/Mobulous/Konstant (DR~55–72, हज़ारों referring domains, 8–10 साल authority) हैं।</p>
+    <p><b>क्यों समस्या:</b> SEO में head commercial keyword "earn" करना पड़ता है — backlinks + brand mentions से। सिर्फ on-page optimize करने से नहीं आता। आपकी site इन giants से authority में बहुत पीछे है। <b>यही असली, निर्णायक कारण है — और आपकी PDF इसे पूरी तरह छोड़ देती है।</b></p>
+  </div>
+
+  <div class="card high"><span class="num">3</span>
+    <h3>Fake Schema — Product + self-serving Rating (penalty risk)</h3>
+    <p><b>क्या:</b> target page (और आपकी सब service pages) पर <code>"@type":"Product"</code> + <code>AggregateRating 4.7</code> का schema है (आपके blade की lines ~74–86)।</p>
+    <p><b>क्यों गलत:</b> (a) एक service "Product" नहीं है — गलत type; (b) अपनी ही site पर अपनी rating देना (बिना verifiable on-page reviews) Google की review-snippet policy का उल्लंघन = star तो नहीं मिलेंगे + "spammy structured markup" का manual-penalty risk।</p>
+  </div>
+
+  <div class="card high"><span class="num">4</span>
+    <h3>Performance — 923KB HTML / 232 images / 26 blocking scripts</h3>
+    <p><b>क्यों समस्या:</b> India में users mid-range Android + 4G पर हैं। भारी page = खराब Core Web Vitals (LCP/INP) = Google demote करता है। Page experience अब ranking factor है।</p>
+  </div>
+
+  <div class="card med"><span class="num">5</span>
+    <h3>बाकी: llms.txt 404, no-cache, fake sitemap, 2× LocalBusiness</h3>
+    <ul class="clean">
+      <li class="n"><code>llms.txt</code> robots.txt में allow है पर file 404 → GEO/AI miss</li>
+      <li class="w"><code>Cache-Control: no-cache</code> + sitemap के सब URLs पर fake <code>priority 1.0 / daily / आज की lastmod</code> → Google ignore/distrust करता है</li>
+      <li class="w">2× LocalBusiness (Jaipur+Dubai) + Organization = duplicate entity (layout में, site-wide)</li>
+      <li class="w">BreadcrumbList गायब (DB खाली है इन URLs के लिए)</li>
+    </ul>
+  </div>
+
+  <div class="callout good"><b>जो पहले से सही है (बदलिए मत):</b> Title "Mobile App Development Company in India | IMG Global Infotech" (61 ch) ✓ · Meta description ✓ · H1 keyword-rich ✓ · og/twitter consistent ✓ · canonical self-ref ✓ · index,follow ✓ · 7,400 words deep · सब images में alt+lazy ✓ · पुराना .php → clean 301 ✓. <b>On-page लगभग ready है — इसलिए असली काम off-page + cannibalization + technical है।</b></div>
+
+  <!-- ============ PART 2: YOUR PDF REVIEW ============ -->
+  <h2 class="section">🧾 भाग 2 — आपकी PDF (IMG_Cannibalization_Fix_Plan) का ईमानदार Review</h2>
+  <div class="scorebig"><span>आपकी report का score:</span><span class="n">6.5/10</span><span class="muted">— सही दिशा, पर अधूरी + एक जगह risky</span></div>
+
+  <h3>✅ जो आपकी PDF में सही है</h3>
+  <ul class="clean">
+    <li class="y">Cannibalization सही पहचाना + competing pages सही list किए</li>
+    <li class="y">Blogs का angle shift ("How to Choose" / cost-guide / global listicle) — बिल्कुल सही approach</li>
+    <li class="y"><b>GSC checks बहुत अच्छे</b> — position 8–30 keywords पहले, blog vs target clicks compare, /mobile-app-development की impressions देखकर Option A/B decide — यह सही और सटीक है</li>
+    <li class="y">Internal linking को "quickest win" मानना सही · Option A (differentiate) vs Option B (301) framework सही</li>
+  </ul>
+
+  <h3>❌ जो गलत / risky है</h3>
+  <ul class="clean">
+    <li class="n"><b>"4–6 हफ़्ते में re-rank" — over-promise।</b> Long-tail के लिए ठीक, पर head term "company in india" के लिए unrealistic। authority के बिना head term 6–12 महीने लेगा। इस expectation से आप निराश होंगे।</li>
+    <li class="n"><b>Exact-match anchor over-optimization risk।</b> PDF कहती है हर blog से 2 links बिल्कुल same anchor "mobile app development company in India" से डालो। कई pages से identical commercial exact-match anchor = manipulative दिखता है → backfire कर सकता है। <b>Anchors vary करने चाहिए</b> (नीचे सही plan दिया है)।</li>
+    <li class="n"><b>Priority misorder।</b> PDF blog <code>companies-in-india</code> को "biggest culprit" कहती है। असल में सबसे बड़ा duplicate <b><code>/mobile-app-development</code> (39% overlap) + पुराना <code>.php</code></b> है — blogs उसके बाद।</li>
+  </ul>
+
+  <h3>⚠️ जो PDF में पूरी तरह छूट गया (सबसे ज़रूरी कमी)</h3>
+  <ul class="clean">
+    <li class="w"><b>Authority / Backlinks</b> — head term का असली #1 factor — PDF में एक शब्द नहीं</li>
+    <li class="w"><b>Schema fix</b> (fake Product+rating हटाना) — penalty risk — नहीं</li>
+    <li class="w"><b>Performance</b> (923KB/232 images) — page experience — नहीं</li>
+    <li class="w"><b>पुराने .php duplicates</b> का recrawl/index-transfer — नहीं (Google अभी .php ही दिखा रहा)</li>
+    <li class="w"><b>llms.txt, sitemap quality, LocalBusiness, BreadcrumbList</b> — नहीं</li>
+    <li class="w"><b>Target page का खुद का content differentiation</b> — सिर्फ "India-specific बनाओ" कहा, पर <b>क्या content डालना है</b> नहीं बताया (वो नीचे दिया है)</li>
+  </ul>
+  <div class="callout warn"><b>निचोड़:</b> आपकी PDF एक अच्छा <b>cannibalization sub-plan</b> है — पूरा ranking plan नहीं। इसे भाग 3 + 4 के साथ मिलाइए।</div>
+
+  <!-- ============ PART 3: REAL STRATEGY ============ -->
+  <h2 class="section">🎯 भाग 3 — असली Ranking Strategy (4 levers)</h2>
+  <table>
+    <tr><th>Lever</th><th>क्या</th><th>असर</th><th>Timeline</th></tr>
+    <tr><td><b>A. Cannibalization fix</b></td><td>एक master page + .php recrawl + blogs differentiate + internal links</td><td>signals consolidate</td><td>हफ़्ता 1–2</td></tr>
+    <tr><td><b>B. On-page/Technical</b></td><td>schema fix, performance, llms.txt, breadcrumb</td><td>quality + experience</td><td>हफ़्ता 1–3</td></tr>
+    <tr><td><b>C. Content differentiation</b></td><td>target page को असली India-identity देना</td><td>intent match + overlap↓</td><td>हफ़्ता 2–3</td></tr>
+    <tr><td><b>D. Authority / Backlinks</b> 🔑</td><td>Clutch/GoodFirms reviews, digital-PR, guest posts</td><td class="ok"><b>head term का असली unlock</b></td><td>3–9 महीने (ongoing)</td></tr>
+  </table>
+  <div class="callout"><b>सही expectation:</b> A+B+C करते ही <b>4–8 हफ़्ते</b> में long-tail ("mobile app development company in jaipur/india for [industry]", "hire android app developers india") पर movement दिखेगा। Head term "mobile app development company in india" page-1 = <b>D (authority)</b> पर निर्भर, <b>6–12 महीने</b>। बीच के long-tail wins से traffic आता रहेगा।</div>
+
+  <!-- ============ PART 4: EXACT WHERE-WHAT ============ -->
+  <h2 class="section">🛠️ भाग 4 — कहाँ क्या update करें (Exact + Ready-to-Paste)</h2>
+
+  <h3>FIX 1 — 🔴 Schema: fake Product+Rating हटाएँ (आज ही)</h3>
+  <p><b>कहाँ:</b> <code>resources/views/tailwind/pages/mobile-app-development-company-in-india/...blade.php</code> — lines ~74–86 (<code>"@type":"Product"</code> ... <code>aggregateRating</code> वाला <code>&lt;script&gt;</code> block)।</p>
+  <p><b>क्या करें:</b> पूरा वो Product block delete करें (Service schema पहले से line ~41 पर मौजूद है, वो रहने दें)। यही fix मैंने आपके B2B/B2C/D2C pages में पहले ही कर दिया है।</p>
+  <div class="callout warn">AggregateRating सिर्फ तभी रखें जब page पर सच में third-party verifiable reviews widget हो। नकली rating से star नहीं मिलते + penalty risk।</div>
+
+  <h3>FIX 2 — 🔴 Cannibalization: master page + .php + blogs (हफ़्ता 1)</h3>
+  <div class="step crit">
+    <h4>2a. /mobile-app-development (39% duplicate) — decide करें</h4>
+    <ul>
+      <li><b>GSC पहले देखें:</b> Performance → इस URL की impressions/clicks. अगर बहुत कम → <b>301</b> करके target page पर redirect। अगर ठीक-ठाक → <b>differentiate</b>: इसे "global/overview" बनाएँ (India-heavy content हटाएँ), और <code>company-in-india</code> page को पूरी तरह India।</li>
+    </ul>
+  </div>
+  <div class="step crit">
+    <h4>2b. पुराने .php को recrawl कराएँ (Google अभी इन्हें दिखा रहा)</h4>
+    <ul>
+      <li>Confirm <code>/mobile-app-development.php</code> → clean URL पर <b>301</b> है (था, verify करें)</li>
+      <li>GSC → URL Inspection → clean target URL → <b>Request Indexing</b></li>
+      <li>Internal links/sitemap में कहीं भी <code>.php</code> बचा हो तो clean URL कर दें</li>
+    </ul>
+  </div>
+  <div class="step high">
+    <h4>2c. Blogs (आपकी PDF का plan — सही, बस anchors सुधारें)</h4>
+    <ul>
+      <li><code>/blog/mobile-app-development-companies-in-india</code> → "How to Choose" neutral listicle; self-promotion कम</li>
+      <li><code>/blog/...comparison-pricing</code> → cost/pricing intent ("mobile app development cost india") — अच्छा differentiation</li>
+      <li><code>/blog/top-10-mobile-app-development-companies</code> → global listicle</li>
+      <li>हर blog से target page को internal link — पर <b>नीचे वाला varied-anchor plan</b> use करें (PDF का exact-match नहीं)</li>
+    </ul>
+  </div>
+
+  <h3>FIX 3 — 🟠 Internal Links: varied anchors (PDF का over-optimization ठीक करते हुए)</h3>
+  <p>PDF हर जगह same exact-match anchor कहती है — वो risky है। इसके बजाय <b>varied, natural anchors</b>:</p>
+  <table>
+    <tr><th>Source page</th><th>Anchor (हर एक अलग — natural)</th></tr>
+    <tr><td>companies-in-india blog</td><td>mobile app development company in India</td></tr>
+    <tr><td>comparison-pricing blog</td><td>hire app developers in India</td></tr>
+    <tr><td>top-10 / global blog</td><td>our India-based app development team</td></tr>
+    <tr><td>android-companies blog</td><td>custom mobile app development services in India</td></tr>
+    <tr><td>homepage / services page</td><td>IMG Global Infotech (branded) → target page</td></tr>
+    <tr><td>city pages (jaipur/delhi)</td><td>app development company in India (parent link)</td></tr>
+  </table>
+  <div class="know">नियम: exact-match anchor कुल का ~20–30% से कम रखें; बाकी branded/partial/natural। यही safe + effective है।</div>
+
+  <h3>FIX 4 — 🟢 Target page को असली "India" identity दें (overlap 39%→&lt;25%)</h3>
+  <p><b>क्यों:</b> <code>/mobile-app-development</code> (global) और यह page दोनों generic app-dev content share करते हैं। इस page पर ऐसे India-only sections जोड़ें जो global page पर हों ही नहीं — इससे intent perfect match होगा + duplication गिरेगी। ये sections add करें (ready content नीचे):</p>
+
+  <h4>① Section: "Mobile App Development Cost in India (2026)"</h4>
+  <pre><code>H2: Mobile App Development Cost in India — Transparent 2026 Pricing
+India is 40–60% more cost-effective than the US/UK for the same quality.
+Typical ranges (INR / USD):
+ • Simple app (MVP):        ₹4L–₹9L      ($5k–$11k)
+ • Mid-level app:           ₹9L–₹20L     ($11k–$24k)
+ • Complex / enterprise:    ₹20L–₹45L+   ($24k–$55k+)
+Engagement models: Fixed-cost · Dedicated team (monthly) · Time &amp; Material.
+[Answer-first 50-word paragraph on what drives cost in India + CTA "Get a free India pricing estimate"]</code></pre>
+
+  <h4>② Section: "Why Build Your App with an Indian Company"</h4>
+  <pre><code>H2: Why Choose an Indian Mobile App Development Company
+ • 40–60% lower cost vs US/UK at equal quality
+ • World's 2nd-largest developer talent pool (English-proficient)
+ • Favourable time-zone overlap for US/UK/UAE clients
+ • Mature IT ecosystem, ISO/HIPAA-ready processes
+[Each point = 1–2 sentences. This block must NOT appear on the global page.]</code></pre>
+
+  <h4>③ Section: India-specific tech &amp; compliance (strong differentiator)</h4>
+  <pre><code>H2: India-Ready App Features We Build
+ • UPI &amp; Indian payment gateways (Razorpay, PayU, Paytm, PhonePe)
+ • Aadhaar e-KYC / DigiLocker integration
+ • ONDC-ready commerce, GST invoicing
+ • 10+ regional language support (Hindi, Tamil, Telugu, Bengali…)
+ • DPDP Act 2023 data-localization &amp; compliance
+[These are unique to India — global page can't have them. Big intent + uniqueness win.]</code></pre>
+
+  <h4>④ Section: "Cities We Serve in India" (internal-link cluster)</h4>
+  <pre><code>H2: Mobile App Development Across India
+Link to your city pages with natural anchors:
+ Jaipur · Delhi · Mumbai · Bangalore · Pune · Hyderabad …
+(These city pages link back here as the India "parent" → strong topical cluster.)</code></pre>
+
+  <h4>⑤ India market stats + India case studies framing</h4>
+  <pre><code>H2: India's App Market (Why Now)
+ • India = 1B+ smartphone users, world's #1 app-download market
+ • [1–2 India-specific stats with year]
+H2: Our Work for Indian Businesses
+ • Frame case studies/portfolio around Indian clients/industries
+   (fintech-UPI, ed-tech, healthtech, D2C) — not generic global apps.</code></pre>
+
+  <div class="callout good"><b>असर:</b> ये 5 India-only sections जोड़ते ही (और global generic paragraphs थोड़े trim करते ही) यह page <code>/mobile-app-development</code> से साफ़ अलग हो जाएगा (overlap 39%→&lt;25%), और "company in india" intent से perfect match करेगा।</div>
+
+  <h3>FIX 5 — 🟠 Performance (हफ़्ता 1–2)</h3>
+  <ul class="clean">
+    <li class="w">232 images → सिर्फ above-the-fold रखें, बाकी defer/हटाएँ; 26 inline scripts combine + <code>defer</code></li>
+    <li class="w">HTML 923KB → target &lt;150KB; inline CSS/Tailwind external + minify; static HTML के लिए <code>Cache-Control</code> ठीक करें</li>
+  </ul>
+
+  <h3>FIX 6 — 🟠 llms.txt बनाएँ (root पर) — ready content</h3>
+  <pre><code># IMG Global Infotech — Mobile App &amp; AI Development Company (India)
+&gt; Jaipur-based (est. 2014), 1,200+ projects, serving India, USA, UK, UAE.
+
+## Key Services
+- Mobile App Development (iOS, Android, Flutter, React Native): /mobile-app-development-company-in-india
+- AI Development: /ai-development-company
+- Ecommerce Development: /ecommerce-website-development-company
+
+## Contact
+- https://www.imgglobalinfotech.com/contact-us</code></pre>
+
+  <h3>FIX 7 — 🟢 Authority / Backlinks (असली unlock — आज से शुरू, ongoing)</h3>
+  <ul class="clean">
+    <li class="w">Clutch, GoodFirms, DesignRush, TopDevelopers, MobileAppDaily — profiles complete + genuine reviews बढ़ाएँ (AI engines + "company in india" lists यहीं से उठाते हैं)</li>
+    <li class="w">Digital-PR + guest posts "mobile app development india" topic पर authoritative sites से</li>
+    <li class="w">यह धीमा पर <b>निर्णायक</b> है — इसके बिना head term कभी नहीं आएगा</li>
+  </ul>
+
+  <!-- PRIORITY -->
+  <h2 class="section">🚀 Priority क्रम (इसी order में)</h2>
+  <div class="step crit"><h4>आज</h4><ul>
+    <li>Schema fix (FIX 1) · GSC: position 8–30 keywords देखें + clean URL Request Indexing (FIX 2b)</li>
+    <li>Internal links varied-anchor (FIX 3) · llms.txt (FIX 6)</li></ul></div>
+  <div class="step high"><h4>हफ़्ता 1–2</h4><ul>
+    <li>/mobile-app-development का Option A/B decide (FIX 2a) · Blogs differentiate (FIX 2c)</li>
+    <li>Target page पर 5 India sections (FIX 4) · Performance शुरू (FIX 5)</li>
+    <li>Backlink program शुरू (FIX 7)</li></ul></div>
+  <div class="step med"><h4>Ongoing (महीने 1–9)</h4><ul>
+    <li>Authority build (FIX 7) — head term का असली काम · weekly GSC में "company in india" position track</li></ul></div>
+
+  <div class="footer">
+    <p>15 June 2026 · Verified live: 39% content-overlap (target vs /mobile-app-development), Google site: SERP, local blade (schema lines 74–86), your PDF (IMG_Cannibalization_Fix_Plan).</p>
+    <p>Sources: <a href="https://clutch.co/directory/mobile-application-developers-india">Clutch directory</a> · <a href="https://clutch.co/profile/img-global-infotech">IMG – Clutch</a> · <a href="https://www.goodfirms.co/company/img-global-infotech-pvt-ltd">GoodFirms</a></p>
+    <p style="margin-top:14px;color:#6b7684">Built by agricidaniel — AI Marketing Hub · <a href="https://www.skool.com/ai-marketing-hub">Free</a> · <a href="https://www.skool.com/ai-marketing-hub-pro">Pro</a></p>
+  </div>
+
+</div>
+</body>
+</html>
