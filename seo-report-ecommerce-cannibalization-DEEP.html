@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecommerce Cannibalization — Deep Re-Audit & Solution | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2230; --border:#2d333b;
+    --text:#e6edf3; --muted:#9aa7b4; --accent:#3b82f6;
+    --crit:#ef4444; --high:#f59e0b; --med:#eab308; --good:#22c55e; --info:#38bdf8; --chipbg:#21262d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter','Segoe UI','Nirmala UI',system-ui,-apple-system,'Noto Sans Devanagari',sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:32px 20px 80px}
+  .hero{background:linear-gradient(135deg,#0f766e 0%,#7c2d12 100%);border-radius:18px;padding:38px 34px;
+    margin-bottom:26px;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;
+    background:radial-gradient(circle,rgba(255,255,255,.13),transparent 70%);border-radius:50%}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.18);padding:5px 14px;border-radius:30px;
+    font-size:12.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-size:26px;line-height:1.3;font-weight:800;margin-bottom:10px;color:#fff}
+  .hero .url{font-family:ui-monospace,Consolas,monospace;font-size:13px;color:#d1fae5;word-break:break-all;
+    background:rgba(0,0,0,.22);padding:8px 12px;border-radius:8px;display:inline-block}
+  .hero .meta{margin-top:16px;font-size:13.5px;color:#ecfdf5;display:flex;gap:22px;flex-wrap:wrap}
+  .hero .meta b{color:#fff}
+  .correction{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.34);border-left:5px solid var(--good);
+    border-radius:12px;padding:20px 24px;margin-bottom:28px;font-size:16px}
+  .correction b{color:#fff}.correction .h{color:#86efac;font-weight:800;font-size:17px;display:block;margin-bottom:6px}
+  h2.section{font-size:21px;font-weight:800;margin:44px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--border);display:flex;gap:10px}
+  h3{font-size:17px;font-weight:700;margin:22px 0 10px;color:#fff}
+  h4{font-size:15px;font-weight:700;margin:16px 0 6px;color:#cbd5e1}
+  p{margin-bottom:12px}.muted{color:var(--muted)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px;background:var(--panel);border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+  th{background:var(--panel2);text-align:left;padding:10px 12px;font-weight:700;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+  td{padding:10px 12px;border-top:1px solid var(--border);vertical-align:top}
+  tr:hover td{background:rgba(255,255,255,.02)}
+  code{font-family:ui-monospace,Consolas,monospace;background:var(--chipbg);padding:2px 6px;border-radius:5px;font-size:12.5px;color:#7dd3fc}
+  .x{color:var(--crit);font-weight:700}.ok{color:var(--good);font-weight:700}.warn{color:var(--high);font-weight:700}
+  .badge{display:inline-block;font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:.3px;margin-right:5px}
+  .badge.crit{background:rgba(239,68,68,.16);color:#fca5a5;border:1px solid rgba(239,68,68,.35)}
+  .badge.high{background:rgba(245,158,11,.16);color:#fcd34d;border:1px solid rgba(245,158,11,.35)}
+  .badge.med{background:rgba(234,179,8,.14);color:#fde047;border:1px solid rgba(234,179,8,.3)}
+  .badge.ok{background:rgba(34,197,94,.14);color:#86efac;border:1px solid rgba(34,197,94,.3)}
+  .issue{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin-bottom:16px;position:relative;border-left:5px solid var(--crit)}
+  .issue.i2{border-left-color:var(--high)}.issue.i3{border-left-color:var(--high)}.issue.i4{border-left-color:var(--med)}
+  .issue .n{position:absolute;top:16px;right:22px;font-size:40px;font-weight:900;color:rgba(255,255,255,.06)}
+  .issue h3{margin-top:0}
+  .callout{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.3);border-radius:10px;padding:15px 18px;margin:14px 0}
+  .callout.warn{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.32)}
+  .callout.crit{background:rgba(239,68,68,.09);border-color:rgba(239,68,68,.34)}
+  .callout.good{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.32)}
+  /* heat cells */
+  .heat td.v{text-align:center;font-weight:700;color:#0b0f15}
+  .hl{background:#ef4444}.hm{background:#f59e0b}.hs{background:#eab308}.hg{background:#22c55e}.hb{background:#1f6feb;color:#fff}
+  pre{background:#0b0f15;border:1px solid var(--border);border-radius:10px;padding:16px;overflow-x:auto;margin:12px 0;font-size:12.5px;line-height:1.55}
+  pre code{background:none;padding:0;color:#a5d6ff}
+  .step{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin:10px 0;border-left:4px solid var(--border)}
+  .step.crit{border-left-color:var(--crit)}.step.high{border-left-color:var(--high)}.step.med{border-left-color:var(--med)}
+  .step h4{font-size:15px;margin:0 0 6px;color:#fff}
+  .step ul{margin:6px 0 0 18px}.step li{margin:4px 0;font-size:14px}
+  .know{margin-top:8px;font-size:12.5px;color:var(--info);background:rgba(56,189,248,.07);padding:7px 11px;border-radius:7px}
+  .footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
+  .footer a{color:var(--accent)} a{color:#7dd3fc}
+  @media(max-width:680px){.hero h1{font-size:20px}.wrap{padding:18px 13px 60px}table{font-size:12px}}
+  @media print{body{background:#fff;color:#111}.hero{background:#0f766e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .issue,.step,table,pre,.callout{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <span class="tag">Deep Re-Audit · Cannibalization Corrected · Detailed Solution</span>
+    <h1>Ecommerce Cluster — Cannibalization का सही विश्लेषण + पूरा Solution</h1>
+    <span class="url">https://www.imgglobalinfotech.com/ecommerce-development &nbsp;(+ 8 sibling pages)</span>
+    <div class="meta">
+      <span><b>Date:</b> 15 June 2026</span>
+      <span><b>Method:</b> 9 pages live-fetched, 5-gram overlap matrix, targeted SERP test</span>
+      <span><b>Pages analyzed:</b> 9</span>
+    </div>
+  </div>
+
+  <!-- CORRECTION -->
+  <div class="correction">
+    <span class="h">✅ आपकी बात सही है — मैं पहली report को सही (correct) कर रहा हूँ</span>
+    पहली ecommerce report में मैंने cannibalization को generic बता दिया था ("बहुत सारे pages एक ही keyword पर")। पर आपने सही पकड़ा — <b>इन pages के title अलग keyword target करते हैं</b> (B2B, B2C, D2C, Shopify, WooCommerce, Fashion, Marketplace)। तो ये <b>keyword-level cannibalization नहीं है।</b>
+    <br><br>9 pages को live fetch करके, उनका content 5-word-phrase level पर compare करके, और targeted SERP test करके — असली समस्या निकली: <b style="color:#fca5a5">content-level (near-duplicate template) cannibalization</b>। नीचे पूरा evidence + detailed solution है।
+  </div>
+
+  <!-- THE PROOF -->
+  <h2 class="section">🔬 सबसे पहले — निर्णायक सबूत (SERP Test)</h2>
+  <p>मैंने Google पर खास query टेस्ट की: <code>site:imgglobalinfotech.com b2b ecommerce development company</code>। अगर pages सच में अलग होते, तो B2B page पहले आता। पर मिला:</p>
+  <table>
+    <tr><th>Position</th><th>Google ने जो दिखाया (B2B query के लिए)</th><th>सही?</th></tr>
+    <tr><td>#1</td><td><code>/b2c-ecommerce-development.php</code></td><td class="x">❌ B2C — गलत page!</td></tr>
+    <tr><td>#2</td><td><code>/b2b-ecommerce-development.php</code></td><td class="warn">सही page पर #2 पर</td></tr>
+    <tr><td>#3</td><td><code>/d2c-ecommerce-development.php</code></td><td class="x">❌ D2C — फिर गलत</td></tr>
+  </table>
+  <div class="callout crit"><b>इसका मतलब:</b> Google खुद B2B, B2C, और D2C pages में फ़र्क़ नहीं कर पा रहा — क्योंकि इनका <b>content 58–70% एक जैसा</b> है। एक B2B सवाल पर वो B2C दिखा देता है। <b>यही असली cannibalization है — keyword का नहीं, near-duplicate content का।</b></div>
+
+  <!-- EVIDENCE: TITLES -->
+  <h2 class="section">📋 Evidence 1 — Titles अलग हैं (इसलिए आप सही थे)</h2>
+  <p>हर page का title/H1 सच में अलग keyword target करता है। यह confirm करता है कि problem title में नहीं:</p>
+  <table>
+    <tr><th>Page</th><th>Title</th><th>Target keyword</th></tr>
+    <tr><td><code>/ecommerce-development</code></td><td>Custom Ecommerce <b>Application</b> Development Services</td><td>ecommerce app</td></tr>
+    <tr><td><code>/ecommerce-website-development-company</code></td><td>Ecommerce <b>Website</b> Development Services</td><td>ecommerce website</td></tr>
+    <tr><td><code>/b2b-ecommerce-development</code></td><td><b>B2B</b> Ecommerce Development Company</td><td>b2b ecommerce</td></tr>
+    <tr><td><code>/b2c-ecommerce-development</code></td><td><b>B2C</b> Ecommerce Development Company</td><td>b2c ecommerce</td></tr>
+    <tr><td><code>/d2c-ecommerce-development</code></td><td><b>D2C</b> Ecommerce Development Company</td><td>d2c ecommerce</td></tr>
+    <tr><td><code>/shopify-ecommerce-development</code></td><td><b>Shopify</b> Website Development Company</td><td>shopify dev</td></tr>
+    <tr><td><code>/woocommerce-website-development</code></td><td><b>WooCommerce</b> Website Development Services</td><td>woocommerce dev</td></tr>
+    <tr><td><code>/fashion-ecommerce-development</code></td><td>Apparel &amp; <b>Fashion</b> App Development Company</td><td>fashion ecommerce</td></tr>
+    <tr><td><code>/market-place-ecommerce-development</code></td><td>E-Commerce <b>Marketplace</b> Development Company</td><td>marketplace dev</td></tr>
+  </table>
+  <p class="ok">✅ निष्कर्ष: title-level पर pages differentiated हैं। आपकी बात बिल्कुल सही — यह "सब एक ही keyword पर" वाली बात गलत थी।</p>
+
+  <!-- EVIDENCE: OVERLAP MATRIX -->
+  <h2 class="section">🌡️ Evidence 2 — पर Content 44–70% एक जैसा है (असली problem)</h2>
+  <p>मैंने हर pair का <b>5-word phrase overlap</b> मापा। reference: दो बिल्कुल अलग-topic pages (ecommerce vs mobile-app) का सिर्फ <b>~21%</b> boilerplate overlap होता है (nav/footer/CTA)। उससे ऊपर जो भी है = <b>असली duplicate content</b>।</p>
+  <table class="heat">
+    <tr><th></th><th>ecom-dev</th><th>ecom-web</th><th>b2b</th><th>b2c</th><th>d2c</th><th>shopify</th><th>woo</th><th>fashion</th><th>market</th></tr>
+    <tr><td><b>ecom-dev</b></td><td class="v">—</td><td class="v hm">44</td><td class="v hl">53</td><td class="v hm">46</td><td class="v hm">45</td><td class="v hs">38</td><td class="v hm">44</td><td class="v hm">44</td><td class="v hm">42</td></tr>
+    <tr><td><b>ecom-web</b></td><td class="v hm">44</td><td class="v">—</td><td class="v hl">52</td><td class="v hm">45</td><td class="v hm">44</td><td class="v hs">37</td><td class="v hm">44</td><td class="v hm">44</td><td class="v hm">41</td></tr>
+    <tr><td><b>b2b</b></td><td class="v hl">53</td><td class="v hl">52</td><td class="v">—</td><td class="v hl">58</td><td class="v hl">54</td><td class="v hl">52</td><td class="v hs">33</td><td class="v hl">52</td><td class="v hl">53</td></tr>
+    <tr><td><b>b2c</b></td><td class="v hm">46</td><td class="v hm">45</td><td class="v hl">58</td><td class="v">—</td><td class="v hl">70</td><td class="v hl">67</td><td class="v hs">33</td><td class="v hm">46</td><td class="v hl">68</td></tr>
+    <tr><td><b>d2c</b></td><td class="v hm">45</td><td class="v hm">44</td><td class="v hl">54</td><td class="v hl">70</td><td class="v">—</td><td class="v hl">65</td><td class="v hs">33</td><td class="v hm">44</td><td class="v hl">66</td></tr>
+    <tr><td><b>shopify</b></td><td class="v hs">38</td><td class="v hs">37</td><td class="v hl">52</td><td class="v hl">67</td><td class="v hl">65</td><td class="v">—</td><td class="v hs">34</td><td class="v hm">44</td><td class="v hl">61</td></tr>
+    <tr><td><b>woo</b></td><td class="v hm">44</td><td class="v hm">44</td><td class="v hs">33</td><td class="v hs">33</td><td class="v hs">33</td><td class="v hs">34</td><td class="v">—</td><td class="v hs">34</td><td class="v hs">33</td></tr>
+    <tr><td><b>fashion</b></td><td class="v hm">44</td><td class="v hm">44</td><td class="v hl">52</td><td class="v hm">46</td><td class="v hm">44</td><td class="v hm">44</td><td class="v hs">34</td><td class="v">—</td><td class="v hm">44</td></tr>
+    <tr><td><b>market</b></td><td class="v hm">42</td><td class="v hm">41</td><td class="v hl">53</td><td class="v hl">68</td><td class="v hl">66</td><td class="v hl">61</td><td class="v hs">33</td><td class="v hm">44</td><td class="v">—</td></tr>
+  </table>
+  <p style="font-size:13px"><span class="badge crit">50–70% = गंभीर duplicate</span> <span class="badge high">40–49% = ज़्यादा</span> <span class="badge med">33–39% = सामान्य से थोड़ा ऊपर</span> &nbsp; (baseline ~21%)</p>
+  <div class="callout warn"><b>साफ़ pattern:</b> <b>B2C ↔ D2C = 70%</b>, B2C ↔ Marketplace = 68%, D2C ↔ Marketplace = 66%, B2C ↔ Shopify = 67%। यानी B2C/D2C/Marketplace/Shopify pages लगभग एक ही template से बने हैं, सिर्फ "B2C"/"D2C" शब्द बदले गए हैं। बाकी content recycled है। <b>WooCommerce (33%) अकेला है जो ठीक से unique है</b> — बाकी सब duplicate-heavy।</div>
+
+  <!-- EVIDENCE: KEYWORD BLEED -->
+  <h2 class="section">🩸 Evidence 3 — "Ecommerce App" keyword हर page पर bleed कर रहा</h2>
+  <p>हर page अपने टॉपिक के बजाय generic "ecommerce app development" शब्द से भरा है — चाहे उसका title कुछ भी हो:</p>
+  <table>
+    <tr><th>Page (title कहता है)</th><th>"ecommerce app" mentions</th><th>अपना खुद का keyword</th><th>समस्या</th></tr>
+    <tr><td>b2b (B2B dev)</td><td class="warn">25</td><td>"b2b" = 0 बार body में!</td><td class="x">B2B word ही नहीं, generic app भरा</td></tr>
+    <tr><td>b2c (B2C dev)</td><td class="warn">25</td><td>"b2c" = 0</td><td class="x">same</td></tr>
+    <tr><td>d2c (D2C dev)</td><td class="warn">26</td><td>"d2c" = 0</td><td class="x">same</td></tr>
+    <tr><td>fashion</td><td class="warn">44</td><td>fashion = 77 ✓</td><td class="warn">fashion ठीक, पर app भी ज़्यादा</td></tr>
+    <tr><td>shopify</td><td>24</td><td>shopify = 118 ✓</td><td class="ok">shopify ठीक focused</td></tr>
+    <tr><td>woo</td><td>22</td><td>woocommerce = 43 ✓</td><td class="ok">सबसे unique</td></tr>
+    <tr><td>marketplace</td><td>24</td><td>marketplace = 85 ✓</td><td class="ok">focused</td></tr>
+    <tr><td>ecom-dev</td><td class="x">62</td><td>ecommerce website = 2</td><td class="x">पूरी तरह app, पर URL generic</td></tr>
+  </table>
+  <div class="callout crit"><b>चौंकाने वाली बात:</b> B2B/B2C/D2C pages में उनका अपना keyword ("b2b"/"b2c"/"d2c") body में लगभग <b>शून्य</b> बार है — सिर्फ title/H1 में है! Body पूरा generic "ecommerce app development" से भरा है। इसलिए Google इन्हें "B2B page" नहीं, "एक और generic ecommerce app page" समझता है → सब आपस में मिल जाते हैं।</div>
+
+  <!-- THE 4 REAL ISSUES -->
+  <h2 class="section">🎯 तो असली Issues क्या हैं (4 सटीक)</h2>
+
+  <div class="issue i1"><span class="n">1</span>
+    <h3><span class="badge crit">Critical</span> Near-Duplicate Template Content</h3>
+    <p>B2C/D2C/Marketplace/Shopify pages 58–70% same content share करते हैं। titles अलग हैं पर body recycled है। Google इन्हें distinct pages नहीं मानता → "thin/duplicate content" treatment → कोई भी ठीक से rank नहीं करता, और गलत page surface होता है (B2B query पर B2C)।</p>
+  </div>
+
+  <div class="issue i2"><span class="n">2</span>
+    <h3><span class="badge high">High</span> Keyword Bleed — हर page generic "ecommerce app" से भरा</h3>
+    <p>हर page अपने distinct keyword (b2b/b2c/d2c) को body में use ही नहीं करता — सब "ecommerce app development" repeat करते हैं। इससे (a) हर page अपना niche own नहीं कर पाता, (b) सब आपस में + ecom-dev के साथ mid-tail "ecommerce app development" पर compete करते हैं।</p>
+  </div>
+
+  <div class="issue i3"><span class="n">3</span>
+    <h3><span class="badge high">High</span> कई पुराने .php duplicates एक ही concept के</h3>
+    <p>SERP में <code>ecommerce-development.php</code>, <code>ecommerce-website-development.php</code> (जिसका clean version भी अलग है), b2c.php, d2c.php — एक ही concept के कई .php versions अभी भी indexed और clean URLs से ऊपर rank कर रहे। यह duplicate को और बढ़ाता है।</p>
+  </div>
+
+  <div class="issue i4"><span class="n">4</span>
+    <h3><span class="badge med">Medium</span> ecom-dev की अपनी intent confusion</h3>
+    <p><code>/ecommerce-development</code>: URL generic कहता है, title "Application Development" (app), OG "Ecommerce Development Company In India", body 62× "ecommerce app" vs 2× "website"। यह असल में एक <b>app page</b> है जो generic URL पहने हुए है।</p>
+  </div>
+
+  <!-- ============ SOLUTION ============ -->
+  <h2 class="section">✅ पूरा Solution — Detailed (हर page के लिए content सहित)</h2>
+  <p>मूल सिद्धांत: <b>हर page को 1 distinct keyword का "owner" बनाओ, और हर page का overlap ~21% (boilerplate) तक गिराओ।</b> Google को साफ़ संकेत मिलना चाहिए कि कौन-सा page किस query के लिए है।</p>
+
+  <h3>STEP 1 — हर page की पहचान fix करें (keyword + title + H1 map)</h3>
+  <table>
+    <tr><th>Page</th><th>Primary keyword (एकमात्र)</th><th>नया Title</th><th>नया H1</th></tr>
+    <tr><td>ecommerce-development</td><td>ecommerce app development (mobile)</td><td>Ecommerce App Development Company in India | IMG</td><td>Custom Ecommerce App Development Company</td></tr>
+    <tr><td>ecommerce-website-development-company</td><td>ecommerce website development</td><td>Ecommerce Website Development Company in India | IMG</td><td>Ecommerce Website Development Company</td></tr>
+    <tr><td>b2b-ecommerce-development</td><td>B2B ecommerce platform development</td><td>B2B Ecommerce Development Company | Wholesale Portals</td><td>B2B Ecommerce Development Company</td></tr>
+    <tr><td>b2c-ecommerce-development</td><td>B2C ecommerce store development</td><td>B2C Ecommerce Development Company | Online Stores</td><td>B2C Ecommerce Development Company</td></tr>
+    <tr><td>d2c-ecommerce-development</td><td>D2C brand ecommerce development</td><td>D2C Ecommerce Development Company | Brand Stores</td><td>D2C Ecommerce Development Company</td></tr>
+    <tr><td>shopify-ecommerce-development</td><td>Shopify development</td><td>Shopify Development Company | Hire Shopify Experts</td><td>Shopify Development Company</td></tr>
+    <tr><td>woocommerce-website-development</td><td>WooCommerce development</td><td>WooCommerce Development Company | WordPress Stores</td><td>WooCommerce Development Company</td></tr>
+    <tr><td>fashion-ecommerce-development</td><td>fashion ecommerce app development</td><td>Fashion Ecommerce App Development Company</td><td>Fashion &amp; Apparel Ecommerce Development</td></tr>
+    <tr><td>market-place-ecommerce-development</td><td>multi-vendor marketplace development</td><td>Marketplace Development Company | Multi-Vendor Apps</td><td>Ecommerce Marketplace Development Company</td></tr>
+  </table>
+  <div class="callout"><b>2 hubs बनाएँ:</b> <code>/ecommerce-website-development-company</code> = <b>WEB hub</b>, <code>/ecommerce-development</code> = <b>APP hub</b> (rename करके intent साफ़ करें)। बाकी सब इन दोनों के <b>spokes</b>।</div>
+
+  <h3>STEP 2 — Duplicate content तोड़ें: हर page को "unique blocks" दें</h3>
+  <p>हर page पर कम-से-कम <b>60% content ऐसा होना चाहिए जो किसी और page पर ना हो।</b> इसके लिए हर page पर ये <b>page-specific sections</b> जोड़ें (generic "ecommerce app development" paragraphs हटाकर):</p>
+  <table>
+    <tr><th>Page</th><th>ये UNIQUE sections डालें (किसी और page पर नहीं)</th></tr>
+    <tr><td><b>B2B</b></td><td>• Bulk/tiered pricing &amp; quote workflows • Account-based buyer roles &amp; approval chains • ERP/CRM/EDI integration (SAP, Salesforce) • Net-terms/credit &amp; PO payments • Min-order-quantity logic • B2B vs B2C फ़र्क़ table • case study: एक wholesale/distributor client</td></tr>
+    <tr><td><b>B2C</b></td><td>• Conversion-focused checkout (1-click, cart-recovery) • Loyalty/rewards &amp; referral programs • Personalization &amp; recommendation engine • High-traffic sale-day scaling (BFCM) • Social commerce integration • case study: एक retail/D2C-consumer brand</td></tr>
+    <tr><td><b>D2C</b></td><td>• Subscription &amp; replenishment models • First-party data &amp; CDP • Brand storytelling/landing pages • Influencer &amp; UGC integration • Unit-economics/CAC-LTV angle • case study: एक direct-to-consumer brand launch</td></tr>
+    <tr><td><b>Shopify</b></td><td>• Shopify Plus vs Basic • Theme/Liquid customization • Shopify App development &amp; API • Migration to Shopify • Shopify checkout extensibility • Shopify-specific pricing</td></tr>
+    <tr><td><b>WooCommerce</b></td><td>(already unique — बस maintain करें) WordPress + Woo plugins, custom plugin dev, WP hosting/speed, Woo→headless</td></tr>
+    <tr><td><b>Fashion</b></td><td>• Size/fit &amp; AR try-on • Lookbook/collections • Visual search • Returns/exchange flows for apparel • Seasonal merchandising • case study: एक fashion brand</td></tr>
+    <tr><td><b>Marketplace</b></td><td>• Multi-vendor onboarding &amp; vendor panels • Commission/payout engine • Escrow &amp; split payments • Vendor ratings/dispute • Amazon/Flipkart-clone angle</td></tr>
+    <tr><td><b>ecom-dev (APP)</b></td><td>• Native iOS/Android vs cross-platform (Flutter/React Native) • App-store optimization &amp; publishing • Push notifications &amp; mobile UX • Offline mode • App performance — सब <b>mobile-app</b> angle</td></tr>
+    <tr><td><b>ecom-web (WEB)</b></td><td>• Platform comparison (Shopify/Magento/Woo/custom) • Web Core Web Vitals/SEO • Headless commerce • Responsive web UX • Web migration — सब <b>website</b> angle</td></tr>
+  </table>
+  <div class="callout good"><b>Target:</b> हर page का दूसरों के साथ overlap <b>70% → 25% से नीचे</b> लाना है। ऊपर के unique blocks जोड़ने + generic recycled paragraphs हटाने से यह होगा।</div>
+
+  <h3>STEP 3 — Keyword bleed रोकें (हर page अपना keyword use करे)</h3>
+  <ul>
+    <li>B2B page पर "B2B ecommerce" शब्द कम-से-कम 8–12 बार natural रूप से (अभी 0); इसी तरह B2C/D2C/Marketplace पर अपने terms</li>
+    <li>generic "ecommerce app development" का repeat 25→ ~5 तक घटाएँ (सिर्फ जहाँ ज़रूरी हो)</li>
+    <li>हर page की meta description + H2s में primary keyword एक बार ज़रूर</li>
+  </ul>
+
+  <h3>STEP 4 — Hub-and-Spoke internal linking</h3>
+  <pre><code>WEB HUB:  /ecommerce-website-development-company
+   ├─ links to → b2b, b2c, d2c, shopify, woocommerce, marketplace, fashion (web spokes)
+   └─ each spoke links BACK to the web hub (anchor: "ecommerce website development")
+
+APP HUB:  /ecommerce-development  (rename → ecommerce-app-development)
+   ├─ links to → fashion-app, grocery-app, food-app (app spokes)
+   └─ each app spoke links BACK (anchor: "ecommerce app development")
+
+Blog posts (top-10, comparison, cost) → link to the matching HUB/spoke
+   with commercial anchor text (not to each other).</code></pre>
+
+  <h3>STEP 5 — पुराने .php duplicates consolidate करें</h3>
+  <ul>
+    <li>हर <code>*.php</code> → उसके clean URL पर <b>301</b> (कई पहले से हैं — पर <code>ecommerce-website-development.php</code> जैसे जो किसी clean से नहीं जुड़े, उन्हें सही clean URL पर map करें)</li>
+    <li>GSC → हर clean money page को "Request Indexing"</li>
+    <li>Internal links/sitemap में कहीं भी बचे <code>.php</code> reference clean कर दें</li>
+  </ul>
+
+  <h3>STEP 6 — एक sample (ecom-dev के लिए ready outline)</h3>
+  <pre><code>URL:   /ecommerce-app-development   (301 from /ecommerce-development)
+Title: Ecommerce App Development Company in India | IMG Global Infotech
+H1:    Custom Ecommerce App Development Company
+Meta:  Build a scalable ecommerce mobile app (iOS, Android, Flutter, React
+       Native) with IMG Global Infotech. Custom shopping apps with payments,
+       push &amp; real-time tracking. Free quote.
+
+Sections (हर एक UNIQUE, app-angle):
+ H2  Ecommerce App Development Services (native + cross-platform)
+ H2  iOS vs Android vs Flutter/React Native — कौन चुनें (comparison table)
+ H2  Must-have features (cart, push, wishlist, 1-tap checkout, offline)
+ H2  App development process (discovery → design → dev → ASO → launch)
+ H2  Ecommerce app development cost (India breakdown)
+ H2  Industries (link to fashion-app, grocery-app, food-app spokes)
+ H2  Why IMG (proof, case studies, certifications)
+ H2  FAQ (answer-first, 40–60 words each)
+ Schema: Service (not Product) + BreadcrumbList   ← rating block हटाएँ</code></pre>
+
+  <!-- VERIFY -->
+  <h2 class="section">📈 कैसे verify करें कि fix काम कर गया</h2>
+  <table>
+    <tr><th>Check</th><th>अभी</th><th>Fix के बाद target</th></tr>
+    <tr><td>B2B query पर सही page</td><td class="x">B2C #1 आता है</td><td class="ok">B2B page #1</td></tr>
+    <tr><td>pairwise content overlap</td><td class="x">58–70%</td><td class="ok">&lt; 25%</td></tr>
+    <tr><td>हर page का अपना keyword (body)</td><td class="x">b2b/b2c/d2c = 0</td><td class="ok">8–12×</td></tr>
+    <tr><td>GSC site: में clean URL दिखे</td><td class="x">.php दिखता है</td><td class="ok">clean URL</td></tr>
+    <tr><td>generic "ecommerce app" repeat</td><td class="warn">25–62×</td><td class="ok">~5× (focused pages पर)</td></tr>
+  </table>
+  <div class="callout"><b>Tip:</b> overlap दुबारा नापने के लिए मुझसे कहिए — मैं वही 5-gram matrix दुबारा चला कर before/after दिखा दूँगा।</div>
+
+  <!-- PRIORITY -->
+  <h2 class="section">🚀 Priority क्रम (इसी क्रम में करें)</h2>
+  <div class="step crit"><h4>हफ़्ता 1 — Critical</h4>
+    <ul>
+      <li>B2C/D2C/Marketplace/Shopify (70% cluster) पर unique blocks जोड़ें + generic content हटाएँ (Step 2 + 3)</li>
+      <li>हर page का title/H1/keyword fix (Step 1)</li>
+      <li>बचे .php → clean URL 301 + Request Indexing (Step 5)</li>
+    </ul>
+    <div class="know">सबसे बड़ा asar: B2C/D2C/Marketplace/Shopify का duplicate तोड़ना — यही 70% वाला cluster है।</div>
+  </div>
+  <div class="step high"><h4>हफ़्ता 2 — High</h4>
+    <ul><li>ecom-dev को app-page बनाएँ (rename + 301) और ecom-web को web-hub (Step 1, 6)</li><li>Hub-and-spoke internal links (Step 4)</li></ul>
+  </div>
+  <div class="step med"><h4>हफ़्ता 3–4 — Medium</h4>
+    <ul><li>Schema fix (Product→Service, rating हटाएँ, BreadcrumbList), llms.txt, performance (site-wide जो पहले बताया)</li></ul>
+  </div>
+
+  <div class="footer">
+    <p>Deep re-audit · 15 June 2026 · Method: 9 pages live-fetched, 5-gram phrase-overlap matrix, targeted Google SERP test (B2B/application queries).</p>
+    <p>Pages: /ecommerce-development, /ecommerce-website-development-company, /b2b-, /b2c-, /d2c-ecommerce-development, /shopify-ecommerce-development, /woocommerce-website-development, /fashion-ecommerce-development, /market-place-ecommerce-development</p>
+    <p style="margin-top:14px;color:#6b7684">Built by agricidaniel — AI Marketing Hub ·
+      <a href="https://www.skool.com/ai-marketing-hub">Free</a> ·
+      <a href="https://www.skool.com/ai-marketing-hub-pro">Pro</a></p>
+  </div>
+
+</div>
+</body>
+</html>
