@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keyword Cannibalization — Solution &amp; Action Plan | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#f6f5f1; --card:#ffffff; --ink:#23231f; --muted:#5f5e5a; --hint:#8a897f;
+    --line:#e6e4dc; --line2:#d3d1c7;
+    --danger-bg:#fceaea; --danger:#a32d2d; --danger-line:#f0c2c2;
+    --warn-bg:#faeeda; --warn:#854f0b; --warn-line:#f0d6a6;
+    --ok-bg:#eaf3de; --ok:#3b6d11; --ok-line:#cfe3ad;
+    --info-bg:#e6f1fb; --info:#185fa5; --info-line:#bcd8f3;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.62;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:40px 24px 64px}
+  h1{font-size:26px;font-weight:600;margin:0}
+  h2{font-size:19px;font-weight:600;margin:34px 0 12px}
+  h3{font-size:15.5px;font-weight:600;margin:0 0 8px}
+  p{margin:0 0 11px}
+  code{font-family:var(--mono);font-size:.85em;background:#efeee7;padding:1px 5px;border-radius:4px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .chip{font-size:12px;padding:4px 11px;border-radius:8px;background:#edece5;color:var(--muted)}
+  .head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .icon{width:30px;height:30px;border-radius:8px;background:var(--info-bg);color:var(--info);display:flex;align-items:center;justify-content:center;font-weight:700}
+  .call{border-radius:12px;padding:15px 19px;margin:14px 0}
+  .call.ok{background:var(--ok-bg);border:1px solid var(--ok-line);color:var(--ok)}
+  .call.warn{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn)}
+  .call.info{background:var(--info-bg);border:1px solid var(--info-line);color:var(--info)}
+  .call b{font-weight:600}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:12px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 14px;overflow-x:auto;margin-bottom:6px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line2);color:var(--muted);font-weight:600;vertical-align:top}
+  td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .slug{font-family:var(--mono);font-size:11.5px}
+  ol,ul{margin:0 0 4px;padding-left:20px}
+  li{margin-bottom:6px;font-size:14px}
+  .num{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--info-bg);color:var(--info);font-size:12px;font-weight:700;align-items:center;justify-content:center;margin-right:8px;flex:0 0 auto}
+  .step{display:flex;gap:4px;align-items:flex-start;margin-bottom:14px}
+  .step .body{font-size:14px}
+  .badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:8px}
+  .b-crit{background:var(--danger-bg);color:var(--danger)}
+  .b-high{background:var(--warn-bg);color:var(--warn)}
+  .b-info{background:var(--info-bg);color:var(--info)}
+  .b-ok{background:var(--ok-bg);color:var(--ok)}
+  .yes{color:var(--ok);font-weight:600}.no{color:var(--muted)}.soft{color:var(--warn);font-weight:600}
+  .foot{margin-top:30px;font-size:12px;color:var(--hint);border-top:1px solid var(--line);padding-top:14px}
+  @media print{body{background:#fff}.card,.panel,.call{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <div class="icon">K</div>
+    <h1>Keyword cannibalization — solution &amp; action plan</h1>
+  </div>
+  <div class="chips">
+    <span class="chip">imgglobalinfotech.com</span>
+    <span class="chip">eCommerce pages</span>
+    <span class="chip">Strategy + per-page actions</span>
+  </div>
+
+  <h2>1. Pehle myth clear karo</h2>
+  <div class="card">
+    <p><b>Cannibalization ka matlab "zyada pages banana" NAHI hai.</b> B2B, B2C, D2C, Shopify, WooCommerce, jewellery, furniture — alag-alag pages banana bilkul sahi hai. Competitors bhi yahi karte hain, aur ye Google ke liye <b>topical authority</b> banata hai. Pages banane mein koi galti nahi hui.</p>
+    <p style="margin:0">Cannibalization tab hota hai jab <b>do ya zyada pages EK HI keyword / intent</b> ke liye Google se compete karein. Tab Google confuse ho jaata hai — "kaun sa dikhau?" — aur signals split karke <b>dono ko hi neeche</b> rakh deta hai.</p>
+  </div>
+
+  <h2>2. Asli galti kya hui</h2>
+  <div class="panel">
+  <table>
+    <tbody>
+      <tr><td style="width:30px"><b>1</b></td><td>Har page ko ek <b>unique primary keyword</b> assign nahi kiya — keyword mapping ke bina pages bana diye.</td></tr>
+      <tr><td><b>2</b></td><td><code>ecommerce-development</code> aur <code>ecommerce-website-development-company</code> galti se same head term pe baith gaye.</td></tr>
+      <tr><td><b>3</b></td><td>Title / H1 ko intent se align nahi kiya — niche pages "App / FNP clone" bol rahi hain jabki URL "ecommerce-development" hai.</td></tr>
+      <tr><td><b>4</b></td><td>Pages ko <b>hub-and-spoke</b> structure se link nahi kiya — Google ko hierarchy samajh nahi aati.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="call info"><b>Golden rule —</b> 1 page = 1 primary keyword = 1 intent. Jab tak har page ka apna distinct keyword hai, 100 pages bhi sahi hain. Jaise hi 2 pages ek keyword maangein — problem.</div>
+
+  <h2>3. App vs Website split — tumhara plan</h2>
+  <div class="call ok"><b>Tumhara plan SAHI hai.</b> "ecommerce app development" aur "ecommerce website development" Google pe do alag intents / SERP hain. Inhe alag karne se ye duplicate nahi rahe — isliye ab <b>MERGE ki zaroorat NAHI</b>. Sahi action hai <b>DIFFERENTIATE</b>: dono pages zinda rahenge, koi page nahi khoyega. (Pehle merge isliye bola tha kyunki tab dono same keyword pe the — tumhari clarification se solution behtar ho gaya.)</div>
+
+  <h3>Dono pages ko exactly aise set karo</h3>
+  <div class="panel">
+  <table>
+    <thead><tr><th style="width:24%"></th><th>App page — <span class="slug">/ecommerce-development</span></th><th>Website page — <span class="slug">/ecommerce-website-development-company</span></th></tr></thead>
+    <tbody>
+      <tr><td><b>Target keyword</b></td><td>ecommerce <b>app</b> development company</td><td>ecommerce <b>website</b> development company</td></tr>
+      <tr><td><b>Naya Title</b></td><td>eCommerce App Development Company | Custom Shopping Apps</td><td>eCommerce Website Development Company | Design &amp; Development</td></tr>
+      <tr><td><b>H1</b></td><td>eCommerce App Development Company</td><td>eCommerce Website Development Company</td></tr>
+      <tr><td><b>Content focus</b></td><td>iOS / Android, React Native / Flutter, app features, push, app UX</td><td>Custom store, Shopify / Magento / WooCommerce, responsive web design, web UX</td></tr>
+      <tr><td><b>Ye words MAT use karo</b></td><td class="soft">"website development", "web design"</td><td class="soft">"app development", "mobile app"</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>3 rules — warna overlap phir aa jayega</h3>
+  <div class="card">
+    <div class="step"><span class="num">1</span><div class="body"><b>Zero word overlap</b> — app page apne title/H1/intro mein "website" mat bole; web page "app" mat bole. Ye sabse important hai.</div></div>
+    <div class="step"><span class="num">2</span><div class="body"><b>Cross-link dono ko</b> — app page pe: <i>"Need an eCommerce website instead? →"</i> (web page link); web page pe: <i>"Looking for an eCommerce app? →"</i> (app page link). Isse Google ko saaf pata chalta hai ye 2 alag cheezein hain.</div></div>
+    <div class="step"><span class="num">3</span><div class="body"><b>Schema bhi align karo</b> — schema ka <code>name</code> / <code>description</code> isi intent se match kare. (Abhi <code>ecommerce-development</code> ke schema mein galti se "Marketplace Development" likha hai — theek karna hai.)</div></div>
+  </div>
+
+  <h2>4. Mera "better option" (optional, phase-2)</h2>
+  <div class="card">
+    <p>Theoretically sabse perfect: app intent ke liye URL mein bhi "app" hona chahiye — yani <code>/ecommerce-app-development</code>. Lekin:</p>
+    <ul>
+      <li><code>/ecommerce-development</code> ka <b>already history hai</b> (635 impr, 11 conversions) aur ye already "ecommerce app development company" pe pos ~65 pakad raha hai (kyunki title "Application" bolta hai).</li>
+      <li>Naya URL banao to zero se start hota hai.</li>
+    </ul>
+    <p style="margin:0"><b>Recommendation:</b> Abhi <code>/ecommerce-development</code> ko hi app page banao (content/title commit karke) — kam risk, existing history ka fayda. Baad mein clean exact-match chahiye to <code>/ecommerce-app-development</code> pe 301 kar dena. Jaldi nahi.</p>
+  </div>
+
+  <h2>5. Baaki saare pages ka kya</h2>
+  <div class="call ok"><b>Sabse badi raahat:</b> poori site mein <b>sirf ye 1 pair</b> hi real cannibalization tha — aur app/web split usse solve kar deta hai. <b>Koi aur merge / delete nahi chahiye.</b> Baaki sab pages ka apna distinct keyword hai; unhe sirf polish + linking chahiye.</div>
+  <div class="panel">
+  <table>
+    <thead><tr><th>Page / group</th><th style="width:18%">Cannibalize?</th><th>Kya karna hai</th></tr></thead>
+    <tbody>
+      <tr><td class="slug">b2b-ecommerce-development</td><td class="no">Nahi</td><td>Rakho. Web intent. Pillar se link.</td></tr>
+      <tr><td class="slug">b2c ↔ d2c</td><td class="soft">Halka</td><td><b>Differentiate</b> — b2c sirf "B2C ecommerce", d2c sirf "D2C / direct-to-consumer". Aapas mein cross-link.</td></tr>
+      <tr><td class="slug">market-place-ecommerce-development</td><td class="no">Nahi</td><td>Rakho, jaisa hai theek.</td></tr>
+      <tr><td class="slug">shopify-ecommerce-development</td><td class="no">Nahi</td><td>Rakho. Title mein "ecommerce" add karo (abhi "Shopify Website..." hai).</td></tr>
+      <tr><td class="slug">woocommerce-website-development</td><td class="no">Nahi</td><td>Rakho.</td></tr>
+      <tr><td class="slug">jewellery / furniture / fashion / gift / beauty</td><td class="soft">App/web confuse</td><td><b>Per page decide:</b> "[vertical] store/website" hai ya "[vertical] app"? Ek choose karke title/H1/content align karo. Web wali → website-page se link, app wali → app-page se link.</td></tr>
+      <tr><td class="slug">ai-in-ecommerce / ai-in-retail</td><td class="no">Nahi</td><td>Alag topic. Rakho, strengthen. ai-in-retail pe 1,218 impressions — opportunity.</td></tr>
+      <tr><td class="slug">jaipur / delhi / alwar</td><td class="no">Nahi</td><td>Geo alag. Rakho. alwar sitemap mein add, delhi meta fix. Pillar se link.</td></tr>
+      <tr><td class="slug">blog posts</td><td class="no">Nahi</td><td>Info intent. Rakho. Money pages ko keyword-anchor se link.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="call warn"><b>Verticals tip —</b> chunki tumne category-level pe app/web split kiya, verticals ko bhi usi rule se chalao. Gift page abhi "FNP clone app" pe traction le raha hai (pos 8.4) → gift ko <b>app</b> rakho, app-pillar se link. Jewellery/furniture jaisi jinka store/website intent strong hai → <b>web</b> rakho. Lekin ek page = ek intent.</div>
+
+  <h2>6. Hub-and-spoke linking (permanent ilaaj)</h2>
+  <div class="card">
+    <p style="margin:0 0 8px">Ek pillar saari spokes ko link kare, har spoke wapas pillar + relevant siblings ko. Isse Google ko clear hierarchy milti hai aur pages compete karna band kar dete hain.</p>
+    <pre style="margin:0;font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.5;white-space:pre-wrap">eCommerce website page  (PILLAR / hub)
+  ├─ b2b   ├─ b2c   ├─ d2c   ├─ marketplace
+  ├─ shopify   ├─ woocommerce   ├─ web verticals
+
+eCommerce app page  (app PILLAR)
+  └─ app verticals (gift / etc.)</pre>
+  </div>
+
+  <h2>7. Bottom line &amp; action order</h2>
+  <div class="panel">
+  <table>
+    <tbody>
+      <tr><td style="width:30px"><span class="badge b-crit">1</span></td><td>App page + Website page ko <b>cleanly alag</b> karo (title / H1 / content / schema) + <b>cross-link</b>. No word overlap.</td></tr>
+      <tr><td><span class="badge b-high">2</span></td><td><code>b2c</code> ↔ <code>d2c</code> differentiate; <code>shopify</code> title mein "ecommerce" add.</td></tr>
+      <tr><td><span class="badge b-high">3</span></td><td>Verticals ka per-page app-ya-web decide karke align.</td></tr>
+      <tr><td><span class="badge b-info">4</span></td><td>Hub-and-spoke internal linking set karo; blog → money page links.</td></tr>
+      <tr><td><span class="badge b-info">5</span></td><td>Housekeeping: alwar sitemap, delhi meta, schema fixes.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="call ok" style="margin-top:14px"><b>Summary:</b> Tumhari soch sahi hai — app vs web split karo, merge mat karo. Bas dono pages ko intent se cleanly alag + cross-link karo. Baaki koi page merge/delete nahi — sirf differentiate, title-fix aur linking.</div>
+
+  <div class="foot">Prepared for imgglobalinfotech.com · eCommerce keyword cannibalization strategy. Data basis: GSC + GA4 (last 3 months), Ahrefs DR, live on-page analysis.</div>
+
+</div>
+</body>
+</html>
