@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eCommerce Pages — Ranking Audit | IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#f6f5f1; --card:#ffffff; --ink:#23231f; --muted:#5f5e5a; --hint:#8a897f;
+    --line:#e6e4dc; --line2:#d3d1c7;
+    --danger-bg:#fceaea; --danger:#a32d2d; --danger-line:#f0c2c2;
+    --warn-bg:#faeeda; --warn:#854f0b; --warn-line:#f0d6a6;
+    --ok-bg:#eaf3de; --ok:#3b6d11; --ok-line:#cfe3ad;
+    --info-bg:#e6f1fb; --info:#185fa5; --info-line:#bcd8f3;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:40px 24px 64px}
+  h1{font-size:26px;font-weight:600;margin:0}
+  h2{font-size:19px;font-weight:600;margin:34px 0 12px}
+  p{margin:0 0 10px}
+  code{font-family:var(--mono);font-size:.86em;background:#efeee7;padding:1px 5px;border-radius:4px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .chip{font-size:12px;padding:4px 11px;border-radius:8px;background:#edece5;color:var(--muted)}
+  .head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .icon{width:30px;height:30px;border-radius:8px;background:var(--info-bg);color:var(--info);display:flex;align-items:center;justify-content:center;font-weight:700}
+  .verdict{margin-top:22px;background:var(--danger-bg);border:1px solid var(--danger-line);border-radius:12px;padding:16px 20px;color:var(--danger)}
+  .verdict b{font-weight:600}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}
+  .metric{background:#edece5;border-radius:8px;padding:14px 16px}
+  .metric .l{font-size:13px;color:var(--muted)}
+  .metric .v{font-size:25px;font-weight:600;margin-top:2px}
+  .v.ok{color:var(--ok)} .v.bad{color:var(--danger)}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 14px;overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line2);color:var(--muted);font-weight:600}
+  td{padding:8px;border-bottom:1px solid var(--line)}
+  tr:last-child td{border-bottom:none}
+  td.r,th.r{text-align:right}
+  .slug{font-family:var(--mono);font-size:11.5px}
+  .pos-ok{color:var(--ok);font-weight:600}.pos-mid{color:var(--warn);font-weight:600}.pos-bad{color:var(--danger);font-weight:600}
+  .num-ok{color:var(--ok);font-weight:600}
+  .rc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:12px}
+  .rc h3{margin:0 0 8px;font-size:16px;font-weight:600;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .rc p{margin:0;font-size:13.5px;color:var(--muted)}
+  .badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:8px}
+  .b-crit{background:var(--danger-bg);color:var(--danger)}
+  .b-high{background:var(--warn-bg);color:var(--warn)}
+  .b-info{background:var(--info-bg);color:var(--info)}
+  .b-ok{background:var(--ok-bg);color:var(--ok)}
+  .iss{display:flex;gap:10px;align-items:flex-start;background:#edece5;border-radius:8px;padding:11px 13px;margin-bottom:8px;font-size:13.5px}
+  .iss .dot{width:9px;height:9px;border-radius:50%;margin-top:6px;flex:0 0 auto}
+  .d-bad{background:var(--danger)}.d-warn{background:var(--warn)}.d-info{background:var(--info)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-size:12.5px;padding:5px 11px;border-radius:8px;background:var(--ok-bg);color:var(--ok)}
+  .plan{border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:12px}
+  .plan h3{margin:0 0 8px;font-size:15px;font-weight:600;display:flex;align-items:center;gap:10px}
+  .plan ul{margin:0;padding-left:20px;font-size:13.5px;color:var(--muted)}
+  .plan li{margin-bottom:5px}
+  .legend{font-size:13px;color:var(--muted);margin:0 0 10px}
+  .foot{margin-top:28px;font-size:12px;color:var(--hint);border-top:1px solid var(--line);padding-top:14px}
+  @media print{body{background:#fff}.panel,.rc,.plan,.metric,.iss{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <div class="icon">e</div>
+    <h1>eCommerce pages — ranking audit</h1>
+  </div>
+  <div class="chips">
+    <span class="chip">imgglobalinfotech.com</span>
+    <span class="chip">Source: GSC + GA4 + Ahrefs</span>
+    <span class="chip">Window: last 3 months</span>
+    <span class="chip">18 pages</span>
+    <span class="chip">DR 60</span>
+  </div>
+
+  <div class="verdict">
+    <b>Verdict —</b> Problem domain authority ya crawlability nahi hai. DR 60 strong hai, sitemap mein 1041 URLs hain, pages indexed hain aur 3,000–5,700 words ka content hai. Ye pages 4 page-level reasons se page 3–9 (position 30–90) pe atki hain: title/intent mismatch, aapsi keyword cannibalization, purani .php URLs ka index mein hona, aur contextual internal links ki kami. Achhi khabar: jin 2–3 pages ko thodi traffic milti hai, wo convert karti hain — fix ka direct ROI hai.
+  </div>
+
+  <div class="cards">
+    <div class="metric"><div class="l">Domain Rating</div><div class="v ok">60</div></div>
+    <div class="metric"><div class="l">Organic sessions / 3mo</div><div class="v">~134</div></div>
+    <div class="metric"><div class="l">Conversions / 3mo</div><div class="v ok">~31</div></div>
+    <div class="metric"><div class="l">Avg position range</div><div class="v bad">10–80</div></div>
+    <div class="metric"><div class="l">Clicks / 3mo</div><div class="v">~40</div></div>
+  </div>
+
+  <h2>Page performance</h2>
+  <p class="legend">Position colour: <span class="pos-ok">●</span> page 1 · <span class="pos-mid">●</span> page 2–3 · <span class="pos-bad">●</span> page 4+. Impressions kai jagah branded / site: queries se inflated hain.</p>
+  <div class="panel">
+  <table>
+    <thead><tr><th>Page</th><th class="r">Pos</th><th class="r">Impr</th><th class="r">Clk</th><th class="r">Sess</th><th class="r">Conv</th></tr></thead>
+    <tbody>
+      <tr><td class="slug">ecommerce-website-development-company</td><td class="r pos-ok">9.9</td><td class="r">206</td><td class="r">5</td><td class="r">29</td><td class="r num-ok">7</td></tr>
+      <tr><td class="slug">gift-ecommerce-development</td><td class="r pos-mid">15.2</td><td class="r">103</td><td class="r">1</td><td class="r">0</td><td class="r">0</td></tr>
+      <tr><td class="slug">fashion-ecommerce-development</td><td class="r pos-mid">25.7</td><td class="r">100</td><td class="r">0</td><td class="r">2</td><td class="r num-ok">4</td></tr>
+      <tr><td class="slug">furniture-ecommerce-development</td><td class="r pos-mid">27.4</td><td class="r">79</td><td class="r">0</td><td class="r">2</td><td class="r">0</td></tr>
+      <tr><td class="slug">ai-in-ecommerce</td><td class="r pos-bad">32.6</td><td class="r">311</td><td class="r">7</td><td class="r">3</td><td class="r">1</td></tr>
+      <tr><td class="slug">shopify-ecommerce-development</td><td class="r pos-bad">33.3</td><td class="r">202</td><td class="r">1</td><td class="r">1</td><td class="r">0</td></tr>
+      <tr><td class="slug">ecommerce-development-company-in-delhi</td><td class="r pos-bad">33.8</td><td class="r">53</td><td class="r">0</td><td class="r">1</td><td class="r">1</td></tr>
+      <tr><td class="slug">ecommerce-development-company-in-jaipur</td><td class="r pos-bad">35.8</td><td class="r">253</td><td class="r">9</td><td class="r">9</td><td class="r">0</td></tr>
+      <tr><td class="slug">ecommerce-development</td><td class="r pos-bad">38.9</td><td class="r">635</td><td class="r">3</td><td class="r">25</td><td class="r num-ok">11</td></tr>
+      <tr><td class="slug">b2c-ecommerce-development</td><td class="r pos-bad">45.8</td><td class="r">220</td><td class="r">0</td><td class="r">2</td><td class="r">0</td></tr>
+      <tr><td class="slug">beauty-cosmetic-store-app-development</td><td class="r pos-bad">54.7</td><td class="r">127</td><td class="r">1</td><td class="r">1</td><td class="r">0</td></tr>
+      <tr><td class="slug">jewellery-ecommerce-development</td><td class="r pos-bad">58.4</td><td class="r">140</td><td class="r">4</td><td class="r">8</td><td class="r">0</td></tr>
+      <tr><td class="slug">market-place-ecommerce-development</td><td class="r pos-bad">64.6</td><td class="r">152</td><td class="r">0</td><td class="r">3</td><td class="r">1</td></tr>
+      <tr><td class="slug">b2b-ecommerce-development</td><td class="r pos-bad">65.4</td><td class="r">450</td><td class="r">1</td><td class="r">1</td><td class="r">0</td></tr>
+      <tr><td class="slug">ai-in-retail</td><td class="r pos-bad">70.4</td><td class="r"><b>1218</b></td><td class="r">7</td><td class="r">3</td><td class="r">1</td></tr>
+      <tr><td class="slug">d2c-ecommerce-development</td><td class="r pos-bad">72.6</td><td class="r">263</td><td class="r">1</td><td class="r">3</td><td class="r">0</td></tr>
+      <tr><td class="slug">woocommerce-website-development</td><td class="r pos-bad">79.5</td><td class="r">178</td><td class="r">0</td><td class="r">1</td><td class="r">0</td></tr>
+      <tr><td class="slug">ecommerce-development-company-in-alwar</td><td class="r pos-bad">~0</td><td class="r">2</td><td class="r">0</td><td class="r">0</td><td class="r">0</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Root causes</h2>
+
+  <div class="rc">
+    <h3><span class="badge b-crit">Critical</span> 1 · Title &amp; intent mismatch — "app" vs "ecommerce"</h3>
+    <p>URL <code>*-ecommerce-development</code> hai par title/H1 "app development" bol raha hai. Google decide hi nahi kar paata page kis intent ke liye hai — isliye gift page "fnp like app" pe rank karta hai, apne target "gift ecommerce" pe nahi. Shopify title mein "ecommerce" word hi missing hai.</p>
+  </div>
+
+  <div class="rc">
+    <h3><span class="badge b-crit">Critical</span> 2 · Keyword cannibalization</h3>
+    <p><code>ecommerce-development</code> vs <code>ecommerce-website-development-company</code> vs blog — teeno same head term pe ladd rahe. <code>b2c</code> vs <code>d2c</code> bhi ek doosre ko confuse karte (d2c page "b2c ecommerce development" pe pos 95). Blog <code>best-ecommerce-apps</code> ko 16,084 impressions, money pages ko milaakar ~4,000.</p>
+  </div>
+
+  <div class="rc">
+    <h3><span class="badge b-high">High</span> 3 · Purani .php URLs ab bhi index mein</h3>
+    <p>301 redirect laga hai (sahi) par Google ne consolidate nahi kiya — old URL ko aksar zyada impressions / better position mil raha. Equity old/new mein split, koi bhi version page 1 tak nahi pahunchta. Internal links clean hain; ye external backlinks + slow migration ki wajah se hai.</p>
+  </div>
+
+  <div class="rc">
+    <h3><span class="badge b-high">High</span> 4 · Contextual internal link equity = 0</h3>
+    <p>Har page pe ~300 internal links hain par sab header/footer/menu boilerplate. High-traffic blogs (16k + 7k impressions) ki authority money pages tak funnel karne wala koi contextual link nahi. Money pages link-equity ke hisaab se orphan hain.</p>
+  </div>
+
+  <h2>.php duplicate split</h2>
+  <p class="legend">Purana URL aksar naye se zyada impressions le raha — Google dono ko alag-alag rank kara raha hai.</p>
+  <div class="panel">
+  <table>
+    <thead><tr><th>Keyword target</th><th class="r">.php impr (old)</th><th class="r">clean impr (new)</th></tr></thead>
+    <tbody>
+      <tr><td>woocommerce</td><td class="r pos-bad">1882</td><td class="r">178</td></tr>
+      <tr><td>ecommerce-development</td><td class="r pos-bad">862</td><td class="r">635</td></tr>
+      <tr><td>market-place</td><td class="r pos-bad">637</td><td class="r">152</td></tr>
+      <tr><td>jewellery</td><td class="r pos-bad">553</td><td class="r">140</td></tr>
+      <tr><td>d2c</td><td class="r pos-bad">546</td><td class="r">263</td></tr>
+      <tr><td>b2b</td><td class="r pos-bad">537</td><td class="r">450</td></tr>
+      <tr><td>gift <span style="color:var(--hint)">(.php pos 8.4 vs 15.2)</span></td><td class="r pos-bad">260</td><td class="r">103</td></tr>
+      <tr><td>fashion</td><td class="r pos-bad">288</td><td class="r">100</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Title / intent mismatch detail</h2>
+  <div class="panel">
+  <table>
+    <thead><tr><th style="width:36%">Page</th><th>Current title (problem)</th></tr></thead>
+    <tbody>
+      <tr><td class="slug">gift-ecommerce-development</td><td>No.1 Gift Delivery App Development | FNP Clone App</td></tr>
+      <tr><td class="slug">fashion-ecommerce-development</td><td>Apparel &amp; Fashion App Development Company</td></tr>
+      <tr><td class="slug">furniture-ecommerce-development</td><td>Furniture Store App Development Company</td></tr>
+      <tr><td class="slug">shopify-ecommerce-development</td><td>Shopify Website Development Company <span style="color:var(--danger)">(no "ecommerce")</span></td></tr>
+      <tr><td class="slug">ecommerce-development</td><td>Custom Ecommerce Application Development Services</td></tr>
+      <tr><td class="slug">jewellery-ecommerce-development</td><td>No.1 Jewellery Ecommerce App Development Company</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Technical &amp; schema issues</h2>
+  <div class="iss"><span class="dot d-bad"></span><span>Broken Product schema on <code>ecommerce-development</code>: <code>"image":""</code> empty, aur <code>brand.url</code> galti se <code>/market-place-ecommerce-development</code> point karta hai (copy-paste error).</span></div>
+  <div class="iss"><span class="dot d-warn"></span><span>Self-serving <code>AggregateRating</code> ~10 pages pe (Product bina offers/review ke) — Google guidelines violation, rich result ignore + quality flag risk.</span></div>
+  <div class="iss"><span class="dot d-warn"></span><span><code>ecommerce-development-company-in-alwar</code> sitemap mein NAHI hai (discoverability ~0) + content thin (2,322 words, sirf 3 schema blocks).</span></div>
+  <div class="iss"><span class="dot d-warn"></span><span><code>delhi</code> page ki meta description sirf 65 characters (SERP snippet waste), content jaipur se patli.</span></div>
+  <div class="iss"><span class="dot d-info"></span><span><code>ai-in-retail</code> ko 1,218 impressions par pos 70 — bada untapped opportunity, content/intent strengthen se jump possible.</span></div>
+
+  <h2>Jo theek hai</h2>
+  <div class="tags">
+    <span class="tag">✓ Single H1 / page</span>
+    <span class="tag">✓ Saari images mein alt</span>
+    <span class="tag">✓ Self-canonical</span>
+    <span class="tag">✓ 1041-URL sitemap</span>
+    <span class="tag">✓ robots AI-bots allow</span>
+    <span class="tag">✓ 3,000–5,700 words</span>
+    <span class="tag">✓ DR 60</span>
+  </div>
+
+  <h2>Action plan</h2>
+  <div class="plan">
+    <h3><span class="badge b-crit">P0</span> Foundation</h3>
+    <ul>
+      <li>Title/H1/meta ko URL-intent se align karo; "No.1" hatao; ek page = ek intent (app ya ecommerce, mix nahi).</li>
+      <li>Cannibalization resolve: ecommerce-development vs website-development-company ka primary decide karo; b2c vs d2c differentiate.</li>
+      <li>.php consolidation reinforce: clean URLs reindex request, backlinks update, 301 cache confirm.</li>
+    </ul>
+  </div>
+  <div class="plan">
+    <h3><span class="badge b-high">P1</span> Relevance &amp; linking</h3>
+    <ul>
+      <li>High-traffic blogs se money pages pe contextual, keyword-anchor internal links; ecommerce pages ko hub-and-spoke link karo.</li>
+      <li>Schema fix: Product image/brand URL theek karo; self-serving AggregateRating hatao ya genuine Review schema lagao.</li>
+    </ul>
+  </div>
+  <div class="plan">
+    <h3><span class="badge b-info">P2</span> Local &amp; housekeeping</h3>
+    <ul>
+      <li>alwar ko sitemap mein add karo; alwar/delhi content &amp; schema beef up; delhi meta description theek karo; GMB optimize.</li>
+      <li>Clean money URLs pe targeted backlinks (page-level equity badhane ke liye).</li>
+    </ul>
+  </div>
+
+  <div class="foot">Data: Google Search Console + GA4 (last 3 months) via Windsor.ai · Domain Rating via Ahrefs · on-page metrics live HTML se. Report generated for imgglobalinfotech.com.</div>
+
+</div>
+</body>
+</html>
