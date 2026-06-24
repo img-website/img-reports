@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMG Global Infotech — AI Pages Deep Audit & Ranking Report</title>
+<style>
+  :root{
+    --ink:#0f1b2d; --muted:#5b6b7f; --line:#e4e9f0; --bg:#f6f8fb; --card:#fff;
+    --brand:#0a5978; --accent:#F26522; --green:#1a8f4c; --greenbg:#e7f6ec;
+    --amber:#b8860b; --amberbg:#fdf6e3; --red:#c0392b; --redbg:#fdecea; --blue:#0a5978; --bluebg:#e8f3f8;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;font-size:15px}
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 22px 80px}
+  header.top{background:linear-gradient(110deg,#0a5978,#011422);color:#fff;border-radius:16px;padding:30px 32px;margin-bottom:10px}
+  header.top h1{margin:0 0 6px;font-size:26px}
+  header.top p{margin:2px 0;opacity:.9;font-size:14px}
+  .pill{display:inline-block;background:rgba(255,255,255,.15);border-radius:999px;padding:3px 12px;font-size:12px;margin-top:8px;margin-right:6px}
+  h2{font-size:21px;margin:38px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+  h3{font-size:16px;margin:22px 0 8px;color:var(--brand)}
+  p,li{color:#27384c}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:14px 0;box-shadow:0 1px 2px rgba(16,27,45,.04)}
+  .kpis{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0}
+  .kpi{flex:1 1 150px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .kpi .n{font-size:24px;font-weight:700;color:var(--brand)}
+  .kpi .l{font-size:12px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;background:#fff;border-radius:10px;overflow:hidden}
+  th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#eef3f7;color:#22405a;font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.02em}
+  tr:last-child td{border-bottom:none}
+  .b{display:inline-block;border-radius:6px;padding:1px 8px;font-size:12px;font-weight:600;white-space:nowrap}
+  .g{background:var(--greenbg);color:var(--green)} .a{background:var(--amberbg);color:var(--amber)} .r{background:var(--redbg);color:var(--red)} .bl{background:var(--bluebg);color:var(--blue)}
+  .sev-crit{background:var(--redbg);color:var(--red)} .sev-high{background:#fbe7d6;color:#b5530f} .sev-med{background:var(--amberbg);color:var(--amber)} .sev-low{background:#eef3f7;color:#5b6b7f}
+  code{background:#eef3f7;border-radius:4px;padding:1px 5px;font-size:12.5px;font-family:ui-monospace,Menlo,Consolas,monospace}
+  .callout{border-left:4px solid var(--accent);background:#fff7f2;padding:14px 18px;border-radius:0 10px 10px 0;margin:16px 0}
+  .callout.blue{border-color:var(--blue);background:var(--bluebg)}
+  .callout.red{border-color:var(--red);background:var(--redbg)}
+  .callout.green{border-color:var(--green);background:var(--greenbg)}
+  .toc{columns:2;font-size:13.5px}
+  .toc a{color:var(--brand);text-decoration:none}
+  ul.tight{margin:6px 0;padding-left:20px} ul.tight li{margin:3px 0}
+  .small{font-size:12.5px;color:var(--muted)}
+  .tag{font-size:11px;background:#eef3f7;color:#5b6b7f;border-radius:5px;padding:1px 6px;margin-left:4px}
+  footer{margin-top:46px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);text-align:center}
+  @media(max-width:680px){.toc{columns:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>AI Pages — Deep SEO, Content, Schema &amp; Ranking Audit</h1>
+  <p>IMG Global Infotech · 11 AI service &amp; industry pages · India-targeted</p>
+  <p class="small" style="color:#cfe3ee">Methodology: 24-agent evidence-based audit of live pages + adversarial verification, combined with real Google Search Console data (last 3 months) via the connected <code style="background:rgba(255,255,255,.12);color:#fff">searchconsole</code> property.</p>
+  <span class="pill">Avg on-page score: 64/100</span>
+  <span class="pill">Avg commercial-keyword position: page 7–10</span>
+  <span class="pill">Internal links between AI pages: 0</span>
+</header>
+
+<div class="card">
+  <strong>Contents</strong>
+  <div class="toc">
+    <a href="#tldr">1. TL;DR — the one big problem</a><br>
+    <a href="#ranking">2. Ranking reality (real GSC data)</a><br>
+    <a href="#verified">3. Verified organic keywords</a><br>
+    <a href="#why">4. Why pages don't rank + solutions</a><br>
+    <a href="#addkw">5. Keywords to ADD &amp; where</a><br>
+    <a href="#cannib">6. Cannibalization + fixes</a><br>
+    <a href="#blog">7. The blog = your hidden authority engine</a><br>
+    <a href="#scorecard">8. On-page audit scorecard</a><br>
+    <a href="#issues">9. Issues by dimension (full detail)</a><br>
+    <a href="#plan">10. Prioritized action plan (P0/P1/P2)</a><br>
+  </div>
+</div>
+
+<!-- 1 TLDR -->
+<h2 id="tldr">1. TL;DR — the one big problem</h2>
+<div class="callout red">
+<strong>All 11 AI pages are indexed and DO get impressions — but every page's money keyword is stuck on page 7–10 of Google (avg position 68–94).</strong>
+So they earn almost no clicks. The pages rank on page 1 <em>only</em> for brand/navigational queries (<code>img global infotech</code>, <code>site:</code> searches). Meanwhile your <strong>blog</strong> ranks beautifully for AI topics (positions 2–9). The service pages are weak because: thin/duplicated &amp; off-topic content, broken schema (3× duplicate Organization, no breadcrumbs, areaServed = "Global"), no India keyword in titles/H1, a legacy <code>.php</code> duplicate splitting authority, and <strong>zero internal links</strong> pointing to them.
+</div>
+<div class="kpis">
+  <div class="kpi"><div class="n">11/11</div><div class="l">pages indexed &amp; getting impressions</div></div>
+  <div class="kpi"><div class="n">0</div><div class="l">money keywords on page 1</div></div>
+  <div class="kpi"><div class="n">~372</div><div class="l">monthly impressions for "ai agent development company" — ranking pos 75</div></div>
+  <div class="kpi"><div class="n">0</div><div class="l"><code>&lt;a&gt;</code> links between the 11 pages</div></div>
+</div>
+
+<!-- 2 RANKING -->
+<h2 id="ranking">2. Ranking reality — what Google Search Console actually shows</h2>
+<p class="small">Each page's primary commercial keyword, real search demand (impressions / 3 months), and current average position. <span class="b g">pos ≤10 = page 1</span> &nbsp; <span class="b a">11–30 = page 2–3</span> &nbsp; <span class="b r">&gt;30 = page 4+</span></p>
+<table>
+<thead><tr><th>Page</th><th>Primary money keyword (verified)</th><th>Demand (impr)</th><th>Position</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>AI Agent Development</td><td>ai agent development company</td><td>372</td><td><span class="b r">74.6</span></td><td>High demand, page 8 — invisible</td></tr>
+<tr><td>AI in Retail</td><td>ai retail solutions / artificial intelligence retail solutions</td><td>251 + 189</td><td><span class="b r">81</span></td><td>Highest demand, worst rank</td></tr>
+<tr><td>AI Chatbot Development</td><td>ai chatbot development company</td><td>133</td><td><span class="b r">82</span></td><td>Strong demand, page 8</td></tr>
+<tr><td>Generative AI Development</td><td>generative ai development company</td><td>88</td><td><span class="b r">82</span></td><td>Page 8</td></tr>
+<tr><td>LLM Development</td><td>llm development company</td><td>57</td><td><span class="b r">69.6</span></td><td>Page 7</td></tr>
+<tr><td>Machine Learning Development</td><td>machine learning development company / …in india</td><td>9 / 22</td><td><span class="b r">74 / 81</span></td><td>Page 7–8</td></tr>
+<tr><td>AI in eCommerce</td><td>ai ecommerce / ecommerce ai</td><td>29 / 22</td><td><span class="b r">61 / 60</span></td><td>Page 6; one term at pos 21 (close)</td></tr>
+<tr><td>AI Development Company</td><td>artificial intelligence development company in india</td><td>3</td><td><span class="b r">75</span></td><td>Ranks pos 4 for BRAND only, not commercial</td></tr>
+<tr><td>AI in Healthcare</td><td>healthcare ai development services</td><td>2</td><td><span class="b r">81</span></td><td>Almost no commercial demand captured</td></tr>
+<tr><td>AI in Banking</td><td>(no commercial term ranking; 78 impr total, brand/site only)</td><td>~0</td><td><span class="b a">8.5*</span></td><td>*good avg pos but only on brand/site: queries</td></tr>
+<tr><td>AI in Education</td><td>ranks pos 1 for bare "ai" (fluke) &amp; "ai learning tools for students"</td><td>28 / 3</td><td><span class="b g">1</span></td><td>No commercial-intent ranking value</td></tr>
+</tbody>
+</table>
+<p class="small">Source: GSC, connected property <code>https://www.imgglobalinfotech.com/</code>, last 3 months. Position = impression-weighted 3-month average.</p>
+
+<!-- 3 VERIFIED -->
+<h2 id="verified">3. Verified organic keywords (what each page actually surfaces for)</h2>
+<p>These are real queries from Search Console — proof of intent match. The pattern: the right keywords are matched, but at page-7–10 positions, plus a lot of brand/<code>site:</code> noise.</p>
+
+<table>
+<thead><tr><th>Page</th><th>Top verified commercial keywords (impr · pos)</th></tr></thead>
+<tbody>
+<tr><td><b>AI Agent</b></td><td>ai agent development company (372·75) · ai agents development company (31·68) · ai agent development company in india (21·67) · ai agent development services (12·85) · ai agent development in india (10·68)</td></tr>
+<tr><td><b>AI Chatbot</b></td><td>ai chatbot development company (133·82) · custom chatbot development company (58·83) · custom ai chatbot development company (43·83) · ai chatbot development services (33·85) · custom chatbot development services (29·87) · chatbot development company (24·78) · ai chatbot development services in india (11·77)</td></tr>
+<tr><td><b>LLM</b></td><td>llm development company (57·70) · llm development services (35·85) · custom llm development company (13·67) · private llm development company (11·74) · large language model development services (10·94) · large language model development company (5·67)</td></tr>
+<tr><td><b>Generative AI</b></td><td>generative ai development company (88·82)</td></tr>
+<tr><td><b>Machine Learning</b></td><td>machine learning development services in india (22·81) · machine learning development company (9·74) · machine learning app development services (3·91) · machine learning app development company (2·72)</td></tr>
+<tr><td><b>AI in Retail</b></td><td>ai retail solutions (251·82) · artificial intelligence retail solutions (189·81) · ai solutions for retail (51·82) · retail ai solutions (47·83) · retail ai solution (37·84) · ai solutions retail (21·90)</td></tr>
+<tr><td><b>AI in eCommerce</b></td><td>ai ecommerce (29·61) · ai e commerce (22·60) · ai solutions for ecommerce development (13·92) · ecommerce ai (11·63) · ecommerce ai software (10·<b>21</b>) · ecommerce ai solutions (7·65)</td></tr>
+<tr><td><b>AI in Healthcare</b></td><td>healthcare ai solutions global (4·71) · healthcare ai development services (2·82)</td></tr>
+<tr><td><b>AI in Education</b></td><td>ai managed services for education (5·91) · ai cloud for education institutes (2·84) <span class="tag">+ broad "ai" pos 1, low value</span></td></tr>
+<tr><td><b>AI in Banking</b></td><td><span class="small">No commercial keyword captured — only brand/site: queries. Page is effectively invisible for "ai in banking" intent.</span></td></tr>
+<tr><td><b>AI Development</b></td><td>artificial intelligence development company in india (3·75) <span class="tag">otherwise brand-only: "img global infotech" pos 4.7</span></td></tr>
+</tbody>
+</table>
+<div class="callout">
+<strong>Reading this:</strong> the targeting is correct (every page surfaces for its intended term) — the problem is purely <em>authority + on-page strength</em> pushing them to page 7–10. This is fixable without re-targeting; it needs the on-page + linking + schema fixes below.
+</div>
+
+<!-- 4 WHY -->
+<h2 id="why">4. Why these pages don't rank — and the solution for each cause</h2>
+<table>
+<thead><tr><th>Root cause (evidence)</th><th>Solution</th></tr></thead>
+<tbody>
+<tr><td><b>Zero internal links.</b> Verified: 0 <code>&lt;a href&gt;</code> links between any of the 11 pages; industry pages fully orphaned. No PageRank/relevance flows in.</td><td>Build hub-and-spoke links (§10 P0-7) <em>and</em> link from high-ranking blog posts → matching service page (§7). This is the single fastest lever.</td></tr>
+<tr><td><b>No India / intent keyword in title &amp; H1.</b> e.g. AI Development title says "AI Development <u>Services</u>", no "Company"/"India"; ML H1 = "Elevate Your Brand Presence…".</td><td>Rewrite each title ≤60 &amp; H1 to lead with the exact money keyword + "in India" (demand exists: "…company in india", "…services in india").</td></tr>
+<tr><td><b>Weak E-E-A-T / low trust.</b> Reused off-topic astrology &amp; app-clone case studies on all 6 service pages; fabricated unsourced stats (esp. YMYL banking/healthcare).</td><td>Replace with unique, on-topic, verifiable AI/ML projects; source or remove every statistic. Add a real expert author/reviewer.</td></tr>
+<tr><td><b>Broken schema entity graph.</b> 3× duplicate Organization (name mismatch <code>IMGGlobalInfotech</code> vs <code>IMG Global Infotech</code>); BreadcrumbList missing on 10/11; <code>areaServed</code>="Global"; zero-width Unicode &amp; stray-space inside JSON-LD; non-ISO dates.</td><td>One canonical Organization by <code>@id</code> in the layout; render breadcrumbs on all; <code>areaServed</code>=India; sanitize + validate JSON-LD at build time.</td></tr>
+<tr><td><b>Legacy <code>.php</code> duplicate splitting authority.</b> <code>/ai-development-company.php</code> still indexed &amp; ranking (pos 4.0, 1047 impr, 38 clicks) <em>alongside</em> the clean <code>/ai-development-company</code> (pos 7.8, 499 impr) — two URLs competing for the same page.</td><td>301-redirect <code>.php</code> → clean URL (also seen: <code>mobile-app-development-company-in-dubai-uae.php</code>). Consolidates signals to one URL.</td></tr>
+<tr><td><b>Thin / boilerplate / stuffed content.</b> Templated intros across the 6 service pages; "ai in retail" ×33 stuffing; spun phrasing on industry pages.</td><td>Rewrite each page with unique, India-relevant depth (use-cases, Indian industries, RBI/UPI/GST, real projects), natural keyword usage.</td></tr>
+<tr><td><b>India geo signals contradict the target.</b> <code>og:locale</code>/<code>inLanguage</code>=en_US, zero hreflang, <code>og:locale:alternate</code> lists CA/GB/DE/AE but never IN.</td><td>Set en_IN, add self-referencing hreflang (en-IN + x-default), India-first <code>areaServed</code>.</td></tr>
+</tbody>
+</table>
+
+<!-- 5 ADD KEYWORDS -->
+<h2 id="addkw">5. Keywords to ADD &amp; exactly which page</h2>
+<p>Each page already gets impressions for variants it isn't fully optimised for. Add these (title/H1/H2/body/FAQ + schema) on the named page — they have <em>verified demand</em> and are the same intent, so no new cannibalization.</p>
+<table>
+<thead><tr><th>Page</th><th>Add / strengthen these keywords (verified demand)</th></tr></thead>
+<tbody>
+<tr><td>AI Agent Development</td><td><b>ai agent development company in india</b>, ai agents development company, ai agent development services, ai automation agency, autonomous/agentic AI development</td></tr>
+<tr><td>AI Chatbot Development</td><td><b>ai chatbot development company in india</b>, custom chatbot development company, chatbot development company, custom ai chatbot development services, conversational AI</td></tr>
+<tr><td>LLM Development</td><td><b>llm development company / services in india</b>, custom llm development, private llm development, large language model development company, LLM fine-tuning</td></tr>
+<tr><td>Generative AI</td><td><b>generative ai development company in india</b>, GenAI development services, RAG development, generative AI consulting (differentiate from LLM page)</td></tr>
+<tr><td>Machine Learning</td><td><b>machine learning development services in india</b>, machine learning development company, ML app development, predictive ML models</td></tr>
+<tr><td>AI in Retail</td><td><b>ai retail solutions / retail ai solutions (India)</b>, ai solutions for retail, artificial intelligence retail solutions, AI inventory management</td></tr>
+<tr><td>AI in eCommerce</td><td><b>ai ecommerce / ecommerce ai</b>, ecommerce ai software (already pos 21 — push to page 1), ai solutions for ecommerce, ecommerce ai solutions</td></tr>
+<tr><td>AI in Banking</td><td>ai in banking solutions India, ai banking software, fraud detection AI, RBI/UPI-context terms (page currently captures none — needs full keyword build-out)</td></tr>
+<tr><td>AI in Healthcare</td><td>ai in healthcare solutions india, healthcare ai development services, clinical AI, medical AI software (very thin today)</td></tr>
+<tr><td>AI in Education</td><td>ai in education solutions, ai tools for students, edtech AI, adaptive learning AI (currently only ranks for bare "ai")</td></tr>
+<tr><td>AI Development (hub)</td><td><b>ai development company in india</b>, artificial intelligence development company in india, ai development services india — own the head term here only</td></tr>
+</tbody>
+</table>
+<div class="callout blue">
+<strong>Coverage gaps — new pages worth creating</strong> (real demand seen in blog queries, no dedicated service page): AI Consulting, Computer Vision, NLP, MLOps / model deployment, Predictive Analytics, AI / ChatGPT API integration, RAG / enterprise knowledge-base. Industries: AI in Real Estate, Logistics, Fintech/Insurance, Manufacturing. Commercial: an "AI development cost in India" / "Hire AI developers India" page (your blog already ranks for cost/hire queries).
+</div>
+
+<!-- 6 CANNIBALIZATION -->
+<h2 id="cannib">6. Cannibalization — what's real vs what's noise</h2>
+<div class="callout red">
+<strong>Real &amp; realized (fix now): the <code>.php</code> duplicate.</strong> <code>/ai-development-company</code> AND <code>/ai-development-company.php</code> both rank for the same queries (e.g. "img global infotech": pos 4.0 [.php, 161 impr] vs 4.7 [clean, 121 impr]). The legacy <code>.php</code> is actually ranking <em>better</em> and stealing impressions. <b>Fix: 301-redirect every <code>.php</code> URL → its clean URL.</b>
+</div>
+<p><strong>Latent on-page cannibalization (fix before they start ranking):</strong> the 6 service pages share templated intros + the same case-study block, so they read as generic "AI development". They don't yet collide in the SERP only because none ranks well — but they will compete as they gain authority. Rescope now:</p>
+<table>
+<thead><tr><th>Competing pages</th><th>How to differentiate</th></tr></thead>
+<tbody>
+<tr><td>ai-development-company ↔ generative-ai</td><td>Keep head term "AI development company India" on the <b>hub</b> only; rescope GenAI to generative/GenAI intent (image/text/audio, RAG, content gen).</td></tr>
+<tr><td>generative-ai ↔ LLM</td><td>GenAI = outcomes/use-cases; LLM = model engineering (custom training, fine-tuning, eval, MLOps). Cross-link as siblings.</td></tr>
+<tr><td>ai-agent ↔ ai-chatbot</td><td>Chatbot = support/FAQ bots, channel deploy; Agent = autonomous/agentic, multi-step tool use. Add a "chatbot vs AI agent" block on each.</td></tr>
+<tr><td>LLM ↔ machine-learning</td><td>ML = broad parent (classical ML, predictive); route deep-learning/LLM intent to the LLM page.</td></tr>
+</tbody>
+</table>
+<p class="small">Note: the many "img global infotech" / <code>site:</code> queries that hit multiple pages are normal brand/navigational behaviour — <b>not</b> a cannibalization problem; ignore them.</p>
+
+<!-- 7 BLOG -->
+<h2 id="blog">7. Your blog is the hidden authority engine — use it to lift the service pages</h2>
+<p>While the service pages sit on page 7–10, your AI <b>blog</b> ranks on page 1–2 with big impressions. These posts have authority you can pass to the service pages with one contextual link each.</p>
+<table>
+<thead><tr><th>High-ranking blog post</th><th>Pos · impr</th><th>Link it to →</th></tr></thead>
+<tbody>
+<tr><td>/blog/character-ai-alternatives</td><td><span class="b g">2.5</span> · 11,745</td><td>ai-chatbot / ai-agent</td></tr>
+<tr><td>/blog/best-free-ai-chatbots</td><td><span class="b g">4.5</span> · 4,142</td><td><b>ai-chatbot-development-services</b></td></tr>
+<tr><td>/blog/top-10-ai-apps-for-android</td><td><span class="b g">8.4</span> · 4,138</td><td>ai-development-company</td></tr>
+<tr><td>/blog/how-much-does-it-cost-to-build-an-ai-chatbot</td><td>75 · 2,629</td><td><b>ai-chatbot-development-services</b></td></tr>
+<tr><td>/blog/top-ai-chatbot-development-companies</td><td>30.6 · 687</td><td><b>ai-chatbot-development-services</b></td></tr>
+<tr><td>/blog/top-ai-agent-development-companies + /ai-agent-development-cost</td><td>55 / 37 · 501+256</td><td><b>ai-agent-development-company</b></td></tr>
+<tr><td>/blog/generative-ai-tools + /top-generative-ai-trends</td><td>14.5 / 36 · 1,867+618</td><td><b>generative-ai-development-company</b></td></tr>
+<tr><td>/blog/ai-education-apps-for-students + /how-ai-is-transforming-education</td><td>12.7 / 3.9</td><td><b>ai-in-education</b></td></tr>
+<tr><td>/blog/ai-in-healthcare-benefits-challenges + /healthcare-ai-chatbot</td><td>5.8 / 35</td><td><b>ai-in-healthcare</b></td></tr>
+<tr><td>/blog/ai-banking-finance-use-cases… + /ai-role-in-credit-banking…</td><td>18 / 15</td><td><b>ai-in-banking</b></td></tr>
+<tr><td>/blog/top-5-ai-applications-in-retail-industry + /10-ways-ai-transforming-retail…</td><td>38 / 20</td><td><b>ai-in-retail</b></td></tr>
+<tr><td>/blog/cost-of-machine-learning-app-development</td><td>12 · 51</td><td><b>machine-learning-development-services</b></td></tr>
+</tbody>
+</table>
+<div class="callout green"><strong>Fastest win:</strong> add one descriptive in-content link from each of these posts to its matching service page (anchor = the page's money keyword). This passes real authority and is the quickest path off page 7.</div>
+
+<!-- 8 SCORECARD -->
+<h2 id="scorecard">8. On-page audit scorecard</h2>
+<p class="small">Evidence-based, adversarially verified. Avg 64/100. (Imgs column = total / missing width&amp;height.)</p>
+<table>
+<thead><tr><th>Page</th><th>Score</th><th>Title</th><th>Meta</th><th>Key schema flags</th><th>Imgs</th><th>Top issue</th></tr></thead>
+<tbody>
+<tr><td>AI Development Company</td><td><span class="b a">66</span></td><td>45</td><td>149</td><td>Org×3; <b>FAQPage MISSING</b>; no Breadcrumb; areaServed Global</td><td>134/47</td><td>Visible FAQ but no FAQPage JSON-LD</td></tr>
+<tr><td>AI Agent Development</td><td><span class="b r">60</span></td><td>57</td><td>146</td><td>Org×3; zero-width in serviceType; no Breadcrumb</td><td>189/24</td><td><b>Off-topic astrology/app-clone block</b></td></tr>
+<tr><td>AI Chatbot Development</td><td><span class="b a">70</span></td><td>60</td><td><span class="b r">168</span></td><td>Org×3; @id stray space; no Breadcrumb</td><td>128/24</td><td>India targeting weak/contradictory</td></tr>
+<tr><td>Generative AI Development</td><td><span class="b g">74</span></td><td>59</td><td>160</td><td>Org×3; serviceType whitespace; no Breadcrumb</td><td>117/24</td><td>Dup Org + no India in title/H1</td></tr>
+<tr><td>LLM Development</td><td><span class="b r">60</span></td><td>58</td><td>158</td><td>Org×3; zero-width Unicode; no Breadcrumb</td><td>150/24</td><td>App-clone case studies + fake stats</td></tr>
+<tr><td>Machine Learning Development</td><td><span class="b a">66</span></td><td><span class="b r">63</span></td><td>160</td><td>Org×3; Service.name=full title; no Breadcrumb</td><td>169/24</td><td>H1 lacks primary keyword</td></tr>
+<tr><td>AI in Banking</td><td><span class="b a">68</span></td><td>35</td><td>156</td><td>Org×3; non-padded ISO dates; no Breadcrumb</td><td>64/24</td><td><b>"Baking" typo</b> in live H2 + alt</td></tr>
+<tr><td>AI in eCommerce</td><td><span class="b r">61</span></td><td>46</td><td>158</td><td>Org×3; stray-space @id; zero-width chars</td><td>45/24</td><td>Dirty schema + keyword stuffing</td></tr>
+<tr><td>AI in Education</td><td><span class="b r">60</span></td><td>46</td><td>160</td><td>Org×3; areaServed Global (critical); no Breadcrumb</td><td>113/24</td><td>areaServed + fabricated stats</td></tr>
+<tr><td>AI in Healthcare</td><td><span class="b a">64</span></td><td>59</td><td>137</td><td>Org×3; no Breadcrumb; bad ISO dates</td><td>59/24</td><td>YMYL page + unsourced stats</td></tr>
+<tr><td>AI in Retail</td><td><span class="b r">60</span></td><td>54</td><td>143</td><td>Org×3; <b>Breadcrumb ✓ (only one)</b></td><td>105/24</td><td>Keyword stuffing ("ai in retail" ×33)</td></tr>
+</tbody>
+</table>
+<p class="small">No page emits Product schema — that earlier defect is already clear across the cluster. ✓</p>
+
+<!-- 9 ISSUES -->
+<h2 id="issues">9. Issues by dimension (full detail)</h2>
+
+<h3>Meta</h3>
+<ul class="tight">
+<li><b>Title missing India/intent keyword</b> (9 pages). Fix format: <code>[Primary Keyword] in India | IMG Global Infotech</code>.</li>
+<li><b>Over length:</b> Machine Learning title 63; AI Chatbot meta 168; Generative AI &amp; AI in Education metas at exactly 160 (no room for CTA).</li>
+<li><b>title vs og:title vs twitter:title mismatch</b> on most pages — LLM's twitter:title is "Top Machine Learning Development Company" (wrong service). Align all four (incl. schema <code>name</code>) per page.</li>
+<li><b>Meta typos:</b> Generative AI ends <code>"…today!."</code>; AI in Healthcare trailing space + redundant <code>meta name="title"</code>.</li>
+<li><b>No CTA/geo</b> in meta: AI in Banking, Education, Retail.</li>
+</ul>
+
+<h3>Schema</h3>
+<ul class="tight">
+<li><b>Duplicate Organization (×3)</b> on 9/11; name mismatch <code>IMGGlobalInfotech</code> vs <code>IMG Global Infotech</code>; conflicting <code>sameAs</code> (x.com/imgglobal + linkedin/imgglobalinfotech vs twitter.com/imgglobalinfo + linkedin/img-global-infotech).</li>
+<li><b>BreadcrumbList missing</b> on 10/11 (DB/composer breadcrumb data empty; include is <code>@if</code>-gated). Only ai-in-retail renders it. No visible breadcrumb UI.</li>
+<li><b>Service.areaServed="Global"</b> on all 11 (some Org country arrays lead with US, India buried). Set India-first.</li>
+<li><b>Service.provider</b> is a loose name string, not an <code>@id</code> reference.</li>
+<li><b>FAQPage NOT emitted</b> on AI Development Company despite a visible 6-Q&amp;A FAQ.</li>
+<li><b>Malformed @id/URL with stray space</b> (AI Chatbot, eCommerce, Healthcare).</li>
+<li><b>Non-ISO dates</b> (<code>2025-1-13</code>, US −08:00 offset) on Banking, Education, Healthcare, Retail — use zero-padded + IST <code>+05:30</code>.</li>
+<li><b>Zero-width / non-joiner Unicode inside serviceType</b> — AI Agent, LLM (48× U+200B), eCommerce (177 ZW codepoints). Strip + add build-time JSON-LD validation.</li>
+<li><b>Service.name = full page title</b> on Machine Learning, eCommerce — set a clean service name.</li>
+</ul>
+
+<h3>Content &amp; E-E-A-T</h3>
+<ul class="tight">
+<li><b>Off-topic astrology / app-clone case-study block reused on all 6 service pages</b> — critical on AI Agent (15 "astrology" + 40 "Mobile App Development" mentions). Replace with unique, on-topic AI/ML projects.</li>
+<li><b>Fabricated / unsourced statistics</b> on AI Agent ("3x DAU"), LLM, Education ("85%", "$10–25B"), Healthcare ("$187.95B / 37% CAGR" — YMYL), Retail ("USD 33.3T+"), eCommerce ("71%"). Cite a named source+year or remove.</li>
+<li><b>Keyword stuffing / spun copy</b>: Retail ("ai in retail" ×33), eCommerce trailing keyword clauses, ML "company india" fragments, Education "increase engagement in how is ai used in education".</li>
+<li><b>USD-only pricing</b> on India pages (AI Development "$8,000–$15,000", baked "From $8,000" inside schema descriptions; AI Chatbot USD under a "cost…in India" question). Show INR.</li>
+<li><b>Duplicated trailing-word typos</b> on AI Agent ("…workflows. or data workflows.") — in both the accordion and FAQPage JSON-LD.</li>
+<li><b>Spelling:</b> AI in Banking — "AI in <b>Baking</b> Development Process" (3 live occurrences, incl. image alt/title).</li>
+<li><b>Weak author E-E-A-T:</b> only the two founders appear as Person; no content author/reviewer. Add a real expert byline (priority on YMYL).</li>
+</ul>
+
+<h3>Images</h3>
+<ul class="tight">
+<li><b>Missing width/height (CLS):</b> 24 imgs on most pages; <b>47 on AI Development</b>; Machine Learning ships a CTA image with <code>width=""</code> / broken <code>aspect-[]</code>.</li>
+<li><b>Footer flag alt bug (global template):</b> Canada flag/HQ images carry <code>alt="Germany"</code> — affects every page via the shared footer.</li>
+<li>Positives: mostly WebP + lazy-loaded.</li>
+</ul>
+
+<h3>Internal linking</h3>
+<ul class="tight">
+<li><b>Zero <code>&lt;a href&gt;</code> links between any of the 11 pages.</b> Sibling-slug mentions on AI Development are plain text, not anchors. Industry pages fully orphaned. No breadcrumb trail anywhere.</li>
+</ul>
+
+<h3>Technical &amp; GEO</h3>
+<ul class="tight">
+<li><b>Heavy HTML:</b> AI Agent 795 KB / 189 imgs, AI Development 759 KB, Generative AI 753 KB. Defer scripts, extend <code>content-visibility:auto</code>, trim repeated inline utility classes.</li>
+<li><b>LCP not optimized:</b> AI Agent hero is <code>loading="lazy" fetchpriority="low"</code> (only 1/189 eager). Set hero eager + high priority + preload.</li>
+<li><b>Geo signals:</b> en_US locale, zero hreflang, <code>og:locale:alternate</code> lists CA/GB/DE/AE but never IN. Thin India relevance in body (Banking: one RBI mention, no UPI/Indian banks).</li>
+</ul>
+
+<!-- 10 PLAN -->
+<h2 id="plan">10. Prioritized action plan</h2>
+
+<h3>P0 — Critical (shared-template fixes propagate to all 11)</h3>
+<ol>
+<li><b>301-redirect all <code>.php</code> URLs → clean URLs</b> (kills the realized ai-development duplicate cannibalization).</li>
+<li><b>Collapse to one canonical Organization</b> (<code>@id …#organization</code> in layout; remove page-level dups; provider by <code>@id</code>; standardize "IMG Global Infotech").</li>
+<li><b>Render BreadcrumbList + visible trail</b> on every route (populate breadcrumb data).</li>
+<li><b>Set Service.areaServed = India</b> (Country "IN"), India-first Org country array.</li>
+<li><b>Remove the astrology/app-clone case-study block</b> → unique on-topic AI/ML projects.</li>
+<li><b>Remove/source every fabricated statistic</b> (YMYL priority: banking, healthcare).</li>
+<li><b>Build hub-and-spoke internal links</b> + add blog→service links (§7).</li>
+<li><b>Emit FAQPage</b> on AI Development; fix <b>"Baking"→"Banking"</b> typo.</li>
+</ol>
+
+<h3>P1 — High</h3>
+<ol start="9">
+<li>Sanitize JSON-LD: strip zero-width Unicode, fix stray-space @id/URL, zero-pad ISO dates + IST; add build-time JSON-LD validation.</li>
+<li>Rewrite titles + H1s to lead with money keyword + India (≤60); align title/og/twitter/schema name.</li>
+<li>Rescope each service page to one distinct intent (resolve latent cannibalization); keep head term on the hub.</li>
+<li>Inject genuine India context (RBI/UPI/GST, Indian industries, Jaipur team, INR pricing); set en_IN + hreflang.</li>
+<li>Optimize LCP (hero eager + preload; exclude above-fold from content-visibility).</li>
+<li>Fix keyword stuffing / spun / machine-generated phrasing.</li>
+</ol>
+
+<h3>P2 — Medium / housekeeping</h3>
+<ol start="15">
+<li>Add explicit width/height to dimensionless images (24/page; 47 on AI Development; fix broken ML CTA image).</li>
+<li>Fix the global footer flag <code>alt="Germany"</code> bug.</li>
+<li>Standardize per-page social tags + fix meta typos + add CTA/geo to short metas.</li>
+<li>Show INR pricing (optionally + USD); remove "From $8,000" from schema.</li>
+<li>Add real E-E-A-T author/reviewer Person schema + visible byline.</li>
+<li>Reduce page weight (defer scripts, extract repeated utilities, extend content-visibility).</li>
+<li>Create the missing coverage pages (§5) and wire them into the hub-and-spoke mesh.</li>
+</ol>
+
+<div class="callout green">
+<strong>If you do only 4 things this week:</strong> (1) 301 the <code>.php</code> duplicate, (2) add India + money keyword to every title &amp; H1, (3) link each high-ranking blog post to its matching service page, (4) fix the shared schema (one Organization + breadcrumbs + areaServed India). These hit the biggest causes of the page-7–10 problem with the least effort.
+</div>
+
+<footer>
+Generated for IMG Global Infotech · AI page cluster · Data: live page audit (24-agent, adversarially verified) + Google Search Console (last 3 months) · Positions are 3-month impression-weighted averages and will vary by day/region.
+</footer>
+
+</div>
+</body>
+</html>
