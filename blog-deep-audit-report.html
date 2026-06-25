@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog Deep Audit — IMG Global Infotech</title>
+<style>
+  :root{
+    --bg:#f6f5f1; --card:#fff; --ink:#23231f; --muted:#5f5e5a; --hint:#8a897f;
+    --line:#e6e4dc; --line2:#d3d1c7;
+    --danger-bg:#fceaea; --danger:#a32d2d; --danger-line:#f0c2c2;
+    --warn-bg:#faeeda; --warn:#854f0b; --warn-line:#f0d6a6;
+    --ok-bg:#eaf3de; --ok:#3b6d11; --ok-line:#cfe3ad;
+    --info-bg:#e6f1fb; --info:#185fa5; --info-line:#bcd8f3;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:40px 24px 64px}
+  h1{font-size:27px;font-weight:600;margin:0}
+  h2{font-size:20px;font-weight:600;margin:36px 0 12px}
+  h3{font-size:15px;font-weight:600;margin:0 0 8px}
+  p{margin:0 0 11px}
+  code{font-family:var(--mono);font-size:.84em;background:#efeee7;padding:1px 5px;border-radius:4px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .chip{font-size:12px;padding:4px 11px;border-radius:8px;background:#edece5;color:var(--muted)}
+  .head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .icon{width:32px;height:32px;border-radius:8px;background:var(--info-bg);color:var(--info);display:flex;align-items:center;justify-content:center;font-weight:700}
+  .verdict{margin-top:22px;background:var(--danger-bg);border:1px solid var(--danger-line);border-radius:12px;padding:16px 20px;color:var(--danger)}
+  .verdict ol{margin:8px 0 0;padding-left:20px}
+  .verdict li{margin-bottom:5px;font-size:14px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:20px}
+  .metric{background:#edece5;border-radius:8px;padding:13px 15px}
+  .metric .l{font-size:12.5px;color:var(--muted)}
+  .metric .v{font-size:24px;font-weight:600;margin-top:2px}
+  .v.bad{color:var(--danger)}.v.ok{color:var(--ok)}.v.warn{color:var(--warn)}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 14px;overflow-x:auto;margin-bottom:6px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;padding:9px 8px;border-bottom:1.5px solid var(--line2);color:var(--muted);font-weight:600;vertical-align:top}
+  td{padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .slug{font-family:var(--mono);font-size:11px;word-break:break-all}
+  .rc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:12px}
+  .rc.crit{border-color:var(--danger-line)}
+  .badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:8px;white-space:nowrap}
+  .b-crit{background:var(--danger-bg);color:var(--danger)}
+  .b-high{background:var(--warn-bg);color:var(--warn)}
+  .b-info{background:var(--info-bg);color:var(--info)}
+  .b-ok{background:var(--ok-bg);color:var(--ok)}
+  .tags{display:flex;flex-wrap:wrap;gap:7px}
+  .tag{font-size:11.5px;padding:4px 10px;border-radius:7px;background:#edece5;color:var(--muted);font-family:var(--mono)}
+  .tag.red{background:var(--danger-bg);color:var(--danger)}
+  .callout{border-radius:11px;padding:13px 17px;margin:12px 0;font-size:13.5px}
+  .callout.ok{background:var(--ok-bg);border:1px solid var(--ok-line);color:var(--ok)}
+  .callout.info{background:var(--info-bg);border:1px solid var(--info-line);color:var(--info)}
+  ul.plain{margin:0;padding-left:20px;font-size:13.5px;color:var(--muted)}
+  ul.plain li{margin-bottom:5px}
+  .foot{margin-top:30px;font-size:11.5px;color:var(--hint);border-top:1px solid var(--line);padding-top:14px}
+  @media print{body{background:#fff}.panel,.rc,.metric,.callout,.verdict{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <div class="icon">B</div>
+    <h1>Blog deep audit &mdash; why blogs don't rank</h1>
+  </div>
+  <div class="chips">
+    <span class="chip">imgglobalinfotech.com</span>
+    <span class="chip">50 recent blogs &middot; deep-read (50 agents)</span>
+    <span class="chip">GSC last 3 months</span>
+    <span class="chip">Real checks &mdash; no assumptions</span>
+  </div>
+
+  <div class="verdict">
+    <b>Verdict &mdash; blogs rank kyun nahi karte (priority):</b>
+    <ol>
+      <li><b>CRITICAL: Cache poisoning</b> &mdash; ek URL pe Google ko intermittently doosre blog ka content/canonical/schema mil raha hai. #1 rank-killer.</li>
+      <li><b>Schema/meta galat load</b> &mdash; HowTo schema misuse (12), wrong-page schema (~10), date bugs, 9 blogs pe meta description hi nahi.</li>
+      <li><b>Cannibalization</b> &mdash; "top 10 companies" + cost blogs money-pages se ladd rahe hain.</li>
+      <li><b>Off-topic purane blogs</b> &mdash; piracy/drama/dating blogs lakhs traffic laate hain par business value zero; topical authority dilute.</li>
+      <li><b>Naye blogs</b> &mdash; recent 50 abhi naye; upar ke bugs fix hone pe rank karenge.</li>
+    </ol>
+  </div>
+
+  <div class="callout ok"><b>Achhi khabar:</b> recent 50 mein <b>50/50 on-topic</b>, <b>41/50 ka content 2500+ words</b>, zyadatar schema structurally valid. Problem content nahi &mdash; delivery/technical hai.</div>
+
+  <div class="cards">
+    <div class="metric"><div class="l">Blogs audited</div><div class="v">50</div></div>
+    <div class="metric"><div class="l">On-topic</div><div class="v ok">50</div></div>
+    <div class="metric"><div class="l">Cache-poison affected</div><div class="v bad">~20</div></div>
+    <div class="metric"><div class="l">HowTo schema misuse</div><div class="v warn">12</div></div>
+    <div class="metric"><div class="l">Meta desc missing</div><div class="v warn">9</div></div>
+    <div class="metric"><div class="l">Cannibalization (H/M)</div><div class="v warn">6 / 15</div></div>
+    <div class="metric"><div class="l">Thin / average quality</div><div class="v warn">7 / 7</div></div>
+  </div>
+
+  <h2>&#127919; #1 (Sabse bada) &mdash; Cache poisoning / wrong-page serving</h2>
+  <div class="rc crit">
+    <h3><span class="badge b-crit">Critical</span> &nbsp; Ek URL pe doosre blog ka content/schema serve ho raha hai</h3>
+    <p style="font-size:13.5px;color:var(--muted)">Multiple agents ne independently pakda &mdash; ek hi URL ko baar-baar fetch karne pe alag-alag pages serve hue:</p>
+    <ul class="plain">
+      <li><code>custom-conversational-ai-bot-development-cost</code> &rarr; kabhi <i>hire-generative-ai</i>, kabhi <i>choosing-the-right-ecommerce-platform</i></li>
+      <li><code>doctor-on-demand-...</code> ka BlogPosting schema &rarr; <b>"Social Media App"</b> ka</li>
+      <li><code>telemedicine-...</code> ka saara schema &rarr; <b>Social Media blog</b> ka</li>
+      <li><code>society-management-...</code> &rarr; <b>"Mobile-First Ecommerce"</b> ka schema</li>
+      <li><code>ai-agents-transforming-insurance</code> &rarr; <b>"Construction Management"</b> ka schema</li>
+      <li><code>top-10-companies-to-hire-ecommerce-developers</code> &rarr; <b>"10 Best Ecommerce..."</b> serve hua</li>
+      <li><code>from-idea-to-launch</code> &rarr; "10 Best Ecommerce" ka schema</li>
+    </ul>
+    <p style="font-size:13.5px;margin-top:8px"><b>Impact:</b> Google ko ek URL pe kabhi sahi, kabhi galat content/canonical/schema milta hai &rarr; confuse &rarr; <b>wrong page index, conflicting canonicals, rank nahi, ya deindex</b>. Yahi 7 "canonical points-elsewhere" aur kai wrong cannibalization-detections ki bhi asli wajah hai.</p>
+    <p style="font-size:13.5px;margin:0"><b>Root cause:</b> Spatie <b>ResponseCache</b> galat cache-key pe pages serve kar raha (URL ke alawa kisi cheez pe keyed / race). Wahi ResponseCache jo <code>/clearLaravelCache</code> clear nahi kar raha tha.</p>
+    <p style="font-size:13.5px;margin:8px 0 0"><b>Fix (P0):</b> ResponseCache cache-key ko full URL pe set karo, poora cache clear, aur 5&ndash;10 URLs pe repeat-fetch test karo ki har URL apna hi content de.</p>
+  </div>
+
+  <h2>&#129000; #2 &mdash; Meta &amp; Schema sahi load nahi ho rahe</h2>
+  <div class="panel">
+  <table>
+    <thead><tr><th style="width:24%">Issue</th><th style="width:11%">Blogs</th><th>Detail</th></tr></thead>
+    <tbody>
+      <tr><td>Wrong-page schema (cache)</td><td>~10</td><td>BlogPosting / FAQ / canonical doosre blog ke (issue #1)</td></tr>
+      <tr><td><b>HowTo schema misuse</b></td><td><b>12</b></td><td>Cost/info guide pe HowTo schema; article ke H2/H3 ko "HowToSteps" bana diya (snapchat=58, educational=31, tiktok=19...). Google ise spammy maan ke ignore/flag kar sakta hai</td></tr>
+      <tr><td><b>Meta description MISSING</b></td><td><b>9</b></td><td>grocery-delivery, dating-cost, snapchat, temu, educational, event-ticket, tiktok, magicbricks, flipkart</td></tr>
+      <tr><td>Date bugs</td><td>4+</td><td>bnpl-klarna: dateModified &lt; datePublished (invalid); dating/magicbricks: dateModified har load pe aaj ki (fake freshness); fantasy-sports: year mismatch</td></tr>
+      <tr><td>author.url = avatar image</td><td>4+</td><td>taxi/rapido/flipkart/digital-gold: author.url ek <code>.webp</code> image file, bio page nahi</td></tr>
+      <tr><td>Duplicate LocalBusiness</td><td>kai</td><td>2 near-identical LocalBusiness blocks (global schema dup)</td></tr>
+      <tr><td>Schema text artifacts</td><td>2</td><td>mobile-app-companies: headline mein literal "Meta Title: " leak; astrology: raw <code>&amp;amp;</code> entity</td></tr>
+      <tr><td>Missing BreadcrumbList</td><td>kai</td><td>grocery, shopee, etc. &mdash; breadcrumb rich-result miss</td></tr>
+      <tr><td>Empty schema fields</td><td>1+</td><td>top-10-ecommerce-companies: Organization <code>areaServed</code>/<code>sameAs</code> khaali</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>&#129001; #3 &mdash; Cannibalization (blog &harr; money page)</h2>
+  <h3>HIGH &mdash; seedha money-page se ladd rahe</h3>
+  <div class="panel">
+  <table>
+    <thead><tr><th>Blog</th><th>Cannibalizes</th></tr></thead>
+    <tbody>
+      <tr><td class="slug">top-10-ecommerce-development-companies-in-india</td><td class="slug">ecommerce-website-development-company</td></tr>
+      <tr><td class="slug">top-10-companies-to-hire-ecommerce-developers-in-india</td><td class="slug">ecommerce-website-development-company</td></tr>
+      <tr><td class="slug">10-best-ecommerce-app-development-companies-in-jaipur</td><td class="slug">ecommerce-development-company-in-jaipur</td></tr>
+      <tr><td class="slug">mobile-app-development-companies-in-india</td><td class="slug">mobile-app-development</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:13px;color:var(--muted)">Plus older <code>ecommerce-website-development-companies-in-india</code> (7150 impr, <b>pos 83.8</b>) &mdash; yahi blog money-page ka asli competitor hai.</p>
+  <p style="font-size:13.5px"><b>MEDIUM (intent-overlap):</b> grocery-delivery&harr;grocery-app, fantasy-sports&harr;fantasy-sports, construction-guide&harr;construction, home-service-guide&harr;home-service, fashion-guide&harr;fashion-ecommerce, taxi&harr;taxi, event&harr;event, multi-vendor-amazon&harr;marketplace &mdash; manageable (intent differentiate + canonical/internal-link).</p>
+  <p style="font-size:13.5px;margin:0"><b>Fix:</b> "Top 10 companies" blogs ko money-page pe canonical/redirect ya differentiate; cost/how-to blogs ko money-page se internal-link (blog = informational, page = commercial).</p>
+
+  <h2>&#128308; #4 &mdash; Unrelated blogs (kisi page se related hi nahi)</h2>
+  <p style="font-size:13.5px"><b>Recent 50 sab on-topic hain</b> &#10003;. Par GSC ne dikhaya ki <b>purane high-traffic blogs OFF-TOPIC</b> hain &mdash; yahi "bina matlab likhe gaye" blogs hain:</p>
+  <div class="tags" style="margin-bottom:10px">
+    <span class="tag red">fmovies-alternatives (246k impr)</span>
+    <span class="tag red">soap2day-alternatives</span>
+    <span class="tag red">gomovies-alternatives</span>
+    <span class="tag red">123movies-alternatives</span>
+    <span class="tag red">top-zoechip-alyernatives</span>
+    <span class="tag red">top-hurawatch-alternatives</span>
+    <span class="tag red">top-aniwatch-alternatives</span>
+    <span class="tag red">korean-drama-apps</span>
+    <span class="tag red">chinese-drama-apps</span>
+    <span class="tag red">hinge-vs-bumble</span>
+    <span class="tag red">nykaa-vs-purplle</span>
+    <span class="tag red">omegle-alternatives</span>
+    <span class="tag red">top-dating-apps</span>
+    <span class="tag red">best-tinder-alternatives</span>
+  </div>
+  <p style="font-size:13.5px;margin:0">Ye <b>consumers</b> ko laate hain (free movies/dating/drama), dev-service buyers nahi &rarr; koi lead nahi, aur site ko entertainment/piracy se associate karke <b>B2B topical authority dilute</b>. <code>top-zoechip-alyernatives</code> mein <b>URL typo</b> bhi. Piracy-adjacent content = <b>brand risk</b>. <b>Fix:</b> noindex/prune/redirect.</p>
+
+  <h2>&#129002; #5 &amp; #6 &mdash; Content quality + URL issues</h2>
+  <ul class="plain">
+    <li><b>Content depth theek:</b> 41/50 = 2500+ words, 0 thin (&lt;1500).</li>
+    <li><b>Quality "thin-or-generic": 7</b> (doctor-on-demand, society-mgmt, questions-hiring-genai, construction&times;2, ai-agents-insurance, from-idea-to-launch &mdash; kai cache-affected bhi). <b>Average: 7</b>.</li>
+    <li><b>URL:</b> <code>Social-media-app-development-cost</code> mein uppercase "S" (URLs lowercase hone chahiye); <code>top-zoechip-alyernatives</code> typo.</li>
+  </ul>
+
+  <h2>&#128302; Agle 20 blog topics (pages dekh ke &mdash; gaps + anti-cannibalization)</h2>
+  <p style="font-size:13px;color:var(--muted)">In pages ko abhi koi supporting blog nahi; informational/cost angle se likho taaki money-page ko funnel karein, cannibalize na karein.</p>
+  <div class="panel">
+  <table>
+    <thead><tr><th style="width:5%">#</th><th>Blog topic</th><th style="width:34%">Supports page</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Shopify store development cost in India (2026)</td><td class="slug">shopify-ecommerce-development</td></tr>
+      <tr><td>2</td><td>WooCommerce vs Shopify &mdash; kaunsa choose karein</td><td class="slug">woocommerce / shopify</td></tr>
+      <tr><td>3</td><td>D2C ecommerce brand app &mdash; cost &amp; features</td><td class="slug">d2c-ecommerce-development</td></tr>
+      <tr><td>4</td><td>B2B ecommerce platform development cost</td><td class="slug">b2b-ecommerce-development</td></tr>
+      <tr><td>5</td><td>Jewellery ecommerce store development guide</td><td class="slug">jewellery-ecommerce-development</td></tr>
+      <tr><td>6</td><td>Cost to hire React Native developers (India)</td><td class="slug">hire-react-native-app-developers</td></tr>
+      <tr><td>7</td><td>Flutter vs React Native &mdash; kis se app banayein</td><td class="slug">hire-flutter / react-native</td></tr>
+      <tr><td>8</td><td>Hospital management software cost &amp; features</td><td class="slug">hospital-management-software</td></tr>
+      <tr><td>9</td><td>Gym management app development cost</td><td class="slug">gym-management-software</td></tr>
+      <tr><td>10</td><td>School management software &mdash; features &amp; cost</td><td class="slug">school-management-software-development</td></tr>
+      <tr><td>11</td><td>AI in healthcare &mdash; use cases &amp; cost</td><td class="slug">ai-in-healthcare</td></tr>
+      <tr><td>12</td><td>AI in banking &mdash; top use cases</td><td class="slug">ai-in-banking</td></tr>
+      <tr><td>13</td><td>Fuel delivery app development cost</td><td class="slug">fuel-delivery-app-development</td></tr>
+      <tr><td>14</td><td>Laundry app development &mdash; cost &amp; features</td><td class="slug">laundry-services-app-development</td></tr>
+      <tr><td>15</td><td>Salon / beauty appointment app cost</td><td class="slug">salon-app-development</td></tr>
+      <tr><td>16</td><td>OTT / video streaming app development cost</td><td class="slug">ott-app-development</td></tr>
+      <tr><td>17</td><td>Stock trading app like Zerodha &mdash; cost</td><td class="slug">stock-trading-app-development</td></tr>
+      <tr><td>18</td><td>Insurance app development &mdash; features &amp; cost</td><td class="slug">insurance-app-development-company</td></tr>
+      <tr><td>19</td><td>Crypto exchange app development cost</td><td class="slug">cryptocurrency-app-development</td></tr>
+      <tr><td>20</td><td>Mobile app development cost in Dubai/UAE</td><td class="slug">mobile-app-development-company-in-dubai-uae</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>&#9989; Prioritized action plan</h2>
+  <div class="panel">
+  <table>
+    <tbody>
+      <tr><td style="width:42px"><span class="badge b-crit">P0</span></td><td>ResponseCache cache-key &rarr; full URL pe fix + full clear + repeat-fetch test. <b>Ye #1 rank-killer hai.</b></td></tr>
+      <tr><td><span class="badge b-high">P1</span></td><td>HowTo schema template hatao cost/info blogs se (FAQPage rakho); 9 missing meta-descriptions add; date / author.url / duplicate-LocalBusiness schema bugs fix.</td></tr>
+      <tr><td><span class="badge b-high">P2</span></td><td>"Top 10 companies" blogs ka cannibalization resolve; cost-blogs &rarr; money-page internal links.</td></tr>
+      <tr><td><span class="badge b-info">P3</span></td><td>Off-topic piracy/drama/dating blogs prune/noindex; uppercase + typo URLs fix.</td></tr>
+      <tr><td><span class="badge b-info">P4</span></td><td>7 thin blogs improve; agle 20 topics likho.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="foot">Method: 50 recent blog URLs (date-sorted /blog listing) &mdash; each deep-read by a dedicated agent fetching raw HTML (title/meta/canonical/H1/word-count/JSON-LD schema) + content quality + page-relevance + cannibalization, cross-referenced with Google Search Console (last 3 months) and the site's 165 service pages. No assumptions &mdash; real checks. Prepared for imgglobalinfotech.com.</div>
+
+</div>
+</body>
+</html>
