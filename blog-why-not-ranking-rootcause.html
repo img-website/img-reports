@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why the Latest 30 Blogs Don't Rank — Root-Cause Analysis</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --ink:#1a1d23; --muted:#5b6573; --line:#e6e9ee;
+    --blue:#0850f2; --green:#0db65a; --amber:#e8911a; --red:#e23b3b; --violet:#6b46e5;
+    --soft-blue:#eef3ff; --soft-green:#e9f9f0; --soft-amber:#fdf3e3; --soft-red:#fdecec; --soft-violet:#f1edfd;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.62;font-size:15px}
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 22px 80px}
+  header.top{background:linear-gradient(120deg,#1a1d23,#3a4250);color:#fff;border-radius:18px;padding:32px;box-shadow:0 16px 40px -18px rgba(0,0,0,.5)}
+  header.top h1{margin:0 0 6px;font-size:25px;letter-spacing:-.3px}
+  header.top p{margin:0;opacity:.9;font-size:14px}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:4px 11px;border-radius:999px;font-size:12px;font-weight:600}
+  section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px;margin-top:22px;box-shadow:0 2px 10px -6px rgba(0,0,0,.08)}
+  h2{font-size:19px;margin:0 0 4px;letter-spacing:-.2px;display:flex;align-items:center;gap:9px}
+  h2 .n{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:var(--soft-blue);color:var(--blue);font-size:13px;font-weight:800}
+  h3{font-size:15.5px;margin:18px 0 8px}
+  .sub{color:var(--muted);font-size:13.5px;margin:2px 0 14px}
+  p{margin:9px 0}
+  .banner{border-radius:14px;padding:18px 20px;margin-top:0}
+  .banner.key{background:linear-gradient(120deg,#fff8e6,#fdeecd);border:1px solid #f0d49a}
+  .banner h2{margin-top:0}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:10px}
+  th,td{text-align:left;padding:9px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#fafbfc;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);font-weight:700}
+  td.c,th.c{text-align:center}
+  tbody tr:hover{background:#fafcff}
+  code{background:#f1f3f7;padding:1.5px 6px;border-radius:6px;font-size:12.5px;font-family:"SF Mono",Consolas,Menlo,monospace;color:#283143}
+  .tag{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700;white-space:nowrap}
+  .t-ok{background:var(--soft-green);color:#0a7d42}
+  .t-warn{background:var(--soft-amber);color:#a5620a}
+  .t-crit{background:var(--soft-red);color:#b81e1e}
+  .t-info{background:var(--soft-blue);color:#1450c8}
+  .ruled{display:flex;gap:12px;align-items:flex-start;padding:11px 14px;border:1px solid #b8e8cd;background:var(--soft-green);border-radius:11px;margin:9px 0}
+  .ruled .x{font-size:16px;line-height:1.4}
+  .cause{border-left:4px solid var(--red);padding:6px 0 6px 16px;margin:20px 0}
+  .cause.r2{border-color:#e8911a}.cause.r3{border-color:#e8911a}.cause.r4{border-color:#6b46e5}.cause.r5{border-color:#0db65a}
+  .cause h3{margin:0 0 6px;font-size:16px}
+  .cause .ev{background:#fafbfc;border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin:10px 0;font-size:13px}
+  .rank{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:24px;border-radius:7px;background:var(--soft-red);color:#b81e1e;font-weight:800;font-size:12px;padding:0 7px;margin-right:6px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:14px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  .fixcard{border-radius:13px;padding:16px 18px}
+  .fixcard.content{background:var(--soft-blue);border:1px solid #cfe0ff}
+  .fixcard.code{background:var(--soft-violet);border:1px solid #ddd3fa}
+  .fixcard h3{margin-top:0}
+  .fixcard ol{margin:8px 0 0;padding-left:20px}.fixcard li{margin:9px 0}
+  .callout{background:#fafbfc;border:1px solid var(--line);border-radius:11px;padding:14px 16px;margin:12px 0;font-size:13.5px}
+  ul.clean{margin:8px 0;padding-left:20px}ul.clean li{margin:7px 0}
+  .foot{color:var(--muted);font-size:12.5px;text-align:center;margin-top:30px}
+  a{color:var(--blue)}
+  .big{font-size:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Why the Latest 30 Blogs Aren't Ranking — Root-Cause Analysis</h1>
+  <p>Evidence-based. Real GSC query data + live SERP analysis (seo-sxo) + internal-link audit + content-depth &amp; cannibalization verification. Every assumption checked.</p>
+  <div class="meta-row">
+    <span class="pill">Date: 25 Jun 2026</span>
+    <span class="pill">Scope: latest 30 blogs</span>
+    <span class="pill">GSC queries · live SERP · code audit</span>
+    <span class="pill">DR 60</span>
+  </div>
+</header>
+
+<!-- TLDR -->
+<section class="banner key">
+  <h2>🎯 The short answer</h2>
+  <p class="big" style="margin-top:4px">The blogs are <b>indexed and getting impressions</b> — but almost every one sits at <b>position 40–95 (page 4–9)</b> for its target keyword, so it earns <b>~0 clicks</b>. It's <u>not</u> a technical bug, <u>not</u> thin content, <u>not</u> the wrong page type. The real causes are <b>(1) authority/age gap vs established competitors, (2) heavy keyword cannibalization — many of your own pages fight for the same term, (3) blogs are orphaned from your strong pages, and (4) some blogs rank for the wrong intent.</b></p>
+  <p style="margin-bottom:0"><b>Hard proof:</b> for "grocery delivery app development", <b>6 of your own pages</b> compete (all stuck p65–87). For "apps like rapido" a blog ranks <b>#1 but gets 0 clicks</b> (wrong audience). And only <b>1</b> of your 100+ service pages links to any blog.</p>
+</section>
+
+<!-- RULED OUT -->
+<section>
+  <h2><span class="n">1</span> First — what we RULED OUT (verified, so you don't fix the wrong thing)</h2>
+  <p class="sub">Each of these was checked with real data, not assumed.</p>
+  <div class="ruled"><span class="x">✅</span><div><b>Not thin content.</b> Verified word counts: taxi <b>3,840</b>, ecommerce <b>5,197</b>, dating <b>7,919</b>, rapido 4,693, educational 4,193, doctor 4,714, grocery 4,825. These already <b>match or beat</b> the page-1 competitors (3,000–5,000 words). Making them longer is <b>not</b> the fix.</div></div>
+  <div class="ruled"><span class="x">✅</span><div><b>Not a technical / schema / meta / canonical bug.</b> Across 3 prior reports: all server-rendered, valid, self-canonical, indexed, no cache poisoning. Google reads everything fine.</div></div>
+  <div class="ruled"><span class="x">✅</span><div><b>Not the wrong page type.</b> seo-sxo checked the live SERPs: for "taxi/ecommerce/dating app development cost", Google ranks <b>10/10 blog guides</b> (zero service pages) — so a blog IS the correct vehicle for these keywords.</div></div>
+  <div class="ruled"><span class="x">✅</span><div><b>Not old .php duplicates.</b> <code>/doctor-on-demand-app-development.php</code> &amp; <code>/grocery-app-development.php</code> return <b>HTTP 301</b> (redirected) — they're handled; GSC just shows lagging historical data.</div></div>
+</section>
+
+<!-- REAL CAUSES -->
+<section>
+  <h2><span class="n">2</span> The REAL reasons (ranked, with evidence)</h2>
+
+  <div class="cause">
+    <h3><span class="rank">R1</span> Authority &amp; age gap — new articles vs entrenched competitors in a money-keyword niche</h3>
+    <p>Every blog targets a <b>high-value commercial keyword</b> ("taxi app development cost", "mobile app development company india"). Page 1 is owned by Appinventiv, Apptunix, Trangotech, Appscrip — articles that are <b>2–5 years old with backlinks earned to those specific URLs</b>. Your articles are months old with ~no article-level links. Even where a competitor's DR is similar to yours (~60), their <b>article age + links</b> win.</p>
+    <div class="ev"><b>Evidence (real GSC, last 3m):</b> almost no blog has a single query in the "striking distance" zone (position 4–15). They are either deep (p40–95) or accidentally #1 for the wrong query. There is <b>no "almost there" quick win</b> — the gap is structural (time + links), not a tweak.</div>
+  </div>
+
+  <div class="cause r2">
+    <h3><span class="rank" style="background:var(--soft-amber);color:#a5620a">R2</span> Keyword cannibalization — your own pages fight each other</h3>
+    <p>Multiple pages target the <b>identical keyword</b>, so Google can't pick a winner and ranks <b>all of them weakly</b>. Verified from GSC:</p>
+    <table>
+      <thead><tr><th>Query</th><th>Your pages competing for it</th><th class="c">Positions</th></tr></thead>
+      <tbody>
+        <tr><td><b>grocery delivery app development</b></td><td>6 pages: /grocery-app-development (service) + 4 blogs (top-10-companies, top-10-companies-<b>2023</b>, grocery-app-development-cost-and-features, grocery-delivery-app-development) + .php(301)</td><td class="c">p65–87</td></tr>
+        <tr><td><b>doctor on demand app development</b></td><td>/doctor-on-demand-app-development (service) + /blog/doctor-on-demand-...cost-and-features</td><td class="c">p78 / p91</td></tr>
+        <tr><td><b>taxi app development cost</b></td><td>/blog/taxi-booking-...cost-features + /blog/...app-like-rapido (bleeding in)</td><td class="c">p39 / p92</td></tr>
+        <tr><td><b>dating app development cost</b></td><td>/blog/dating-app-development-cost + /blog/...app-like-tinder</td><td class="c">p61 / p86</td></tr>
+        <tr><td><b>ecommerce app development cost</b></td><td>/blog/ecommerce-app-development-cost + /blog/...app-like-flipkart</td><td class="c">p42 / p70</td></tr>
+      </tbody>
+    </table>
+    <div class="ev">Note the near-duplicate pair <code>top-10-grocery...-companies-in-india</code> and the same slug with a <code>-2023</code> suffix — two listicles for one query. This is the clearest, most fixable signal: <b>one keyword should have one owner page.</b></div>
+  </div>
+
+  <div class="cause r3">
+    <h3><span class="rank" style="background:var(--soft-amber);color:#a5620a">R3</span> Blogs are orphaned — no internal link equity reaches them</h3>
+    <p>Authority flows through internal links. Audit of the whole codebase: <code>/blog/</code> links appear in only <b>5 files</b> — the 4 blog-system templates + <b>exactly one</b> service page (<code>dating-app-development</code>). So your 100+ high-authority service/money pages <b>do not link to the blogs at all.</b></p>
+    <div class="ev"><b>Effect:</b> the blogs sit in an isolated silo, reachable mainly from the /blog listing and each other's "related posts". Google's internal PageRank barely reaches them → weak ranking power, regardless of content quality.</div>
+  </div>
+
+  <div class="cause r4">
+    <h3><span class="rank" style="background:var(--soft-violet);color:#6b46e5">R4</span> Intent mismatch — some blogs rank #1 for the WRONG query</h3>
+    <p>A few "app-like-X" blogs rank for <b>consumer/navigational</b> queries that bring zero business value:</p>
+    <ul class="clean">
+      <li><b>#29 rapido</b> ranks <b>#1</b> for "apps like rapido", "rapido type apps" (497+491 impressions) — but those searchers want to <b>download a bike-taxi app</b>, not hire a developer. Result: <b>~0 clicks</b> on those queries. The SERP there is Softonic / APKFab / app-store lists — a B2B cost guide doesn't belong.</li>
+      <li><b>#30 dream11</b> ranks #1 for "com dream11 app 2026 login" — people trying to <b>log into Dream11</b>, not build one.</li>
+    </ul>
+    <div class="ev"><b>Fix angle:</b> retarget the title/H1/intro to unambiguous B2B intent (e.g. "Cost to Build a Bike-Taxi App Like Rapido in 2026 — Full Breakdown") so Google matches it to the commercial query that actually converts, not the consumer one.</div>
+  </div>
+
+  <div class="cause r5">
+    <h3><span class="rank" style="background:var(--soft-green);color:#0a7d42">R5</span> Stale freshness signals</h3>
+    <p>For "cost" queries Google weights <b>freshness</b> (prices change yearly) — page-1 competitors put "<b>2025/2026</b>" in titles &amp; refresh annually. Several of your blogs still say "<b>in 2024</b>" / "<b>2023</b>" (snapchat, educational, event-ticket, makemytrip). That reads as outdated.</p>
+  </div>
+</section>
+
+<!-- GSC EVIDENCE TABLE -->
+<section>
+  <h2><span class="n">3</span> The evidence in one table (real GSC, last 3 months)</h2>
+  <p class="sub">Target keyword each blog gets the most impressions for, and where it actually ranks.</p>
+  <table>
+    <thead><tr><th>Blog</th><th>Top target query</th><th class="c">Impr</th><th class="c">Position</th><th class="c">Clicks</th><th>Read</th></tr></thead>
+    <tbody>
+      <tr><td>mobile-app-development-companies-in-india</td><td>mobile app development company india</td><td class="c">114</td><td class="c">p83</td><td class="c">0</td><td>page 8 — invisible</td></tr>
+      <tr><td>ecommerce-app-development-cost</td><td>ecommerce app development cost</td><td class="c">339</td><td class="c">p42</td><td class="c">1</td><td>page 4</td></tr>
+      <tr><td>taxi-booking-...cost-features</td><td>taxi app development cost</td><td class="c">324</td><td class="c">p39</td><td class="c">0</td><td>page 4</td></tr>
+      <tr><td>dating-app-development-cost</td><td>dating app development cost</td><td class="c">178</td><td class="c">p61</td><td class="c">0</td><td>page 6</td></tr>
+      <tr><td>doctor-on-demand-...cost-and-features</td><td>doctor on demand app development</td><td class="c">182</td><td class="c">p91</td><td class="c">0</td><td>page 9</td></tr>
+      <tr><td>telemedicine-...features-and-cost</td><td>healthcare app development cost</td><td class="c">200</td><td class="c">p85</td><td class="c">0</td><td>page 8</td></tr>
+      <tr><td>cost-to-build-an-educational-app</td><td>education app development cost</td><td class="c">187</td><td class="c">p76</td><td class="c">0</td><td>page 7</td></tr>
+      <tr><td>...app-like-makemytrip</td><td>travel app development cost</td><td class="c">112</td><td class="c">p82</td><td class="c">0</td><td>page 8</td></tr>
+      <tr style="background:#fffbf0"><td>...app-like-rapido</td><td>apps like rapido <span class="tag t-warn">wrong intent</span></td><td class="c">497</td><td class="c">p1</td><td class="c">0</td><td>#1 but no B2B clicks</td></tr>
+      <tr><td>fantasy-...dream11-cost-and-features</td><td>apps like dream 11</td><td class="c">94</td><td class="c">p48</td><td class="c">0</td><td>page 5 (+ login junk #1)</td></tr>
+    </tbody>
+  </table>
+  <p class="callout" style="margin-bottom:0"><b>The pattern:</b> impressions exist (Google sees them), but positions are too deep to earn clicks — and the one blog that ranks #1 does it for a query that brings no customers. <b>Nothing is in the "page-1 striking distance" zone</b>, which is why time alone hasn't moved them.</p>
+</section>
+
+<!-- WHAT'S MISSING / ACTION -->
+<section>
+  <h2><span class="n">4</span> What's missing &amp; what to do (prioritized)</h2>
+  <div class="grid2">
+    <div class="fixcard content">
+      <h3>🌐 Website / content &amp; SEO</h3>
+      <ol>
+        <li><b>Kill cannibalization first (fastest win).</b> Pick <b>one</b> owner page per keyword. For grocery: keep the best blog as the "cost/guide" page, 301 the weaker duplicates (incl. the <code>-2023</code> listicle) into it, point the rest's internal links to the winner. Repeat for doctor, taxi, dating.</li>
+        <li><b>Internal-link the blogs from your strong service pages</b> — each service page links to its matching cost/guide blog with keyword anchor ("taxi app development cost breakdown"), and the blog links back to the service page CTA. This is the biggest untapped lever.</li>
+        <li><b>Retarget the intent-mismatch blogs</b> (rapido, dream11, snapchat, tinder): title/H1/intro → clear B2B "cost to build a … like X" framing so Google ranks them for commercial queries, not consumer ones.</li>
+        <li><b>Refresh freshness:</b> update "2024/2023" → "2026" in titles &amp; content; add a visible "Updated 2026" + a current cost table where missing.</li>
+        <li><b>Earn a few article-level backlinks</b> (guest posts, digital-PR, niche directories) to the 3–4 highest-impression blogs (ecommerce-cost, taxi, dating, rapido) — this is what closes the authority gap competitors have.</li>
+        <li><b>Build topical clusters:</b> interlink all taxi posts together, all ecommerce posts together, with descriptive in-body anchors (not just sidebar widgets).</li>
+      </ol>
+    </div>
+    <div class="fixcard code">
+      <h3>💻 Code (supports the above)</h3>
+      <ol>
+        <li><b>Add a "Related service" CTA block</b> in the blog template that links to the matching money page (and add blog links into service-page templates) — operationalises the internal-linking fix site-wide.</li>
+        <li><b>author.url</b> → real profile page (E-E-A-T; from prior reports).</li>
+        <li><b>Remove HowTo schema</b> + <code>html_entity_decode()</code> + add robots meta on DB blogs (from prior reports).</li>
+        <li><b>Run <code>responsecache:clear</code></b> after edits.</li>
+      </ol>
+      <p style="margin:12px 0 0;font-size:12.5px;color:var(--muted)">Note: these code items are quality/plumbing — the <b>ranking levers are on the content side</b> (cannibalization, internal links, intent, freshness, links).</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM LINE -->
+<section>
+  <h2><span class="n">5</span> Bottom line</h2>
+  <p class="big">Your blogs are <b>well-written, long, technically clean, and indexed</b> — that's why this was confusing. They don't rank because of <b>off-page &amp; architecture factors</b>, not the pages themselves:</p>
+  <ul class="clean">
+    <li><b>Too many of your own pages chase the same keyword</b> → split signals (grocery: 6 pages). Consolidate.</li>
+    <li><b>The blogs are walled off from your authority</b> → only 1 service page links in. Connect them.</li>
+    <li><b>You're newer + less-linked than the entrenched page-1 guides</b> → needs time + a few targeted backlinks.</li>
+    <li><b>A couple rank for consumer intent</b> → retarget to B2B.</li>
+  </ul>
+  <p class="callout" style="margin-bottom:0"><b>Order of impact:</b> 1) de-cannibalize → 2) internal-link from service pages → 3) retarget intent + refresh year → 4) earn a few backlinks. Do these and the high-impression blogs (ecommerce-cost p42, taxi p39, dream11 p48) are the most likely to climb toward page 1 first.</p>
+</section>
+
+<p class="foot">Generated 25 Jun 2026 · Methods: real GSC query data (Search Console, last 3m) · live SERP page-type analysis (seo-sxo) · full internal-link code audit · verified content word counts &amp; .php redirect status · cannibalization confirmed from GSC multi-page query data. Assumptions (thin content, .php duplicates, page-type) were tested and corrected, not assumed.</p>
+
+</div>
+</body>
+</html>
