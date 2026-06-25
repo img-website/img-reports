@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog SEO Re-Verification — Blogs 21–30 (Evidence-Based)</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --ink:#1a1d23; --muted:#5b6573; --line:#e6e9ee;
+    --blue:#0850f2; --green:#0db65a; --amber:#e8911a; --red:#e23b3b; --violet:#6b46e5; --teal:#0d9488;
+    --soft-blue:#eef3ff; --soft-green:#e9f9f0; --soft-amber:#fdf3e3; --soft-red:#fdecec; --soft-violet:#f1edfd; --soft-teal:#e4faf6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;font-size:15px}
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 22px 80px}
+  header.top{background:linear-gradient(120deg,#0d9488,#34d3bf);color:#fff;border-radius:18px;padding:30px 32px;box-shadow:0 16px 40px -18px rgba(13,148,136,.5)}
+  header.top h1{margin:0 0 6px;font-size:25px;letter-spacing:-.3px}
+  header.top p{margin:0;opacity:.93;font-size:14px}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.30);padding:4px 11px;border-radius:999px;font-size:12px;font-weight:600}
+  section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px;margin-top:22px;box-shadow:0 2px 10px -6px rgba(0,0,0,.08)}
+  h2{font-size:19px;margin:0 0 4px;letter-spacing:-.2px;display:flex;align-items:center;gap:9px}
+  h2 .n{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:var(--soft-teal);color:var(--teal);font-size:13px;font-weight:800}
+  h3{font-size:15.5px;margin:20px 0 8px}
+  .sub{color:var(--muted);font-size:13.5px;margin:2px 0 14px}
+  p{margin:9px 0}
+  .banner{border-radius:14px;padding:18px 20px;margin-top:0}
+  .banner.good{background:var(--soft-green);border:1px solid #b8e8cd}
+  .banner.star{background:linear-gradient(120deg,#fff8e6,#fef1d6);border:1px solid #f3d9a8}
+  .banner h2{margin-top:0}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:10px}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#fafbfc;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);font-weight:700}
+  td.c,th.c{text-align:center}
+  tbody tr:hover{background:#fafcff}
+  tr.star td{background:#fffbf0}
+  code{background:#f1f3f7;padding:1.5px 6px;border-radius:6px;font-size:12.5px;font-family:"SF Mono",Consolas,Menlo,monospace;color:#283143}
+  .tag{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700;white-space:nowrap}
+  .t-ok{background:var(--soft-green);color:#0a7d42}
+  .t-warn{background:var(--soft-amber);color:#a5620a}
+  .t-crit{background:var(--soft-red);color:#b81e1e}
+  .t-info{background:var(--soft-blue);color:#1450c8}
+  .t-star{background:#fff0c8;color:#9a6b00}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:14px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  .fixcard{border-radius:13px;padding:16px 18px}
+  .fixcard.content{background:var(--soft-blue);border:1px solid #cfe0ff}
+  .fixcard.code{background:var(--soft-violet);border:1px solid #ddd3fa}
+  .fixcard h3{margin-top:0;display:flex;align-items:center;gap:8px}
+  .fixcard ol{margin:8px 0 0;padding-left:20px}
+  .fixcard li{margin:9px 0}
+  .issue{border-left:4px solid var(--line);padding:4px 0 4px 16px;margin:18px 0}
+  .issue.crit{border-color:var(--red)}
+  .issue.med{border-color:var(--amber)}
+  .issue.low{border-color:var(--green)}
+  .issue h3{margin:0 0 6px}
+  .kv{margin:5px 0}
+  .kv b{display:inline-block;min-width:96px;color:var(--muted);font-weight:600;font-size:13px;vertical-align:top}
+  .callout{background:#fafbfc;border:1px solid var(--line);border-radius:11px;padding:14px 16px;margin:12px 0;font-size:13.5px}
+  .mono-block{background:#0f1320;color:#d7def0;border-radius:11px;padding:14px 16px;font-family:"SF Mono",Consolas,Menlo,monospace;font-size:12.5px;overflow-x:auto;line-height:1.7;margin:10px 0}
+  .mono-block .g{color:#7fe3a5}.mono-block .y{color:#ffd479}.mono-block .c{color:#7fb4ff}.mono-block .r{color:#ff9b9b}
+  ul.clean{margin:8px 0;padding-left:20px}ul.clean li{margin:7px 0}
+  .foot{color:var(--muted);font-size:12.5px;text-align:center;margin-top:30px}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted);margin-top:10px}
+  a{color:var(--blue)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Blog SEO Re-Verification — Blogs 21–30</h1>
+  <p>Same rigorous method. Live-fetched ×3 (cache test), deterministically scanned, every flag cross-checked + independent schema agent, then new claims manually re-verified.</p>
+  <div class="meta-row">
+    <span class="pill">Date: 25 Jun 2026</span>
+    <span class="pill">Scope: blogs #21–30</span>
+    <span class="pill">Method: curl ×3 + GSC + schema agent + manual verify</span>
+    <span class="pill">imgglobalinfotech.com</span>
+  </div>
+</header>
+
+<!-- STAR INSIGHT -->
+<section class="banner star">
+  <h2>🌟 The single most important finding in this batch</h2>
+  <p style="margin-bottom:6px">Blog <b>#29 (app-like-rapido)</b> ranks <b>position 3.7 — page 1, top 4</b> — with <b>6,582 impressions</b>, the best performer across all 30 blogs audited so far.</p>
+  <p style="margin-bottom:0">And it carries the <b>exact same "issues"</b> as the blogs stuck on page 8: <code>author.url</code>=image, misused HowTo, 203-char meta-desc, 75 <code>\xa0</code> artifacts. <b>Proof that these schema/meta items are NOT what blocks ranking</b> — if they were, rapido couldn't sit at #3.7. The ranking gap is content depth + competition, not a technical bug. Fix the items below for <i>quality &amp; E-E-A-T</i>, but know they aren't the ranking lever.</p>
+</section>
+
+<!-- VERDICT -->
+<section class="banner good">
+  <h2>✅ Technically healthy again — every alarming claim stays refuted</h2>
+  <ul class="clean" style="margin-bottom:0">
+    <li><b>All 10: consistent on 3× fetches</b>, self-canonical, single H1, meta-desc present, fully server-rendered. <b>No cache poisoning, no JS late-load, no missing meta/schema, no JSON-breaking control chars</b> (no tab bug like blog #16 this time).</li>
+    <li><b>No fake AggregateRating/Review. No "Meta Title:" leak.</b></li>
+    <li><b>Recurring CODE issue (all 10):</b> <code>author.url</code> set to the author's photo image, not a profile page.</li>
+    <li><b>Data-hygiene cluster:</b> HowTo misuse + a few empty HowTo steps + HTML-entity leaks + <code>\xa0</code> artifacts + long meta-descs — all real, all low/medium, none blocking indexation.</li>
+  </ul>
+</section>
+
+<!-- PER BLOG TABLE -->
+<section>
+  <h2><span class="n">1</span> Per-blog verified data (blogs 21–30)</h2>
+  <p class="sub">All values read from live server-rendered HTML + Search Console (last 3 months). All 10 are local DB blogs (older content).</p>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th><th>Blog</th><th class="c">Pub</th><th class="c">3×</th><th class="c">Canon</th>
+        <th class="c">Title</th><th class="c">Mdesc</th><th class="c">H1</th><th class="c">Robots</th><th class="c">HowTo</th><th class="c">GSC (3mo)</th><th>Key flags</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>21</td><td>telemedicine-app-development-features-and-cost</td><td class="c">10/25</td><td class="c">✅</td><td class="c">self</td><td class="c">48</td><td class="c">146</td><td class="c">1</td><td class="c"><span class="tag t-warn">empty</span></td><td class="c">–</td><td class="c">922 · p80</td><td>author.url img, nbsp×4</td></tr>
+      <tr><td>22</td><td>how-much-does-it-cost-to-build-an-app-like-snapchat</td><td class="c">06/24</td><td class="c">✅</td><td class="c">self</td><td class="c"><span class="tag t-warn">61</span></td><td class="c">136</td><td class="c">1</td><td class="c"><span class="tag t-warn">empty</span></td><td class="c"><span class="tag t-warn">yes</span></td><td class="c">233 · p29</td><td>title "2024" stale, HowTo, author.url, nbsp×139</td></tr>
+      <tr><td>23</td><td>cost-to-develop-a-shopping-app-like-temu</td><td class="c">11/25</td><td class="c">✅</td><td class="c">self</td><td class="c">48</td><td class="c"><span class="tag t-warn">172</span></td><td class="c">1</td><td class="c"><span class="tag t-warn">empty</span></td><td class="c"><span class="tag t-warn">yes</span></td><td class="c">184 · p16</td><td>mdesc&gt;160, HowTo+empty step, desc-entity, author.url, nbsp×67</td></tr>
+      <tr><td>24</td><td>cost-to-build-an-educational-app</td><td class="c">05/24</td><td class="c">✅</td><td class="c">self</td><td class="c">58</td><td class="c"><span class="tag t-crit">209</span></td><td class="c">1</td><td class="c"><span class="tag t-warn">empty</span></td><td class="c"><span class="tag t-warn">yes</span></td><td class="c"><b>1229 · p67</b></td><td>mdesc 209, HowTo+empty step, "2024" stale, author.url, nbsp×52</td></tr>
+      <tr><td>25</td><td>event-ticket-booking-app-development-cost-features</td><td class="c">05/24</td><td class="c">✅</td><td class="c">self</td><td class="c">56</td><td class="c">147</td><td class="c">1</td><td class="c"><span class="tag t-warn">empty</span></td><td class="c">–</td><td class="c">162 · p65</td><td>author.url img, "2024" stale (cleanest schema)</td></tr>
+      <tr><td>26</td><td>tiktok-app-development-cost</td><td class="c">01/24</td><td class="c">✅</td><td class="c">self</td><td class="c">50</td><td class="c"><span class="tag t-crit">223</span></td><td class="c">1</td><td class="c"><span class="tag t-warn">empty</span></td><td class="c"><span class="tag t-warn">yes</span></td><td class="c">68 · p20</td><td>mdesc 223, HowTo, author.url, nbsp×25</td></tr>
+      <tr><td>27</td><td>...real-estate-website-app-like-magicbricks</td><td class="c">06/25</td><td class="c">✅</td><td class="c">self</td><td class="c">37</td><td class="c"><span class="tag t-warn">180</span></td><td class="c">1</td><td class="c"><span class="tag t-warn">empty</span></td><td class="c"><span class="tag t-warn">yes</span></td><td class="c">515 · p21</td><td>mdesc&gt;160, HowTo, author.url, nbsp×96</td></tr>
+      <tr><td>28</td><td>...app-like-makemytrip</td><td class="c">10/23</td><td class="c">✅</td><td class="c">self</td><td class="c">56</td><td class="c"><span class="tag t-crit">247</span></td><td class="c">1</td><td class="c"><span class="tag t-warn">empty</span></td><td class="c"><span class="tag t-warn">yes</span></td><td class="c">653 · p39</td><td>mdesc 247, HowTo+<b>3 empty steps</b>, desc-entity, oldest (2023), author.url, nbsp×49</td></tr>
+      <tr class="star"><td>29</td><td>...app-like-rapido <span class="tag t-star">★ best</span></td><td class="c">02/25</td><td class="c">✅</td><td class="c">self</td><td class="c">52</td><td class="c"><span class="tag t-warn">203</span></td><td class="c">1</td><td class="c"><span class="tag t-warn">empty</span></td><td class="c"><span class="tag t-warn">yes</span></td><td class="c"><b>6582 · p3.7</b></td><td>same flags as page-8 blogs — yet ranks #3.7</td></tr>
+      <tr><td>30</td><td>fantasy-sports-app-development-like-dream11-cost-and-features</td><td class="c">07/25</td><td class="c">✅</td><td class="c">self</td><td class="c"><span class="tag t-warn">69</span></td><td class="c"><span class="tag t-warn">197</span></td><td class="c">1</td><td class="c"><span class="tag t-warn">empty</span></td><td class="c">–</td><td class="c"><b>2406 · p20</b></td><td>title&gt;60, mdesc&gt;160, <b>headline entity &amp;amp;</b>, desc-entity, author.url, nbsp×2</td></tr>
+    </tbody>
+  </table>
+  <div class="legend">
+    <span><b>3×/Canon:</b> ✅ identical on 3 fetches · self = self-canonical</span>
+    <span><b>GSC:</b> impressions · avg position</span>
+    <span><b>All DB blogs → robots meta empty</b></span>
+  </div>
+</section>
+
+<!-- THE REAL ISSUES -->
+<section>
+  <h2><span class="n">2</span> The genuine issues (each independently verified)</h2>
+
+  <div class="issue med">
+    <h3>🟡 MEDIUM — <code>author.url</code> = the author's PHOTO, not a profile page (ALL 10)</h3>
+    <div class="kv"><b>Where:</b> every blog #21–30 (deterministically verified on all 10).</div>
+    <div class="kv"><b>What:</b></div>
+    <div class="mono-block">"author": { "@type": "Person", "name": "…",
+  "url": "<span class="y">https://d1y41eupgbwbb2.cloudfront.net/images/blogauthor/blogauthor-1747657504.webp</span>" }
+<span class="c">// url must be the author's bio PAGE, not a .webp photo</span></div>
+    <div class="kv"><b>Effect:</b> Google can't resolve the author entity → weaker author / E-E-A-T signal.</div>
+    <div class="kv"><b>How it arose:</b> <b>CODE</b> — the blog schema partial fills <code>author.url</code> with the author <i>image</i> field.</div>
+    <div class="kv"><b>Fix:</b> point <code>author.url</code> to a real <code>/author/{slug}</code> page; keep the photo in <code>author.image</code>. <i>(code — one fix solves all blogs)</i></div>
+  </div>
+
+  <div class="issue med">
+    <h3>🟡 MEDIUM — HowTo schema misused on 7 blogs, with empty "garbage" steps on 3</h3>
+    <div class="kv"><b>Where:</b> #22 snapchat, #23 temu, #24 educational, #26 tiktok, #27 magicbricks, #28 makemytrip, #29 rapido.</div>
+    <div class="kv"><b>What:</b> "Steps" are article section headings ("What Is a Snapchat App?", "Property Listings"), not real instructions. Google retired HowTo rich results in Sept 2023, so they earn nothing. Worse — verified empty/whitespace-only steps: <b>makemytrip ×3, temu ×1, educational ×1</b> (step <code>name</code> is just a non-breaking space → garbage data in schema).</div>
+    <div class="kv"><b>How it arose:</b> <b>CODE</b> — schema partial auto-builds HowTo from H2/H3 headings (and emits blank ones where a heading was empty).</div>
+    <div class="kv"><b>Fix:</b> remove the HowTo block from blog schema (keep BlogPosting + FAQPage). <i>(code)</i></div>
+  </div>
+
+  <div class="issue med">
+    <h3>🟡 MEDIUM — HTML entities leaking raw into JSON-LD (verified on 3 blogs)</h3>
+    <div class="kv"><b>Where:</b> #30 dream11 <b>headline</b> + description; #23 temu &amp; #28 makemytrip descriptions.</div>
+    <div class="kv"><b>What:</b> The <code>headline</code>/<code>description</code> contain HTML entities instead of real characters:</div>
+    <div class="mono-block">#30 headline: "Fantasy Sports App Development Like Dream11: Cost <span class="r">&amp;amp;</span> Features 2026"
+<span class="c">// Google reads the literal text "&amp;amp;" — not "&amp;". Shows wrong in rich preview.</span></div>
+    <div class="kv"><b>How it arose:</b> <b>CODE</b> — values are HTML-encoded before being injected into JSON-LD (they should be decoded; JSON-LD is not HTML).</div>
+    <div class="kv"><b>Fix:</b> decode HTML entities (<code>html_entity_decode()</code>) before outputting any value into the JSON-LD script. <i>(code)</i></div>
+  </div>
+
+  <div class="issue med">
+    <h3>🟡 MEDIUM — meta descriptions over 160 chars on 7 blogs</h3>
+    <div class="kv"><b>Where &amp; verified lengths:</b> #23 (172), #24 (209), #26 (223), #27 (180), #28 (247), #29 (203), #30 (197).</div>
+    <div class="kv"><b>Effect:</b> Google truncates them mid-sentence in results, hurting click-through. #28 (247) and #26 (223) are the worst.</div>
+    <div class="kv"><b>Fix:</b> trim each to ≤ 155–160 chars, benefit + CTA up front. <i>(content)</i></div>
+  </div>
+
+  <div class="issue low">
+    <h3>🟢 LOW — polish</h3>
+    <ul class="clean">
+      <li><b>Titles over 60 chars</b> → #22 (61), #30 (69). Shorten. <i>(content)</i></li>
+      <li><b>Stale year in title/content</b> → #22 &amp; #24 say "in 2024", #25 is 2024, #28 is 2023. Refresh the year &amp; figures so they don't look outdated. <i>(content)</i></li>
+      <li><b>Empty robots meta on all 10</b> (DB template emits none) — still indexable, but add <code>index,follow,max-image-preview:large</code> for richer snippets. <i>(code)</i></li>
+      <li><b><code>\xa0</code> non-breaking-space artifacts</b> on 9/10 — verified counts: snapchat ×139, magicbricks ×96, rapido ×75, temu ×67, educational ×52, makemytrip ×49, tiktok ×25. From Word/Docs paste. Clean on save. <i>(data + code sanitizer)</i></li>
+      <li><b>Dual LocalBusiness</b> on every page — keep on home/contact/about only. <i>(code)</i></li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTENT VS CODE -->
+<section>
+  <h2><span class="n">3</span> What to fix on the website vs in the code</h2>
+  <div class="grid2">
+    <div class="fixcard content">
+      <h3>🌐 Fix on the website / CMS <span class="tag t-info">no code</span></h3>
+      <ol>
+        <li><b>Trim 7 meta descriptions</b> to ≤ 160: #23, #24, #26, #27, #28, #29, #30 (worst: #28=247, #26=223).</li>
+        <li><b>Shorten 2 titles</b> to ≤ 60: #22, #30.</li>
+        <li><b>Refresh stale years</b> ("2024"/"2023") in #22, #24, #25, #28 — update title + figures.</li>
+        <li><b>Clean <code>\xa0</code> artifacts</b> by re-pasting as plain text (worst: #22, #27, #29).</li>
+        <li><b>Push the high-impression posts</b> — #29 rapido (6,582 @ p3.7 → aim top-3), #30 dream11 (2,406 @ p20 → page 1), #24 educational (1,229 @ p67 → needs a full refresh).</li>
+      </ol>
+    </div>
+    <div class="fixcard code">
+      <h3>💻 Fix in the code (project) <span class="tag t-info">dev</span></h3>
+      <ol>
+        <li><b>Fix <code>author.url</code></b> → real author/bio page, not the <code>.webp</code> photo. (All blogs — one fix.)</li>
+        <li><b><code>html_entity_decode()</code></b> every value before injecting into JSON-LD (kills the <code>&amp;amp;</code>/<code>&amp;#039;</code> leaks).</li>
+        <li><b>Remove / gate HowTo schema</b> (deprecated, misused, emits empty steps).</li>
+        <li><b>Add robots meta</b> to <code>blogDetail.blade.php</code> to match the WP blogs.</li>
+        <li><b>Drop dual LocalBusiness</b> from blog templates.</li>
+        <li><b><code>trim()</code> + strip control/<code>\xa0</code> chars</b> on content save and on schema output (sanitizer).</li>
+        <li><b>Run <code>php artisan responsecache:clear</code></b> after edits (else stale HTML up to 7 days — endpoint already fixed).</li>
+      </ol>
+    </div>
+  </div>
+  <p class="callout" style="margin-top:18px"><b>Reminder (proven by #29 rapido):</b> none of these block ranking — rapido sits at #3.7 with every one of them. They're <b>quality / E-E-A-T / data-hygiene</b> cleanups. The real ranking lever is content depth, freshness &amp; internal links on the high-impression posts.</p>
+</section>
+
+<!-- WHY THEY DON'T RANK -->
+<section>
+  <h2><span class="n">4</span> Ranking reality for this batch</h2>
+  <ol>
+    <li><b>All 10 are indexed and getting impressions</b> (68–6,582). None are invisible to Google.</li>
+    <li><b>One is a clear winner:</b> #29 rapido at <b>position 3.7 (page 1)</b> with 6,582 impressions — the template + content work great when competition is winnable.</li>
+    <li><b>Strong page-2 contenders:</b> #30 dream11 (p20, 2,406 impr), #27 magicbricks (p21), #23 temu (p16), #26 tiktok (p20) — close enough that depth + internal links could push them to page 1.</li>
+    <li><b>The laggards</b> (#21 telemedicine p80, #24 educational p67, #25 event-ticket p65, #28 makemytrip p39) are mostly <b>older/stale</b> content on competitive keywords — they need a content refresh, not a technical fix.</li>
+  </ol>
+  <p class="callout" style="margin-bottom:0"><b>Same takeaway, now with proof:</b> there is no hidden code bug starving Google — a blog with all the flagged "issues" ranks #3.7. This is a <b>content depth + freshness + competition</b> story. Fix the code items for quality/E-E-A-T; win rankings with content and links.</p>
+</section>
+
+<p class="foot">Generated 25 Jun 2026 · Re-verified live (curl ×3 per URL) + Search Console + independent seo-schema agent + manual verification of every new flag (HTML-entity leaks, empty HowTo steps, author.url, nbsp counts) · Scope: blogs #21–30 · Method identical to the latest-10 and 11–20 reports.</p>
+
+</div>
+</body>
+</html>
