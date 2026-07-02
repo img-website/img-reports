@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Services Cluster — SEO Architecture Report | IMG Global Infotech</title>
+<style>
+  :root{
+    --ink:#111827; --muted:#6b7280; --line:#e5e7eb; --bg:#f8fafc; --card:#ffffff;
+    --blue:#2563eb; --blue-soft:#eff6ff; --green:#059669; --green-soft:#ecfdf5;
+    --red:#dc2626; --red-soft:#fef2f2; --amber:#d97706; --amber-soft:#fffbeb;
+    --violet:#7c3aed; --violet-soft:#f5f3ff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;font-size:15px}
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 24px 80px}
+  header.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 60%,#2563eb 100%);color:#fff;border-radius:16px;padding:36px 36px 30px;margin-bottom:28px}
+  header.hero .tag{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:3px 14px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+  header.hero h1{font-size:26px;line-height:1.25;margin-bottom:8px}
+  header.hero p{color:#dbeafe;font-size:14px;max-width:760px}
+  header.hero .meta-row{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px;font-size:12.5px;color:#bfdbfe}
+  h2{font-size:20px;margin:40px 0 6px;display:flex;align-items:center;gap:10px}
+  h2 .num{background:var(--blue);color:#fff;border-radius:8px;min-width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;font-size:14px}
+  h3{font-size:16px;margin:22px 0 8px}
+  p.lead{color:var(--muted);margin-bottom:14px;font-size:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:14px 0}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;background:#fff;border-radius:10px;overflow:hidden}
+  th{background:#f1f5f9;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#475569;border-bottom:2px solid var(--line)}
+  td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  code{background:#f1f5f9;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:12.5px;font-family:Consolas,monospace;color:#0f172a;word-break:break-all}
+  .pill{display:inline-block;border-radius:999px;padding:2px 10px;font-size:11.5px;font-weight:600;white-space:nowrap}
+  .ok{background:var(--green-soft);color:var(--green)} .bad{background:var(--red-soft);color:var(--red)}
+  .warn{background:var(--amber-soft);color:var(--amber)} .info{background:var(--blue-soft);color:var(--blue)}
+  .new{background:var(--violet-soft);color:var(--violet)}
+  .banner{border-radius:12px;padding:18px 22px;margin:16px 0;display:flex;gap:14px;align-items:flex-start}
+  .banner .icon{font-size:22px;line-height:1}
+  .banner.green{background:var(--green-soft);border:1px solid #a7f3d0}
+  .banner.red{background:var(--red-soft);border:1px solid #fecaca}
+  .banner.amber{background:var(--amber-soft);border:1px solid #fde68a}
+  .banner.blue{background:var(--blue-soft);border:1px solid #bfdbfe}
+  .banner b{display:block;margin-bottom:3px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  .verdict-box{border-radius:12px;padding:16px 18px;height:100%}
+  .verdict-box.plan{background:#fff;border:1px solid var(--line)}
+  .verdict-box.reco{background:var(--green-soft);border:2px solid #34d399}
+  .verdict-box h4{font-size:14px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .verdict-box ul{margin-left:18px;font-size:13.5px}
+  .verdict-box li{margin:7px 0}
+  ul.clean{margin-left:20px;font-size:14px}
+  ul.clean li{margin:6px 0}
+  .silo{background:#0f172a;border-radius:12px;padding:24px;margin:16px 0;color:#e2e8f0;font-size:13px}
+  .silo .node{border-radius:8px;padding:9px 14px;margin:8px auto;text-align:center;font-family:Consolas,monospace;font-size:12.5px}
+  .silo .pillar-node{background:#2563eb;color:#fff;max-width:420px;font-weight:700}
+  .silo .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+  .silo .spoke{background:#1e293b;border:1px solid #334155;flex:1;min-width:200px;max-width:280px}
+  .silo .spoke.newp{border:2px dashed #a78bfa;background:#2e1065}
+  .silo .spoke.repos{border:2px solid #34d399;background:#064e3b}
+  .silo .child{background:#1e293b;border:1px solid #334155;max-width:280px;margin-top:10px}
+  .silo .arrow{text-align:center;color:#64748b;font-size:16px;margin:2px 0}
+  .silo small{color:#94a3b8;display:block;margin-top:3px;font-family:'Segoe UI',sans-serif}
+  .kbadge{display:inline-block;background:#eef2ff;color:#4338ca;border:1px solid #c7d2fe;border-radius:6px;padding:1px 8px;font-size:12px;margin:2px 3px 2px 0}
+  .section-list{counter-reset:sec;list-style:none;margin:0}
+  .section-list li{counter-increment:sec;padding:8px 0 8px 40px;position:relative;border-bottom:1px dashed var(--line);font-size:13.5px}
+  .section-list li:last-child{border-bottom:none}
+  .section-list li::before{content:counter(sec,decimal-leading-zero);position:absolute;left:0;top:8px;background:var(--blue-soft);color:var(--blue);border-radius:6px;width:30px;height:22px;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700}
+  .check li{margin:8px 0;padding-left:4px}
+  footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;text-align:center}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 8px}
+  .toc a{font-size:12.5px;color:var(--blue);text-decoration:none;background:var(--blue-soft);border:1px solid #bfdbfe;border-radius:999px;padding:4px 12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="tag">SEO Architecture Report</span>
+  <h1>AI Services Cluster — Pillar &amp; Inner Pages Plan Review</h1>
+  <p>Evidence-based review of the planned AI Consulting, Agentic AI and Generative AI inner pages under the <b>/ai-development-company</b> pillar — codebase audit (4 blade files), live production check (8 URLs + sitemap), SERP/keyword research (5 topics) and competitor architecture analysis (6 companies).</p>
+  <div class="meta-row">
+    <span>🌐 imgglobalinfotech.com</span>
+    <span>📅 02 July 2026</span>
+    <span>🤖 10 research agents · 169 checks</span>
+  </div>
+</header>
+
+<div class="toc">
+  <a href="#verdict">TL;DR Verdict</a><a href="#current">Current State</a><a href="#content-issues">Content Issues</a><a href="#plan">Plan vs Recommendation</a><a href="#urls">Final URLs</a><a href="#why">Why Not Merge</a><a href="#keywords">Keyword Map</a><a href="#blueprints">Page Blueprints</a><a href="#silo">Linking Silo</a><a href="#implementation">Implementation</a><a href="#fixes">Cleanup Fixes</a>
+</div>
+
+<!-- ============ VERDICT ============ -->
+<h2 id="verdict"><span class="num">1</span>TL;DR — Aapka Plan Kitna Sahi Hai?</h2>
+
+<div class="banner green"><span class="icon">✅</span><div>
+  <b>Plan ~80% correct hai. Pillar + 3 inner pages ka concept bilkul sahi hai — industry standard hub-and-spoke architecture yahi hai.</b>
+  AI Consulting page banana correct decision hai (abhi 404 hai, competitors sab ke paas hai). Generative AI page already exist karta hai — new nahi banana, sirf content fix karna hai.
+</div></div>
+
+<div class="banner red"><span class="icon">⚠️</span><div>
+  <b>1 major correction: Chatbot + AI Agent ko ek naye "Agentic AI" page mein merge MAT karo.</b>
+  Dono pages already live &amp; indexed hain (5,064 aur 6,223 words, schema ke saath). Chatbot aur AI-Agent ke Google SERPs mein <b>zero URL overlap</b> hai — Google inhe alag intents maanta hai. 6 mein se 6 top competitors chatbot ka alag page rakhte hain, aur 6 mein se 5 "Agentic AI" ko standalone page banane ke bajaye existing AI-Agent page ke title/H1 mein fold karte hain. Recommended: existing <code>/ai-agent-development-company</code> ko hi "Agentic AI" page ke roop mein re-position karo (URL same, title/H1 update). Aapko 3-page hierarchy bhi mil jayegi, aur koi URL delete/redirect nahi karna padega.
+</div></div>
+
+<div class="banner amber"><span class="icon">🔍</span><div>
+  <b>Aapki baat sahi nikli — existing pages mein kaafi irrelevant/copied content hai.</b>
+  Har AI page pe homepage ka ~990-line case-study slider copy-paste hai (Astrology app, Quick Commerce, Fintech CTAs). Generative AI page pe 11 clone-app case studies hain (Uber, Tinder, Netflix — zero GenAI relation). AI Agent page ka tech-stack section generic mobile/web stack hai (iOS/Flutter/PHP — koi LangChain/RAG/vector DB nahi). Details Section 3 mein.
+</div></div>
+
+<!-- ============ CURRENT STATE ============ -->
+<h2 id="current"><span class="num">2</span>Current State — AI Cluster Audit</h2>
+<p class="lead">Live production + codebase, dono verify kiye gaye. Sitemap mein 1,049 URLs hain jisme se 135 AI-related (5 service pages, 5 industry pages, ~122 blogs + tags).</p>
+
+<table>
+  <tr><th>URL (Live)</th><th>Status</th><th>Content</th><th>Assessment</th></tr>
+  <tr>
+    <td><code>/ai-development-company</code><br><span class="pill info">PILLAR</span></td>
+    <td><span class="pill ok">200 · Indexed</span></td>
+    <td>~6,449 words · 17 H2s</td>
+    <td>Core content on-topic. Issues: copied homepage slider, 4 alag-alag titles (meta/OG/Twitter/schema), FAQPage schema live missing, Consulting &amp; AI-Agent tabs mein koi link nahi.</td>
+  </tr>
+  <tr>
+    <td><code>/ai-chatbot-development-services</code></td>
+    <td><span class="pill ok">200 · Indexed</span></td>
+    <td>~5,064 words · 15 H2s</td>
+    <td>Sabse clean page — genuinely chatbot-specific. Issues: copied homepage slider, Twitter meta AI-dev page se copied, stale Service schema.</td>
+  </tr>
+  <tr>
+    <td><code>/ai-agent-development-company</code></td>
+    <td><span class="pill ok">200 · Indexed</span></td>
+    <td>~6,223 words · 19 H2s</td>
+    <td>On-topic but copy machine-spun lagti hai; headings/schema mein invisible zero-width Unicode chars; tech stack generic (mobile/web); copied homepage slider.</td>
+  </tr>
+  <tr>
+    <td><code>/generative-ai-development-company</code></td>
+    <td><span class="pill ok">200 · Indexed</span></td>
+    <td>~4,532 words · 15 H2s</td>
+    <td>Core on-topic. Issues: 11 irrelevant clone-app case studies (Uber/Tinder/Netflix), 4/5 tech tabs generic, fake tool names ("DeepOram", "Drant", "Kubernet"), meta mein "!." typo.</td>
+  </tr>
+  <tr>
+    <td><code>/machine-learning-development-services</code></td>
+    <td><span class="pill ok">200 · Indexed</span></td>
+    <td>~4,238 words · 16 H2s</td>
+    <td>OK, lekin H1 off-keyword hai: "Elevate Your Brand Presence…" — ML-development-focused hona chahiye.</td>
+  </tr>
+  <tr>
+    <td><code>/ai-consulting-services</code> <em>(planned)</em></td>
+    <td><span class="pill bad">404</span></td>
+    <td>—</td>
+    <td>Exist nahi karta. Naya banana hai — competitors sab ke paas hai. Blog already iski demand feed kar raha hai.</td>
+  </tr>
+  <tr>
+    <td><code>/agentic-ai-development-company</code> <em>(planned)</em></td>
+    <td><span class="pill bad">404</span></td>
+    <td>—</td>
+    <td>Exist nahi karta. Recommendation: naya URL NA banao — existing AI-Agent page ko re-position karo (Section 4-5).</td>
+  </tr>
+</table>
+
+<!-- ============ CONTENT ISSUES ============ -->
+<h2 id="content-issues"><span class="num">3</span>Irrelevant Content — Kya Kya Galat Mila</h2>
+<p class="lead">Aapne kaha tha "pta nahi kya likha hai" — audit ne confirm kiya. Ye har page ke copied/irrelevant blocks hain jo naye pages banate waqt REPEAT nahi hone chahiye:</p>
+
+<div class="card">
+<table>
+  <tr><th>Page</th><th>Irrelevant Block</th><th>Evidence</th></tr>
+  <tr>
+    <td rowspan="2"><b>Pillar</b><br><code>ai-development-company</code></td>
+    <td>"Explore High-Growth App Segments" slider (~990 lines) — homepage se verbatim copy</td>
+    <td>Images <code>homeNewCaseStudy*.webp</code>; CTAs: "Build Your Astrology App", "Build Your Quick Commerce App", "Build Your Fintech App" — 7 mein se sirf 1 slide AI-related. Alt-text bugs: Zillow logos pe alt="Astrotalk". Broken tags <code>&lt;/lab&gt;</code>.</td>
+  </tr>
+  <tr>
+    <td>4 conflicting page titles</td>
+    <td>Meta: "AI Development Services…", OG: "Best AI Development Company", Twitter: "Advanced AI Development Services", Schema: "AI Development Company | Custom AI Solutions". Ek hi title sab jagah hona chahiye.</td>
+  </tr>
+  <tr>
+    <td><b>Chatbot</b><br><code>ai-chatbot-development-services</code></td>
+    <td>Wahi homepage slider (~970 lines) + Twitter meta dusre page ka</td>
+    <td>twitter:title = "Advanced AI Development Services" (AI-dev page se copied). Service schema serviceType stale hai — on-page 6 services se match nahi karta.</td>
+  </tr>
+  <tr>
+    <td rowspan="2"><b>AI Agent</b><br><code>ai-agent-development-company</code></td>
+    <td>Generic mobile/web tech-stack section</td>
+    <td>Tabs: Mobile App / Frontend / Backend / DevOps — iOS, Flutter, PHP, Docker… <b>koi agent framework nahi</b> (LangChain, AutoGen, RAG, vector DBs missing) jabki heading "AI agents leverage advanced algorithms" bolti hai.</td>
+  </tr>
+  <tr>
+    <td>Invisible zero-width Unicode characters</td>
+    <td>Headings + Service schema mein — e.g. "AI​‍​‌‍ Agent Strategy" — copy kisi AI tool se paste hui lagti hai. Search engines ke liye messy; clean karna chahiye.</td>
+  </tr>
+  <tr>
+    <td><b>Generative AI</b><br><code>generative-ai-development-company</code></td>
+    <td>"Case Studies Inspiring Innovation" — 11 clone-app case studies</td>
+    <td>Section ki CSS class hi <code>successfulEcommerceSection</code> hai. Slides: Uber taxi, Tinder dating, Netflix OTT, TaskRabbit, UberEats… copy: "We help startups and taxi businesses build Uber-like apps" — intro isse jhuth-muth "generative AI solutions" bolta hai. Fake tool names: "DeepOram", "Drant", "Kubernet", typo "AIAI".</td>
+  </tr>
+</table>
+</div>
+
+<!-- ============ PLAN VS RECO ============ -->
+<h2 id="plan"><span class="num">4</span>Aapka Plan vs Recommended Plan</h2>
+
+<div class="grid2">
+  <div class="verdict-box plan">
+    <h4>📝 Aapka Plan</h4>
+    <ul>
+      <li>Pillar: <code>/ai-development-company</code> ✅</li>
+      <li>Inner 1: <b>AI Consulting</b> page (naya)</li>
+      <li>Inner 2: <b>Agentic AI</b> page — isi ek page mein <b>Chatbot development + AI Agent</b> dono cover</li>
+      <li>Inner 3: <b>Generative AI</b> page</li>
+    </ul>
+  </div>
+  <div class="verdict-box reco">
+    <h4>🏆 Recommended (Evidence-Based)</h4>
+    <ul>
+      <li>Pillar: <code>/ai-development-company</code> — content cleanup + inner pages ke links add karo</li>
+      <li>Inner 1: <span class="pill new">NEW</span> <code>/ai-consulting-services</code></li>
+      <li>Inner 2: <span class="pill ok">REPOSITION</span> existing <code>/ai-agent-development-company</code> ko hi "Agentic AI" page banao — title/H1 mein "Agentic AI" add karo, URL/schema same. Chatbot page iske neeche child spoke ki tarah linked rahe (URL alive, koi redirect nahi).</li>
+      <li>Inner 3: <span class="pill ok">KEEP + FIX</span> <code>/generative-ai-development-company</code> — URL perfect hai, sirf content cleanup</li>
+    </ul>
+  </div>
+</div>
+
+<div class="banner blue"><span class="icon">💡</span><div>
+  <b>Aapki 3-page hierarchy poori tarah mil jaati hai</b> — pillar aur nav visually 3 items dikhayenge (Consulting · Agentic AI · Generative AI). Chatbot page Agentic AI ke section ke andar se linked hoga ("conversational agents" ke liye). Google ke liye 4 indexable intent-matched pages rahenge = zyada keywords covered, zero equity loss, zero 301s.
+</div></div>
+
+<!-- ============ URLS ============ -->
+<h2 id="urls"><span class="num">5</span>Final URL &amp; Meta Recommendations</h2>
+<p class="lead">Sab flat root-level URLs (site convention — 1,049 sitemap URLs mein ek bhi nested service URL nahi hai). Nested <code>/ai-development-company/ai-consulting</code> jaisa structure MAT banao — depth se authority nahi milti, internal linking se milti hai.</p>
+
+<table>
+  <tr><th>Page</th><th>URL</th><th>Action</th><th>Suggested Title Tag</th><th>Suggested H1</th></tr>
+  <tr>
+    <td><b>AI Consulting</b></td>
+    <td><code>/ai-consulting-services</code></td>
+    <td><span class="pill new">CREATE</span></td>
+    <td>AI Consulting Services | AI Consulting Company — IMG Global Infotech</td>
+    <td>AI Consulting Services for Business Transformation</td>
+  </tr>
+  <tr>
+    <td><b>Agentic AI</b></td>
+    <td><code>/ai-agent-development-company</code> <em>(existing — URL mat badlo)</em></td>
+    <td><span class="pill ok">RE-TITLE</span></td>
+    <td>Agentic AI Development Company | AI Agent Development Services</td>
+    <td>Agentic AI &amp; AI Agent Development Company</td>
+  </tr>
+  <tr>
+    <td><b>Generative AI</b></td>
+    <td><code>/generative-ai-development-company</code></td>
+    <td><span class="pill ok">KEEP</span></td>
+    <td>Generative AI Development Company | GenAI Development Services</td>
+    <td>Generative AI Development Company (current H1 theek hai)</td>
+  </tr>
+  <tr>
+    <td><b>AI Chatbot</b> <em>(child spoke)</em></td>
+    <td><code>/ai-chatbot-development-services</code></td>
+    <td><span class="pill ok">KEEP</span></td>
+    <td>Custom AI Chatbot Development Services (current theek hai)</td>
+    <td>AI Chatbot Development Services (current theek hai)</td>
+  </tr>
+</table>
+
+<div class="card">
+<b>URL naming kyun aisa?</b>
+<ul class="clean">
+  <li><code>/ai-consulting-services</code> — "ai consulting services" primary keyword hai; teeno variants (services/company/artificial intelligence consulting) ka SERP same hai, to ek hi page sab target karega. "Company" variant title tag mein cover hota hai. Top rankers (LeewayHertz, EY) -services form use karte hain. Bare <code>/ai-consulting</code> reject — site convention todta hai aur sirf IBM/BCG jaisi authority wale generic slug se rank karte hain.</li>
+  <li><b>Agentic AI ke liye naya URL nahi</b> — "agentic ai" aur "ai agent" SERPs already semi-merged hain (Itransition, Coherent Solutions, Neurons Lab ke same URLs dono queries pe rank karte hain). Alag agentic page banaya to apne hi agent page se cannibalization pakki hai. Markovate ka example perfect hai: slug <code>/ai-agents-development-company/</code>, H1 "Agentic AI Development" — ek page, dono keyword families.</li>
+  <li><code>/generative-ai-development-company</code> — company vs services SERPs identical; migrate karne ka zero upside, 301 se equity risk. Waise hi rehne do.</li>
+</ul>
+</div>
+
+<!-- ============ WHY ============ -->
+<h2 id="why"><span class="num">6</span>Merge Kyun Nahi — Evidence</h2>
+
+<div class="card">
+<h3>📊 SERP Data (July 2026)</h3>
+<ul class="clean">
+  <li><b>Chatbot SERP vs AI-Agent SERP: zero URL overlap.</b> Google "ai chatbot development" (conversational interfaces) aur "ai agent development" (autonomous execution) ko alag intents treat karta hai. Clutch tak ki alag directory categories hain. Merge karoge to do winnable SERPs chhod ke ek pe bet lagaoge.</li>
+  <li><b>"Agentic AI" tez badh raha hai</b> — ek industry report ~843% quarterly search growth cite karti hai; Gartner ne multi-agent inquiries mein +1,445% surge log kiya. Lekin "agentic ai services" ka SERP definitional pages (IBM, AWS, Salesforce "what is agentic AI") se dominated hai — commercial page akele nahi jeet sakta. "Agentic ai development company" hi cleanly commercial query hai — aur wo aapke re-titled agent page se target hogi.</li>
+</ul>
+<h3 style="margin-top:18px">🏢 Competitor Consensus (6 companies verified)</h3>
+<table>
+  <tr><th>Company</th><th>Agentic vs AI Agent</th><th>Chatbot</th></tr>
+  <tr><td>LeewayHertz</td><td>Merged — <code>/ai-agent-development-company/</code> copy mein "agentic AI experts"</td><td>Separate page</td></tr>
+  <tr><td>Markovate</td><td>Merged — slug <code>/ai-agents-development-company/</code>, H1 "Agentic AI Development"</td><td>Separate page</td></tr>
+  <tr><td>Appinventiv</td><td>Merged — <code>/ai-agent-development-services/</code> meta mein "agentic AI development company"</td><td>Separate page</td></tr>
+  <tr><td>SoluLab</td><td>Merged — agentic keywords agent page + pillar title mein</td><td>Separate (2 pages!)</td></tr>
+  <tr><td>Debut Infotech</td><td>Merged — agentic blogs agent page ko feed karte hain</td><td>Separate page</td></tr>
+  <tr><td>InData Labs</td><td>Merged — <code>/services/custom-ai-agent-development</code> copy mein "production-grade agentic AI"</td><td>Separate page</td></tr>
+</table>
+<p style="margin-top:10px;font-size:13.5px"><b>Score: Chatbot alag rakhna — 6/6. Agentic ko agent page mein fold karna — 5/6</b> (koi bhi standalone agentic-ai service slug agent page ke SAATH nahi chalata; jahan agentic URLs hain wo product/blog pages hain).</p>
+<h3 style="margin-top:18px">⚖️ Equity Math</h3>
+<ul class="clean">
+  <li>Dono existing pages aged, indexed, self-canonical hain — FAQPage + Service schema ke saath. Blog mesh unhe feed karta hai: 15+ chatbot posts, 8+ agent posts exact slugs pe anchor karte hain.</li>
+  <li>Chatbot→Agentic 301 topical stretch hai — Google irrelevant-redirect treat karke equity discount kar sakta hai. Naya URL zero query-history se start hoga aur FAQ rich results bhi jayenge.</li>
+  <li>Recommended plan mein: <b>zero URLs retired, zero 301s, zero risk window.</b> Sirf title/H1/intro ek deploy mein change hota hai (2-6 weeks minor fluctuation possible, structure intact rakhne se minimal).</li>
+</ul>
+</div>
+
+<div class="banner amber"><span class="icon">🚧</span><div>
+  <b>Agar phir bhi exact-match agentic slug chahiye ho (Option B):</b> safe path hai <code>/ai-agent-development-company</code> ko <code>/agentic-ai-development-company</code> pe RENAME karna — single 301, high topical relevance. Kabhi bhi chatbot page ko isme merge mat karna. Lekin default recommendation Option A (re-title only) hi hai — 5/6 competitor consensus ke saath.
+</div></div>
+
+<!-- ============ KEYWORDS ============ -->
+<h2 id="keywords"><span class="num">7</span>Keyword Ownership Map</h2>
+<p class="lead">Cannibalization rokne ka rule: <b>har keyword family ka sirf EK owner page.</b> Dusra page us phrase ko sirf exact-match anchor ke saath owner page ko link karne ke liye use kare.</p>
+
+<table>
+  <tr><th>Page</th><th>Primary Keyword</th><th>Secondary Keywords</th><th>Strict Rules</th></tr>
+  <tr>
+    <td><code>/ai-consulting-services</code></td>
+    <td><span class="kbadge">ai consulting services</span></td>
+    <td><span class="kbadge">ai consulting company</span><span class="kbadge">artificial intelligence consulting</span><span class="kbadge">ai strategy consulting</span><span class="kbadge">enterprise ai consulting</span></td>
+    <td>Page horizontal rahe (strategy/roadmap/PoC/governance — sab AI types ke liye). "Generative AI consulting" ki H2 MAT banana — wo GenAI page ka secondary hai.</td>
+  </tr>
+  <tr>
+    <td><code>/ai-agent-development-company</code><br><em>(= Agentic AI page)</em></td>
+    <td><span class="kbadge">ai agent development company</span><span class="kbadge">agentic ai development company</span></td>
+    <td><span class="kbadge">ai agent development services</span><span class="kbadge">agentic ai services</span><span class="kbadge">multi-agent systems</span><span class="kbadge">agentic workflow automation</span><span class="kbadge">custom ai agent development</span></td>
+    <td>Chatbot ka zikr sirf contrast mein ("beyond chatbots — autonomous agents…") + 1 exact-match anchor chatbot page ko. Chatbot-development H2s bilkul nahi.</td>
+  </tr>
+  <tr>
+    <td><code>/generative-ai-development-company</code></td>
+    <td><span class="kbadge">generative ai development company</span></td>
+    <td><span class="kbadge">generative ai development services</span><span class="kbadge">generative ai consulting</span><span class="kbadge">genai integration services</span><span class="kbadge">llm fine-tuning</span></td>
+    <td>"generative ai consulting" iska secondary hai (consulting page ka nahi). LLM-development deep content <code>/large-language-model-development-services</code> ke liye chhodo — yahan sirf tease + link.</td>
+  </tr>
+  <tr>
+    <td><code>/ai-chatbot-development-services</code></td>
+    <td><span class="kbadge">ai chatbot development services</span></td>
+    <td><span class="kbadge">ai chatbot development company</span><span class="kbadge">chatbot development services</span><span class="kbadge">custom chatbot development</span><span class="kbadge">enterprise chatbot development</span></td>
+    <td>Saare "chatbot" + "conversational AI" phrasings ka exclusive owner. Non-AI-prefixed "chatbot development" volume bhi yahi absorb karega (SERP same hai).</td>
+  </tr>
+</table>
+
+<div class="banner blue"><span class="icon">📌</span><div>
+  <b>No-split rule:</b> kisi bhi keyword ke "company" vs "services" variant ke alag pages kabhi mat banana — paancho topics ke SERPs identical hain. Slug mein ek rakho, title tag mein dono cover karo ("X Development Company | X Development Services" — universal ranker pattern).
+</div></div>
+
+<!-- ============ BLUEPRINTS ============ -->
+<h2 id="blueprints"><span class="num">8</span>Page Blueprints — Sections Jo Banane Hain</h2>
+<p class="lead">Ye outlines top-ranking competitor pages ke structure se derive kiye gaye hain. <b>Inhi sections ka relevant code/content likhna hai — koi bhi section kisi aur page se copy nahi hoga</b> (homepage slider, clone-app case studies, generic tech stack = banned).</p>
+
+<div class="card">
+<h3>🆕 A. AI Consulting Page — <code>/ai-consulting-services</code></h3>
+<ol class="section-list">
+  <li><b>Hero</b> — H1 + outcome-oriented subhead + "Schedule a Free AI Consultation" CTA</li>
+  <li><b>Trust bar</b> — client logos + stats strip (AI engineers, projects delivered, years, ratings)</li>
+  <li><b>Consulting service cards (6-8)</b> — AI Strategy &amp; Roadmap, AI Opportunity Assessment, PoC/MVP Development, Data Readiness &amp; Engineering, AI Integration Consulting, AI Governance &amp; Responsible AI, Model Selection &amp; Optimization, AI Team Enablement</li>
+  <li><b>Problem/stat hook</b> — e.g. "85% enterprise AI projects fail due to poor data readiness — hum pehle data theek karte hain"</li>
+  <li><b>Consulting process (5-6 steps)</b> — Assessment → Strategy → Data Preparation → Pilot/PoC → Workflow Integration → Monitoring &amp; Scaling</li>
+  <li><b>AI models/tech expertise grid</b> — GPT, Claude, Gemini, Llama, Mistral (consulting lens se)</li>
+  <li><b>Industries served</b> — existing <code>/ai-in-*</code> pages ko link karo (healthcare, banking, ecommerce, education, retail)</li>
+  <li><b>Engagement models</b> — advisory retainer, project-based, dedicated AI consultant</li>
+  <li><b>Why IMG</b> — differentiators + awards + compliance</li>
+  <li><b>Case studies</b> — challenge → solution → impact format (real AI work only)</li>
+  <li><b>FAQ (5-8 Q)</b> — cost, timeline, process, deliverables (DB `faq` table row + FAQPage schema)</li>
+  <li><b>Related insights + final CTA</b> — AI consulting blogs (already exist!) + contact form</li>
+</ol>
+<p style="margin-top:10px;font-size:13px;color:var(--muted)">Down-links: generative AI, agentic AI, chatbot, ML pages ko exact-match anchors se. Up-link: pillar ko "AI development company" anchor se.</p>
+</div>
+
+<div class="card">
+<h3>🔄 B. Agentic AI Page — existing <code>/ai-agent-development-company</code> ka rework</h3>
+<ol class="section-list">
+  <li><b>Hero</b> — new H1 "Agentic AI &amp; AI Agent Development Company"; autonomy value-prop (reason → plan → act) + CTA <em>(existing hero update)</em></li>
+  <li><b>Market stats</b> — existing section theek hai (AI agents market $7.63B→$182.97B, CAGR 49.6%)</li>
+  <li><b>Agent service cards</b> — existing 6 cards theek hain; zero-width Unicode clean karo</li>
+  <li><b>"Beyond Chatbots" contrast block (NAYA)</b> — 2-3 sentences: chatbots respond, agents act; exact-match anchor "AI chatbot development services" → chatbot page. <em>Yahi aapka "chatbot + agent ek jagah" requirement solve karta hai — bina cannibalization ke.</em></li>
+  <li><b>Types of AI agents taxonomy</b> — existing slider theek hai (rule-based, autonomous, multi-agent…)</li>
+  <li><b>Agentic workflows &amp; use cases by function</b> — customer service, ops automation, decision intelligence, supply chain <em>(agentic framing strengthen karo)</em></li>
+  <li><b>REPLACE: Tech stack section</b> — generic mobile/web tabs hatao; daalo: LangChain, LangGraph, AutoGen, CrewAI, RAG pipelines, vector DBs (Pinecone, Qdrant), MCP/A2A orchestration, GPT/Claude/Gemini/Llama</li>
+  <li><b>REPLACE: Case-study slider</b> — homepage slider hatao; sirf AI/automation case studies</li>
+  <li><b>Process (6 steps)</b> — existing theek hai</li>
+  <li><b>Enterprise security &amp; compliance (NAYA)</b> — ISO, GDPR, HIPAA, EU AI Act — agentic pages pe ye block sabse heavy hota hai (competitor pattern)</li>
+  <li><b>Why IMG + capabilities tabs</b> — existing theek hai</li>
+  <li><b>FAQ + insights + CTA</b> — FAQ mein agentic-AI questions add karo; agentic blogs already hain (future-of-enterprises-with-agentic-ai, how-agentic-ai-is-changing-saas)</li>
+</ol>
+</div>
+
+<div class="card">
+<h3>🔧 C. Generative AI Page — existing <code>/generative-ai-development-company</code> ka cleanup</h3>
+<ol class="section-list">
+  <li><b>Hero + intro</b> — theek hai; foundation models name-drop karo (GPT, Claude, Gemini, Llama, Mistral)</li>
+  <li><b>GenAI service cards (6)</b> — existing theek hain (Bespoke GenAI, Architecture, Development, Integration, Fine-Tuning, Consulting)</li>
+  <li><b>AI models expertise</b> — theek hai; "DeepOram" → Deepgram fix, copy typos clean</li>
+  <li><b>REPLACE: Case-study slider</b> — 11 clone-app slides (Uber/Tinder/Netflix) hatao; GenAI/AI-adjacent case studies daalo ya section hi hatao</li>
+  <li><b>Business benefits + use cases</b> — existing use-case section theek hai (document summarization, conversational AI, fraud detection…)</li>
+  <li><b>FIX: Tech stack</b> — 5 mein se 4 generic tabs hatao; sirf AI tab expand karo: LangChain, Pinecone, Qdrant (spelling fix "Drant"), Hugging Face, diffusion models, fine-tuning tooling</li>
+  <li><b>Process (6 steps)</b> — theek hai; "datasets.t" typo fix</li>
+  <li><b>Industries</b> — theek hai; image-only tabs mein 1-2 line text add karo; alt="VENT" typo fix</li>
+  <li><b>Why IMG + FAQ + insights + CTA</b> — theek hai; meta description ka "!." typo fix</li>
+</ol>
+</div>
+
+<!-- ============ SILO ============ -->
+<h2 id="silo"><span class="num">9</span>Internal Linking Silo</h2>
+<p class="lead">Har link exact-match anchor ke saath — sirf us page ki taraf jo us keyword ka owner hai. Breadcrumb schema (DB `breadcrumb` table) sab pages pe already wired hai — naye page ke liye row add karni hogi.</p>
+
+<div class="silo">
+  <div class="node pillar-node">/ai-development-company<small>PILLAR — "AI Development Company"</small></div>
+  <div class="arrow">↓ ↓ ↓</div>
+  <div class="row">
+    <div class="node spoke newp">/ai-consulting-services<small>🆕 NEW — "AI Consulting"</small></div>
+    <div class="node spoke repos">/ai-agent-development-company<small>♻️ RE-TITLED — "Agentic AI"</small></div>
+    <div class="node spoke">/generative-ai-development-company<small>✔ EXISTING — "Generative AI"</small></div>
+  </div>
+  <div class="arrow">↓ <span style="font-size:11px">(child spoke — "beyond chatbots" contrast link)</span></div>
+  <div class="row">
+    <div class="node child">/ai-chatbot-development-services<small>✔ ALIVE — indexed, sitemap, nav sab same</small></div>
+  </div>
+  <div class="row" style="margin-top:14px">
+    <div class="node child">/machine-learning-development-services<small>supporting spoke (H1 fix karo)</small></div>
+    <div class="node child">/large-language-model-development-services<small>supporting spoke</small></div>
+    <div class="node child">/ai-in-* (5 industry pages)<small>industry spokes</small></div>
+  </div>
+</div>
+
+<ul class="clean">
+  <li><b>Pillar se down-links:</b> services tab section mein "AI Consulting" tab → naya page (abhi tab hai par link nahi!), "AI Agent System" tab → agent page (same gap). GenAI/ML/chatbot/LLM links already hain.</li>
+  <li><b>Header nav:</b> "AI Services" dropdown mein "AI Consulting" add karo (11 → 12 items). Order: AI Development → AI Consulting → Agentic AI &amp; Agents → Generative AI → Chatbot → ML → LLM → industries.</li>
+  <li><b>Chatbot page ko demote mat karo</b> — nav + sitemap + pillar body sab mein linked rahe, warna authority bleed hogi.</li>
+  <li><b>Cross-links:</b> Consulting ⇄ GenAI ⇄ Agentic — har page dusre ka primary keyword anchor use kare, apna nahi.</li>
+</ul>
+
+<!-- ============ IMPLEMENTATION ============ -->
+<h2 id="implementation"><span class="num">10</span>Laravel Implementation Checklist</h2>
+
+<div class="card">
+<h3>Naya page: /ai-consulting-services</h3>
+<ul class="clean check">
+  <li>☐ Route: <code>routes/web.php</code> — <code>Route::get('/ai-consulting-services', 'HomeController@ai_consulting_services');</code> AI block ke paas (line ~326-330). Unnamed flat GET = sitemap mein automatic aa jayega (watson/sitemap saare unnamed GET routes iterate karta hai).</li>
+  <li>☐ Controller: <code>HomeController</code> mein method — <code>$pageName = "ai-consulting-services"</code>, blogs, lang (existing pattern follow karo).</li>
+  <li>☐ View: <code>resources/views/tailwind/pages/ai-consulting-services/ai-consulting-services.blade.php</code> — Section 8-A blueprint ke sections.</li>
+  <li>☐ Meta: <code>@push('meta')</code> mein title/description/canonical <code>{{asset('ai-consulting-services')}}</code> — <b>OG/Twitter/schema sab mein SAME title</b> (pillar wali 4-title galti repeat nahi).</li>
+  <li>☐ Schema: WebPage @graph + Service schema (serviceType = jo sections actually page pe hain) + <code>@include('tailwind.schema.faqSchema')</code> + breadcrumbSchema.</li>
+  <li>☐ DB: <code>faq</code> table mein url='ai-consulting-services' row (5-8 Q&amp;A) + <code>breadcrumb</code> table row. (View Composer 6h cache — <code>/clearLaravelCache</code> se flush.)</li>
+  <li>☐ Nav: header "AI Services" dropdown (desktop ~line 444-583 + mobile duplicate ~1739-1860) mein "AI Consulting" link.</li>
+  <li>☐ Pillar: "AI Consulting" tab se naye page ka link.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Agentic AI repositioning: /ai-agent-development-company (ek hi deploy mein)</h3>
+<ul class="clean check">
+  <li>☐ Title: "Agentic AI Development Company | AI Agent Development Services" · H1: "Agentic AI &amp; AI Agent Development Company" · meta description mein "agentic AI" naturally add.</li>
+  <li>☐ Intro/copy: "agentic AI" phrasing weave karo — URL, slug, schema @id, body structure INTACT.</li>
+  <li>☐ "Beyond Chatbots" block + chatbot page ka exact-match anchor.</li>
+  <li>☐ Tech stack section replace (agent frameworks) + homepage slider replace + zero-width Unicode cleanup.</li>
+  <li>☐ FAQ mein 2-3 agentic questions add (DB row update).</li>
+  <li>☐ Nav anchor text: "AI Agent Development" → "Agentic AI &amp; AI Agents".</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Redirects &amp; sitemap</h3>
+<ul class="clean check">
+  <li>☐ <b>Koi 301 nahi chahiye</b> — koi URL retire nahi ho raha. (.htaccess mein sirf legacy .php self-redirects hain, wo waise hi rahenge.)</li>
+  <li>☐ Sitemap auto — naya route khud aa jayega (priority 0.80). Deploy ke baad <code>/sitemap.xml</code> verify + GSC mein submit.</li>
+  <li>☐ DB <code>redirection</code> table check kar lo ki koi purana ai-consulting URL entry na ho.</li>
+</ul>
+</div>
+
+<!-- ============ FIXES ============ -->
+<h2 id="fixes"><span class="num">11</span>Saath Mein Ye Bhi Fix Karo (Pre-existing Issues)</h2>
+<table>
+  <tr><th>Priority</th><th>Fix</th><th>Kahan</th></tr>
+  <tr><td><span class="pill bad">HIGH</span></td><td>Homepage case-study slider (~990 lines) hatao/replace karo — AI-relevant content se</td><td>Pillar, Chatbot, AI Agent pages</td></tr>
+  <tr><td><span class="pill bad">HIGH</span></td><td>11 clone-app case studies (Uber/Tinder/Netflix) hatao</td><td>Generative AI page</td></tr>
+  <tr><td><span class="pill bad">HIGH</span></td><td>Pillar pe FAQPage schema live nahi hai (visible FAQ ke bawajood) — DB `faq` row / faqSchema include verify karo</td><td>Pillar</td></tr>
+  <tr><td><span class="pill warn">MED</span></td><td>4 conflicting titles ko ek karo (meta = OG = Twitter = schema); WebPage schema @id se legacy ".php#webpage" hatao</td><td>Pillar</td></tr>
+  <tr><td><span class="pill warn">MED</span></td><td>ML page H1: "Elevate Your Brand Presence…" → "Machine Learning Development Services…" type keyword-aligned H1</td><td>ML page</td></tr>
+  <tr><td><span class="pill warn">MED</span></td><td>Zero-width Unicode chars headings/schema se clean karo</td><td>AI Agent page</td></tr>
+  <tr><td><span class="pill warn">MED</span></td><td>Twitter meta (AI-dev page se copied) chatbot-specific karo; stale Service schema serviceType on-page services se match karao</td><td>Chatbot page</td></tr>
+  <tr><td><span class="pill info">LOW</span></td><td>Typos: "DeepOram"→Deepgram, "Drant"→Qdrant, "Kubernet"→Kubernetes, "AIAI", meta "!.", "Ocra Security"→Orca, alt="VENT", broken <code>&lt;/lab&gt;</code> tags, alt-text mismatches (Zillow logos = "Astrotalk")</td><td>GenAI, Pillar, sab pages</td></tr>
+  <tr><td><span class="pill info">LOW</span></td><td>Blog category: AI pages ko 'mobile-app' category ke blogs pass ho rahe hain — AI category banao/use karo</td><td>HomeController (sab AI methods)</td></tr>
+</table>
+
+<footer>
+  Report generated 02 July 2026 · Evidence: codebase audit (4 blade files, routes, nav, sitemap system) + live production crawl (8 URLs + 1,049-URL sitemap) + SERP research (5 keyword families) + competitor architecture analysis (LeewayHertz, Markovate, Appinventiv, SoluLab, Debut Infotech, InData Labs)<br>
+  IMG Global Infotech · AI Services Cluster SEO Plan
+</footer>
+
+</div>
+</body>
+</html>
